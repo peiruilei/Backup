@@ -1,0 +1,6 @@
+<!--pages/announcement/announcement.wxml-->
+<view class="outer">
+  <view class="title">{{title}}</view>
+  <text class="content">{{content}}</text>
+</view>
+

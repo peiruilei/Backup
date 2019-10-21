@@ -1,0 +1,15 @@
+<!--pages/shake/shake.wxml-->
+<view class="outer" style="background-image:url('{{bgImg}}')">
+  <view class="reward">100奖金</view>
+  <view class="redpacket">购免单现金红包</view>
+  <view class="button" bindtap="testTap">立即领取</view>
+</view>
+
+<view class="cover" wx:if="{{cover}}">
+  <view class="cover-window">
+    <view>
+      <image class="hook" src="{{hook}}"></image>
+      <view class="paySuccess-text">领取成功</view>
+    </view>
+  </view>
+</view>

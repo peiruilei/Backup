@@ -1,0 +1,51 @@
+<!--pages/exchangeRecord/exchangeRecord.wxml-->
+<view class="productDetail-navigate">
+  <view class="productDetail-navigate-item" bindtap="checkNavigaet" data-id="1">
+    <view class="productDetail-navigate-text {{index==1?'checked':''}}">兑换记录</view>
+  </view>
+  <view class="verticalLine"></view>
+  <view class="productDetail-navigate-item" bindtap="checkNavigaet" data-id="2">
+    <view class="productDetail-navigate-text {{index==2?'checked':''}}">中奖记录</view>
+  </view>
+</view>
+
+<view class="record-list" wx:if="{{noRecord==false}}">
+  <block wx:for="{{recordList}}" wx:key="index">
+    <view class="record-item">
+      <view class="record-item-title">
+        <view class="record-item-name">
+          <image class="record-item-icon" src="../../static/LOGO.png"></image>
+          <view class="recode-item-name-text">{{item.name}}</view>
+        </view>
+        <view class="record-item-state">{{item.state}}</view>
+      </view>
+      <view class="record-item-content">
+        <image class="record-item-img"></image>
+        <view class="record-item-info">
+          <view class="record-item-time">兑换时间：{{item.time}}</view>
+          <view class="record-item-price">{{item.price}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+
+<view class="bottom-bar">
+  <view class="bar-item">
+    <image class="bar-img" src="../../static/navigate.png"></image>
+    <view class="bar-name">首页</view>
+  </view>
+  <view class="bar-item current-index">
+    <image class="bar-img" src="../../static/product.png"></image>
+    <view class="bar-name">订单</view>
+  </view>
+  <view class="bar-item">
+    <image class="bar-img" src="../../static/my.png"></image>
+    <view class="bar-name">我的</view>
+  </view>
+</view>
+
+<view class="no-record" wx:if="{{noRecord==true}}">
+  <image src="../../static/order2x.png" class="no-record-img"></image>
+  <view class="no-record-text">暂无记录</view>
+</view>

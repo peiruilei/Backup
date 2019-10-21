@@ -1,0 +1,32 @@
+<!--pages/recommend/recommend.wxml-->
+<view class="recommend-list">
+  <block wx:for="{{recommendList}}" wx:key="index">
+  <navigator url="/pages/food/food">
+    <view class="recommend-item">
+      <image src="{{item.img}}" class="recommend-item-img"></image>
+      <view class="recommend-item-shopName">{{item.shopName}}</view>
+      <view class="recommend-item-type">{{item.type}}</view>
+      <view class="recommend-tag">精品推荐</view>
+    </view>
+  </navigator>
+  </block>
+</view>
+
+<view class="shop" wx:for="{{shopList}}" wx:key="index">
+    <view class="shop-item">
+      <image src="{{item.img}}" class="shop-img"></image>
+      <view class="shop-info">
+        <view class="shop-name">{{item.name}}</view>
+        <view class="shop-tag">
+          <view class="shop-tag-warmth">服务热情</view>
+          <view class="shop-tag-self">自助</view>
+          <view class="shop-tag-environment">环境优雅</view>
+        </view>
+        <view class="shop-reward">奖励金额: <text class="shop-reward-num">{{item.reward}}</text></view>
+      </view>
+      <view class="shop-distance">
+        <image src="{{siteIconMin}}" class="siteIconMin"></image>
+        <view class="shop-distance-text">{{item.distance}}</view>
+      </view>
+    </view>
+  </view>

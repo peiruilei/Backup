@@ -1,0 +1,32 @@
+/* pages/announcement/announcement.wxss */
+page{
+  background-color: #FAFAFA;
+}
+
+.outer{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title{
+  height:74rpx;
+  font-size:52rpx;
+  font-family:PingFang SC;
+  font-weight:800;
+  line-height:74rpx;
+  color:#333333;
+  opacity:1;
+  margin: 40rpx 0;
+}
+
+.content{
+  width: 640rpx;
+  font-size:32rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  line-height:44rpx;
+  color:#333333;
+  opacity:1;
+}

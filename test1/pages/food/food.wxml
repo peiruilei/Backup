@@ -1,0 +1,45 @@
+<!--pages/food/food.wxml-->
+<view class="outer">
+  <view class="topBar">
+    <view class="localSite">
+      <image src="{{siteIcon}}" class="siteIcon"></image>
+      <view class="site-text">{{siteInfo}}</view>
+    </view>
+    <view class="searchInfo">
+      <image src="{{searchIcon}}" class="searchIcon"></image>
+      <view class="search-text">搜索</view>
+    </view>
+  </view>
+
+  <swiper indicator-dots="true" indicator-color="#FFFFFF" indicator-active-color="#999999" autoplay="true" interval="3000">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item}}" class="item-img"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="notice">
+    <image src="{{noticeIcon}}" class="noticeIcon"></image>
+    <view class="notice-info">{{noticeInfo}}</view>
+  </view>
+
+  <view class="shop" wx:for="{{shop}}">
+    <view class="shop-item">
+      <image src="{{item.img}}" class="shop-img"></image>
+      <view class="shop-info">
+        <view class="shop-name">{{item.name}}</view>
+        <view class="shop-tag">
+          <view class="shop-tag-warmth">服务热情</view>
+          <view class="shop-tag-self">自助</view>
+          <view class="shop-tag-environment">环境优雅</view>
+        </view>
+        <view class="shop-reward">奖励金额: <text class="shop-reward-num">{{item.reward}}</text></view>
+      </view>
+      <view class="shop-distance">
+        <image src="{{siteIconMin}}" class="siteIconMin"></image>
+        <view class="shop-distance-text">{{item.distance}}</view>
+      </view>
+    </view>
+  </view>
+</view>

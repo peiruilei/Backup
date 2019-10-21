@@ -1,0 +1,25 @@
+<!--pages/shippingAddress/shippingAddress.wxml-->
+<view class="outer">
+  <view class="address">
+    <block wx:for="{{shippingAddress}}">
+      <view class="address-item">
+        <view class="address-item-content">
+          <view class="address-item-top">
+            <view class="address-detail">{{item.detail}}</view>
+            <view class="address-tag">{{item.font}}</view>
+          </view>
+          <view class="address-item-bottom">
+            <view class="address-contack-name">{{item.name}}</view>
+            <view class="address-contack-phone">{{item.phone}}</view>
+          </view>
+        </view>
+        <image src="{{arrow}}" class="img-arrow"></image>
+      </view>
+    </block>
+  </view>
+</view>
+
+<view class="botton-bar">
+  <image class="add-icon" src="{{addIcon}}"></image>
+  <view class="add-address">新增地址</view>
+</view>

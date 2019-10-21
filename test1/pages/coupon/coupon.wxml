@@ -1,0 +1,15 @@
+<!--pages/coupon/coupon.wxml-->
+<view class="outer">
+  <block wx:for="{{coupon}}">
+    <image class="coupon-img" src="{{item.img}}" mode="scaleToFill">
+      <view class="fixed-view">
+        <view class="coupon-detail">
+          <view class="coupon-range">{{item.range}}</view>
+          <view class="coupon-date">{{item.data}}</view>
+        </view>
+        <view class="coupon-price">{{item.price}}</view>
+        <view class="coupon-useState">{{item.useState}}</view>
+      </view>
+    </image>
+  </block>
+</view>

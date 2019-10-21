@@ -1,0 +1,27 @@
+<!--pages/productDetail/productDetail.wxml-->
+<view class="outer">
+  <image src="{{topImg}}" class="top-img" mode="aspectFill"></image>
+  <view class="productDetail-title">
+    <view class="productDetail-name">
+      <view class="productDetail-icon">商品</view>
+      <view class="productDetail-name-text">{{productName}}</view>
+    </view>
+    <view class="productDetail-postage">邮费：{{postage}}</view>
+    <view class="productDetail-currentPrice">{{currentPrice}}<view class="productDetail-originalPrice">原价:{{originalPrice}}</view></view>
+  </view>
+
+  <view class="productDetail-content">
+    <view class="productDetail-navigate">
+      <view class="productDetail-navigate-item" bindtap="checkNavigaet" data-id="1">
+        <view class="productDetail-navigate-text {{index==1?'checked':''}}">商品详情</view>
+      </view>
+      <view class="verticalLine"></view>
+      <view class="productDetail-navigate-item" bindtap="checkNavigaet" data-id="2">
+        <view class="productDetail-navigate-text {{index==2?'checked':''}}">参与记录</view>
+      </view>
+    </view>
+    <view class="productDetail-content-text">{{productDetailContent}}</view>
+  </view>
+</view>
+
+<view class="bottom-bar {{disable==true?'bottom-gray':''}}" bindtap="bottomDisable">立即兑换</view>

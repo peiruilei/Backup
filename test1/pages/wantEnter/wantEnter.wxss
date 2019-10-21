@@ -1,0 +1,127 @@
+/* pages/wantEnter/wantEnter.wxss */
+page{
+  background-color: #FAFAFA;
+}
+
+.outer{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.styleList{
+  width:670rpx;
+  height:880rpx;
+  background:#FFFFFF;
+  box-shadow:0rpx 6rpx 12rpx rgba(0,0,0,0.03);
+  opacity:1;
+  border-radius:20rpx;
+  margin-top: 40rpx;
+  padding: 40rpx;
+  box-sizing: border-box;
+}
+
+.styleTitle{
+  width: 100%;
+  height: 84rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 60rpx;
+}
+
+.buycar-icon{
+  width: 80rpx;
+  height: 84rpx;
+  margin-right: 20rpx;
+}
+
+.styleTitle-text{
+  height:42rpx;
+  font-size:30rpx;
+  font-family:PingFang SC;
+  font-weight:800;
+  line-height:42rpx;
+  color:#333333;
+  opacity:1;
+}
+
+.enterStyle{
+  width: 100%;
+}
+
+.enterStyle-item{
+  width: 100%;
+  height: 68rpx;
+  margin-bottom: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+}
+
+.enterStyle-icon-outer{
+  width: 68rpx;
+  height: 68rpx;
+  background:#32AFF0;
+  border-radius:50%;
+  opacity:1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20rpx;
+}
+
+.enterStyle-icon{
+  width: 44rpx;
+  height: 44rpx;
+}
+
+.enterStyle-description{
+  height:34rpx;
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  line-height:34rpx;
+  color:#333333;
+  opacity:1;
+}
+
+.state-circle-outer{
+  width:36rpx;
+  height:36rpx;
+  border:2rpx solid;
+  border-radius:50%;
+  opacity:1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+}
+
+.state-circle-inner{
+  width:24rpx;
+  height:24rpx;
+  border-radius:50%;
+  opacity:1;
+}
+
+.button{
+  width:670rpx;
+  height:88rpx;
+  background:#FF3C3C;
+  opacity:1;
+  border-radius:44rpx;
+  font-size:32rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  line-height:88rpx;
+  text-align: center;
+  color:#FFFFFF;
+  margin-top: 80rpx;
+}

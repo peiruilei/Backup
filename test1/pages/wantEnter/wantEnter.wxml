@@ -1,0 +1,24 @@
+<!--pages/wantEnter/wantEnter.wxml-->
+<view class="outer">
+  <view class="styleList">
+    <view class="styleTitle">
+      <image class="buycar-icon" src="{{buycarIcon}}"></image>
+      <view class="styleTitle-text">您是从哪里了解到购免单会员店的？</view>
+    </view>
+    <view class="enterStyle">
+      <block wx:for="{{enterStyleList}}">
+        <view class="enterStyle-item" data-id="{{index}}" bindtap="checked">
+          <view class="enterStyle-icon-outer" style="background-color:{{item.color}};">
+            <image class="enterStyle-icon" src="{{item.icon}}"></image>
+          </view>
+          <view class="enterStyle-description">{{item.enterStyle}}</view>
+          <view class="state-circle-outer" style="border-color:{{item.state==false?'#CCCCCC':'#3C7DFF'}};">
+            <view class="state-circle-inner" style="background-color:{{item.state==false?'#CCCCCC':'#3C7DFF'}};"></view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view class="button" style="background-color:{{checked==0?'#999999':'#FF3C3C'}};">下一步</view>
+</view>

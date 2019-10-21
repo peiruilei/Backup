@@ -1,0 +1,135 @@
+/* pages/shippingAddress/shippingAddress.wxss */
+page{
+  background-color: #FAFAFA;
+}
+
+.outer{
+  width: 100%;
+  padding-top: 30rpx;
+}
+
+.address{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.address-item{
+  width: 670rpx;
+  height: 150rpx;
+  margin-bottom: 20rpx;
+  padding: 26rpx 30rpx;
+  box-sizing: border-box;
+  background:#FFFFFF;
+  box-shadow:0rpx 6rpx 12rpx rgba(0,0,0,0.03);
+  opacity:1;
+  border-radius:20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.address-item-content{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.address-item-top{
+  height: 44rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.address-detail{
+  height:44rpx;
+  font-size:32rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  line-height:44rpx;
+  color:#333333;
+  opacity:1;
+  margin-right: 20rpx;
+}
+
+.address-tag{
+  width:60rpx;
+  height:36rpx;
+  border:2rpx solid #5096FA;
+  opacity:1;
+  font-size:20rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  line-height:36rpx;
+  color:#5096FA;
+  text-align: center;
+}
+
+.address-item-bottom{
+  height: 34rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.address-contack-name{
+  height:34rpx;
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  line-height:34rpx;
+  color:#333333;
+  opacity:1;
+  margin-right: 40rpx;
+}
+
+.address-contack-phone{
+  height:34rpx;
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  line-height:34rpx;
+  color:#333333;
+  opacity:1;
+}
+
+.img-arrow{
+  width: 10rpx;
+  height: 19rpx;
+  position: absolute;
+  right: 30rpx;
+}
+
+.botton-bar{
+  width: 100%;
+  height: 98rpx;
+  background:#FFFFFF;
+  box-shadow:0rpx -6rpx 12rpx rgba(0,0,0,0.03);
+  opacity:1;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-icon{
+  width: 45rpx;
+  height: 45rpx;
+  margin-right: 12rpx;
+}
+
+.add-address{
+  height:44rpx;
+  font-size:32rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  line-height:44rpx;
+  color:#FF3C3C;
+  opacity:1;
+}

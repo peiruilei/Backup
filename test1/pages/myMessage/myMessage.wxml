@@ -1,0 +1,21 @@
+<!--pages/myMessage/myMessage.wxml-->
+<view class="outer">
+  <block wx:for="{{messageList}}">
+    <view class="message-item" bindtap="openWindow">
+      <view class="circle-dot" style="background-color:{{item.state==0?'#FF3C3C':'#FFFFFF'}}"></view>
+      <view class="message-detail">
+        <view class="title">{{item.title}}</view>
+        <view class="content">{{item.content}}</view>
+      </view>
+      <image class="arrow" src="{{arrow}}"></image>
+    </view>
+  </block>
+</view>
+
+<view class="cover" wx:if="{{covre}}">
+  <view class="message-window">
+    <view class="top-bar">消息详情</view>
+    <view class="message-content">为了庆祝购免单小程序今日上线，全场爆款全部8折起！</view>
+    <view class="button" bindtap="closeWindow">知道了</view>
+  </view>
+</view>

@@ -1,0 +1,88 @@
+/* pages/shake/shake.wxss */
+.outer{
+  width: 750rpx;
+  height: 1206rpx;
+  background-repeat:no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reward{
+  height:90rpx;
+  font-size:64rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  line-height:90rpx;
+  color:#F1F161;
+  opacity:1;
+  margin-top: 510rpx;
+}
+
+.redpacket{
+  height:66rpx;
+  font-size:48rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  line-height:66rpx;
+  color:#FFFFFF;
+  opacity:1;
+}
+
+.button{
+  width:670rpx;
+  height:80rpx;
+  background:#FF3C3C;
+  opacity:1;
+  border-radius:40rpx;
+  text-align: center;
+  font-size:32rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  line-height:80rpx;
+  color:#FFFFFF;
+  letter-spacing:0.6666666269302368px;
+  position: absolute;
+  bottom: 80rpx;
+}
+
+.cover{
+  height: 100%;
+  width: 100%;
+  background:rgba(0,0,0,0.2);
+  opacity:1;
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cover-window{
+  width:374rpx;
+  height:374rpx;
+  background:#FFFFFF;
+  opacity:1;
+  border-radius:52rpx;
+  margin-top: 350rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.hook{
+  width: 144rpx;
+  height: 144rpx;
+  margin-bottom: 42rpx;
+}
+
+.paySuccess-text{
+  height:44rpx;
+  font-size:32rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  line-height:44rpx;
+  color:#3C7DFF;
+  opacity:1;
+}

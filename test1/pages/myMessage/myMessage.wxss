@@ -1,0 +1,129 @@
+/* pages/myMessage/myMessage.wxss */
+page{
+  background-color: #FAFAFA;
+}
+
+.message-item{
+  width:100%;
+  height:144rpx;
+  background:#FFFFFF;
+  opacity:1;
+  margin-bottom: 2rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+}
+
+.circle-dot{
+  width:10rpx;
+  height:10rpx;
+  border-radius:50%;
+  opacity:1;
+  margin: 0 20rpx;
+}
+
+.message-detail{
+  height: 94rpx;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.message-detail .title{
+  height:44rpx;
+  font-size:32rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  line-height:44rpx;
+  color:#333333;
+  opacity:1;
+}
+
+.message-detail .content{
+  height:40rpx;
+  font-size:28rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  line-height:40rpx;
+  color:#666666;
+  opacity:1;
+}
+
+.arrow{
+  width:10rpx;
+  height:19rpx;
+  opacity:1;
+  position: absolute;
+  right: 40rpx;
+}
+
+.cover{
+  width: 100%;
+  height: 100%;
+  background:rgba(0,0,0,0.2);
+  opacity: 1;
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.message-window{
+  width:560rpx;
+  height:760rpx;
+  background:#FFFFFF;
+  opacity:1;
+  border-radius:28rpx;
+  margin-top: 150rpx;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top-bar{
+  width: 100%;
+  height: 96rpx;
+  background:#3C7DFF;
+  opacity:1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size:32rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  line-height:44rpx;
+  color:#FFFFFF;
+}
+
+.button{
+  width:184rpx;
+  height:76rpx;
+  background:#3C7DFF;
+  opacity:1;
+  border-radius:42rpx;
+  font-size:32rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  line-height:76rpx;
+  text-align: center;
+  color:#FFFFFF;
+  position: absolute;
+  bottom: 40rpx;
+}
+
+.message-content{
+  width: 480rpx;
+  font-size:32rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  line-height:44rpx;
+  color:#333333;
+  opacity:1;
+  margin-top: 40rpx;
+}

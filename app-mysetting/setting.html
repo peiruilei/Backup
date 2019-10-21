@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="./setting.css"/>
+	</head>
+	<body>
+		<div class="outer">
+			<div class="header">
+				<span class="nav-title">设置</span>
+				<img src="./static/leftArrow.png" alt="" class="back-arrow">
+			</div>
+			<div class="seat"></div>
+			<div class="content">
+				<div class="tag-item">
+					<span class="name">头像</span>
+					<img src="" alt="" class="head-img">
+				</div>
+				<div class="tag-item">
+					<span class="name">昵称</span>
+					<span class="nick-name">恩N恩N</span>
+				</div>
+				<div class="tag-item">
+					<span class="name">声音</span>
+					<div class="button-border bb-blue" onclick="clickMove()">
+						<div class="button-circle bc-blue"></div>
+					</div>
+				</div>
+				<div class="tag-item">
+					<span class="name">联系客服</span>
+					<img src="./static/arrow.png" alt="" class="relative-arrow">
+				</div>
+			</div>
+			<div class="button" onclick="signOut()">退出登录</div>
+			<div class="footer">
+				<div class="bottom-item">
+					<img src="./static/table.png" alt="" class="bottom-icon">
+					<span>工作台</span>
+				</div>
+				<div class="bottom-item">
+					<img src="./static/commodity.png" alt="" class="bottom-icon">
+					<span>商品</span>
+				</div>
+				<div class="bottom-item">
+					<img src="./static/my.png" alt="" class="bottom-icon">
+					<span style="color: #3C7DFF;">我的</span>
+				</div>
+			</div>
+		</div>
+		<div class="cover-outer">
+			<div class="cover">
+				<div class="window">
+					<div class="window-top">
+						<div class="prompt">
+							<span>确认</span>
+							<span>退出登录</span>
+						</div>
+					</div>
+					<div class="window-bottom">
+						<div class="window-bottom-left">
+							<span class="cancle" onclick="closeWin()">取消</span>
+						</div>
+						<div class="window-bottom-right">
+							<span class="confirm" onclick="closeWin()">确认</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		function signOut(){
+			var cover = document.getElementsByClassName("cover-outer")
+			cover[0].classList.add('checked')
+		}
+		function closeWin(){
+			var cover = document.getElementsByClassName("cover-outer")
+			cover[0].classList.remove('checked')
+		}
+		function clickMove(){
+			var buttonOuter = document.getElementsByClassName('button-border')
+			var buttonInner = document.getElementsByClassName('button-circle')
+			if(buttonOuter[0].getAttribute('class').indexOf('bb-blue')!=-1){
+				console.log('1')
+				buttonOuter[0].classList.remove('bb-blue')
+				buttonOuter[0].classList.add('bb-gray')
+				buttonInner[0].classList.remove('bc-blue')
+				buttonInner[0].classList.add('bc-gray')
+				buttonInner[0].classList.add('left-move')
+			}else{
+				console.log('2')
+				buttonOuter[0].classList.remove('bb-gray')
+				buttonOuter[0].classList.add('bb-blue')
+				buttonInner[0].classList.add('bc-blue')
+				buttonInner[0].classList.remove('bc-gray')
+				buttonInner[0].classList.remove('left-move')
+			}
+		}
+	</script>
+</html>

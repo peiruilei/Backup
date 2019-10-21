@@ -1,0 +1,68 @@
+<!--pages/index/index.wxml-->
+<view class="outer">
+
+  <view class="shipping-address">
+
+    <view class="input-address" wx:if="{{testCheck==0}}">
+      <image src="{{pencilImg}}" class="image-pencil"></image>
+      <view class="input-text">{{inputAdr}}</view>
+      <image src="{{arrow}}" class="address-arrow" bindtap="testCheck"></image>
+    </view>
+
+    <view class="address-detail" wx:if="{{testCheck==1}}">
+      <view class="address-content">
+        <view class="address-text">{{address}}</view>
+        <view class="contactInfo">
+          <view class="contact-naem">{{name}}</view>
+          <view class="contact-phone">{{phone}}</view>
+        </view>
+      </view>
+      <image src="{{arrow}}" class="address-arrow" bindtap="testCheck"></image>
+    </view>
+  </view>
+
+  <view class="order-detail">
+    <view class="shop-name">{{shopName}}</view>
+    <view class="order-dishes" style="height:{{height}}rpx;">
+      <view class="order-item" wx:for="{{order}}">
+        <image src="{{}}" class="dishImg"></image>
+        <view class="dish-detail">
+          <view class="dish--name-price">
+            <view class="dish-name">炭火烤肉</view>
+            <view class="dish-price">￥40</view>
+          </view>
+          <view class="dish-num">x1</view>
+        </view>
+      </view>
+    </view>
+    <view class="other-price">
+      <view class="other-item" wx:for="{{otherPrice}}">
+        <view class="other-item-dot" style="background-color:{{item.color}}">{{item.font}}</view>
+        <view class="other-price-name">
+          <view class="price-name">{{item.name}}</view>
+          <view class="item-price">{{item.price}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="total-price">合计<text class="price-num">￥80</text></view>
+  </view>
+
+  <view class="bottom-menu">
+    <view class="bottom-circle">
+    <image src="{{icon}}" class="bottom-icon"></image>
+    </view>
+    <view class="bottom-price">￥40</view>
+    <view class="payMoney" bindtap="testTap">
+      <view class="payMoney-text">立即支付</view>
+    </view>
+  </view>
+</view>
+
+<view class="cover" wx:if="{{cover}}">
+  <view class="cover-window">
+    <view>
+      <image class="hook" src="{{hook}}"></image>
+      <view class="paySuccess-text">支付成功</view>
+    </view>
+  </view>
+</view>
