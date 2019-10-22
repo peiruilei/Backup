@@ -1,0 +1,330 @@
+/* pages/mailOrderDetail/mailOrderDetail.wxss */
+page{
+  background-color: #FAFAFA;
+}
+
+.outer{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+}
+
+.order-top{
+  width:100%;
+  height:220rpx;
+  background:#FFFFFF;
+  box-shadow:0rpx 6rpx 12rpx rgba(0,0,0,0.03);
+  opacity:1;
+  border-radius:20rpx;
+  margin-top: 30rpx;
+  padding: 20rpx 40rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.order-title{
+  width: 100%;
+  height: 56rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.order-buycar{
+  width: 30rpx;
+  height: 32rpx;
+  margin-right: 24rpx;
+}
+
+.order-remind{
+  height:56rpx;
+  font-size:40rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  line-height:56rpx;
+  color:#333333;
+  opacity:1;
+}
+
+.order-thank{
+  width: 100%;
+  height:34rpx;
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  line-height:34rpx;
+  color:#666666;
+  opacity:1;
+}
+
+.order-time{
+  width: 100%;
+  height: 34rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  line-height:34rpx;
+  color:#666666;
+  opacity:1;
+}
+
+.order-mid{
+  width:100%;
+  height:160rpx;
+  background:#FFFFFF;
+  box-shadow:0rpx 6rpx 12rpx rgba(0,0,0,0.03);
+  opacity:1;
+  border-radius:20rpx;
+  margin-top: 20rpx;
+  padding: 0 42rpx 0 24rpx;
+  box-sizing: border-box;
+}
+
+.order-code{
+  width: 100%;
+  height: 50%;
+  border-bottom: 1rpx solid #E6E6E6;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.order-code-text{
+  height:34rpx;
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  line-height:34rpx;
+  color:#333333;
+  opacity:1;
+}
+
+.order-code-num{
+  height:34rpx;
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  line-height:34rpx;
+  color:#333333;
+  opacity:1;
+}
+
+.order-style{
+  width: 100%;
+  height: 50%;
+  border-top: 1rpx solid #E6E6E6;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.order-style-text{
+  height:34rpx;
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  line-height:34rpx;
+  color:#666666;
+  opacity:1;
+}
+
+.order-style-detail{
+  height:34rpx;
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  line-height:34rpx;
+  color:#666666;
+  opacity:1;
+}
+
+.order-detail{
+  width:100%;
+  background:#FFFFFF;
+  box-shadow:0rpx 6rpx 12rpx rgba(0,0,0,0.05);
+  opacity:1;
+  border-radius:32rpx;
+  margin-top: 20rpx;
+  padding: 8rpx 24rpx 20rpx 42rpx;
+  box-sizing: border-box;
+}
+
+.order-detail-shopName{
+  height:72rpx;
+  font-size:28rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  line-height:72rpx;
+  color:#333333;
+  opacity:1;
+  border-bottom: 2px solid #E6E6E6;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.order-detail-list{
+  border-bottom: 2px solid #E6E6E6;
+  margin-bottom: 10rpx;
+}
+
+.order-detail-item{
+  width: 100%;
+  height: 168rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.order-item-img{
+  width: 128rpx;
+  height: 128rpx;
+  background:#FFFFFF;
+  border:2rpx solid #707070;
+  opacity:1;
+  border-radius:8rpx;
+  margin-right: 30rpx;
+}
+
+.order-item-info{
+  width: 446rpx;
+  height: 128rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.order-name-price{
+  width: 100%;
+  height: 40rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-name{
+  height:40rpx;
+  font-size:28rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  line-height:40rpx;
+  color:#333333;
+  opacity:1;
+}
+
+.order-price{
+  height:40rpx;
+  font-size:28rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  line-height:40rpx;
+  color:#333333;
+  opacity:1;
+}
+
+.order-num{
+  height:44rpx;
+  font-size:32rpx;
+  font-family:PingFang SC;
+  font-weight:800;
+  line-height:44rpx;
+  color:#333333;
+  opacity:1;
+}
+
+.order-detail-reward{
+  width: 100%;
+  height: 190rpx;
+  border-top: 2rpx solid #E6E6E6;
+  border-bottom: 2rpx solid #E6E6E6;
+  padding: 20rpx 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.order-reward-item{
+  width: 100%;
+  height: 40rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-reward-item-name{
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.order-reward-icon{
+  width:40rpx;
+  height:40rpx;
+  opacity:1;
+  text-align: center;
+  font-size:32rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  line-height:40rpx;
+  color:#FFFFFF;
+  margin-right: 24rpx;
+}
+
+.order-reward-text{
+  height:40rpx;
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  line-height:40rpx;
+  color:#333333;
+  opacity:1;
+}
+
+.order-reward-num{
+  height:40rpx;
+  font-size:28rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  line-height:40rpx;
+  color:#333333;
+  opacity:1;
+}
+
+.order-reward-total{
+  width: 100%;
+  height: 50rpx;
+  font-size:32rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  line-height:50rpx;
+  color:#333333;
+  opacity:1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.order-reward-price{
+  height: 100%;
+  font-size:34rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  line-height:50rpx;
+  color:#FF3C3C;
+  opacity:1;
+}

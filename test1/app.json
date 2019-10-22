@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/mailOrderDetail/mailOrderDetail",
     "pages/exchangeRecord/exchangeRecord",
     "pages/productDetail/productDetail",
     "pages/orderDetail/orderDetail",

@@ -1,4 +1,4 @@
-<!--pages/orderDetail/orderDetail.wxml-->
+<!--pages/mailOrderDetail/mailOrderDetail.wxml-->
 <view class="outer">
   <view class="order-top">
     <view class="order-title">
@@ -7,11 +7,6 @@
     </view>
     <view class="order-thank">感谢您对购免单的信任，期待再次光临</view>
     <view class="order-time">下单时间：<view class="order-time-detail">{{orderTime}}</view></view>
-    <view class="button-getMore" wx:if="{{state==0}}">再来一单</view>
-    <view class="button-undone" wx:if="{{state==1}}">
-      <view class="button-cancel">取消</view>
-      <view class="button-confirm">待付款</view>
-    </view>
   </view>
 
   <view class="order-mid">
@@ -26,7 +21,10 @@
   </view>
 
   <view class="order-detail">
-    <view class="order-detail-shopName">{{shopName}}</view>
+    <view class="order-detail-shopName">
+    <image src="{{logoImg}}" class="order-buycar"></image>
+    {{shopName}}
+    </view>
     <view class="order-detail-list">
       <block wx:for="{{orderList}}" wx:key="index">
         <view class="order-detail-item">
@@ -41,29 +39,7 @@
         </view>
       </block>
     </view>
-    <view class="order-detail-reward">
-      <view class="order-reward-item">
-        <view class="order-reward-item-name">
-          <view class="order-reward-icon" style="background-color:#7387FF;">包</view>
-          <view class="order-reward-text">包装费</view>
-        </view>
-        <view class="order-reward-num">￥0</view>
-      </view>
-      <view class="order-reward-item">
-        <view class="order-reward-item-name">
-          <view class="order-reward-icon" style="background-color:#32E137;">配</view>
-          <view class="order-reward-text">配送费</view>
-        </view>
-        <view class="order-reward-num">￥0</view>
-      </view>
-      <view class="order-reward-item">
-        <view class="order-reward-item-name">
-          <view class="order-reward-icon" style="background-color:#FF3C3C;">奖</view>
-          <view class="order-reward-text">奖励费</view>
-        </view>
-        <view class="order-reward-num">￥26</view>
-      </view>
-    </view>
+
     <view class="order-reward-total">合计<view class="order-reward-price">￥80</view></view>
   </view>
 </view>

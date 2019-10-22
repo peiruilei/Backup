@@ -30,21 +30,6 @@
   </block>
 </view>
 
-<view class="bottom-bar">
-  <view class="bar-item">
-    <image class="bar-img" src="../../static/navigate.png"></image>
-    <view class="bar-name">首页</view>
-  </view>
-  <view class="bar-item current-index">
-    <image class="bar-img" src="../../static/product.png"></image>
-    <view class="bar-name">订单</view>
-  </view>
-  <view class="bar-item">
-    <image class="bar-img" src="../../static/my.png"></image>
-    <view class="bar-name">我的</view>
-  </view>
-</view>
-
 <view class="no-record" wx:if="{{noRecord==true}}">
   <image src="../../static/order2x.png" class="no-record-img"></image>
   <view class="no-record-text">暂无记录</view>
