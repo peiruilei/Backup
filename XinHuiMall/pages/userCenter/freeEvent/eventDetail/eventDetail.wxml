@@ -1,0 +1,42 @@
+<import src="../../../../wxParse/wxParse.wxml" />
+<view class="view">
+
+  <view class="top-title-view" style="background-image:url({{event_detail_top_bg}})">
+    <text class="top-title">{{activityInfo.activity_name}}</text>
+  </view>
+
+  <view class="event-msg">
+    <image class="event-msg-image" src="{{event_detail_icon}}"></image>
+
+    <text class="event-msg-text">活动说明</text>
+
+  </view>
+
+  <view class="event-date-view">
+    <text class="event-date-text">活动时间:{{activityInfo.start_time}}~{{activityInfo.end_time}}</text>
+
+    <view class="event-person-num">
+      <text class="event-person-num-left-text">已报名人数(最多{{activityInfo.max_sign_up}}人):</text>
+      <text class="event-person-num-right-text">{{activityInfo.apply_num}}</text>
+    </view>
+  </view>
+
+
+
+  <view class="bt-msg-view">
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+
+    <view class="bt-view" bindtap="onsubmit" wx:if="{{activityInfo.apply_state==0}}">
+      <text>我要报名</text>
+    </view>
+    <view class="bt-view" wx:else>
+      <text>已报名</text>
+    </view>
+  </view>
+
+
+
+
+
+
+</view>

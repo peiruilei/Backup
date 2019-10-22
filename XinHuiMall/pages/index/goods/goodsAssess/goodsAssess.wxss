@@ -1,0 +1,158 @@
+.view {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+.form-view {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 待评价商品列表 */
+
+.shop-assess-list-view {
+  width: 706rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.shop-assess-image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 10rpx;
+  margin-top: 31rpx;
+  margin-bottom: 29rpx;
+  background-color: pink;
+}
+
+.shop-assess-name {
+  font-size: 30rpx;
+  color: #333;
+  margin-bottom: 35rpx;
+  /*定义为自适应布局*/
+max-width:706rpx;
+display: -webkit-box;
+word-break: break-all;
+/*超出文字用省略号代替*/
+text-overflow: ellipsis;
+/*竖直方向的超出和隐藏*/
+-webkit-box-orient: vertical;
+/*设定行数为2*/
+-webkit-line-clamp: 2;
+/*多出部分隐藏*/
+overflow: hidden;
+}
+
+.shop-assess-point-view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shop-assess-point-text {
+  font-size: 30rpx;
+  color: #666;
+  margin-right: 41rpx;
+}
+
+.shop-assess-point-image {
+  width: 23rpx;
+  height: 22rpx;
+  padding: 20rpx 10rpx 20rpx 0;
+}
+
+.shop-assess-title-view {
+  width: 706rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.shop-assess-title {
+  margin-top: 39rpx;
+  margin-bottom: 25rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.shop-assess-textarea {
+  width: 658rpx;
+  height: 183rpx;
+  background: rgba(247, 247, 247, 1);
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  padding: 24rpx;
+}
+
+.shop-assess-textarea-pla {
+  font-size: 24rpx;
+  color: #ccc;
+}
+
+/* 服务评价 */
+
+.service-assess {
+  width: 750rpx;
+  height: 88rpx;
+  background: rgba(247, 247, 247, 1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20rpx;
+}
+
+.service-assess-text {
+  font-size: 30rpx;
+  color: #333;
+  margin-left: 22rpx;
+}
+
+.service-assess-icon-view {
+  width: 165rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 12rpx;
+}
+
+.service-assess-image {
+  width: 23rpx;
+  height: 22rpx;
+  padding: 30rpx 10rpx 30rpx 0;
+}
+
+/* 提交 */
+
+.sub-view {
+  margin-top: 110rpx;
+  width: 706rpx;
+  height: 80rpx;
+  background: linear-gradient(135deg, rgba(254, 121, 80, 1), rgba(252, 73, 73, 1));
+  border-radius: 8rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 34rpx;
+  color: #fff;
+  position: relative;
+}
+.bt-submit{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 706rpx;
+  height: 80rpx;
+  opacity: 0;
+}
+
+
+.view-line{
+  width:750rpx;
+height:1rpx;
+background:rgba(242,242,242,1);
+}

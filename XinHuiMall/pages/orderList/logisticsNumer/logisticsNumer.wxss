@@ -1,0 +1,51 @@
+/* pages/orderList/logisticsNumer/logisticsNumer.wxss */
+.view-page{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+background-color: #ffffff;
+}
+.v-line{
+  width: 100%;
+  height: 1rpx;
+  background-color: #f7f7f7;
+}
+.view-company{
+  width: 96%;
+  height: 104rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2rpx solid #ebebeb;
+
+}
+.view-text{
+  font-size: 28rpx;
+}
+.view-input{
+  font-size: 24rpx;
+  flex: 1;
+  margin-left: 36rpx;
+}
+.view-company-num{
+  width: 96%;
+  height: 104rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.view-btn{
+  width: 704rpx;
+  height: 80rpx;
+  margin-top: 320rpx;
+ background:linear-gradient(135deg,rgba(254,121,80,1),rgba(252,73,73,1));
+border-radius:8rpx;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #ffffff;
+}
+.view-btn::after{
+  border: none;
+}

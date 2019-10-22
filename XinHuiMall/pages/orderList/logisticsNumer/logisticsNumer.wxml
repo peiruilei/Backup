@@ -1,0 +1,17 @@
+<!--pages/orderList/logisticsNumer/logisticsNumer.wxml-->
+<form bindsubmit="formSubmit">
+<view class="view">
+  <view class="view-page">
+    <view class="v-line"></view>
+    <view class="view-company">
+      <text class="view-text">快递公司</text>
+      <input class="view-input" placeholder="请填写快递公司名称" name="company" ></input>
+    </view>
+    <view class="view-company-num">
+      <text class="view-text">快递单号</text>
+      <input class="view-input" placeholder="请填写寄回单号" name="order_number"></input>
+    </view>
+  </view>
+  <button class="view-btn" form-type="submit">提交</button>
+</view>
+</form>

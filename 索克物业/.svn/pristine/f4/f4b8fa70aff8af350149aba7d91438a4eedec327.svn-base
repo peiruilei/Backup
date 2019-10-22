@@ -1,0 +1,31 @@
+Component({
+  data: {
+    selected: 0,
+    color: "#323232",
+    selectedColor: "#68d6ab",
+    list: [{
+      pagePath: "/pages/index/index",
+      iconPath: "/images/main1.png",
+      selectedIconPath: "/images/main1_select.png",
+      text: "首页"
+    }, {
+      pagePath: "/pages/index/index",
+      iconPath: "/images/main2.png",
+      selectedIconPath: "/images/main2_select.png",
+      text: "我的"
+    }]
+  },
+  attached() {},
+  methods: {
+    switchTab(e) {
+      const data = e.currentTarget.dataset
+      const url = data.path
+      wx.switchTab({
+        url
+      })
+      this.setData({
+        selected: data.index
+      })
+    }
+  }
+})

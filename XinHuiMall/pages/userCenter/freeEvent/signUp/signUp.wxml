@@ -1,0 +1,33 @@
+
+<view class="view" >
+<!-- 姓名 -->
+<view class="view-line-a" ></view>
+<view class="input-view" >
+  <text class="name-text" >姓名</text>
+  <input class="name-input" placeholder="请输入您的真实姓名" bindinput="nameInput" maxlength="16" ></input>
+</view>
+<view class="view-line" ></view>
+<!-- 手机号 -->
+<view class="input-view" >
+  <text class="name-text" >手机号码</text>
+  <input class="name-input" placeholder="请输入您的手机号码" bindinput="telInput" maxlength="11" ></input>
+</view>
+<view class="view-line" ></view>
+
+<view class="sub" bindtap="oninfoSubmit" >
+  <text>提交</text>
+</view>
+
+
+<!-- 弹出框设计 -->
+<view class="popup-view" wx:if="{{isPopUp}}" bindtap="onPopUp" >
+    <image class="popup-center-image" src="{{delete_popup}}" ></image>
+    <view class="image-view" style="background-image:url({{apply_success}})" >
+      <text class="suc-text" >恭喜您报名成功</text>
+      <view class="bt-view" catchtap="onQuick" >
+        <text>立即体验</text>
+      </view>
+  </view>
+</view>
+
+</view>

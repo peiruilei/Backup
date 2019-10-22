@@ -1,0 +1,24 @@
+<!--pages/index/redEnvelopeList/redEnvelopeList.wxml-->
+<view class="view-cover">
+  <view class="view-header">
+    <text class="text-site">{{site}}</text>
+    <view class="view-arrow"></view>
+    <text class="text-num">发放商家数量:{{num}}</text>
+  </view>
+  <view wx:for="{{redEnvelopes}}" wx:key="{{index}}">
+    <view class="view-redEnvelope">
+      <image src="{{item.big_img}}" class="img-redEnvelope"></image>
+      <view class="view-redEnvelope-description">
+        <text class="text-redEnvelope-title">{{item.shop_name}}</text>
+        <text class="text-redEnvelope-description">{{item.champion_reward}}</text>
+        <view class="button-redEnvelope" style="background-image:url({{redenvelop_button}});" bindtap="redEnvelopesDetail" id="{{item.redpacket_id}}">立即开抢</view>
+      </view>
+    </view>
+  </view>
+  <view class="loading_box" wx:if="{{loadMore}}">
+    <view class="pulse pulse_1"></view>
+    <view class="pulse pulse_2"></view>
+    <view class="pulse pulse_3"></view>
+    <view class="pulse pulse_4"></view>
+  </view>
+</view>

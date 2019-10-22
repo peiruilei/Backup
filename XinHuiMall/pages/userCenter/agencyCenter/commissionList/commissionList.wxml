@@ -1,0 +1,58 @@
+<view class="view-page">
+<view class="head-line"></view>
+  <!-- 商家 -->
+  <view class="shop-item">
+    <!-- 左 -->
+    <view class="shop-item-left">
+      <image class="shop-item-left-img" src="{{commissionInfo.big_img}}"></image>
+    </view>
+    <!-- 中 -->
+    <view class="shop-item-center">
+      <view class="shop-item-center-name text-14">{{commissionInfo.shop_name}}</view>
+      <view class="shop-item-center-grade">
+        <image class="shop-item-center-grade-light" wx:for="{{commissionInfo.point}}" wx:key="" src="{{shopDetail_assess_light}}"></image>
+        <image class="shop-item-center-grade-no-light" wx:for="{{5-commissionInfo.point}}" wx:key="" src="{{shopDetail_assess}}"></image>
+        <view class="shop-item-center-grade-num text-14">{{commissionInfo.service_avg_grade}}</view>
+      </view>
+    </view>
+    <!-- 右 -->
+    <view class="shop-item-right">
+      人气:{{commissionInfo.popularity}}
+    </view>
+  </view>
+  <view class="line"></view>
+  <!-- 商品列表 -->
+  <view class="goods-item" wx:for="{{goodsList}}" wx:key="">
+    <view class="goods-item-left">
+      <image class="goods-item-left-img" src="{{item.goods_img}}"></image>
+    </view>
+    <view class="goods-item-right">
+      <view class="goods-item-right-goods">
+        <text class="goods-item-right-goods-name text-14">{{item.goods_name}}</text>
+        <text class="goods-item-right-goods-money">￥{{item.rebate_amount}}</text>
+      </view>
+      <view class="goods-item-right-goods-cash color text-14">现金分佣比例:
+        <text class="goods-item-right-goods-cash-ratio">{{item.cash_commission_ratio}}%</text>
+      </view>
+      <view class="goods-item-right-goods-point color text-14">昕惠分分佣比例:
+        <text class="goods-item-right-goods-point-ratio">{{item.xinhuipoint_commission_ratio}}%</text>
+      </view>
+      <view class="goods-item-right-goods-subsidy color text-14">补贴金分佣比例:
+        <text class="goods-item-right-goods-subsidy-ratio">{{item.subsidy_commission_ratio}}%</text>
+      </view>
+    </view>
+  </view>
+
+</view>
+<!-- 无数据 -->
+<view class="view-no-use mt-100" wx:if="{{showNoData}}">
+  <image class="img-no-use" src="{{common_no_data}}"></image>
+  <text class="text-14">暂无数据</text>
+</view>
+<!-- 加载区 -->
+<view class="loading_box" wx:if="{{loadMore}}">
+  <view class="pulse pulse_1"></view>
+  <view class="pulse pulse_2"></view>
+  <view class="pulse pulse_3"></view>
+  <view class="pulse pulse_4"></view>
+</view>

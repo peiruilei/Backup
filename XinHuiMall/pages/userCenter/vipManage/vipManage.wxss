@@ -1,0 +1,130 @@
+/* pages/userCenter/vipManage/vipManage.wxss */
+
+page {
+  background-color: #fff;
+}
+
+.vip-head {
+  height: 124rpx;
+  width: 100%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vip-head-img {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  /* background-color: pink; */
+}
+
+.vip-head-name {
+  margin-top: 11rpx;
+  margin-bottom: 45rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vip-center-manage {
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.vip-content-friends {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.vip-content-friends-line {
+  height: 2rpx;
+  width: 34rpx;
+  margin-top: 13rpx;
+}
+
+.vip-content-company {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.vip-content-company-line {
+  height: 2rpx;
+  width: 34rpx;
+  margin-top: 13rpx;
+}
+
+/* 列表 */
+
+.vip-list-item {
+  margin-top: 30rpx;
+  /* display: flex; */
+}
+
+.vip-list-item-up {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.vip-list-item-up-left {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  /* background-color: red; */
+  margin-left: 22rpx;
+}
+
+.vip-list-item-up-right {
+  margin-left: 32rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  flex: 1;
+}
+
+.vip-list-item-up-right-name {
+  color: #808080;
+}
+
+.vip-list-item-down {
+  margin-top: 30rpx;
+   margin-bottom: 30rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.vip-list-item-down-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #FF3300;
+}
+
+.vip-list-item-down-center {
+  display: flex;
+  flex-direction: column;
+    align-items: center;
+    color: #FF9900;
+}
+
+.vip-list-item-down-right {
+  display: flex;
+  flex-direction: column;
+    align-items: center;
+    color: #FD6B4E
+}
+
+.vip-line {
+  margin-left: 22rpx;
+  width: 706rpx;
+  height: 1rpx;
+  background-color: #f2f2f2;
+}

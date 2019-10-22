@@ -1,0 +1,27 @@
+<view class="view-bg" style="background-image: url({{usercenter_top_bg}}); background-size:100% auto;background-repeat: no-repeat;">
+  <!-- 用户信息 -->
+  <view class="view-top" bindtap="goToUserInfoPressed">
+    <image class="img-head" src="{{userinfo.head_img}}"></image>
+    <view class="view-content">
+      <text class="text-name">{{userinfo.nick_name}}</text>
+      <text class="text-account-id">账户ID:{{userinfo.user_id}}</text>
+    </view>
+  </view>
+  <!-- 类别 -->
+  <view class="view-table-view">
+    <block wx:for="{{userCenterDataArray}}" wx:key="{{usercenterKey}}" wx:for-index="userCenterIndex" wx:for-item="userCenterItem">
+      <view class="view-table-view-cell" bindtap="selectTableViewCellPressed" data-mark="{{userCenterItem.id}}">
+        <view class="view-left">
+          <image class="img-icon" src="{{userCenterItem.icon}}"></image>
+          <text class="text-14 ml10">{{userCenterItem.name}}</text>
+        </view>
+        <view class="view-right">
+          <image class="img-arrow" src="{{index_arrow}}"></image>
+        </view>
+      </view>
+      <view class="view-line"></view>
+    </block>
+  </view>
+</view>
+
+<tabbar tabbar="{{tabbar}}"></tabbar>

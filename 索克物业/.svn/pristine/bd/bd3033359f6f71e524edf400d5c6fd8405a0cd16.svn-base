@@ -1,0 +1,27 @@
+<view class="view-bg">
+  <button class="btn-contact-customerService" open-type="contact">
+    <image class="img-customer-service" src="{{usercenter_online_customer_service}}"></image>
+    <text class="text-content ml10">在线客服</text>
+  </button>
+
+  <button class="btn-contact-tel" bindtap="callCustomerServiePressed" wx:if="{{cantactArrayTel.length>0}}">
+    <image class="img-customer-service" src="{{usercenter_contact_tel}}"></image>
+    <text class="text-content ml10">电话客服</text>
+  </button>
+</view>
+
+<!-- 打电话 -->
+<view class="view-show-bg" wx:if="{{isShowBg}}" bindtap="hideShowBgPressed">
+  <view class="view-contact-tel-bg" catchtap="noHideShowBgPressed">
+    <view class="view-contact-tel-section">
+      客服电话
+    </view>
+    <scroll-view class="view-scroll-view" scroll-y="true">
+      <block wx:for="{{cantactArrayTel}}" wx:key="key">
+        <view class="view-tel-cell" bindtap="callPhonePressed" data-tel="{{item.explain_content}}">{{item.explain_content}}</view>
+        <view class="view-line"></view>
+      </block>
+
+    </scroll-view>
+  </view>
+</view>

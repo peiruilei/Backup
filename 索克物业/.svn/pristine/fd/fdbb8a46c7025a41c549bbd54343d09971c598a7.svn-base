@@ -1,0 +1,219 @@
+/* pages/orderDetail/commentOrder/commentOrder.wxss */
+
+page {
+  background-color: white;
+}
+
+.view-bg {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* 维修人员的信息 */
+.view-user-info {
+  width: 100%;
+  height: 162rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+}
+
+.img-head {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background-color: #f7f7f7;
+  margin-left: 30rpx;
+}
+
+.view-line {
+  width: 94%;
+  height: 1rpx;
+  background-color: #ebebeb;
+}
+
+.view-user-content {
+  width: 74%;
+  height: 162rpx;
+  display: flex;
+  flex-direction: column;
+  margin-right: 28rpx;
+}
+
+.view-name-workType {
+  width: 100%;
+  height: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 38rpx;
+}
+
+.text-user-name {
+  font-size: 30rpx;
+  line-height: 30rpx;
+  color: #323232;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.text-work-type {
+  font-size: 30rpx;
+  line-height: 30rpx;
+  color: #68d6ab;
+  flex-shrink: 0;
+}
+
+.text-user-tel {
+  font-size: 30rpx;
+  color: #b2b2b2;
+  margin-top: 25rpx;
+}
+
+/* 服务成果 */
+
+.view-service-work {
+  width: 100%;
+  /* height: 274rpx; */
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.text-service-work {
+  font-size: 30rpx;
+  line-height: 28rpx;
+  margin-top: 28rpx;
+  color: #323232;
+  margin-left: 28rpx;
+}
+
+.view-comment-content {
+  width: 100%;
+  height: 270rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.view-scroll-view {
+  width: 100%;
+  height: 216rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  white-space: nowrap;
+} 
+
+.img-service-work {
+  width: 160rpx;
+  height: 160rpx;
+  margin-top: 28rpx;
+  border-radius: 10rpx;
+  background-color: #f7f7f7;
+  margin-left: 30rpx;
+  display: inline-block;
+}
+
+.text-time
+{
+  font-size: 30rpx;
+  line-height: 30rpx;
+  color: #b2b2b2;
+  margin-left: 28rpx;
+}
+
+
+/* 评分信息 */
+
+.view-coarse-line {
+  width: 100%;
+  height: 10rpx;
+  background-color: #f7f7f7;
+}
+
+.view-comment-score {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.view-comment-srore1 {
+  width: 100%;
+  height: 88rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-comment-type {
+  font-size: 30rpx;
+  color: #323232;
+  margin-left: 30rpx;
+}
+
+.view-star {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-right: 20rpx;
+}
+
+.view-score {
+  height: 88rpx;
+  width: 56rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-score {
+  width: 38rpx;
+  height: 36rpx;
+}
+
+.view-comment-content-bg {
+  width: 100%;
+  height: 282rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.view-textarea-bg {
+  width: 92%;
+  height: 200rpx;
+  background-color: #F7F7F7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10rpx;
+}
+
+.text-comment-content {
+  width: 91%;
+  height: 140rpx;
+  font-size: 30rpx;
+}
+
+.view-btn {
+  width: 92%;
+  height: 90rpx;
+  background: -webkit-radial-gradient(left,#68D6AB,#4AD3BB);
+  border-radius: 10rpx;
+  font-size: 34rpx;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60rpx;
+  margin-bottom: 60rpx;
+}

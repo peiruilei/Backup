@@ -1,0 +1,118 @@
+/* pages/userCenter/agencyCenter/commissionList/commissionList.wxss */
+page{
+  background-color: #ffffff;
+}
+.head-line{
+  width: 100%;
+  height: 2rpx;
+  background-color: #fdfdfd;
+}
+.view-page{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.line{
+  width: 100%;
+  height: 10rpx;
+}
+.shop-item{
+  width: 100%;
+  height: 150rpx;
+  display: flex;
+  justify-content: space-between;
+ box-shadow:0px -3px 7px 0px rgba(204,204,204,0.25);
+}
+.shop-item-left{
+  height: 150rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.shop-item-left-img{
+ width:90rpx;
+height:90rpx;
+border-radius:8rpx;
+ /* background-color: pink; */
+ margin-left: 22rpx;
+}
+.shop-item-center{
+  margin-left: 22rpx;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+.shop-item-center-grade{
+  display: flex;
+  align-items: center;
+}
+.shop-item-center-grade-light{
+  width:23rpx;
+height:22rpx;
+margin-right: 10rpx;
+}
+.shop-item-center-grade-no-light{
+    width:23rpx;
+height:22rpx;
+margin-right: 10rpx;
+}
+.shop-item-center-grade-num{
+  margin-left: 8rpx;
+}
+.shop-item-right{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-bottom: 30rpx;
+  margin-right: 26rpx;
+  font-size: 28rpx;
+  color: #999999;
+}
+/* 商品列表 */
+.goods-item{
+  width: 96%;
+  height: 244rpx;
+display: flex;
+align-items: center;
+justify-content: space-between;
+border-bottom: 1rpx solid #F2F2F2;
+
+}
+.goods-item-left-img{
+width:183rpx;
+height:183rpx;
+border-radius:10rpx;
+}
+.goods-item-right{
+  height: 183rpx;
+display: flex;
+flex: 1;
+flex-direction: column;
+justify-content: space-between;
+margin-left: 20rpx;
+}
+.goods-item-right-goods-money{
+  font-size: 28rpx;
+  color: #FF3300
+}
+.goods-item-right-goods{
+  display: flex;
+  justify-content: space-between;
+}
+.color{
+  color: #999999;
+}
+.goods-item-right-goods-cash-ratio{
+  color: #FF9900
+}
+.goods-item-right-goods-point-ratio{
+  color: #FC6B4E;
+}
+.goods-item-right-goods-subsidy-ratio{
+  color: #FF3300;
+}
+

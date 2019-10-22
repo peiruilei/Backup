@@ -1,0 +1,53 @@
+<view class="view-page">
+  <view class="shop-headProfit">
+    <view class="shop-headProfit-left">
+      <text class="shop-headProfit-left-money">{{shopInformation.yesterday_income}}</text>
+      <text class="shop-headProfit-left-text">昨日收益(元)</text>
+    </view>
+    <view class="shop-headProfit-center">
+      <view class="line"></view>
+    </view>
+    <view class="shop-headProfit-right">
+      <text class="shop-headProfit-right-money">{{shopInformation.total_income}}</text>
+      <text class="shop-headProfit-right-text">累计收益(元)</text>
+    </view>
+  </view>
+  <view class="shop-select">
+    <view class="shop-select-upper-item" >
+      <view class="shop-select-upper"bindtap="upperClick" data-index="1" style="{{nav==1?'color:#ffffff':''}};{{nav==1?'background:linear-gradient(135deg,rgba(254,121,80,1),rgba(252,73,73,1))':''}}">
+        <text class="shop-select-upper-text">上架中</text>
+      </view>
+      <view class="shop-select-lower " bindtap="lowerClick"  data-index="2" style="{{nav==2?'color:#ffffff':''}};{{nav==2?'background:linear-gradient(135deg,rgba(254,121,80,1),rgba(252,73,73,1))':''}}">
+        <text class="shop-select-lower-text ">已下架</text>
+      </view>
+    </view>
+
+  </view>
+  <!-- 列表 -->
+  <view class="shop-list " wx:for="{{goods_list}}" wx:key="{{key}} ">
+    <view class="shop-list-item " bindtap="goodClick">
+      <image class="shop-list-item-img " src="{{item.goods_img}} "></image>
+      <view class="shop-list-item-text ">
+        <text class="shop-list-item-text-name ">{{item.goods_name}}</text>
+        <text class="shop-list-item-text-money ">￥{{item.goods_price}}</text>
+        <text class="shop-list-item-text-help ">补贴金:{{item.subsidy_price}}</text>
+        <text class="shop-list-item-text-point ">惠积分:{{item.xinhuipoint_price}}</text>
+      </view>
+      <view class="shop-list-item-sale ">销售{{item.sale_num}}</view>
+    </view>
+    <view class="shop-list-item-line "></view>
+  </view>
+  <!-- 无数据 -->
+  <view class="view-no-use mt-100" wx:if="{{showNoData}}">
+    <image class="img-no-use" src="{{common_no_data}}"></image>
+    <text class="text-14">暂无数据</text>
+  </view>
+  <!-- 加载区 -->
+  <view class="loading_box" wx:if="{{loadMore}}">
+    <view class="pulse pulse_1"></view>
+    <view class="pulse pulse_2"></view>
+    <view class="pulse pulse_3"></view>
+    <view class="pulse pulse_4"></view>
+  </view>
+
+</view>

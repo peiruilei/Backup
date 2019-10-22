@@ -1,0 +1,40 @@
+<view class="view" >
+  <view class="coupon-item-view" style="background-image:url({{coupon_top_bg}})">
+    <view class="coupon-item-top-view">
+      <image class="coupon-item-gift-image" src="{{coupon_gift}}"></image>
+    </view>
+    <text class="coupon-item-title">{{couponInfo.champion_reward}}</text>
+    <view class="coupon-item-bottom-view">
+      <text class="coupon-item-date">到期时间:{{couponInfo.championreward_endtime}}</text>
+    </view>
+  </view>
+  <view class="merchant" >
+    <text class="merchant-text" >发放商家</text>
+    <view class="merchant-view">
+      <image class="merchant-view-image" src="{{couponInfo.big_img}}" bindtap="onshopHome" data-shop_id="{{couponInfo.shop_id}}"  ></image>
+      <view class="merchant-view-view" >
+        <text class="merchant-view-view-top-text" >{{couponInfo.shop_name}}</text>
+        <view class="merchant-view-view-bottom-view" >
+          <text class="merchant-view-view-bottom-view-text" >距您当前:{{distance}}km</text>
+          <image class="merchant-view-view-bottom-view-image" src="{{coupon_navigate}}" ></image>
+          <text class="merchant-view-view-bottom-view-right-text" >导航</text>
+        </view>
+      </view>
+    </view>
+    <text class="message-title" >使用说明</text>
+    <text class="message-text" >{{couponInfo.instructions}}</text>
+  </view>
+<!-- 底部按钮 -->
+  <view class="bottom-view"  bindtap="onUseQR" >
+  <text>出示二维码</text>
+  </view>
+
+<!-- 二维码弹出 -->
+  <view class="qr" wx:if="{{isQR}}" bindtap="onUseQR" >
+    <view class="qr-view" catchtap="onFailQR" >
+      <image class="qr-image" src="{{couponInfo.code_url}}" ></image>
+      <text class="qr-text" >使用时出示此二维码，商家将会对您的券包进行核销</text>
+    </view>
+  </view>
+
+</view>

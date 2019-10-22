@@ -1,0 +1,50 @@
+<!--pages/index/goods/goodsList/goodsList.wxml-->
+
+<view class="view-bg">
+  <view class="view-top" wx:if="{{second_class_list.length>0}}">
+    <swiper class="view-swiper" bindchange="swiperChangePressed" style="height:{{second_class_list[0].length>4?288:144}}rpx;">
+      <swiper-item wx:for="{{second_class_list}}" wx:key="{{secondKey}}" wx:for-item="secondItem" wx:for-index="secondIndex">
+        <view class="view-class" style="height:{{second_class_list[0].length>4?288:144}}rpx;">
+          <block wx:for="{{secondItem}}" wx:key="{{classKey}}">
+            <view class="view-class-item" bindtap="selectSecondClassPress" data-second_class_id="{{item.second_class_id}}" data-second_class_name="{{item.second_class_name}}">
+              <image class="img-class" src="{{item.secondclass_img}}"></image>
+              <text class="text-class-name">{{item.second_class_name}}</text>
+            </view>
+          </block>
+        </view>
+      </swiper-item>
+    </swiper>
+    <view class="view-indicator" wx:if="{{second_class_list.length>1}}">
+    <block wx:for="{{second_class_list}}">
+    <view class="view-class-indicator {{index==current?'active':''}}"></view>
+    </block>
+    </view>
+  </view>
+  <!-- 商品列表 -->
+  <view class="view-no-use " wx:if="{{showNoData}}">
+  <image class="img-no-use" style='margin-top:100rpx' src="{{no_use}}"></image>
+  <text class="text-14">暂无数据</text>
+</view>
+  <view class="view-table-view" wx:else>
+    <block wx:for="{{goods_list}}" wx:key="goodsKey" wx:for-item="goodsItem" wx:for-index="goodsIndex">
+      <view class="view-table-view-cell" bindtap="goToGoodsDetailPressed" data-goods_id="{{goodsItem.goods_id}}" data-goods_name="{{goodsItem.goods_name}}">
+        <image class="img-goods ml10" mode="aspectFill" src="{{goodsItem.goods_img}}"></image>
+        <view class="view-goods-content">
+          <view class="view-content-view" style="margin-top:8rpx;">
+            <text class="text-left" style="font-size:26rpx;">{{goodsItem.goods_name}}</text>
+            <text class="text-right" style="font-size:22rpx;color:#999999;">{{goodsItem.distance}}KM</text>
+          </view>
+          <view class="view-content-view" style="margin-top:36rpx;">
+            <text class="text-left" style="font-size:22rpx;color:#4D4D4D;">价格<text style="font-size:22rpx;color:#FF3300;">￥{{goodsItem.goods_price}}</text></text>
+          </view>
+          <view class="view-content-view" style="margin-top:20rpx;">
+            <text class="text-left" style="font-size:22rpx;color:#FF9900;">补贴金:{{goodsItem.subsidy_price}}</text>
+          </view>
+          <view class="view-content-view" style="margin-top:20rpx;">
+            <text class="text-left" style="font-size:22rpx;color:#FC6B4E;">昕惠分:{{goodsItem.xinhui_point_price}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

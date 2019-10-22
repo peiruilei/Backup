@@ -1,0 +1,21 @@
+<view class='view-bg'>
+  <view class='view-search'>
+    <image class='img-search' src='{{home_search}}'></image>
+    <input class='view-input' placeholder='搜索商品' bindinput='inputPressed' bindconfirm='searchGoodsPressed' confirm-type='search'></input>
+    <button class='btn-search' bindtap='{{keyWords.length>0?"searchGoodsPressed":"cancelPressed"}}'>{{keyWords.length>0?"搜索":"取消"}}</button>
+  </view>
+  
+  <view class='view-search-record' wx:if="{{searchRecord.length}}">
+    <view class='view-historical-top'>
+      <text class='text-14' style="color:#4D4D4D">近期搜索记录</text>
+      <view class='btn-delet' bindtap='clearHistoricalPressed'>
+        <image class='img-delet' src='{{common_dele}}'></image>
+      </view>
+    </view>
+    <view class='view-historical'>
+    <view class='view-historical-list' bindtap='selectHistoricalPressed' data-keyWord='{{item.value}}' wx:for="{{searchRecord}}" wx:key='index' >
+      <text class='text-value'>{{item.value}}</text>
+    </view>
+    </view>
+  </view>
+</view>

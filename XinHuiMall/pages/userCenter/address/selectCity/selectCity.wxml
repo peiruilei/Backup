@@ -1,0 +1,8 @@
+<!--pages/userCenter/address/selectCity/selectCity.wxml-->
+<view class="page-bg" wx:for="{{address}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}">
+  <view class="view-item" id="{{index}}" bindtap="toNext">
+    <view class="view-text">{{item.region_name}}</view>
+    <image class="img-right" src="{{content_back}}"></image>
+  </view>
+  <view class="line"></view>
+</view>

@@ -1,0 +1,11 @@
+<view class="view-bg">
+  <button class="btn-contact-customerService" open-type="contact">
+    <image class="img-customer-service" src="{{usercenter_online_customer_service}}"></image>
+    <text class="text-content ml10">在线客服</text>
+  </button>
+
+  <button class="btn-contact-tel" bindtap="callCustomerServiePressed">
+    <image class="img-customer-service" src="{{usercenter_contact_tel}}"></image>
+    <text class="text-content ml10">电话客服</text>
+  </button>
+</view>

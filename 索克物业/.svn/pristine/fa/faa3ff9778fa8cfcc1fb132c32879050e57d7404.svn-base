@@ -1,0 +1,69 @@
+<view class="view-bg">
+  <!-- 人员的信息 -->
+  <view class="view-user-info">
+    <image class="img-head" src="{{orderInfo.head_img}}"></image>
+    <view class="view-user-content">
+      <view class="view-name-workType">
+        <text class="text-user-name">{{orderInfo.nick_name}}</text>
+        <text class="text-work-type">{{orderInfo.type_name}}</text>
+      </view>
+      <text class="text-user-tel">{{orderInfo.login_name}}</text>
+    </view>
+  </view>
+  <view class="view-line"></view>
+  <!--  服务成果  -->
+  <view class="view-service-work" wx:if="{{order_result_gallery_list.length>0}}">
+    <text class="text-service-work">服务成果</text>
+    <block wx:for="{{order_result_gallery_list}}" wx:for-item="orderGalleryItem" wx:for-index="orderGalleryIndex" wx:key="{{orderGalleryKey}}">
+      <!-- <view></view> -->
+      <view class="view-comment-content">
+        <scroll-view class="view-scroll-view" scroll-x="true">
+          <block wx:for="{{order_result_gallery_list[orderGalleryIndex].result_gallery_list}}" wx:for-item="galleryItem" wx:for-index="galleryIndex" wx:key="galleryKey">
+            <image class="img-service-work" style="margin-right:{{galleryIndex==(order_result_gallery_list[orderGalleryIndex].result_gallery_list.length-1)?30:0}}rpx;" mode="aspectFill" src="{{galleryItem.result_thumb_img}}" bindtap="selectImgPressed" data-galleryarray="{{order_result_gallery_list[orderGalleryIndex].result_gallery_list}}" data-current="{{galleryItem.result_big_img}}"></image>
+          </block>
+          <!-- <image class=""></image> -->
+        </scroll-view>
+        <text class="text-time">{{orderGalleryItem.result_gallery_add_time}}上传</text>
+      </view>
+      <view class="view-line" style="margin-left:3%;" wx:if="{{orderGalleryIndex != order_result_gallery_list.length - 1}}"></view>
+    </block>
+
+  </view>
+  <!-- 评分信息 -->
+  <view class="view-coarse-line"></view>
+  <view class="view-comment-score">
+    <block wx:for="{{commentScoreArray}}" wx:for-index="commenIndex" wx:for-item="commenItem" wx:key="{{commenKey}}">
+      <view class="view-comment-srore1">
+        <text class="text-comment-type">{{commenItem.name}}</text>
+        <view class="view-star">
+          <!-- 评论星星 -->
+          <view class='view-score' bindtap="changeColor" data-id="1" data-index="{{commenIndex}}">
+            <image class="img-score" src='{{commenItem.score>=1?comment_star:comment_star_gary}}'></image>
+          </view>
+          <view class='view-score' bindtap="changeColor" data-id="2" data-index="{{commenIndex}}">
+            <image class="img-score" src='{{commenItem.score>=2?comment_star:comment_star_gary}}'></image>
+          </view>
+          <view class='view-score' bindtap="changeColor" data-id="3" data-index="{{commenIndex}}">
+            <image class="img-score" src='{{commenItem.score>=3?comment_star:comment_star_gary}}'></image>
+          </view>
+          <view class='view-score' bindtap="changeColor" data-id="4" data-index="{{commenIndex}}">
+            <image class="img-score" src='{{commenItem.score>=4?comment_star:comment_star_gary}}'></image>
+          </view>
+          <view class='view-score' bindtap="changeColor" data-id="5" data-index="{{commenIndex}}">
+            <image class="img-score" src='{{commenItem.score>=5?comment_star:comment_star_gary}}'></image>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <view class="view-comment-content-bg">
+    <view class="view-textarea-bg">
+      <textarea class="text-comment-content" placeholder="您的评价对我们非常重要~" placeholder-style="color:#b2b2b2" bindinput="inputCommentContentPressed">
+      </textarea>
+    </view>
+  </view>
+
+  <view class="view-btn" bindtap="submitPressed">提交</view>
+
+</view>

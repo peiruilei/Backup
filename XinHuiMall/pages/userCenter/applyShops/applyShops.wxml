@@ -1,0 +1,93 @@
+<!--pages/userCenter/applyShops/applyShops.wxml-->
+
+<view class="view-bg">
+
+  <view class="view-tips" wx:if="{{audit_state>=0}}">
+    <!-- <image class='view-audit-tips' src='{{audit_tips}}'></image> -->
+    <text wx:if="{{audit_state==0}}">审核中,请耐心等待审核结果</text>
+    <text wx:if="{{audit_state==1}}">您已实名认证通过</text>
+    <text wx:if="{{audit_state==2}}">店铺申请未通过,未通过原因:{{unpass_reason}}</text>
+  </view>
+
+  <view class='view-item'>
+    <view class='text-15 ml10'>店铺名称</view>
+    <view class="view-item-right">
+      <input class='input-name' bindinput="inputShopNamePressed" type='text' maxlength='16' placeholder-class='input-placeholder-name' placeholder='请输入您的店铺名称' value="{{shops_name}}" name="shopName" disabled="{{isCanEdit?'':'disabled'}}"></input>
+    </view>
+  </view>
+  <view class="view-line"></view>
+
+  
+  <picker class="picker" bindchange="bindPickerChange" mode="selector" range="{{shop_class_list}}" range-key="shop_class_name" wx:if="{{isCanEdit}}">
+    <view class='view-item'>
+      <view class='text-15 ml10'>店铺类型</view>
+      <view class="view-item-right">
+        <input class='input-name' type='text' maxlength='16' placeholder-class='input-placeholder-name' placeholder='请选择类型列表' name="shopTypeName" disabled="disabled" value="{{shopTypeName}}"></input>
+        <image class="img-arrow" src="{{content_back}}"></image>
+      </view>
+    </view>
+  </picker>
+
+  <view class='view-item' wx:else>
+      <view class='text-15 ml10'>店铺类型</view>
+      <view class="view-item-right">
+        <input class='input-name' type='text' maxlength='16' placeholder-class='input-placeholder-name' placeholder='请选择类型列表' name="shopTypeName" disabled="disabled" value="{{shopTypeName}}"></input>
+        <image class="img-arrow" src="{{content_back}}"></image>
+      </view>
+    </view>
+  <view class="view-line"></view>
+  <view class='view-item' bindtap="selectShopAddress">
+    <view class='text-15 ml10'>店铺位置</view>
+    <view class="view-item-right">
+      <view class="view-item-detail">{{latitude.length>0?"已选择":"请选择店铺位置"}}</view>
+      <image class="img-arrow" src="{{content_back}}"></image>
+    </view>
+  </view>
+  <view class="view-line"></view>
+  <view class='view-item' bindtap="selectCityPressed">
+    <view class='text-15 ml10'>所在省市</view>
+    <view class="view-item-right">
+      <view class="view-item-detail">{{addressSrc.length>0?addressSrc:"请选择所在省市"}}</view>
+      <image class="img-arrow" src="{{content_back}}"></image>
+    </view>
+  </view>
+  <view class="view-line"></view>
+  <view class='view-item'>
+    <view class='text-15 ml10'>详细地址</view>
+    <view class="view-item-right">
+      <input class='input-name' bindinput="inputAddressDetailPressed" type='text' placeholder-class='input-placeholder-name' placeholder='请输入您的详细地址' value="{{address}}" name="addressDetailName" disabled="{{isCanEdit?'':'disabled'}}"></input>
+    </view>
+  </view>
+  <view class="view-logo-item">
+    <view class='text-15 ml10' style="margin-top:30rpx;">店铺LOGO</view>
+    <view class="view-logo-right" style="flex-direction: column;">
+      <image class="img-uploadimg" bindtap="selectImgPressed" src="{{shopLogoImgFile.length>0?shopLogoImgFile: big_img.length>0?big_img:common_upload_img}}"></image>
+      <text class="text-uploadimg">上传logo</text>
+    </view>
+  </view>
+
+  <view class='view-item'>
+    <view class='text-15 ml10'>姓名</view>
+    <view class="view-item-right">
+      <input class='input-name' bindinput="inputNamePressed" type='text' maxlength="16" placeholder-class='input-placeholder-name' placeholder='请输入您的真实姓名' value="{{owner_name}}" name="userName" disabled="{{isCanEdit?'':'disabled'}}"></input>
+    </view>
+  </view>
+  <view class="view-line"></view>
+  <view class='view-item'>
+    <view class='text-15 ml10'>手机号</view>
+    <view class="view-item-right">
+      <input class='input-name' bindinput="inputTelPressed" type='number' maxlength="11" placeholder-class='input-placeholder-name' placeholder='请输入您的手机号' value="{{phone_num}}" name="userTel" disabled="{{isCanEdit?'':'disabled'}}"></input>
+    </view>
+
+  </view>
+  <view class="view-line"></view>
+  <!-- 协议 -->
+  <view class="view-protocol-box" wx:if="{{isCanEdit}}">
+    <view class="view-select" bindtap="selectLoginProtocol">
+      <image class="img-select" src="{{is_select?login_protocol_select:login_protocol_unselect}}"></image>
+    </view>
+    <text class="text-13" style="color:#808080;" bindtap="goToExplainSettingUrlPressed">《昕惠商城平台店铺条例规范》</text>
+  </view>
+
+  <button class="btn-sumit" bindtap="sumitPressed" wx:if="{{isCanEdit}}">提交</button>
+</view>

@@ -1,0 +1,48 @@
+<view class="view-page">
+  <!-- 密码 -->
+  <view class="view-tel-line-box">
+    <view class="view-tel-box">
+      <text class="text-16">登录密码</text>
+      <input class='input-tel ml15' name="bind_pwd" bindinput="bind_pwd" maxlength="16" password="true" type="text" placeholder='请设置您的登录密码' placeholder-style="color:#CCCCCC;"></input>
+    </view>
+    <view class="view-line"></view>
+  </view>
+
+  <!-- 确认密码 -->
+  <view class="view-tel-line-box">
+    <view class="view-tel-box">
+      <text class="text-16">确认密码</text>
+      <input class='input-tel ml15' name="bind_sure_pwd" bindinput="bind_sure_pwd" maxlength="16" password="true" type="text" placeholder='请再次输入登录密码' placeholder-style="color:#CCCCCC;"></input>
+    </view>
+    <view class="view-line"></view>
+  </view>
+
+  <!-- 手机号 -->
+  <view class="view-tel-line-box">
+    <view class="view-tel-box">
+      <text class="text-16">手机号码</text>
+      <input class='input-tel ml15' name="bind_tel" bindinput="bind_tel" type='number' maxlength='11' placeholder='请输入手机号码' placeholder-style="color:#CCCCCC;"></input>
+    </view>
+    <view class="view-line"></view>
+  </view>
+  <!-- 验证码 -->
+  <view class="view-tel-line-box">
+    <view class="view-tel-box">
+      <view class="view-vif-code-box">
+        <text class="text-16">验证码</text>
+        <input class='input-vif-code ml15' name="bind_v_code" bindinput="bind_v_code" maxlength="6" type="number" placeholder='请输入您的验证码' placeholder-style="color:#CCCCCC;"></input>
+      </view>
+
+      <view class="view-vif-code" bindtap="getVerifiyCode">
+        <text class="text-12" style="color:#fff;">{{v_code}}</text>
+      </view>
+    </view>
+    <view class="view-line"></view>
+  </view>
+
+  <!-- 注册 -->
+  <view class="view-register" bindtap="userRegisterWeChatTap">
+    <text class="text-17" style="color:#fff;">确认</text>
+  </view>
+
+</view>

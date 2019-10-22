@@ -1,0 +1,2 @@
+<!--pages/userCenter/systemMessage/systemDetail/systemDetail.wxml-->
+<web-view src="{{system_url}}"></web-view>

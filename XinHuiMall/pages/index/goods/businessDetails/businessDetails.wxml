@@ -1,0 +1,70 @@
+<view class="view">
+  <!-- 店家详情 -->
+  <view class="shopDetails-view">
+    <image class="shopDetails-image" src="{{orderInfo.shop_info.source_img}}" bindtap="onseeImg" ></image>
+    <view class="shopDetails-name-view">
+      <text class="shopDetails-name">{{orderInfo.shop_info.shop_name}}</text>
+      <view class="shopDetails-name-view-view">
+        <view class="shopDetails-point-view-view" > 
+          <view class="shopDetails-point-view">
+          <image class="shopDetails-point-image" src="{{shopDetail_assess_light}}"  wx:for="{{orderInfo.shop_info.point}}" wx:key="{{index}}" ></image>
+          <image class="shopDetails-point-image" src="{{shopDetail_assess}}" wx:for="{{5-orderInfo.shop_info.point}}" wx:key="{{index}}"  ></image>
+          <text class="shopDetails-point-text">{{orderInfo.shop_info.service_avggrade}}</text>
+        </view>
+        <text class="shopDetails-hot-person">人气:{{orderInfo.shop_info.order_count}}</text>
+        </view>
+        <image class="shopDetails-collect" src="{{shopDetail_collect}}" wx:if="{{orderInfo.shop_info.is_collect==0}}" bindtap="onShopCollect" ></image>
+        <image class="shopDetails-collect" src="{{shopDetail_nocollect}}" wx:else bindtap="onShopCollect" ></image>
+      </view>
+    </view>
+  </view>
+  <view class="view-line" ></view>
+  <!-- 地址 -->
+  <view class="address">
+    <view class="address-view">
+      <image class="address-image" src="{{shopDetail_address}}" ></image>
+      <text class="address-text">{{orderInfo.shop_info.address}}</text>
+    </view>
+    <view class="distance">
+      <text class="distance-text">距您:{{orderInfo.shop_info.distance}}km</text>
+      <image class="call" src="{{shopDetail_phone}}" bindtap="onCall" ></image>
+    </view>
+  </view>
+  <!-- 红包雨 -->
+  <image class="rad-image" wx:if="{{orderInfo.shop_info.red_packet_img}}" src="{{orderInfo.shop_info.red_packet_img}}" bindtap="onRed" ></image>
+
+  <!-- 其他推荐 -->
+  <view class="other-recommend">
+    <view class="other-recommend-title-view">
+      <image src="{{slash_left}}" class="other-recommend-left-image"></image>
+      <text class="other-recommend-title">店内商品</text>
+      <image src="{{slash_right}}" class="other-recommend-right-image"></image>
+    </view>
+    <view class="other-recommend-list">
+      <view class="other-recommend-item" wx:for="{{orderInfo.goods_list}}" wx:key="{{index}}" bindtap="onGoodsDetail" data-goods_id="{{item.goods_id}}" >
+        <image class="other-recommend-detail-image" src="{{item.goods_img}}"></image>
+        <text class="other-recommend-detail-name">{{item.goods_name}}</text>
+        <view class="other-recommend-detail-prize-view">
+          <view class="other-recommend-detail-left-view">
+            <text class="other-recommend-prize">¥{{item.goods_price}}</text>
+            <text class="other-recommend-gold">补贴金:{{item.subsidy_price}}</text>
+            <text class="other-recommend-point">昕惠分:{{item.xinhui_point_price}}</text>
+          </view>
+          <view class="other-recommend-right-view">
+            <text class="other-recommend-prize-overage">剩余:{{item.goods_price_stock}}</text>
+            <text class="other-recommend-gold-overage">剩余:{{item.subsidy_price_stock}}</text>
+            <text class="other-recommend-point-overage">剩余:{{item.xinhui_point_price_stock}}</text>
+          </view>
+        </view>
+      </view>
+
+
+
+
+    </view>
+
+
+  </view>
+
+
+</view>

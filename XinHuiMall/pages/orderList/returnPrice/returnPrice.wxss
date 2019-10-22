@@ -1,0 +1,96 @@
+.view{
+  width: 100vw;
+  min-height:100vh;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+.salse-type-view{
+  width: 706rpx;
+  height: 86rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.salse-type-text-view{
+  display: flex;
+  align-items: center;
+}
+.salse-type-text{
+  font-size: 30rpx;
+  color: #4D4D4D;
+  margin-right: 97rpx;
+}
+.salse-type-message{
+  font-size: 28rpx;
+  color: #808080;
+}
+.salse-type-back-image{
+width:10rpx;
+height:17rpx;
+}
+
+.salse-type-input{
+  font-size: 28rpx;
+}
+.salse-type-input-pla{
+  font-size: 28rpx;
+  color: #808080;
+}
+.salse-msg-view{
+height: 84rpx;
+width: 706rpx;
+display: flex;
+align-items: center;
+font-size: 30rpx;
+color: #4D4D4D;
+}
+
+.salse-msg-textarea{
+  width:706rpx;
+height:160rpx;
+background:rgba(247,247,247,1);
+padding: 20rpx 22rpx;
+font-size: 24rpx;
+}
+.salse-msg-textarea-pla{
+  color: #CCCCCC;
+}
+.upload-image-view{
+  width: 750rpx;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.upload-image-item-view{
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25rpx;
+}
+.upload-image{
+  width:140rpx;
+height:140rpx;
+background:rgba(245,245,245,1);
+}
+
+.bottom-bt-view{
+  width:706rpx;
+height:80rpx;
+background:linear-gradient(135deg,rgba(254,121,80,1),rgba(252,73,73,1));
+border-radius:8rpx;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 34rpx;
+color: #FFFFFF;
+margin-top: 210rpx;
+}
+
+.view-line{
+  width:706rpx;
+height:1rpx;
+background:rgba(242,242,242,1);
+}

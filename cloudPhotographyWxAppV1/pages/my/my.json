@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "tabbar": "../TabBar/tabbar"
+  },
+  "navigationBarTitleText": "我的"
+}

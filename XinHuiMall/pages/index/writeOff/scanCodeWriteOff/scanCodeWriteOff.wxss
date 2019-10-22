@@ -1,0 +1,65 @@
+/* pages/index/writeOff/scanCodeWriteOff/scanCodeWriteOff.wxss */
+.page{
+  height: 100%;
+  background-color: #fff;
+  padding: 26px 22rpx 0;
+}
+/* 优惠券 */
+.view-scancode{
+  width: 706rpx;
+  height: 236rpx;
+}
+.view-scancode-bg{
+  width: 706rpx;
+  height: 236rpx;
+  border-radius:8px; 
+}
+.view-name{
+  width: 706rpx;
+  height: 125rpx;
+  color: #fff;
+  font-size: 30rpx;
+  display: flex;
+  /* text-align: center; */
+  align-items: center;
+  justify-content: center;
+}
+.view-countdown{
+  width: 706rpx;
+  height: 113rpx;
+  color: #808080;
+  font-size: 22rpx;
+  display: flex;
+  /* text-align: center; */
+  align-items: center;
+  justify-content: center;
+}
+/* 信息 */
+.view-information{
+  width: 706rpx;
+  height: 104rpx;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #F2F2F2;
+  justify-content: space-between;
+}
+.view-information-left{
+  color: #333;  
+}
+.view-information-right{
+  color: #666666;
+}
+
+/* 确认核销 */
+.view-confirm{
+  margin-top: 228rpx;
+  border-radius:8rpx;
+}
+.button-confirm{
+  width:706rpx;
+  height:80rpx;
+  font-size: 34rpx;
+  color: #fff;
+  background:linear-gradient(135deg,#FE7950,#FC4949);
+}

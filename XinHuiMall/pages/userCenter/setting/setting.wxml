@@ -1,0 +1,26 @@
+<!--pages/userCenter/setting/setting.wxml-->
+<view class='page'>
+  <!-- 修改密码 -->
+  <view class='view-setting' bindtap='clickPassword'>
+    <view class='view-setting-left' >
+      <text>修改密码</text>
+    </view>
+    <view class='view-setting-right'>
+      <image src='{{content_back}}'></image>
+    </view>
+  </view>
+  <!-- 关于我们 -->
+  <view class='view-setting' bindtap='clickWe'>
+    <view class='view-setting-left'>
+      <text>关于我们</text>
+    </view>
+    <view class='view-setting-right'>
+      <image src='{{content_back}}'></image>
+    </view>
+  </view>
+
+  <!-- 退出登录 -->
+  <view class='view-logout'>
+    <button class='button-logout' bindtap='LogoutButton'>退出登录</button>
+  </view>
+</view>

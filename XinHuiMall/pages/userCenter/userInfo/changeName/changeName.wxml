@@ -1,0 +1,5 @@
+<view class='view-name'>
+  <input class='input-name' value='{{nick_name}}' bindinput='changeName' maxlength='10' placeholder="请输入您的昵称"></input>
+</view>
+<button class='button-modify' bindtap='getmodification'>修改</button>
+

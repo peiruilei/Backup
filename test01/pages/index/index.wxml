@@ -1,0 +1,27 @@
+<!--pages/index/index.wxml-->
+<view class="bottom-bar">
+  <view class="view-item {{currentindex==1?'active':''}}" bindtap="toIndex">
+    <view class="view-image1" style="background-image:url({{case}})"></view>
+    <view class="view-text">精彩案例</view>
+  </view>
+  <view class="view-item {{currentindex==2?'active':''}}" bindtap="toOrderShot">
+    <view class="view-image2" style="background-image:url({{live}})"></view>
+    <view class="view-image1"></view>
+    <view class="view-text">直播合作</view>
+  </view>
+  <view class="view-item {{currentindex==3?'active':''}}" bindtap="toMy">
+    <view class="view-image1" style="background-image:url({{my}})"></view>
+    <view class="view-text">我的</view>
+  </view>
+</view>
+
+<!-- 组件 -->
+
+<!-- 精彩案例-组件 -->
+<wonderfulCase wx:if="{{currentindex == 1}}"></wonderfulCase>
+
+<!-- 直播合作-组件 -->
+<liveCooperation wx:if="{{currentindex == 2}}"></liveCooperation>
+
+<!-- 我的-组件 -->
+<my wx:if="{{currentindex == 3}}"></my>

@@ -1,0 +1,58 @@
+<view class="view-page">
+  <view class="view-userAmount" style="background-image:url('{{content_bg}}')">
+    <view class="view-userAmount-up" >
+      <image class="view-userAmount-up-img" bindtap="freezeClick"  src="{{content_icon}}"></image>
+    </view>
+    <!-- 中间金额 -->
+    <view class="view-userAmount-center">
+      <view class="view-userAmount-center-left">
+        <text class="view-userAmount-center-left-num">￥{{moneyInfo.user_freeze_amount}}</text>
+        <text class="view-userAmount-center-left-text">当前冻结金额</text>
+      </view>
+      <view class="view-userAmount-center-right">
+        <text class="view-userAmount-center-left-num">￥{{moneyInfo.user_fees}}</text>
+        <text class="view-userAmount-center-left-text">当前可提现金额</text>
+      </view>
+    </view>
+    <view class="view-userAmount-down" bindtap="feesClick">
+      <text class="view-userAmount-down-text">申请提现</text>
+    </view>
+  </view>
+  <!-- 提现记录 收支明细 -->
+  <view class="view-money">
+    <view class="view-money-left" bindtap="withdrawClick">
+      <image class="view-money-left-img" src="{{content_withdrawRecordList}}"></image>
+      <view class="view-money-left-text text-15">提现记录</view>
+    </view>
+    <view class="view-money-right" bindtap="accountClick">
+      <image class="view-money-left-img" src="{{content_accountDetail}}"></image>
+      <view class="view-money-right-text text-15">收支明细</view>
+    </view>
+  </view>
+  <view class="view-slider"></view>
+  <!-- 下 1 -->
+  <view class="view-subsidy"bindtap="subsidyClick">
+    <view class="view-subsidy-left text-15">
+      <text class="view-subsidy-left-name">昕惠补贴金:</text>
+      <text class="view-subsidy-left-num">{{moneyInfo.subsidy}}</text>
+    </view>
+    <view class="view-subsidy-right">
+      <text class="view-subsidy-right-name">补贴金明细</text>
+      <image class="view-subsidy-right-img" src="{{content_back}}"></image>
+    </view>
+  </view>
+<!-- 下 2-->
+  <view class="view-subsidy-line"></view>
+  <view class="view-subsidy" bindtap="pointClick">
+    <view class="view-subsidy-left text-15">
+      <text class="view-subsidy-left-name">天下积分:</text>
+      <text class="view-subsidy-left-num">{{moneyInfo.xinhui_points}}</text>
+    </view>
+    <view class="view-subsidy-right" >
+      <text class="view-subsidy-right-name">积分明细</text>
+      <image class="view-subsidy-right-img" src="{{content_back}}"></image>
+    </view>
+  </view>
+  <view class="view-subsidy-line"></view>
+
+</view>

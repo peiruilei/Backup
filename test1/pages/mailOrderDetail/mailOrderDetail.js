@@ -10,8 +10,7 @@ Page({
     orderCode: '8754 5421 5487 3548',
     payStyle: '在线支付',
     shopName: '指定商家代金券',
-    orderList: [{ img: '', name: '炭火烤肉', price: '￥40', num: '100积分+10.00元' }],
-    state: 1
+    orderList: [{ img: '', name: '炭火烤肉', price: '￥40', num: '100积分+10.00元' }]
   },
 
   /**

@@ -1,0 +1,21 @@
+<!--pages/ours/historyAlbum/historyAlbum.wxml-->
+<!-- 浏览相册记录 -->
+<view wx:for="{{photoList}}" wx:key="index">
+  <view class="view-photo-item">
+    <view class="view-item-img" style="background-image:url({{item.photoCover}})"></view>
+    <view class="view-item-content">
+      <view class="view-content-titile">{{item.photoName}}</view>
+      <view class="view-content-other">
+        <view class="view-other-icon" style="background-image:url({{timeIcon}})"></view>
+        {{item.shootingStartTime}}
+      </view>
+      <view class="view-content-other">
+        <view class="view-other-icon" style="background-image:url({{siteIcon}})"></view>
+        {{item.shootingCity}}
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 没有历史记录时占位图 -->
+<view class="view-noHistory" wx:if="{{noHistory}}" style="background-image:url({{noHistoryIcon}})"></view>
+<view class="view-noHistory-text" wx:if="{{noHistory}}">还没有浏览过相册</view>

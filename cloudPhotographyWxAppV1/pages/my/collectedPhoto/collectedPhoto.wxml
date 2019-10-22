@@ -1,0 +1,10 @@
+<!--pages/ours/collectedPhoto/collectedPhoto.wxml-->
+<!-- 图片列表 -->
+<view class="view-outer">
+  <view wx:for="{{photoList}}" wx:key="index">
+    <view class="view-item" style="background-image:url({{item.picture}})"></view>
+  </view>
+</view>
+<!-- 没有收藏时占位图 -->
+<view class="view-noPhotoIcon" wx:if="{{noPhoto}}" style="background-image:url({{noPhotoIcon}})"></view>
+<view class="view-noPhotoText" wx:if="{{noPhoto}}">还没有收藏的照片</view>

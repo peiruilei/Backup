@@ -1,0 +1,43 @@
+<view class="view-page" style='background-image:url({{login_top_bg}});background-size: 100% auto;background-repeat: no-repeat;'>
+  <view class="view-title">
+    <text class="text-20" style="color:#fff;">用户登录</text>
+  </view>
+  <!-- 中间 -->
+  <view class="view-conten-box">
+    <!-- 手机号 -->
+    <view class="view-tel-line-box">
+      <view class="view-tel-box">
+        <text class="text-16" style="color:#666666;">手机号</text>
+        <input class='input-tel ml15' name="login_tel" bindinput="login_tel" type='number' maxlength='11' placeholder='请输入手机号' value="{{login_tel}}" placeholder-style="color:#CCCCCC;"></input>
+      </view>
+      <view class="view-line"></view>
+    </view>
+    <!-- 密码 -->
+    <view class="view-pwd-line-box">
+      <view class="view-tel-box">
+        <text class="text-16" style="color:#666666;">密码</text>
+        <input class='input-tel ml15' name="login_pwd" bindinput="login_pwd" maxlength="16" password="true" type="text" placeholder='请输入密码' placeholder-style="color:#CCCCCC;"></input>
+      </view>
+      <view class="view-line"></view>
+    </view>
+    <!-- 忘记密码 -->
+    <view class="view-forget-pwd" bindtap="goToForgetPwd">
+      <text class="text-13" style="color:#666666;">忘记密码？</text>
+    </view>
+    <!-- 登录 -->
+    <view class="view-login" bindtap="userLoginTap">
+      <text class="text-17" style="color:#fff;">登录</text>
+    </view>
+    <!-- 注册 -->
+    <view class="view-register" bindtap="goToRegister">
+      <text class="text-17" style="color:#808080;">注册</text>
+    </view>
+    <!-- 微信 -->
+    <view class="view-wechat" bindtap="weChatReigsterTap">
+      <image class="img-wechat" src="{{login_wechat}}"></image>
+      <text class="text-15" style="color:#808080;">微信登录</text>
+    </view>
+  </view>
+</view>
+
+<wxUserAuth id='wxUserAuth' bind:iKnow="_iKnow"></wxUserAuth>

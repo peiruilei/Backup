@@ -1,0 +1,31 @@
+<view class="view">
+  <!-- 切换按钮 -->
+  <view class="fun-view">
+    <view class="fun-item-view" wx:for="{{tab_list}}" wx:key="{{index}}" bindtap="onbarSelect" data-index="{{index}}" data-tab_id="{{item.tab_id}}" style="{{item.isSelect?'background-color:#FC4949':''}}">
+      <text class="fun-item-text" style="{{item.isSelect?'color:#FFFFFF':'color:#333333'}}">{{item.tab_name}}</text>
+    </view>
+    <view class="fun-red-view" style="{{mark==1?'left:0':'right:0'}}"></view>
+  </view>
+  <!-- 活动列表 -->
+  <view class="text-list-view" wx:for="{{freeList}}" wx:key="{{index}}">
+    <view class="text-list-center-view" bindtap="onEventDetail" data-activity_id="{{item.activity_id}}" >
+      <view class="text-list-center-top-view">
+        <text class="text-list-center-top-left-text">{{item.activity_name}}</text>
+        <text class="text-list-center-top-right-text">{{item.start_time}}~{{item.end_time}}</text>
+      </view>
+      <text class="text-list-center-bottom-text">{{item.activity_introduction}}</text>
+      <image src="{{free_markdown}}" class="text-list-down-image" wx:if="{{item.state==1}}"></image>
+    </view>
+  </view>
+  <view class="view-no-use mt-100" wx:if="{{showNoData}}">
+    <image class="img-no-use" src="{{no_use}}"></image>
+    <text class="text-14">暂无数据</text>
+  </view>
+  <!--加载区 -->
+  <view class="loading_box" wx:if="{{loadMore}}">
+    <view class="pulse pulse_1"></view>
+    <view class="pulse pulse_2"></view>
+    <view class="pulse pulse_3"></view>
+    <view class="pulse pulse_4"></view>
+  </view>
+</view>

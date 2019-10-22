@@ -1,0 +1,100 @@
+<view class="view-page">
+  <!-- 无数据 -->
+  <view class="view-no-use mt-100" wx:if="{{showNoData}}">
+    <image class="img-no-use" src="{{common_upload_img}}"></image>
+    <text class="text-14">暂无数据</text>
+  </view>
+  <!-- 加载区 -->
+  <view class="loading_box" wx:if="{{loadMore}}">
+    <view class="pulse pulse_1"></view>
+    <view class="pulse pulse_2"></view>
+    <view class="pulse pulse_3"></view>
+    <view class="pulse pulse_4"></view>
+  </view>
+  <!-- 切换 -->
+  <view class="view-top">
+    <view class="view-switch-button" style="{{writeOff_type==2?'background-color:#FC4949':'background-color:#ffffff'}}">
+      <view class="view-switch-button-left" style="{{writeOff_type==1?'background-color:#FC4949':'background-color:#ffffff'}};{{writeOff_type==1?'color:#ffffff':''}}" bindtap="orderWriteOffClick">
+        <text class="view-collection-button-left-text">订单核销</text>
+      </view>
+      <view class="view-switch-button-right" bindtap="couponWriteOffClick" style="{{writeOff_type==2?'color:#ffffff':''}}">
+        <text class="view-collection-button-right-text">券包核销</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 订单核销 -->
+  <view class="view-order-list" wx:if="{{writeOff_type==1}}">
+    <view class="view-order-box" wx:for="{{writeOff_order_list}}" wx:key="WriteOffOrderListKey" wx:for-index="orderIndex" wx:for-item="orderItem">
+      <!-- 顶部时间 -->
+      <view class="view-order-top">
+        <view class="view-top-time">
+          <text class="text-12" style="margin-left: 22rpx;color:#fff;">核销时间：{{orderItem.write_off_time}}</text>
+        </view>
+      </view>
+      <!-- 订单内容 -->
+      <view class="view-order-content-box">
+        <view class="view-order-name">
+          <text class="text-14" style="margin-left: 22rpx;">{{orderItem.nick_name}}</text>
+        </view>
+        <view class="view-order-sn">
+          <text class="text-14" style="color:#808080;margin-left: 22rpx;">订单编号：{{orderItem.order_sn}}</text>
+        </view>
+        <!-- 订单商品 -->
+        <view class="view-order-goods-box" wx:for="{{orderItem.goods_list}}" wx:for-index="goodsIndex" wx:for-item="goodsItem">
+          <view class="view-goods-table">
+            <image class="img-order-goods" src="{{goodsItem.goods_img}}"></image>
+            <view class="view-order-goods-content">
+              <view class="view-order-goods-name">{{goodsItem.goods_name}}</view>
+              <view class="view-order-goods-desc">{{goodsItem.goods_intro}}</view>
+              <view class="view-order-goods-price-sale">
+                <text class="text-13" style="color:#FF3300;">￥{{goodsItem.goods_price}}</text>
+                <text class="text-12" style="color:#CCCCCC;">x{{goodsItem.buy_num}}</text>
+              </view>
+            </view>
+          </view>
+          <view class="view-order-line"></view>
+        </view>
+
+        <image class="img-coupon-state" src="{{writeOff_over}}"></image>
+      </view>
+
+      <view class="view-pay-type-amount">
+        <text class="text-14">付款方式：<text class="text-14" style="color:#FF9900;">{{orderItem.payment_type==0?"未支付":orderItem.payment_type==1?"余额":orderItem.ayment_type==2?"支付宝":orderItem.payment_type==3?"微信":orderItem.payment_type==4?"昕慧分":"补贴金"}}</text></text>
+
+        <text class="text-14">总计：<text class="text-14" style="color:#FF3300;">￥{{orderItem.order_total_fees}}</text></text>
+      </view>
+
+    </view>
+  </view>
+
+  <!-- 券包核销 -->
+  <view class="view-coupon-list" wx:if="{{writeOff_type==2}}">
+    <view class="view-coupon-box" wx:for="{{writeOff_coupon_list}}" wx:key="WriteOffListKey">
+      <view class="view-coupon-table">
+        <view class="view-coupon-name">
+          <text class="text-14" style="margin-left: 22rpx;">{{item.nick_name}}</text>
+        </view>
+        <view class="view-coupon-content">
+          <image class="img-coupon-head" src="{{item.head_img}}"></image>
+          <view class="view-coupon-right">
+            <text class="text-coupon-name">{{item.champion_reward}}</text>
+            <text class="text-coupon-content">核销时间：{{item.writeoff_time}}</text>
+            <text class="text-coupon-content">到期时间：{{item.championreward_endtime}}</text>
+          </view>
+        </view>
+
+        <image class="img-coupon-state" src="{{item.redpacket_state==2?writeOff_over:writeOff_date_end}}" wx:if="{{item.redpacket_state>1}}"></image>
+      </view>
+      <view class="view-line"></view>
+    </view>
+  </view>
+
+  <!-- 底部按钮 -->
+  <view class="view-bottom">
+    <view class="view-botton-line"></view>
+    <view class="view-bottom-scan" bindtap="scanCodeWriteOffTap">
+      <text class="text-17" style="color:#fff;">扫码核销</text>
+    </view>
+  </view>
+</view>

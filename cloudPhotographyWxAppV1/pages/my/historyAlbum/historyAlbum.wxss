@@ -1,0 +1,76 @@
+/* pages/ours/historyAlbum/historyAlbum.wxss */
+page{
+  background-color: #f7f7f7;
+}
+
+.view-photo-item{
+  width: 750rpx;
+  height: 196rpx;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: white;
+}
+
+.view-item-img{
+  width: 210rpx;
+  height: 140rpx;
+  margin-right: 13rpx;
+  margin-left: 30rpx;
+  background-color: #f7f7f7;
+  background-size:100%; 
+}
+
+.view-item-content{
+  width: 460rpx;
+  height: 140rpx;
+}
+
+.view-content-titile{
+  height: 32rpx;
+  font-size:32rpx;
+  font-family:Source Han Sans CN;
+  font-weight:400;
+  color:#151515;
+  line-height: 32rpx;
+  padding-left: 9rpx;
+  margin-bottom: 22rpx;
+}
+
+.view-content-other{
+  height: 44rpx;
+  font-size:24rpx;
+  font-family:Source Han Sans CN;
+  font-weight:400;
+  color:#B5B5B5;
+  opacity:0.8;
+  line-height: 44rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.view-other-icon{
+  width: 44rpx;
+  height: 44rpx;
+  background-size:100%; 
+}
+
+.view-noHistory{
+  width: 278rpx;
+  height: 280rpx;
+  background-size:100%; 
+  margin-top: 130rpx;
+  margin-left: 225rpx;
+}
+
+.view-noHistory-text{
+  width: 750rpx;
+  text-align: center;
+  margin-top: 19rpx;
+  font-size:24rpx;
+  font-family:Source Han Sans CN;
+  font-weight:400;
+  color:#A5A5A5;
+}

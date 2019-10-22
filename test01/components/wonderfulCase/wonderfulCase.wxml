@@ -1,0 +1,39 @@
+<!--components/wonderfulCase/wonderfulCase.wxml-->
+<!-- 导航栏 -->
+<view class="navigateor">
+  <scroll-view scroll-x class="naviagte-scroll-tab">
+    <view wx:for="{{navigate}}" wx:key="index" class="view-item-outer">
+      <view class="view-naviagte-item" data-id="{{index}}" bindtap="changeNavigate">
+        <text class="naviagte-item-text {{activityId==index?'navigate-active':''}}">{{item.name}}({{item.count}})</text>
+        <view class="view-line" wx:if="{{activityId == index}}"></view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<!-- 占位图-无意义 -->
+<view class="view-seat-1"></view>
+
+<!-- 相册列表 -->
+<scroll-view class="scroll-y-list" scroll-y bindscrolltolower="scrolltolower">
+  <view class="view-list">
+    <block wx:for="{{list}}" wx:key="index">
+      <view class="view-list-item">
+        <view class="view-item-top" style="background-image:url({{item.photoCover}})"></view>
+        <view class="view-item-bottom">
+          <view class="list-item-title">{{item.photoName}}</view>
+          <view class="list-item-data">{{item.creationTime}}</view>
+          <view class="list-item-site">{{item.shootingCity}}</view>
+          <view class="list-item-arrow" style="background-image:url({{arrowImg}})"></view>
+        </view>
+      </view>
+    </block>
+  </view>
+</scroll-view>
+
+<!-- 提示：数据加载中 -->
+<view class="view-wait" wx:if="{{loading}}" style="background-image:url({{waitImg}})"></view>
+
+<!-- 无相册时占位图 -->
+<view class="view-noImg" wx:if="{{noPhoto}}" style="background-image:url({{noImg}})"></view>
+<view class="view-noImg-text" wx:if="{{noPhoto}}">当前还没有相册</view>

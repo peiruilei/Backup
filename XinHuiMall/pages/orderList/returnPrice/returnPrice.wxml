@@ -1,0 +1,50 @@
+
+<view class="view" >
+<!-- 售后类型 -->
+<picker bindchange="bindPickerChange" value="{{index}}" range="{{type_array}}" >
+  <view  class="salse-type-view"  >
+    <view class="salse-type-text-view" >
+    <text class="salse-type-text" >售后类型</text>
+  <text class="salse-type-message" >{{type_name}}</text>
+  </view>
+  <image class="salse-type-back-image" src="{{content_back}}" ></image>
+  </view>
+</picker>
+<view class="view-line" ></view>
+<!-- 手机号码 -->
+<view class="salse-type-view" >
+  <view class="salse-type-text-view" >
+    <text class="salse-type-text" >手机号码</text>
+  <input class="salse-type-input" placeholder="单行输入" maxlength="11" type="number" bindinput="onTelPhoneBlur" ></input>
+  </view>
+  <image class="salse-type-back-image" src="{{content_back}}" ></image>
+</view>
+<view class="view-line" ></view>
+<!-- 售后说明 -->
+<view class="salse-msg-view" >
+  <text>售后说明</text>
+</view>
+
+<textarea class="salse-msg-textarea" placeholder="请输入您的申请说明" bindinput="onMessageBlur" >
+
+</textarea>
+<!-- 上传图片 -->
+<view class="salse-msg-view" >
+  <text>上传图片(最多六张)</text>
+</view>
+
+<view class="upload-image-view" >
+<view class="upload-image-item-view" wx:if="{{FeedbackImgList.length<6}}" bindtap="getImg" data-state="2" >
+    <image class="upload-image" src="{{apply_return_price_icon}}" ></image>
+  </view>
+  <view class="upload-image-item-view" wx:for="{{FeedbackImgList}}" wx:key="" bindtap="getImg"   data-state="1" data-index="{{index}}" >
+    <image class="upload-image" src="{{item.img}}" ></image>
+  </view>
+</view>
+
+
+<view class="bottom-bt-view" bindtap="onBTsubmit" >
+  <text>提交</text>
+</view>
+
+</view>

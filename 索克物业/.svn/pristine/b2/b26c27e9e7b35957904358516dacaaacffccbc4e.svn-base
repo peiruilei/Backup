@@ -1,0 +1,208 @@
+.view-bg,page
+{
+  background: #fff;
+}
+
+.view-address-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80rpx;
+}
+
+.img-address {
+  width: 28rpx;
+  height: 28rpx;
+}
+
+.text-address {
+  color: #323232;
+  font-size: 28rpx;
+  margin-left: 10rpx;
+}
+
+.img-arrow {
+  width: 10rpx;
+  height: 18rpx;
+  margin-left: 10rpx;
+}
+/* 滚动栏 */
+
+.view-index-top {
+  width: 100%;
+  height: 450rpx;
+  background-color: white;
+}
+
+.swiper-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.img-top-ad {
+  width: 100%;
+  height: 414rpx;
+  border-radius:10rpx;  
+}
+
+.view-top {
+  width: 690rpx;
+  height: 414rpx;
+  margin-left:30rpx;
+  border-radius:10rpx;  
+  background: #f7f7f7;
+}
+
+
+/* 通知 */
+
+.view-notice-box {
+  width: 88%;
+  margin-left: 4%;
+  height: 90rpx;
+  box-shadow: 0rpx 0rpx 7rpx 0rpx rgba(204, 204, 204, 0.35);
+  border-radius: 10rpx;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-right: 2%;
+  padding-left: 2%;
+}
+
+.img-notice-icon {
+  width: 123rpx;
+  height: 29rpx;
+}
+
+.swiper-announcement {
+  display: flex;
+  flex-grow: 1;
+  margin-left: 20rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  align-items: center;
+}
+
+.text-announcement-content {
+  width: 100%;
+  font-size: 24rpx;
+  font-weight: 500;
+  color: rgba(50, 50, 50, 1);
+  height: 90rpx;
+  line-height: 90rpx;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+/* 任务 */
+.view-task-box
+{
+  width: 92%;
+  height: 160rpx;
+  background: #f7f7f7;
+  border-radius:10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 4%;
+  margin-top: 30rpx;
+}
+.img-task-icon
+{
+  width: 44rpx;
+  height: 44rpx;
+  flex-shrink: 0;
+}
+.text-task-name
+{
+  font-size:34rpx;
+font-weight:bold;
+color:323232;
+margin-left: 30rpx;
+}
+/* 登录 */
+
+.view-login-bg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(00, 00, 00, 0.2);
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  flex-direction: column;
+}
+
+.view-login-box {
+  width: 600rpx;
+  height: 740rpx;
+  background-size: 100% 100%;
+  display: flex;
+  background-color: white;
+  /* justify-content: center; */
+  align-items: center;
+  border-radius: 20rpx;
+  flex-direction: column;
+}
+
+.view-prompt {
+  width: 100%;
+  height: 100rpx;
+  /* text-align: center; */
+  font-size: 34rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.view-prompt1 {
+  width: 100%;
+  height: 158rpx;
+  color: #b2b2b2;
+  font-size: 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.6;
+  align-items: center;
+  text-align: center;
+}
+
+.view-line {
+  width: 100%;
+  height: 2rpx;
+  background-color: #ebebeb;
+}
+
+/**登录*/
+
+.view-login-content {
+  width: 400rpx;
+  height: 300rpx;
+  font-size: 28rpx;
+}
+
+.btn-login {
+  border: none;
+  background: #40c776;
+  width: 400rpx;
+  height: 70rpx;
+  font-size: 30rpx;
+  color: #fff;
+  border-radius: 12rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60rpx;
+}
+
+.btn-login::after {
+  border: none;
+}

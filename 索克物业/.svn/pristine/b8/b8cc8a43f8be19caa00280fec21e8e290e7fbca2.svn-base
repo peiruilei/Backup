@@ -1,0 +1,117 @@
+.view-pg, page {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* 类型选择 */
+
+.view-type-title-box {
+  width: 400rpx;
+  height: 70rpx;
+  background: #f7f7f7;
+  border-radius: 35rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30rpx;
+  color: #323232;
+  margin-top: 40rpx;
+}
+
+.view-type-title-select {
+  border-radius: 35rpx;
+  background: linear-gradient(to bottom, #68d6ab, #4ad3cb);
+  font-size: 30rpx;
+  color: #fff;
+}
+
+.view-type-title {
+  width: 200rpx;
+  height: 70rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 类型列表 免费*/
+
+.view-type-box-free {
+  width: 94%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.view-type {
+  width: 200rpx;
+  height: 70rpx;
+  border-radius: 10rpx;
+  border: 2rpx solid rgba(229, 229, 229, 1);
+  font-size: 30rpx;
+  color: #323232;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40rpx;
+  margin-right: 15.5rpx;
+  margin-left: 16rpx;
+    position: relative;
+
+}
+.img-task-select
+{
+  width: 36rpx;
+  height: 36rpx;
+    position: absolute;
+
+  bottom: 0rpx;
+  right: 0rpx;
+}
+
+/* 收费 */
+.view-type-box
+{
+  width: 94%;
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.view-type-box-charge {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.view-first-type {
+  font-size: 30rpx;
+  color: #323232;
+}
+
+.view-first-line-left {
+  width: 26rpx;
+  height: 3rpx;
+  background: #323232;
+  margin-right: 10rpx;
+}
+.view-first-line-right {
+  width: 26rpx;
+  height: 3rpx;
+  background: #323232;
+  margin-left: 10rpx;
+}
+.view-first-type
+{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

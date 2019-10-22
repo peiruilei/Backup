@@ -1,0 +1,101 @@
+.view{
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* 切换按钮 */
+.fun-view{
+  position: relative;
+width:339rpx;
+height:55rpx;
+background:rgba(247,247,247,1);
+border:1rpx solid rgba(252,73,73,1);
+border-radius:28rpx;
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 32rpx;
+margin-bottom: 28rpx;
+}
+.fun-item-view{
+  z-index: 100;
+  width:169rpx;
+height:55rpx;
+border-radius:28rpx;
+font-size: 28rpx;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.fun-item-text{
+
+}
+.fun-red-view{
+  z-index: 1;
+  width:187rpx;
+height:55rpx;
+background:rgba(252,73,73,1);
+border-radius:27rpx;
+position: absolute;
+top: 0;
+bottom: 0;
+}
+/* 活动列表 */
+
+.text-list-view{
+ width:750rpx;
+height:188rpx;
+background:rgba(255,255,255,1);
+display: flex;
+justify-content: center;
+align-items: center;
+margin-bottom: 10rpx;
+}
+.text-list-center-view{
+  width: 708rpx;
+  height: 128rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.text-list-center-top-view{
+  width: 708rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.text-list-center-top-left-text{
+  font-size: 30rpx;
+  color: #333333;
+}
+.text-list-center-top-right-text{
+  font-size: 26rpx;
+  color: #CCCCCC;
+}
+.text-list-center-bottom-text{
+  width: 708rpx;
+  font-size: 26rpx;
+  color: #B3B3B3;
+  /*定义为自适应布局*/
+display: -webkit-box;
+word-break: break-all;
+/*超出文字用省略号代替*/
+text-overflow: ellipsis;
+/*竖直方向的超出和隐藏*/
+-webkit-box-orient: vertical;
+/*设定行数为2*/
+-webkit-line-clamp: 2;
+/*多出部分隐藏*/
+overflow: hidden;
+}
+.text-list-down-image{
+  width: 95rpx;
+  height: 95rpx;
+  position: absolute;
+  top: 15rpx;
+  right: 15rpx;
+}

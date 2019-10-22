@@ -1,0 +1,263 @@
+.view {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FFFFFF;
+}
+
+/* 店家详情 */
+
+.shopDetails-view {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  width: 750rpx;
+  height: 166rpx;
+}
+
+.shopDetails-image {
+  width: 108rpx;
+  height: 108rpx;
+  border-radius: 8rpx;
+  margin-left: 22rpx;
+  margin-right: 14rpx;
+  /* background-color: pink; */
+}
+
+.shopDetails-name-view {
+  height: 108rpx;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.shopDetails-name-view-view {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shopDetails-name {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.shopDetails-point-view-view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.shopDetails-point-view {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* margin-bottom: 17rpx; */
+}
+
+.shopDetails-point-image {
+  width: 23rpx;
+  height: 22rpx;
+  margin-right: 10rpx;
+}
+
+.shopDetails-point-text {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.shopDetails-hot-person {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.shopDetails-collect {
+  width: 165rpx;
+  height: 48rpx;
+  margin-right: 23rpx;
+}
+.view-line{
+  width: 750rpx;
+  height: 1rpx;
+  background-color: #F2F2F2;
+}
+
+/* 地址 */
+
+.address {
+  height: 157rpx;
+  width: 750rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fff;
+}
+
+.address-view {
+  width: 706rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.address-image {
+  width: 24rpx;
+  height: 29rpx;
+  margin-right: 17rpx;
+}
+
+.address-text {
+  font-size: 24rpx;
+  color: #808080;
+  /*定义为自适应布局*/
+width:620rpx;
+display: -webkit-box;
+word-break: break-all;
+/*超出文字用省略号代替*/
+text-overflow: ellipsis;
+/*竖直方向的超出和隐藏*/
+-webkit-box-orient: vertical;
+/*设定行数为2*/
+-webkit-line-clamp: 2;
+/*多出部分隐藏*/
+overflow: hidden;
+
+}
+
+.distance {
+  width: 706rpx;
+  height: 33rpx;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.distance-text {
+  font-size: 24rpx;
+  color: #808080;
+}
+
+.call {
+  width: 33rpx;
+  height: 33rpx;
+  margin-left: 13rpx;
+  padding-right: 100rpx;
+}
+
+/* 红包雨 */
+
+.rad-image {
+  width: 750rpx;
+  height: 210rpx;
+  /* background-color: pink; */
+}
+
+/* 其他推荐 */
+
+.other-recommend {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+}
+
+.other-recommend-title-view {
+  width: 750rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30rpx;
+}
+
+.other-recommend-left-image {
+  width: 36rpx;
+  height: 31rpx;
+}
+
+.other-recommend-title {
+  font-size: 30rpx;
+  color: #333;
+  margin: 0 14rpx;
+}
+
+.other-recommend-right-image {
+  width: 36rpx;
+  height: 31rpx;
+}
+
+.other-recommend-list {
+  width: 706rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.other-recommend-item {
+  margin-top: 28rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.other-recommend-detail-image {
+  width: 345rpx;
+  height: 173rpx;
+  border-radius: 10rpx;
+  /* background-color: pink; */
+}
+
+.other-recommend-detail-name {
+  font-size: 26rpx;
+  color: #333;
+  margin: 20rpx 0;
+}
+
+.other-recommend-detail-prize-view {
+  height: 123rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.other-recommend-detail-left-view {
+  height: 100%;
+  flex: 6;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.other-recommend-prize {
+  font-size: 22rpx;
+  color: #f30;
+}
+
+.other-recommend-gold {
+  font-size: 26rpx;
+  color: #f90;
+}
+
+.other-recommend-point {
+  font-size: 26rpx;
+  color: #fd6b4e;
+}
+
+.other-recommend-right-view {
+  height: 100%;
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  color: #ccc;
+  font-size: 24rpx;
+}

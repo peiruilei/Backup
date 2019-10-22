@@ -1,0 +1,114 @@
+/* pages/pay/pay.wxss */
+
+page{
+  background-color: white;
+}
+
+.view-bg {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.view-top-bg{
+  width: 94%;
+  height: 200rpx;
+  background: -webkit-linear-gradient(left,#FE7950,#FC4949);
+  border-radius: 8rpx;
+  margin-top: 16rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-size: 30rpx;
+  color: white;
+}
+
+.text-price {
+  font-size: 60rpx;
+  font-weight: 400;
+  color: white;
+}
+
+
+.view-table {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 92rpx;
+  background: white;
+}
+
+.img-pay {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.button-sure {
+  width: 94%;
+  height: 85rpx;
+  margin-top: 126rpx;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  background-color: #fe9b00;
+  border-radius: 40rpx;
+  font-size: 32rpx;
+}
+
+.img-icon {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.view-youhui-bg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(00, 00, 00, 0.5);
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  flex-direction: column;
+}
+
+.view-close {
+  width: 600rpx;
+  height: 40rpx;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20rpx;
+}
+
+.img-icon-close {
+  width: 40rpx;
+  height: 40rpx;
+  flex-shrink: 0;
+  float: right;
+}
+
+.view-block-line {
+  width: 90%;
+  height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.view-block-input {
+  width: 80%;
+  height: 100rpx;
+  padding-left: 20rpx;
+}
+
+.text-placeholder {
+  font-size: 30rpx;
+  color: #909090;
+  flex-grow: 1;
+}

@@ -1,0 +1,118 @@
+<!--pages/index/goods/goodsList/secondlist/secondlist.wxml-->
+<view class="view-bg">
+  <view class="view-top-bg">
+    <view class='view-search' bindtap="goToSearchPressed" data-mark="1">
+      <image class='img-search' src='{{home_search}}'></image>
+      <input class='view-input' placeholder='搜索商品' bindinput='inputPressed' value="{{kerWorks}}" bindconfirm='searchGoodsPressed' confirm-type='search' disabled="true"></input>
+      <button class='btn-search' bindtap='searchGoodsPressed'>搜索</button>
+    </view>
+    <view class="view-classification">
+      <view class="view-classification-item {{select_type==1?'active:':''}}" bindtap="showspecificationPressed" data-mark="1">
+        <text>分类</text>
+        <image class="img-classification" src="{{select_type==1?goods_class_red:goods_class_gray}}"></image>
+      </view>
+      <view class="view-classification-item {{select_type==2?'active:':''}}" bindtap="showspecificationPressed" data-mark="2">
+        <text>{{distance_name}}</text>
+        <image class="img-classification" src="{{select_type==2?goods_class_red:goods_class_gray}}"></image>
+      </view>
+      <view class="view-classification-item {{select_type==3?'active:':''}}" bindtap="showspecificationPressed" data-mark="3">
+        <text>{{order_name}}</text>
+        <image class="img-classification" src="{{select_type==3?goods_class_red:goods_class_gray}}"></image>
+      </view>
+    </view>
+  </view>
+  <!-- 商品列表 -->
+  <view class="view-no-use" style="padding-top: 192rpx;" wx:if="{{showNoData}}">
+    <image class="img-no-use" style='margin-top:100rpx' src="{{no_use}}"></image>
+    <text class="text-14">{{msg}}</text>
+  </view>
+  <view class="view-table-view" wx:else>
+    <block wx:for="{{goods_list}}" wx:key="goodsKey" wx:for-item="goodsItem" wx:for-index="goodsIndex">
+      <view class="view-table-view-cell" bindtap="goToGoodsDetailPressed" data-goods_id="{{goodsItem.goods_id}}">
+        <image class="img-goods ml10" mode="aspectFill" src="{{goodsItem.goods_img}}"></image>
+        <view class="view-goods-content">
+          <view class="view-content-view" style="margin-top:8rpx;">
+            <text class="text-left" style="font-size:26rpx;">{{goodsItem.goods_name}}</text>
+            <text class="text-right" style="font-size:22rpx;color:#999999;">{{goodsItem.distance}}KM</text>
+          </view>
+          <view class="view-content-view" style="margin-top:36rpx;">
+            <text class="text-left" style="font-size:22rpx;color:#4D4D4D;">价格<text style="font-size:22rpx;color:#FF3300;">￥{{goodsItem.goods_price}}</text></text>
+          </view>
+          <view class="view-content-view" style="margin-top:20rpx;">
+            <text class="text-left" style="font-size:22rpx;color:#FF9900;">补贴金:{{goodsItem.subsidy_price}}</text>
+          </view>
+          <view class="view-content-view" style="margin-top:20rpx;">
+            <text class="text-left" style="font-size:22rpx;color:#FC6B4E;">昕惠分:{{goodsItem.xinhui_point_price}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+
+
+
+<view class="view-show-bg bottom-pos" style='display:{{showSpecification?"":"none"}}' animation='{{animationData}}' bindtap="hiddenSpecification" catchtouchmove="move">
+  <scroll-view class="view-scroll-view" scroll-y="true" style="height:758rpx;" catchtap="noHiddenSpecification" wx:if="{{select_type==2}}">
+    <block wx:for="{{distance_list}}" wx:key="{{distanceKey}}">
+      <view class="view-show-cell {{item.is_select==1?'active':''}}" bindtap="selectDistancePressed" data-index="{{index}}">
+        <text style="margin-left:20rpx;">{{item.distance_name}}</text>
+      </view>
+      <view class="view-line"></view>
+    </block>
+  </scroll-view>
+  <scroll-view class="view-scroll-view" scroll-y="true" style="height:758rpx;" catchtap="noHiddenSpecification" wx:elif="{{select_type==3}}">
+    <block wx:for="{{order_list}}" wx:key="{{orderKey}}">
+      <view class="view-show-cell {{item.is_select==1?'active':''}}" bindtap="selectOrderPressed" data-index="{{index}}">
+        <text style="margin-left:20rpx;">{{item.order_name}}</text>
+      </view>
+      <view class="view-line"></view>
+    </block>
+  </scroll-view>
+  <view class="view-scroll-view" style="height:758rpx;flex-direction: row;" catchtap="noHiddenSpecification" wx:else>
+    <scroll-view class="view-left-scroll" scroll-y="true" style="height:738rpx;">
+      <block wx:for="{{class_list}}" wx:key="{{classKey}}">
+        <view class="view-class-item {{item.is_select?'active':''}}" bindtap="selectFirstClassPressed" data-index="{{index}}">
+          <text>{{item.first_class_name}}</text>
+        </view>
+      </block>
+    </scroll-view>
+    <scroll-view class="view-right-scroll" scroll-y="true" style="height:738rpx;">
+      <block wx:for="{{second_class_list}}" wx:key="{{secondClassKey}}">
+        <view class="view-class-item {{item.is_select?'active':''}}" style="flex-direction: row;" bindtap="selectSecondClassPressed" data-index="{{index}}">
+          <text class="margin-left:20rpx;">{{item.second_class_name}}</text>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</view>
+
+
+
+
+
+<!-- 测试1
+<view class="view-show-bg bottom-pos" style='display:{{showSpecification?"":"none"}}' animation='{{animationData}}' bindtap="hiddenSpecification" catchtouchmove="move">
+  <scroll-view class="view-scroll-view" scroll-y= "true" style="height:758rpx;" catchtap="noHiddenSpecification" >
+    <view class="view-show-content" wx:if="{{select_type==2}}">
+      <block wx:for="{{distance_list}}" wx:key="{{distanceKey}}">
+        <view class="view-show-cell {{item.is_select==1?'active':''}}" bindtap="selectDistancePressed" data-index="{{index}}" >
+        <text style="margin-left:20rpx;">{{item.distance_name}}</text>
+        </view>
+        <view class="view-line"></view>
+      </block>
+    </view>
+    <view class="view-show-content" wx:if="{{select_type==3}}">
+      <block wx:for="{{order_list}}" wx:key="{{orderKey}}">
+        <view class="view-show-cell {{item.is_select==1?'active':''}}" bindtap="selectOrderPressed" data-index="{{index}}" >
+        <text style="margin-left:20rpx;">{{item.order_name}}</text>
+        </view>
+        <view class="view-line"></view>
+      </block>
+    </view>
+  </scroll-view>
+</view>
+
+
+
+ -->

@@ -1,0 +1,16 @@
+<view class="view-no-use" wx:if="{{showNoData}}">
+  <image class="img-no-use" src="{{no_use}}"></image>
+  <text class="text-14">{{msg}}</text>
+</view>
+<view class="view-bg" style="background-image: url({{usercenter_public_bg}}); background-size:100% 100%;background-repeat: no-repeat;" wx:else>
+  <view class="view-prompt">
+    <text class="text-prompt">关注平台公众号</text>
+    <text class="text-prompt">随时获取最新资讯/活动</text>
+  </view>
+  <!-- 二维码 -->
+  <view class="view-qrcode-bg">
+    <image class="img-qrcode" src="{{qrCodeStr}}">
+    </image>
+  </view>
+  <button class="button-save-picture" bindtap="savePicture">保存二维码</button>
+</view>

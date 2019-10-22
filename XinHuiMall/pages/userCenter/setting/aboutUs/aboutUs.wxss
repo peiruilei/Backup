@@ -1,0 +1,10 @@
+/* pages/userCenter/setting/aboutUs/aboutUs.wxss */
+.page{
+  height: 1334rpx;
+  background-color: #fff;
+  padding: 0 22rpx;
+  border-top: 1rpx solid #F2F2F2
+}
+.view-aboutUs{
+  font-size: 50rpx
+}

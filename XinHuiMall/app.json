@@ -1,0 +1,110 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/selectCity/selectCity",
+    "pages/index/goods/goodsList/goodsList",
+    "pages/index/goods/goodsList/secondlist/secondlist",
+    "pages/index/goods/addOrder/addOrder",
+    "pages/pay/pay",
+    "pages/index/goods/goodsDetail/goodsDetail",
+    "pages/index/goods/goodsDetail/goodsQuestionList/list",
+    "pages/index/goods/goodsDetail/goodsCommentList/list",
+    "pages/index/goods/businessDetails/businessDetails",
+    "pages/index/goods/paySuccess/paySuccess",
+    "pages/index/goods/goodsAssess/goodsAssess",
+    "pages/index/search/search",
+    "pages/index/search/searchResult/searchResult",
+    "pages/index/class/class",
+    "pages/index/writeOff/scanCodeWriteOff/scanCodeWriteOff",
+    "pages/index/redEnvelopeList/redEnvelopeList",
+    "pages/index/redEnvelopeList/redEnvelopesDetail/redEnvelopesDetail",
+    "pages/index/writeOff/writeOffList/writeOffList",
+    "pages/login/login/userLogin",
+    "pages/login/forgetPword/forgetPassword",
+    "pages/login/register/userRegister",
+    "pages/login/bindPhoneNumber/bindPhoneNumber",
+    "pages/logs/logs",
+    "pages/userCenter/userCenter",
+    "pages/userCenter/freeEvent/freeEvent",
+    "pages/userCenter/freeEvent/eventDetail/eventDetail",
+    "pages/userCenter/freeEvent/signUp/signUp",
+    "pages/userCenter/userInfo/userInfo",
+    "pages/userCenter/shopInformation/shopInformation",
+    "pages/userCenter/userAmount/userAmount",
+    "pages/userCenter/userAmount/applyWithdrawal/applyWithdrawal",
+    "pages/userCenter/userAmount/accountDetail/accountDetail",
+    "pages/userCenter/shoppingCart/shoppingCart",
+    "pages/userCenter/shoppingCart/shoppingCartAddOrder/shoppingCartAddOrder",
+    "pages/userCenter/address/address",
+    "pages/userCenter/address/edit/edit",
+    "pages/userCenter/address/add/add",
+    "pages/userCenter/address/selectCity/selectCity",
+    "pages/userCenter/agencyCenter/agencyCenter",
+    "pages/userCenter/systemMessage/systemMessage",
+    "pages/userCenter/systemMessage/systemDetail/systemDetail",
+    "pages/userCenter/userInfo/changeName/changeName",
+    "pages/userCenter/userInfo/changeTel/changeTel",
+    "pages/userCenter/userInfo/setPwd/setPwd",
+    "pages/userCenter/userInfo/changeTel/changeNewTel/changeNewTel",
+    "pages/userCenter/voucherWarehouse/voucherWarehouse",
+    "pages/userCenter/voucherWarehouse/giftCoupon/giftCoupon",
+    "pages/userCenter/voucherWarehouse/couponDetail/couponDetail",
+    "pages/userCenter/userAmount/withdrawRecordList/withdrawRecordList",
+    "pages/userCenter/userAmount/subsidyChangeList/subsidyChangeList",
+    "pages/userCenter/userAmount/pointChangeList/pointChangeList",
+    "pages/userCenter/userAmount/freezeState/freezeState",
+    "pages/userCenter/vipManage/vipManage",
+    "pages/userCenter/feedBack/feedBack",
+    "pages/userCenter/myCollection/myCollection",
+    "pages/userCenter/applyShops/applyShops",
+    "pages/userCenter/applyShops/mapSelectAddress/mapSelectAddress",
+    "pages/userCenter/explainSettingUrl/explainSettingUrl",
+    "pages/orderList/orderList",
+    "pages/orderList/returnPrice/returnPrice",
+    "pages/orderList/orderDetail/orderDetail",
+    "pages/orderList/orderDetail/showQR/showQR",
+    "pages/userCenter/agencyCenter/commissionList/commissionList",
+    "pages/userCenter/setting/setting",
+    "pages/userCenter/setting/changePassword/changePassword",
+    "pages/userCenter/setting/aboutUs/aboutUs",
+    "pages/orderList/logisticsNumer/logisticsNumer"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "昕惠商城",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#fc4949",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "iconPath": "images/main1.png",
+        "selectedIconPath": "images/main1_select.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "iconPath": "images/main2.png",
+        "selectedIconPath": "images/main2_select.png",
+        "pagePath": "pages/orderList/orderList",
+        "text": "订单"
+      },
+      {
+        "iconPath": "images/main3.png",
+        "selectedIconPath": "images/main3_select.png",
+        "pagePath": "pages/userCenter/userCenter",
+        "text": "我的"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

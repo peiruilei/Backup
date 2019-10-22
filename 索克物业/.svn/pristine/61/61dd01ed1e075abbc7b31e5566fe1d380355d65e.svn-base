@@ -1,0 +1,32 @@
+var QQMapWX = require('../../utils/qqmap-wx-jssdk.min.js');
+var qqmapsdk = new QQMapWX({
+  key: 'EGHBZ-UDPCD-MRF4U-PGWH3-AAKOS-VZBYV'
+});
+const app = getApp()
+var lastClickTime = 0
+var minClickTime = app.globalData.minClickTime
+var imagePath = app.globalData.imagePath
+var encryptUtils = require('../../utils/HHEncryptUtils.js')
+var modelUtils = require('../../utils/HHModelUtils.js')
+var utils = require('../../utils/util.js')
+Page({
+  data: {
+    index_address: imagePath + app.globalData.index_address,
+    index_add_task: imagePath + app.globalData.index_add_task,
+    index_arrow: imagePath + app.globalData.index_arrow,
+    index_notice: imagePath + app.globalData.index_notice,
+    index_task_list: imagePath + app.globalData.index_task_list
+  },
+  onLoad: function(options) {
+   
+  },
+  onShow: function() {
+    
+  },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function(res) {
+  
+  }
+})

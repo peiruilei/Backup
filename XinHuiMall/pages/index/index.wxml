@@ -1,0 +1,146 @@
+<view class="view-bg">
+  <!-- 顶部搜索和选择城市 -->
+  <view class="view-top">
+    <view class="view-city" bindtap="selectCityPressed">
+      <text class="text-city">{{city_name}}</text>
+      <image class="img-select-city" src="{{home_select_city}}"></image>
+    </view>
+    <view class="view-search" bindtap="goToSearchPressed">
+      <image class="img-search" src="{{home_search}}"></image>
+      <text class="text-placeholder">请输入商家名或品类</text>
+    </view>
+  </view>
+  <!-- 红包雨 -->
+  <view class="view-red_rail-bg" style="background-image:url({{common_red_rain_bg}})" bindtap="goToRedPacketPressed">
+    <text class="text-day">天天红包雨</text>
+    <view class="view-receive">立即前往</view>
+  </view>
+
+  <!-- 分类 -->
+  <view class="view-class-bg" wx:if="{{first_class_list.length>0}}">
+    <view class="view-class-section" bindtap="goToClassPressed">
+      <text style="margin-left:20rpx;">分类</text>
+      <view class="view-right">
+        <text style="margin-right:20rpx;">查看更多</text>
+        <image class="img-arrow" src="{{content_back}}"></image>
+      </view>
+    </view>
+    <!-- 商品类别 -->
+    <swiper class='view-classView' next-margin="0rpx" previous-margin="0rpx" style="height:{{first_class_list[0].length>4?300:150}}rpx">
+      <block wx:for="{{first_class_list}}" wx:key="classKey" wx:for-item="classItem" wx:for-index="classIndex" autoplay="false">
+        <swiper-item>
+          <view class='view-class'>
+            <block wx:for="{{first_class_list[classIndex]}}" wx:key="{{classKey1}}">
+              <view class='view-class1' bindtap='selectHomeClassPressed' data-classid='{{item.goods_class_id}}' data-classname='{{item.goods_class_name}}'>
+                <image class='img-class' mode="aspectFill" src='{{item.class_img}}'></image>
+                <text class='text-class-name'>{{item.goods_class_name}}</text>
+              </view>
+            </block>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 推荐荐一级类别列表 -->
+  <view class="view-conllection-view" wx:if="{{recommend_first_class_list.length>0}}">
+    <block wx:for="{{recommend_first_class_list}}" wx:key="{{recommendFirstClassKey}}" wx:for-item="recommendFirstClassItem" wx:for-index="recommendFirstClassIndex">
+      <view class="view-conllection-section" bindtap='selectHomeClassPressed' data-classid='{{recommendFirstClassItem.goods_class_id}}'>
+        <view class="view-section-bg" style="background-image:url({{home_class_bg}})">
+          <text style="margin-left:32rpx;">{{recommendFirstClassItem.goods_class_name}}</text>
+        </view>
+        <view class="view-right">
+          <text style="font-size:22rpx;color:#999999;margin-right:20rpx;">查看更多</text>
+          <image class="img-arrow" src="{{content_back}}"></image>
+        </view>
+      </view>
+      <view class="view-collectionview">
+        <block wx:for="{{recommendFirstClassItem.goods_list}}" wx:key="{{goodsKey}}">
+          <view class="view-collectionview-cell" bindtap="goToGoodsDetailPressed" data-goods_id="{{item.goods_id}}">
+            <image class="img-collection-goods" mode="aspectFill" src="{{item.goods_img}}"></image>
+            <text class="text-goods-name">{{item.goods_name}}</text>
+            <view class="view-goods-content" style="margin-top:12rpx;">
+              <view class="view-goods-left" style="color:#FF3300">
+                <text class="text-money">￥</text>{{item.goods_price}}
+              </view>
+              <view class="view-goods-right">
+                剩余:{{item.goods_price_stock}}
+              </view>
+            </view>
+            <view class="view-goods-content" style="margin-top:14rpx;">
+              <view class="view-goods-left" style="color:#FF9900">
+                补贴金:{{item.subsidy_price}}
+              </view>
+              <view class="view-goods-right">
+                剩余:{{item.subsidy_stock}}
+              </view>
+            </view>
+            <view class="view-goods-content" style="margin-top:14rpx;">
+              <view class="view-goods-left" style="color:#FC6B4E">
+                昕惠分:{{item.xinhui_point_price}}
+              </view>
+              <view class="view-goods-right">
+                剩余:{{item.xinhui_point_stock}}
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </block>
+  </view>
+  <!-- 行业位 -->
+  <view class="view-second-class-list" wx:if="{{second_class_list.length>0}}">
+    <view class="view-second-content">
+      <block wx:for="{{second_class_list}}" wx:key="{{secondKey}}">
+        <view class="view-second-item" bindtap="selectSecondClassPressed" data-second_class_id="{{item.goods_class_id}}" data-class_name="{{item.goods_class_name}}">
+          <text class="text-second-item ml10 mr10">{{item.goods_class_name}}</text>
+          <image class="img-second-item" mode="" src="{{item.recommend_img}}"></image>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 猜你喜欢 -->
+  <view class="view-table-view" wx:if="{{like_goods_list.length>0}}">
+    <view class="view-table-section">
+      <view class="view-section-bg" style="background-image:url({{home_class_bg}})">
+        <text style="margin-left:32rpx;">猜你喜欢</text>
+      </view>
+    </view>
+    <block wx:for="{{like_goods_list}}" wx:key="{{likeGoodsKey}}" wx:for-item="likeGoodsItem" wx:for-index="likeGoodsIndex">
+      <view class="view-table-view-cell" bindtap="goToGoodsDetailPressed" data-goods_id="{{likeGoodsItem.goods_id}}">
+        <image class="img-cell-goods" mode="aspectFill" src="{{likeGoodsItem.goods_img}}"></image>
+        <view class="view-cell-content">
+          <view class="view-content-view" style="margin-top:8rpx;">
+            <text class="text-left" style="font-size:26rpx;">{{likeGoodsItem.goods_name}}</text>
+            <text class="text-right" style="font-size:22rpx;color:#999999;">{{likeGoodsItem.distance}}KM</text>
+          </view>
+          <view class="view-content-view" style="margin-top:36rpx;">
+            <text class="text-left" style="font-size:22rpx;color:#4D4D4D;">价格</text>
+            <text class="text-right" style="font-size:22rpx;color:#FF3300;">￥{{likeGoodsItem.goods_price}}</text>
+          </view>
+          <view class="view-content-view" style="margin-top:20rpx;">
+            <text class="text-left" style="font-size:22rpx;color:#FF9900;">补贴金</text>
+            <text class="text-right" style="font-size:22rpx;color:#FF9900;">{{likeGoodsItem.subsidy_price}}</text>
+          </view>
+          <view class="view-content-view" style="margin-top:20rpx;">
+            <text class="text-left" style="font-size:22rpx;color:#FC6B4E;">昕惠分</text>
+            <text class="text-right" style="font-size:22rpx;color:#FC6B4E;">{{likeGoodsItem.xinhui_point_price}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+
+
+<view class="view-show-bg" wx:if="{{isShowView}}" catchtouchmove="move">
+<image class="img-dele" src="{{common_round_dele}}" bindtap="forgetRedPacketPressed"></image>
+  <view class="view-red-bg" style="background-image:url({{home_red_packet_bg}})">
+    <image class="img-shop" mode="aspectFill" src="{{champion_reward_list[0].thumb_img}}"></image>
+    <text class="text-red-shop-name">{{champion_reward_list[0].shop_name}}</text>
+    <text class="text-champion-promt">红包冠军奖励</text>
+    <text class="text-champion-reward">{{champion_reward_list[0].champion_reward}}</text>
+
+    <button open-type="share" class="btn-share">分享并领取</button>
+  </view>
+</view>

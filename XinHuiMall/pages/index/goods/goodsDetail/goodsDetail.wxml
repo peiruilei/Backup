@@ -1,0 +1,264 @@
+<!--pages/index/goods/goodsDetail/goodsDetail.wxml-->
+<import src="../../../../wxParse/wxParse.wxml" />
+
+<view class="view-no-use" wx:if="{{showNoData}}">
+  <image class="img-no-use" src="{{no_use}}"></image>
+  <text class="text-14">{{msg}}</text>
+</view>
+<view class="view-bg" wx:else>
+  <view class="view-swiper-top">
+    <swiper class="view-top" wx:if="{{goods_gallery_list.length>0}}" indicator-color="#fff" indicator-dots="5" indicator-active-color="#FF9900" autoplay="{{isAutoplay}}" circular="true">
+      <swiper-item wx:for="{{goods_gallery_list}}" wx:for-item="adItem" wx:for-index="adIndex" wx:key="{{adIndex}}">
+        <video class="img-swiper-top" wx:if="{{adItem.type==2}}" src="{{adItem.video_address}}" poster="{{adItem.big_img}}">
+
+        </video>
+        <image class="img-swiper-top" mode="aspectFill" src="{{adItem.big_img}}" bindtap="selectImagePressed" data-image="{{adItem.big_img}}" wx:else></image>
+      </swiper-item>
+    </swiper>
+    <image class="img-deafult" src="{{goods_deafult_img}}"></image>
+  </view>
+  <view class="view-name-price">
+    <text class="text-goods-name" style="  margin-left: 24rpx;margin-right: 24rpx;">{{goods_info.goods_name}}</text>
+    <text class="text-detail">{{goods_info.goods_intro}}</text>
+    <view class="view-price">
+      <view class="view-price-item">
+        <text class="text-price" style="color:#FD6B4E">昕惠分:{{goods_info.xinhui_point_price}}</text>
+        <text class="text-stock">剩余数量:{{goods_info.xinhui_point_stock}}</text>
+      </view>
+      <view class="view-price-item">
+        <text class="text-price" style="color:#FF9900">补贴金:{{goods_info.subsidy_price}}</text>
+        <text class="text-stock">剩余数量:{{goods_info.subsidy_stock}}</text>
+      </view>
+      <view class="view-price-item">
+        <text class="text-price" style="color:#FF3300"> <text class="text-money">￥</text>{{goods_info.goods_price}}</text>
+        <text class="text-stock">剩余数量:{{goods_info.goods_price_stock}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="view-item" style="margin-top:1rpx;" wx:if="{{goods_info.is_seven_day_return==1}}">
+    <view class="view-item-left">
+      <image class="img-seven-day-return" src="{{goods_seven_day_return}}"></image>
+      <text class="text-seven-day-return ml10">支持7天无理由退换</text>
+    </view>
+    <view class="view-item-right"></view>
+  </view>
+
+  <!-- 选择规格数量 -->
+  <view class="view-item" style="margin-top:10rpx;margin-bottom:10rpx;" bindtap="showspecificationPressed" data-mark="3">
+    <view style='margin-left:20rpx;width:80%;display:flex;align-items:center;'>
+      <text style='width:190rpx;font-size:26rpx; color:#666666'>{{select_specification_name.length==0?"请选择规格数量":select_specification_name[0]==""?"请选择规格数量":select_specification_name[1]==""?"请选择规格数量":"已选择:"}}</text>
+      <view style='display:{{select_specification_name.length==0?"none":select_specification_name[0]==""?"none":select_specification_name[1]==""?"none":""}}'>
+        <text style='display:{{item==""?"none":""}}; font-size:26rpx;' wx:for='{{select_specification_name}}' wx:key='{{index}}'>"{{item}}"</text>
+      </view>
+    </view>
+    <view class="view-item-right">
+      <image class="img-arrow" src="{{content_back}}"></image>
+    </view>
+  </view>
+  <!-- 店铺 -->
+  <view class="view-store" bindtap="goToStorePressed" data-shop_id="{{goods_info.shop_id}}" wx:if="{{goods_info.shop_id>0}}">
+    <image class="img-store" src="{{goods_info.thumb_img}}"></image>
+    <view class="view-store-content">
+      <text class="text-store-name" style="display: block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">{{goods_info.shop_name}}</text>
+      <view class="view-distance" catchtap="callNavPressed">
+        <text>距您当前:{{goods_info.distance}}km</text>
+        <view class="view-nav">
+          <image class="image-nav" src="{{store_nav}}"></image>
+          <text> 导航</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 商品介绍 评论/提问 -->
+  <view class="view-menu">
+    <view class="view-menu-item {{showselect==1?'active':''}}" bindtap="selectMenuPress" data-menu_id="1">
+      商品介绍
+    </view>
+    <view class="view-menu-item {{showselect==2?'active':''}}" bindtap="selectMenuPress" data-menu_id="2">
+      评价/提问
+    </view>
+    <view class="view-menu-line" style="left:{{(showselect-1)*375 + 134.5}}rpx"></view>
+  </view>
+
+  <view class="view-detail" wx:if="{{showselect==1}}">
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+  <view class="view-detail" wx:else>
+    <!-- 评论 -->
+    <view class="view-detail-section" bindtap="goToCommonPressed">
+      <text style="font-size:28rpx;color:#808080;margin-left:20rpx;">商品评论({{goods_info.comment_count}})</text>
+      <view class="view-section-right">
+        <text style="margin-right:20rpx;font-size:24rpx;color:#808080;">查看全部</text>
+        <image class="img-arrow" src="{{content_back}}"></image>
+      </view>
+    </view>
+    <block wx:for="{{goods_comment_list}}" wx:key="commentKey" wx:for-item="commentItem" wx:for-index="commentIndex">
+      <view class="view-commen-cell">
+        <view class="view-commen-user">
+          <image class="img-user-head" src="{{commentItem.head_img}}"></image>
+          <view class="view-user-content">
+            <view class="view-name-score">
+              <text class="text-user-name">{{commentItem.nick_name}}</text>
+              <view class="view-start">
+                <block wx:for="{{commentItem.goods_score}}">
+                  <image class="img-star" src="{{common_star_red}}"></image>
+                </block>
+                <block wx:for="{{5-commentItem.goods_score}}">
+                  <image class="img-star" src="{{common_star_gray}}"></image>
+                </block>
+              </view>
+            </view>
+            <text class="text-commen-time">{{commentItem.add_time}}</text>
+          </view>
+        </view>
+        <text class="text-commen-content">{{commentItem.comment_content}}</text>
+      </view>
+    </block>
+    <!-- 提问 -->
+
+    <view class="view-detail-section" style="margin-top:1rpx;" bindtap="goToQustionListPressed">
+      <text style="font-size:28rpx;color:#808080;margin-left:20rpx;">提问 ({{goods_info.question_count}})</text>
+      <view class="view-section-right">
+        <text style="margin-right:20rpx;font-size:24rpx;color:#808080;">查看全部</text>
+        <image class="img-arrow" src="{{content_back}}"></image>
+      </view>
+    </view>
+    <block wx:for="{{goods_question_list}}" wx:key="questionKey" wx:for-item="questionItem" wx:for-index="questionIndex">
+      <view class="view-qustion-cell">
+        <view class="view-item-left">
+          <view class="view-question">
+            问
+          </view>
+          <text class="text-question">{{questionItem.question_content}}</text>
+        </view>
+        <text style="margin-right:20rpx;color:#808080;font-size:22rpx;flex-shrink: 0;">{{questionItem.is_reply==1?"商家已回复":"暂无回复"}}</text>
+      </view>
+    </block>
+  </view>
+
+
+  <view class="view-detail-section mt5">
+    <view class="view-section-bg" style="background-image:url({{home_class_bg}})">
+      <text style="margin-left:32rpx;">其他商品推荐</text>
+    </view>
+  </view>
+  <view class="view-collectionview">
+    <block wx:for="{{recommend_goods_list}}" wx:key="{{goodsKey}}">
+      <view class="view-collectionview-cell" bindtap="goToGoodDetailPressed" data-goods_id="{{item.goods_id}}">
+        <image class="img-collection-goods" mode="aspectFill" src="{{item.goods_img}}"></image>
+        <text class="text-goods-name" style="display: block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">{{item.goods_name}}</text>
+        <view class="view-goods-content" style="margin-top:12rpx;">
+          <view class="view-goods-left" style="color:#FF3300">
+            <text class="text-money">￥</text>{{item.goods_price}}
+          </view>
+          <view class="view-goods-right">
+            剩余:{{item.goods_price_stock}}
+          </view>
+        </view>
+        <view class="view-goods-content" style="margin-top:14rpx;">
+          <view class="view-goods-left" style="color:#FF9900">
+            补贴金:{{item.subsidy_price}}
+          </view>
+          <view class="view-goods-right">
+            剩余:{{item.subsidy_stock}}
+          </view>
+        </view>
+        <view class="view-goods-content" style="margin-top:14rpx;">
+          <view class="view-goods-left" style="color:#FC6B4E">
+            昕惠分:{{item.xinhui_point_price}}
+          </view>
+          <view class="view-goods-right">
+            剩余:{{item.xinhui_point_stock}}
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <view class="view-bottom">
+    <button class="btn-collect-share" bindtap="collectGoodsPressed">
+      <image class="img-icon" src="{{is_colletion==1?common_collection:common_uncollection}}"></image>
+      <text style="display: block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">{{is_colletion==1?"已收藏":"收藏"}}</text>
+    </button>
+    <button class="btn-collect-share">
+      <image class="img-icon" src="{{common_share}}"></image>
+      <text style="display: block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">分享</text>
+    </button>
+
+    <view class="view-addShopCar-order">
+    <view class="view-bottom-addShopCar" bindtap="showspecificationPressed" data-mark="1">加入购物车</view>
+    <view class="view-bottom-addOrder" bindtap="showspecificationPressed" data-mark="2">立即购买</view>
+    </view>
+  </view>
+</view>
+
+
+<!-- 选择规格 -->
+<view class='view-specification bottom-pos' style='display:{{showSpecification?"":"none"}}' animation='{{animationData}}'>
+  <view class='view-specification-mask' bindtap='hiddenSpecification'></view>
+  <view class='view-specification-bottom'>
+    <view class='view-specification-goods-info'>
+      <image mode='aspectFill' class='img-specification-goods' src='{{specification_img.length==0?goods_gallery_list[0].thumb_img:specification_img}}'></image>
+      <view class='view-price-stock-size'>
+        <view class='view-price-points'>
+          <text style='font-size:30rpx;color:#ec652d'>￥{{specification_price==0?goods_price:specification_price}}</text>
+        </view>
+        <view class='view-stock-size'>
+          <text style='font-size:28rpx'>库存{{specification_stock==0?goods_stock:specification_stock}}件</text>
+          <view>
+            <text style='font-size:28rpx;'>{{select_specification_name.length==0?"":select_specification_name[0]==""?"请选择":select_specification_name[1]==""?"请选择":"已选择:"}}</text>
+            <block wx:if='{{specificationName.length==0?false:specificationName.length==1&&specificationName[0]==""?false:specificationName[0]==""&&specificationName[1]==""?false:true}}'>
+              <text style='font-size:28rpx;' wx:for='{{specificationName}}' wx:key='index'> {{item}}</text>
+            </block>
+            <block wx:else style='display:{{select_specification_name.length==0?"none":select_specification_name[0]==""?"none":select_specification_name[1]==""?"none":""}}'>
+              <text style='font-size:28rpx;' wx:for='{{select_specification_name}}' wx:key='index'> "{{item}}"</text>
+            </block>
+          </view>
+        </view>
+      </view>
+      <view class='view-wrong' bindtap='hiddenSpecification'>
+        <text>X</text>
+      </view>
+    </view>
+    <scroll-view scroll-y style="height: 600rpx;margin-top:20rpx;">
+      <view class='view-specification-list' wx:for='{{specification}}' wx:key='{{specificationIndex}}' wx:for-item='specificationItem' wx:for-index='specificationIndex'>
+        <text class='ml10'>{{specificationItem.spec_name}}</text>
+        <view class='view-specification-value-list'>
+          <text class='{{item.is_select?"text-specification-value-select":"text-specification-value"}}' data-img='{{item.thumb_img}}' data-stock='{{item.total_stock}}' data-specificationindex='{{specificationIndex}}' data-index='{{index}}' wx:for='{{specificationItem.spec_value_list}}'
+            wx:key='{{index}}' bindtap='selectSpecificationValue'>{{item.spec_value_name}}</text>
+        </view>
+      </view>
+      <view class='view-buy-num'>
+        <text class='text-15'>购买数量</text>
+        <view class='view-symbol' style='width:240rpx;'>
+          <view class='view-addOrReduce' bindtap='subNum'>
+            <image class="img-addOrReduce" src="{{shopping_cart_less}}"></image>
+          </view>
+          <view class='view-vertical-line'></view>
+          <input type='number' style='width:80rpx;text-align:center;' bindinput='inputNum' bindblur='inputBlur' value='{{buy_num}}'></input>
+          <view class='view-vertical-line'></view>
+          <view class='view-addOrReduce' bindtap='addNum'>
+            <image class="img-addOrReduce" src="{{shopping_cart_add}}"></image>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+
+    <view class="view-specification-button">
+      <view class="view-specifcation-button-add-shopcar" bindtap="addShopCar" wx:if="{{mark == 1}}">
+        <text>添加购物车</text>
+      </view>
+      <view class='view-specification-button-add-order' bindtap='addOrder' wx:elif="{{mark == 2}}">
+        <text>立即下单</text>
+      </view>
+
+      <view class='view-specification-button-car' bindtap='addShopCar' wx:if='{{mark==3}}'>
+        <text>加入购物车</text>
+      </view>
+
+      <view class='view-specification-button-buy' bindtap='addOrder' wx:if='{{mark==3}}'>
+        <text>立即下单</text>
+      </view>
+    </view>
+  </view>
+</view>

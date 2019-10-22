@@ -1,0 +1,53 @@
+
+<form bindsubmit="formSubmit">
+<view class="page-bg">
+  <!-- 任务类型 -->
+  <view class='view-item' bindtap='taskTypeList'>
+    <text class='text-title-name'>任务类型</text>
+    <text class='text-content'>{{taskTypeName}}</text>
+    <image class='img-arrow' src='{{index_arrow}}'></image>
+  </view>
+  <!-- 任务描述 -->
+  <textarea name='order_memo' class='textarea-desc' placeholder-class='textarea-desc-placeholder' placeholder='请输入您对本次任务的简单描述...' maxlength='200'></textarea>
+  <!-- 上传图片 -->
+  <view class='view-add-img-box'>
+    <text class='text-title-name'>上传图片</text>
+    <view class='view-img-box'>
+      <!-- <image src='{{task_add_img}}' class='img-add-task' wx:for="11111"></image> -->
+
+      <image class='img-add-task' wx:for='{{taskImgList}}' wx:for-index="index" wx:for-item="item" wx:key='{{index}}' src='{{item.img}}' data-state='1' data-index='{{index}}' catchtap='getImg'></image>
+      <image class='img-add-task' src='{{task_add_img}}' style='display:{{taskImgList.length==4?"none":""}}' data-state='2' data-index='0' catchtap='getImg'></image>
+
+    </view>
+  </view>
+  <!-- 小区名字 -->
+  <view class='view-item mt1' bindtap='villageClick'>
+    <text class='text-title-name'>小区</text>
+    <text class='text-content'>{{villageName}}</text>
+    <image class='img-arrow' src='{{index_arrow}}'></image>
+  </view>
+  <!-- 详情地址 -->
+  <textarea name='address_detail' class='textarea-desc' placeholder-class='textarea-desc-placeholder' placeholder='请输入您的详情地址,需要精确到门牌号' maxlength='200'></textarea>
+  <!-- 手机号 -->
+  <view class='view-item mt1'>
+    <input class='input-tel' type='number' maxlength='11'  name='contact_tel' placeholder='input-tel-placeholder' placeholder='请输入您的手机号码' bindinput='getPhoneNum'></input>
+    <view class='view-get-verify' bindtap="getVerifiyCode">{{verify_code}}</view>
+  </view>
+  <!-- 验证码 -->
+  <view class='view-item mt1'>
+    <input class='input-verify'  type='number' maxlength='6'  name='verify_code' placeholder='input-verify-placeholder' placeholder='请输入验证码'></input>
+  </view>
+  <view class='view-bottom'>
+  <view class='view-service-amount'>
+ 本次服务费:<text class='text-amount'>￥{{isHaveServiceFees?serviceFees:taskPrice}}</text>
+  </view>
+  <!-- 提交按钮 -->
+  <button class='btn_sumbit' form-type="submit">提交</button>
+
+  <view class='view-agree-box'>
+  <image class='img-agree-tips' bindtap='selectTips' src='{{isAgreeTips?task_agree_tips:task_no_agree_tips}}'></image>
+  <text catchtap='explainSettingClick'>我已阅读并同意<text class='text-select-tips' >《工程平台发布协议》</text></text>
+  </view>
+  </view>
+</view>
+</form>

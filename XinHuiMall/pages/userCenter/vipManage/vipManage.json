@@ -1,0 +1,7 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "会员管理",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#fc4949",
+  "enablePullDownRefresh": true
+}

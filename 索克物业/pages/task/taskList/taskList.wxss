@@ -1,0 +1,152 @@
+/* 订单状态 */
+
+.view-table {
+  display: flex;
+  flex-direction: row;
+  height: 80rpx;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: white;
+}
+
+.magTop80 {
+  margin-top: 80rpx;
+}
+
+.magB100 {
+  margin-bottom: 100rpx;
+}
+
+.view-table-item {
+  display: inline-block;
+  background: white;
+  width: 33.3%;
+  height: 80rpx;
+}
+
+.view-h-table {
+  display: flex;
+  width: 100%;
+  height: 80rpx;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text-tab {
+  display: flex;
+  width: 99%;
+  height: 80rpx;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+  color: #6a6a6a;
+}
+
+.text-tab-slect {
+  display: flex;
+  width: 99%;
+  height: 80rpx;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+  color: #68d6ab;
+  /* border-bottom: 3rpx solid #68D6AB; */
+}
+
+.view-short-line {
+  width: 40rpx;
+  height: 5rpx;
+  background: #68d6ab;
+}
+
+/* 订单状态 筛选结束 */
+
+.page-bg {
+  margin-top: 100rpx;
+}
+
+.view-item {
+  width: 92%;
+  padding: 10rpx 4% 10rpx 4%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rpx;
+}
+
+/* 订单状态和类型 */
+
+.view-order-type-state-box {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 70rpx;
+}
+
+.view-order-type {
+  font-size: 30rpx;
+  color: #323232;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 80rpx;
+}
+
+.view-type-line {
+  width: 3rpx;
+  height: 26rpx;
+  background: #68d6ab;
+  margin-right: 15rpx;
+}
+
+.text-order-state {
+  font-size: 30rpx;
+  color: #fe8c21;
+}
+
+/* 图片 文字 */
+
+.view-order-content {
+  background: #f7f7f7;
+  width: 94%;
+  padding: 10rpx 3% 10rpx 3%;
+  height: 180rpx;
+  border-radius: 10rpx;
+  display: flex;
+  margin-top: 10rpx;
+}
+
+.img-task {
+  margin-top: 10rpx;
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 10rpx;
+  background: #eee;
+  flex-shrink: 0;
+}
+
+.text-order-memo {
+  margin-top: 10rpx;
+  color: #646464;
+  font-size: 26rpx;
+  flex-grow: 1;
+  margin-left: 15rpx;
+  height: 150rpx;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-height: 50rpx;
+}
+/* 时间 */
+.view-time
+{
+  font-size: 26rpx;
+  color: #b2b2b2;
+  line-height: 70rpx;
+}

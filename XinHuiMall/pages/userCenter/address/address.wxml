@@ -1,0 +1,44 @@
+<!--pages/userCenter/address/address.wxml-->
+<view class="view-no-use " wx:if="{{showNoData}}">
+  <image class="img-no-use" style='margin-top:0rpx' src="{{no_use}}"></image>
+  <text class="text-14">{{msg}}</text>
+</view>
+<view class="view-bg" wx:else>
+  <block wx:for="{{address_list}}" wx:key="{{addressKey}}" wx:for-item="addressItem" wx:for-index="addressIndex">
+  <!-- 列表 -->
+    <view class="view-address-cell" bindtap="goToDetailOrSelectPressed" data-item="{{addressItem}}">
+    <!-- 地址和收货人信息 -->
+      <view class="view-address-view">
+        <view class="view-user-tel">
+          <text class="text-user ml10">联系人:<text class="text-name-tel">{{addressItem.consignee}}</text></text>
+          <text class="text-name-tel mr10" style="flex-shrink:0;">{{addressItem.telphone}}</text>
+        </view>
+        <view class="view-detail">
+          <image class="img-address ml10" src="{{address_location}}"></image>
+          <text class="text-detail ml10">{{addressItem.province_name}}{{addressItem.city_name}}{{addressItem.district_name}}{{addressItem.address_detail}}</text>
+        </view>
+      </view>
+      <view class="view-line"></view>
+      <!-- 管理 -->
+      <view class="view-manager-address">
+        <view class="view-default" catchtap="{{addressItem.is_default==1?'noSetDefaultPressed':'setDefaultPressed'}}" data-address_id="{{addressItem.user_address_id}}">
+          <image class="img-defult ml10" src="{{addressItem.is_default==1?common_select:common_un_select}}"></image>
+          <text style="margin-left:20rpx;">{{addressItem.is_default==1?"默认地址":"设为默认地址"}}</text>
+        </view>
+        <view class="view-marager-left">
+          <view class="view-edit-dele" catchtap="editAddressPressed" data-address_id="{{addressItem.user_address_id}}">
+            <image class="img-edit" src="{{common_edit}}"></image>
+            <text>编辑</text>
+          </view>
+          <view class="view-edit-dele" catchtap="deleAddressPressed" data-address_id="{{addressItem.user_address_id}}">
+            <image class="img-dele" src="{{common_address_dele}}"></image>
+            <text>删除</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+<view class="view-bottom">
+  <view class="view-add-address" bindtap="addAddressPressed">添加收货地址</view>
+</view>

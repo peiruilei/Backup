@@ -1,0 +1,139 @@
+/* pages/userCenter/userMessage/userMessage.wxss */
+
+page {
+  background-color: white;
+}
+
+.view-bg {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.touch-item {
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #f7f7f7;
+  width: 100%;
+  overflow: hidden;
+}
+
+.view-tablview-cell {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: centere;
+  flex-direction: column;
+  /* position: relative; */
+
+  line-height: 22px;
+  margin-right: 0;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-transform: translateX(90px);
+  transform: translateX(90px);
+  margin-left: -90px;
+}
+
+.view-line {
+  width: 94%;
+  height: 1rpx;
+  background-color: #ebebeb;
+}
+
+.view-msg-top {
+  height: 90rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.img-msg {
+  width: 34rpx;
+  height: 34rpx;
+  flex-shrink: 0;
+  margin-left: 30rpx;
+}
+
+.view-name-time {
+  width: 85%;
+  height: 90rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  margin-right: 30rpx;
+}
+
+.view-readState {
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  position: absolute;
+  background-color: red;
+  left: 58rpx;
+  top: 24rpx;
+}
+
+.text-name {
+  font-size: 30rpx;
+  color: #323232;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.text-time {
+  font-size: 30rpx;
+  color: #b2b2b2;
+  flex-shrink: 0;
+}
+
+.text-content {
+  width: 92%;
+  margin-left: 4%;
+  color: #B2B2B2;
+  line-height: 34rpx;
+  max-height: 68rpx;
+  font-size: 26rpx;
+  /* display: block;
+  font-size: 26rpx;
+  line-height: 34rpx;
+  height: 68rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; */
+  display:-webkit-box; 
+  overflow:hidden;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  margin-bottom: 28rpx;
+}
+
+
+.del {
+  background-color: orangered;
+  width: 90px;
+  /* height: 100%; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  -webkit-transform: translateX(90px);
+  transform: translateX(90px);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  font-size: 32rpx;
+}
+
+.touch-move-active .view-tablview-cell, .touch-move-active .del {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}

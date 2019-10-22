@@ -1,0 +1,173 @@
+/* pages/userCenter/voucherWarehouse/voucherWarehouse.wxss */
+
+.view {
+  width: 750rpx;
+  min-height: 100vh;
+  padding-top: 100rpx;
+  padding-bottom: 80rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 顶部tab栏 */
+
+.top-bar-view {
+  width: 750rpx;
+  height: 80rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  background-color: #fff;
+}
+
+.bar-item-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.bar-item-text {
+  font-size: 30rpx;
+  color: #fc4949;
+}
+
+.bar-item-line {
+  width: 39rpx;
+  height: 5rpx;
+  /* background:rgba(252,73,73,1); */
+  margin-top: 16rpx;
+}
+
+/* 优惠券列表 */
+
+.coupon-item-view {
+  width: 706rpx;
+  height: 236rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 3rpx 7rpx 0px rgba(250, 76, 73, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-size: 706rpx 125rpx;
+  background-repeat: no-repeat;
+  margin-bottom: 23rpx;
+}
+
+.coupon-item-top-view {
+  width: 706rpx;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.coupon-item-gift-image {
+  width: 120rpx;
+  height: 38rpx;
+}
+
+.coupon-item-use {
+  width: 120rpx;
+  height: 43rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.coupon-item-use-text {
+  font-size: 24rpx;
+  color: #fff;
+}
+
+.coupon-item-title {
+  font-size: 30rpx;
+  color: #fff;
+  margin-top: 5rpx;
+}
+
+.coupon-item-bottom-view {
+  width: 706rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 74rpx;
+}
+
+.coupon-item-date {
+  font-size: 22rpx;
+  color: #808080;
+  margin-left: 25rpx;
+}
+
+.coupon-item-qr-view {
+  width: 147rpx;
+  height: 52rpx;
+  margin-right: 16rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.coupon-item-qr-text {
+  font-size: 24rpx;
+  color: #fff;
+  margin-left: 10rpx;
+}
+
+/* 过期失效 */
+
+.coupon-item-top-view-used {
+  width: 706rpx;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.coupon-item-bottom-view-used {
+  width: 706rpx;
+  height: 52rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 70rpx;
+}
+/* 二维码弹出 */
+
+.qr{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: rgba(56, 54, 54, 0.466);
+}
+.qr-view{
+  width:707rpx;
+height:708rpx;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+align-items: center;
+margin-left: 22rpx;
+margin-top: 200rpx;
+background-color: #FFFFFF;
+border-radius:10rpx;
+}
+.qr-image{
+width:495rpx;
+height:495rpx;
+/* background:rgba(51,51,51,1); */
+}
+.qr-text{
+font-size: 26rpx;
+color: #333333;
+}

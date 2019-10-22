@@ -1,0 +1,60 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.6.5",
+	"appid": "wx2c846f9836d07f20",
+	"projectname": "%E7%B4%A2%E5%85%8B%E7%89%A9%E4%B8%9A",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 1,
+			"list": [
+				{
+					"id": 0,
+					"name": "扫码登录",
+					"pathName": "pages/index/index",
+					"query": "http://116.255.236.229:8218/user/showqrcode?ud=35343431464245442d384634422d344631432d424532382d394634313443343444363131",
+					"scene": 1011
+				},
+				{
+					"id": -1,
+					"name": "pages/orderDetail/orderDetail",
+					"pathName": "pages/orderDetail/orderDetail",
+					"scene": null
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,61 @@
+<view class="view-page">
+  <!-- 头部 -->
+  <!-- <view class="view-head-data"> -->
+  <!-- 日期选择 -->
+  <!-- <picker mode="date" fields="month" value="{{timer}}" end="{{time}}" bindchange="bindDateChange">
+      <view class="view-page-data">
+        <text class="view-data-text text-15">{{year}}年{{month}}月</text>
+        <view class="view-data-select-box">
+          <image src="{{content_withdraw_select}}" class="view-data-select"></image>
+        </view>
+      </view>
+    </picker>
+    <view class="view-head-money">
+      <text class="view-head-money-reserve text-13" decode="true">收入(元)&nbsp;&nbsp;&nbsp;&nbsp;{{income}}</text>
+      <text class="view-head-money-out text-13" decode="true">支出(元)&nbsp;&nbsp;&nbsp;&nbsp;{{outcome}}</text>
+    </view>
+  </view> -->
+  <!-- 收支列表 -->
+  <view class="view-subsidy-wrap">
+    <view class="view-subsidy-item" wx:for="{{accountList}}" wx:key="">
+      <view class="view-subsidy-item-deal-head">
+
+        <!-- 好友 -->
+        <view class="view-subsidy-item-deal-date " wx:if="{{item.from_who==1}}" style="background-image:url('{{content_account_friend}}')">
+          <text class="view-subsidy-item-deal-date-text text-13 ">好友订单</text>
+        </view>
+
+        <view wx:if="{{item.from_who==0}}">
+          <!-- 商家 -->
+          <view class="view-subsidy-item-deal-date" wx:if="{{item.source_user_id==userId}}" style="background-image:url('{{content_account_goods}}')">
+            <text class="view-subsidy-item-deal-date-text text-13">商品销售</text>
+          </view>
+          <!-- 伙伴 -->
+          <view class="view-subsidy-item-deal-date" wx:else style="background-image:url('{{content_account_partner}}')">
+            <text class="view-subsidy-item-deal-date-text text-13">伙伴订单</text>
+          </view>
+        </view>
+        <view class="view-subsidy-item-deal-date-date text-13 ">{{item.add_time}}</view>
+      </view>
+      <view class="view-subsidy-item-order text-13 ">订单编号:{{item.order_sn}}</view>
+      <view class="view-subsidy-item-goods text-13 ">包含商品【{{item.goods_name}}】</view>
+      <view class="view-subsidy-item-money text-13 ">
+        <text class="view-subsidy-item-money-left" wx:if="{{item.is_income==1}}">+{{item.change_amount}}</text>
+        <text class="view-subsidy-item-money-left" wx:else>-{{item.change_amount}}</text>
+        <text class="view-subsidy-item-money-right ">余额:{{item.user_balance}}元</text>
+      </view>
+    </view>
+  </view>
+  <!-- 无数据 -->
+  <view class="view-no-use mt-100" wx:if="{{showNoData}}">
+    <image class="img-no-use" src="{{common_no_data}}"></image>
+    <text class="text-14">暂无数据</text>
+  </view>
+  <!-- 加载区 -->
+  <view class="loading_box" wx:if="{{loadMore}}">
+    <view class="pulse pulse_1"></view>
+    <view class="pulse pulse_2"></view>
+    <view class="pulse pulse_3"></view>
+    <view class="pulse pulse_4"></view>
+  </view>
+</view>

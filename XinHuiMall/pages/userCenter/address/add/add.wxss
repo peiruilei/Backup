@@ -1,0 +1,97 @@
+/* pages/userCenter/address/add/add.wxss */
+
+page {
+  background-color: white;
+}
+
+.view-bg {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.view-item {
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.input-name {
+  height: 100rpx;
+  margin-left: 40rpx;
+  margin-right: 20rpx;
+  font-size: 30rpx;
+  display: flex;
+  flex-grow: 1;
+}
+
+.view-line {
+  width: 100%;
+  height: 2rpx;
+  background-color: #f2f2f2;
+}
+
+.view-item-right {
+  font-size: 30rpx;
+  height: 100rpx;
+  color: #999;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.img-arrow {
+  width: 10rpx;
+  height: 17rpx;
+  flex-shrink: 0;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
+.view-detail-address {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.view-texterea-bg {
+  width: 94%;
+  height: 180rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 3%;
+  margin-top: 14rpx;
+  background-color: #F2F2F2;
+  border-radius: 8rpx;
+  margin-bottom: 20rpx;
+}
+
+.input-address-detail {
+  width: 94%;
+  height: 136rpx;
+  font-size: 30rpx;
+}
+
+.img-select {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 28rpx;
+}
+
+.class-save {
+  width: 94%;
+  margin-left: 3%;
+  height: 80rpx;
+  margin-top: 136rpx;
+  border-radius: 12rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 34rpx;
+  background: -webkit-linear-gradient(left,#FE7950,#FC4949)
+}

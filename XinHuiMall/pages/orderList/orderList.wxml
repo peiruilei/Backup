@@ -1,0 +1,84 @@
+<view class="view" wx:if="{{!isUser}}" bindtap="onLogin" >
+  <view class="view-no-use mt-100">
+    <image class="img-no-use" src="{{no_use}}"></image>
+    <text class="text-14">您还未登录，请点击页面登录</text>
+  </view>
+</view>
+<view class="view" wx:else>
+  <!-- 顶部订单功能列表 -->
+  <scroll-view class="order-scorll-view" scroll-x='true'>
+    <view class="view-list">
+      <view class="view-item" wx:for="{{order_list}}" wx:key="{{index}}" bindtap="onSelectOrder" data-order_id="{{item.order_id}}">
+        <text style="{{mark==item.order_id?'color:#FC4949':'color:#808080'}}">{{item.order_name}}</text>
+        <view class="view-line-item" style="{{mark==item.order_id?'background-color:#FC4949':'background-color:#FFFFFF'}}"></view>
+      </view>
+    </view>
+  </scroll-view>
+  <!-- 订单列表 -->
+  <view class="order-list-view">
+    <view class="order-item-view" wx:for="{{orderList}}" wx:for-item="orderItem" wx:for-index="orderIndex" wx:key="{{index}}" bindtap="onseeOrderDetail" data-order_id="{{orderItem.order_id}}" data-order_state="{{orderItem.order_state}}">
+      <view class="order-item-bar-view">
+        <image class="order-item-bar-image" src="{{shopping_cart_icon}}"></image>
+        <text class="order-item-bar-shop-name">{{orderItem.shop_name}}</text>
+        <text class="order-item--bar-shop-fun">{{orderItem.state_name}}</text>
+      </view>
+      <view class="order-detail-view-bg" wx:for="{{orderItem.goods_list}}" wx:key="">
+        <view class="order-detail-view">
+          <image class="order-detail-image" src="{{item.goods_img}}"></image>
+          <view class="order-detail-name-view">
+            <text class="order-detail-name">{{item.goods_name}}</text>
+            <view class="order-detail-style">
+              <text wx:if="{{item.first_specification_name}}" class="order-detail-style-first">{{item.first_specification_name}}:{{item.first_specification_value_name}}</text>
+              <text wx:if="{{item.second_specification_name}}">{{item.second_specification_name}}:{{item.second_specification_value_name}}</text>
+            </view>
+            <text class="order-detail-price">{{item.goods_price}}</text>
+
+          </view>
+          <view class="order-detail-num-view">
+            <text class="order-detail-num">x{{item.buy_num}}</text>
+          </view>
+        </view>
+        <view class="view-line" wx:if="{{index<orderItem.goods_list.length-1}}"></view>
+      </view>
+
+
+      <view class="order-item-bottom-view">
+        <view class="order-pay-price-view">
+          <text class="order-pay-price-left-text">
+          付款方式：<text class="order-pay-price-left-text-light" >{{payMode_list[orderItem.order_pay_type]}}</text>
+          </text>
+          <text class="order-pay-price-right-text">
+          合计:<text class="order-pay-price-right-text-light" wx:if="{{orderItem.order_pay_type==1}}" >¥{{orderItem.order_total_fees}}</text>
+          <text class="order-pay-price-right-text-light" wx:if="{{orderItem.order_pay_type==3}}">¥{{orderItem.order_total_subsidy}}</text>
+          <text class="order-pay-price-right-text-light" wx:if="{{orderItem.order_pay_type==2}}">¥{{orderItem.order_total_xinhui_points}}</text>
+          </text>
+        </view>
+        <view class="order-date-text-view">
+          <text class="order-date-text">{{orderItem.add_time}}</text>
+        </view>
+
+        <view class="view-line" wx:if="{{orderItem.order_state==2 || orderItem.order_state==3 || orderItem.order_state==4 || orderItem.order_state==5 ||  orderItem.order_state==6 || orderItem.order_state==7 || orderItem.order_state==9 || orderItem.order_state==11 || orderItem.order_state==12}}"></view>
+        <view class="contact-view" catchtap="onFailfun" >
+          <view class="contact-view-view" wx:if="{{orderItem.order_state==7}}">
+            <text class="contact-view-text">联系商家</text>
+            <button open-type="contact" class="contact-view-bt"></button>
+          </view>
+          <view class="contact-view-view-or" wx:for="{{order_fun_list}}" wx:key="" wx:if="{{orderItem.order_state==item.fun_states}}" catchtap="onOrderFun" data-order_id="{{orderItem.order_id}}" data-order_state="{{orderItem.order_state}}" data-fun_id="{{item.fun_id}}">
+            <text class="contact-view-text">{{item.fun_name}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="view-no-use mt-100" wx:if="{{showNoData}}">
+    <image class="img-no-use" src="{{no_use}}"></image>
+    <text class="text-14">暂无数据</text>
+  </view>
+  <!--加载区 -->
+  <view class="loading_box" wx:if="{{loadMore}}">
+    <view class="pulse pulse_1"></view>
+    <view class="pulse pulse_2"></view>
+    <view class="pulse pulse_3"></view>
+    <view class="pulse pulse_4"></view>
+  </view>
+</view>

@@ -1,0 +1,46 @@
+<!--pages/index/search/searchResult/searchResult.wxml-->
+<view class='view-bg'>
+  <view class='view-search' bindtap="backPressed">
+    <image class='img-search' src='{{home_search}}'></image>
+    <input class='view-input' placeholder='搜索商品' value="{{kerWorks}}" disabled="disabled"></input>
+    <view class='btn-search'>取消</view>
+  </view>
+
+  <view class="view-no-use " wx:if="{{showNoData}}">
+    <image class="img-no-use" style='margin-top:100rpx' src="{{no_use}}"></image>
+    <text class="text-14">{{msg}}</text>
+  </view>
+  <view class="view-result" wx:else>
+    <view class="view-search-result">
+      <view class="view-search-bg"></view>
+      <view class="text-search-result">搜索结果</view>
+    </view>
+
+    <view class="view-table-view">
+      <block wx:for="{{goods_list}}" wx:key="{{goodsKey}}" wx:for-item="goodsItem" wx:for-index="goodsIndex">
+        <view class="view-table-view-cell">
+          <image class="img-goods" src="{{goodsItem.goods_img}}"></image>
+          <view class="view-cell-content">
+          <view class="view-content" style="margin-top:8rpx;">
+            <text class="text-left" style="font-size:26rpx;">{{goodsItem.goods_name}}</text>
+            <text class="text-right" style="font-size:22rpx;color:#999999;">{{goodsItem.distance}}KM</text>
+          </view>
+          <view class="view-content" style="margin-top:36rpx;">
+            <text class="text-left" style="font-size:22rpx;color:#4D4D4D;">价格</text>
+            <text class="text-right" style="font-size:22rpx;color:#FF3300;">￥{{goodsItem.goods_price}}</text>
+          </view>
+          <view class="view-content" style="margin-top:20rpx;">
+            <text class="text-left" style="font-size:22rpx;color:#FF9900;">补贴金</text>
+            <text class="text-right" style="font-size:22rpx;color:#FF9900;">{{goodsItem.subsidy_price}}</text>
+          </view>
+          <view class="view-content" style="margin-top:20rpx;">
+            <text class="text-left" style="font-size:22rpx;color:#FC6B4E;">昕惠分</text>
+            <text class="text-right" style="font-size:22rpx;color:#FC6B4E;">{{goodsItem.xinhui_point_price}}</text>
+          </view>
+        </view>
+        </view>
+        <view class="view-line"></view>
+      </block>
+    </view>
+  </view>
+</view>

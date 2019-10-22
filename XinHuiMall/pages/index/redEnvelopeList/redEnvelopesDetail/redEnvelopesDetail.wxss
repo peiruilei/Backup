@@ -1,0 +1,240 @@
+/* pages/index/redEnvelopeList/redEnvelopesDetail/redEnvelopesDetail.wxss */
+.outer{
+  width: 750rpx;
+  height: 1206rpx;
+  background-color: #fafa;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  text-align: center; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup-redpacket{
+  width: 579rpx;
+  height: 534rpx;
+  border-radius:8px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin-top: 329rpx;
+  margin-bottom: 46rpx;
+  margin-left: 171rpx;
+}
+
+.view-content{
+  width: 408rpx;
+  height: 514rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.view-content-img{
+  width:120rpx;
+  height:120rpx;
+  border-radius:8px;
+  margin-top:24rpx;
+  margin-bottom:8rpx;
+}
+
+.view-content-shopname{
+  height:50rpx;
+  font-size:26rpx;
+  line-height:50rpx;
+  color:rgba(255,255,255,1);
+  margin-bottom:48rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical; 
+  -webkit-line-clamp: 1; 
+}
+
+.view-content-champion{
+  height:50rpx;
+  font-size:22rpx;
+  line-height:50rpx;
+  color:rgba(255,255,255,1);
+}
+
+.view-content-reward{
+  height:50rpx;
+  font-size:22rpx;
+  line-height:50rpx;
+  color:rgba(255,255,255,1);
+  margin-top:-5rpx;
+  margin-bottom:77rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical; 
+  -webkit-line-clamp: 1; 
+}
+
+.view-explanation{
+  width: 655rpx;
+  height: 239rpx;
+  background-color: #FBCB7E;
+  border-radius: 8px;
+  padding:0 26rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.view-explan-nav{
+  width:100%;
+  height:50rpx;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.view-explan-nav-leftImg{
+  width:50rpx;
+  height:15rpx;
+  margin-top:28rpx;
+}
+
+.view-explan-nav-rightImg{
+  width:45rpx;
+  height:18rpx;
+  margin-top:28rpx;
+}
+
+.view-explan-view{
+  width:100%;
+  height:155rpx;
+  font-size:22rpx;
+  color:rgba(255,255,255,1);
+  line-height:30rpx;
+  text-align: start;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical; 
+  -webkit-line-clamp: 5; 
+}
+
+.cover{
+  width: 750rpx;
+  height: 1206rpx;
+  background-color: rgba(128, 128, 128, 0.651);
+  position: absolute;
+  z-index: 20;
+  top: 0;
+  left: 0;
+}
+
+.view-redpacket{
+  width: 703rpx;
+  height: 527rpx;
+  position:absolute;
+  left: 22rpx;
+  top: 162rpx;
+  background-size: 100%; 
+  text-align:center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.view-redpacket-text1{
+  font-size:36rpx;
+  color:rgba(255,255,255,1);
+  font-weight:400;
+  position:absolute;
+  top:252rpx;
+}
+
+.view-redpacket-text2{
+  font-size:60rpx;
+  color:rgba(255,255,255,1);
+  font-weight:400;
+  position:absolute;
+  top:310rpx;
+}
+
+.view-button{
+  width:229rpx;
+  height:50rpx;
+  background:rgba(253,88,75,1);
+  border-radius:25px;
+  text-align: center;
+  color:white;
+  font-size:30rpx;
+  line-height:50rpx;
+}
+
+.view-shareredpacket{
+  width: 461rpx;
+  height: 553rpx;
+  border-radius:10px;
+  background-color: blue;
+  position: relative;
+  left: 149rpx;
+  top: 196rpx;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.view-shareredpacket-text1{
+  position:absolute;
+  top:263rpx;
+  left:109rpx;
+  font-size:26rpx;
+  color:#666666;
+}
+
+.view-shareredpacket-text2{
+  position:absolute;
+  top:315rpx;
+  left:100rpx;
+  font-size:26rpx;
+  color:#666666;
+}
+
+.view-shareredpacket-button{
+  width:309rpx;
+  height:63rpx;
+  background:linear-gradient(135deg,rgba(254,121,80,1),rgba(252,73,73,1));
+  border-radius:8px;
+  color:white;
+  font-size:30rpx;
+  line-height:63rpx;
+  position:absolute;
+  bottom:81rpx;
+  left:78rpx;
+  text-align:center;
+}
+
+.view-shareredpacket-circle{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  text-align: center;
+  border: 1rpx solid #B3B3B3;
+  position: absolute;
+  right: -58rpx;
+  top: -45rpx;
+  z-index: 999;
+  font-size: 30rpx;
+  line-height: 40rpx;
+  color: #B3B3B3;
+}
+
+.view-redpacket-circle{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  text-align: center;
+  border: 1rpx solid #FFFFFF;
+  position: absolute;
+  right: 70rpx;
+  top: -24rpx;
+  z-index: 999;
+  font-size: 30rpx;
+  line-height: 40rpx;
+  color: #FFFFFF;
+}

@@ -1,0 +1,202 @@
+/* pages/userCenter/voucherWarehouse/couponDetail/couponDetail.wxss */
+.view{
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 优惠券 */
+
+.coupon-item-view {
+  width: 706rpx;
+  height: 236rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 3rpx 7rpx 0px rgba(250, 76, 73, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-size: 706rpx 125rpx;
+  background-repeat: no-repeat;
+  margin-bottom: 31rpx;
+  margin-top: 26rpx;
+}
+
+.coupon-item-top-view {
+  width: 706rpx;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.coupon-item-gift-image {
+  width: 120rpx;
+  height: 38rpx;
+}
+
+.coupon-item-use {
+  width: 120rpx;
+  height: 43rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.coupon-item-use-text {
+  font-size: 24rpx;
+  color: #fff;
+}
+
+.coupon-item-title {
+  font-size: 30rpx;
+  color: #fff;
+  margin-top: 5rpx;
+}
+
+.coupon-item-bottom-view {
+  width: 706rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 76rpx;
+}
+
+.coupon-item-date {
+  font-size: 22rpx;
+  color: #808080;
+  margin-left: 25rpx;
+}
+
+.coupon-item-qr-view {
+  width: 147rpx;
+  height: 52rpx;
+  margin-right: 16rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.coupon-item-qr-text {
+  font-size: 24rpx;
+  color: #fff;
+  margin-left: 10rpx;
+}
+
+/* 商家信息 */
+.merchant{
+  width: 706rpx;
+  display: flex;
+  flex-direction: column;
+}
+.merchant-text{
+  font-size: 30rpx;
+  color: #333333;
+  margin-bottom: 29rpx;
+}
+.merchant-view{
+  width: 706rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.merchant-view-image{
+  width:183rpx;
+height:183rpx;
+border-radius:8rpx;
+background-color: #CCCCCC;
+}
+.merchant-view-view{
+  height: 183rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 25rpx;
+  flex: 1;
+}
+
+.merchant-view-view-top-text{
+  font-size: 28rpx;
+  color: #333333;
+  max-width: 460rpx
+}
+.merchant-view-view-bottom-view{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.merchant-view-view-bottom-view-text{
+  font-size: 28rpx;
+  color: #CCCCCC;
+}
+.merchant-view-view-bottom-view-image{
+  width:25rpx;
+height:25rpx;
+margin: 0 18rpx;
+}
+.merchant-view-view-bottom-view-right-text{
+  font-size: 28rpx;
+  color: #FC4949;
+}
+.message-title{
+  margin-top: 52rpx;
+  margin-bottom: 23rpx;
+  font-size: 30rpx;
+  color: #333333;
+}
+.message-text{
+  width: 688rpx;
+  font-size: 30rpx;
+  color: #808080;
+}
+
+/* 底部按钮 */
+.bottom-view{
+  width:346rpx;
+height:80rpx;
+background:linear-gradient(135deg,rgba(254,121,80,1),rgba(252,73,73,1));
+border-radius:8rpx;
+font-size: 34rpx;
+color: #FFFFFF;
+margin-top: 340rpx;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+
+/* 二维码弹出 */
+.qr{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: rgba(56, 54, 54, 0.466);
+}
+.qr-view{
+  width:707rpx;
+height:708rpx;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+align-items: center;
+margin-left: 22rpx;
+margin-top: 200rpx;
+background-color: #FFFFFF;
+border-radius:10rpx;
+}
+.qr-image{
+width:495rpx;
+height:495rpx;
+/* background:rgba(51,51,51,1); */
+}
+.qr-text{
+font-size: 26rpx;
+color: #333333;
+}

@@ -1,0 +1,25 @@
+/* pages/userCenter/userInfo/changeName/changeName.wxss */
+.view-name{
+  width: 100%;
+  height: 150rpx;
+  background-color: #ffffff
+}
+.input-name{
+  margin-left: 24rpx;
+  width: 726rpx;
+  height: 150rpx;
+  background-color: #ffffff;
+  line-height: 150rpx
+}
+.button-modify{
+  margin-top: 200rpx;
+  width: 706rpx;
+  height: 80rpx;
+  background:linear-gradient(135deg,rgba(254,121,80,1),rgba(252,73,73,1));
+  color: #ffffff;
+  line-height: 80rpx;
+  text-align: center;
+}
+.button-modify::after{
+  border: none;
+}

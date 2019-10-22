@@ -1,0 +1,12 @@
+<view class="view" >
+  <view class="Qr-top-bg-view" style="background-image:url({{showQR_top_bg}})" >
+    <text class="Qr-top-bg-text" wx:if="{{is_use==0}}" >二维码状态：未使用</text>
+    <text class="Qr-top-bg-text" wx:else >二维码状态：已使用</text>
+  </view>
+
+<image src="{{qr_image}}" class="Qr-image" ></image>
+
+<text class="Qr-message" >到店后出示此二维码，商家将会对您的订单进行核销</text>
+
+
+</view>

@@ -1,0 +1,173 @@
+/**index.wxss**/
+page{
+  background-color: #f7f7f7;
+}
+
+.navigateor{
+  width: 750rpx;
+  height: 92rpx;
+  background:rgba(255,255,255,1);
+  box-shadow:0rpx 0rpx 20rpx 0rpx rgba(0, 0, 0, 0.03);
+  z-index: 10;
+  position: fixed;
+  top: 0;
+}
+
+/* 占位图-无意义 */
+.view-seat-1{
+  width: 750rpx;
+  height: 92rpx;
+}
+
+.naviagte-scroll-tab{
+  height: 92rpx;
+  width: 750rpx;
+  white-space: nowrap;
+}
+
+.view-item-outer{
+  height: 92rpx;
+  margin: 0 24rpx;
+  display: inline-block;
+}
+
+.view-naviagte-item{
+  height: 92rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.naviagte-item-text{
+  height: 88rpx;
+  text-align: center;
+  line-height: 88rpx;
+  font-size: 26rpx;
+  font-family:Source Han Sans CN;
+  font-weight:400;
+  color:rgba(21,21,21,1);
+}
+
+.view-line{
+  width: 50rpx;
+  height: 4rpx;
+  background:rgba(248,105,88,1);
+  border-radius:2rpx;
+}
+
+/* 当前所在导航 */
+.navigate-active{
+  font-size:30rpx;
+  color:rgba(248,105,88,1);
+}
+
+/* 提示：数据加载中 */
+.view-wait{
+  height: 24rpx;
+  width: 214rpx;
+  background-size:100%;
+  margin-top: 20rpx; 
+  margin-left: 268rpx;
+}
+
+/* 无相册时占位图 */
+.view-noImg{
+  width: 278rpx;
+  height: 280rpx;
+  background-size:100%;
+  margin-top: 97rpx;
+  margin-left:224rpx; 
+}
+
+.view-noImg-text{
+  width: 750rpx;
+  height: 24rpx;
+  line-height: 24rpx;
+  font-size:24rpx;
+  font-family:Source Han Sans CN;
+  font-weight:400;
+  color:rgba(165,165,165,1);
+  margin-top: 19rpx;
+  text-align: center;
+}
+
+/* 底边栏 */
+.TarBar{
+  position: fixed;
+  bottom: 0rpx;
+}
+
+
+/* 相册列表 */
+.view-list{
+  width: 750rpx;
+  padding: 20rpx 22rpx 100rpx 22rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.view-list-item{
+  width: 340rpx;
+  height: 368rpx; 
+  margin-bottom: 20rpx;
+}
+
+.view-item-top{
+  width: 340rpx;
+  height: 228rpx;
+  background-color: rgba(210,210,210,1);
+  border-radius:5rpx 5rpx 0rpx 0rpx;
+  background-size:100%; 
+}
+
+.view-item-bottom{
+  width: 340rpx;
+  height: 140rpx;
+  background:rgba(255,255,255,1);
+  opacity:0.98;
+  border-radius:0rpx 0rpx 5rpx 5rpx;
+  padding-left: 14rpx;
+  padding-top:20rpx;
+  box-sizing: border-box; 
+  position: relative;
+}
+
+.list-item-title{
+  font-size:28rpx;
+  font-family:Source Han Sans CN;
+  font-weight:400;
+  color:rgba(21,21,21,1);
+  margin-bottom: 5rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical; 
+  -webkit-line-clamp: 1; 
+}
+
+.list-item-data{
+  font-size:22rpx;
+  font-family:Source Han Sans CN;
+  font-weight:400;
+  color:rgba(181,181,181,1);
+}
+
+.list-item-site{
+  font-size:22rpx;
+  font-family:Source Han Sans CN;
+  font-weight:400;
+  color:rgba(181,181,181,1);
+}
+
+.list-item-arrow{
+  width: 46rpx;
+  height: 46rpx;
+  background-size:100%; 
+  position: absolute;
+  right: 3rpx;
+  bottom: 12rpx;
+}

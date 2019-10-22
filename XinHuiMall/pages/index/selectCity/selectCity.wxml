@@ -1,0 +1,24 @@
+<view class="view-bg">
+  <scroll-view scroll-y="true" style="height:{{windowHeight*widthPro}}rpx;" scroll-into-view="{{letter}}"  scroll-with-animation="true" enable-back-to-top="true">
+    <view class="view-loction-city" bindtap="selectCityPressed" data-city_id="{{loction_city_id}}" data-city_name="{{loction_city_name}}">
+      <text style="margin-left:20rpx;" id="loc">当前定位城市:</text>
+      <view class="view-city">
+      <text class="text-city">{{loction_city_name}}</text>
+      </view>
+    </view>
+    <block wx:for="{{city_list}}" wx:key="{{cityKey}}" wx:for-index="cityIndex" wx:for-item="cityItem">
+      <view class="view-section" id="{{cityItem.key}}">
+        <text style="margin-left:20rpx;">{{cityItem.key}}</text>
+      </view>
+      <block wx:for="{{cityItem.list}}" wx:key="{{listKey}}">
+        <view class="view-table-view-cell" bindtap="selectCityPressed" data-city_id="{{item.id}}" data-city_name="{{item.name}}">
+          <text class="text-14 ml10">{{item.name}}</text>
+        </view>
+      </block>
+    </block>
+  </scroll-view>
+  <view class='city-py'>
+    <view wx:for="{{letterArray}}" wx:key="key" bindtap="selectWordIndex" data-letter="{{item}}">{{item=='loc'?'#':item}}
+    </view>
+  </view>
+</view>

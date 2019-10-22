@@ -1,0 +1,27 @@
+<view class="view">
+  <view class="view-line"></view>
+  <view class="gift">
+    <text class="gift-text">转赠他人</text>
+    <input placeholder="请输入转赠人ID" maxlength="8" type="number" bindinput="oninputID" placeholder-style="color:#999999;font-size:26rpx;"></input>
+  </view>
+  <view class="view-line"></view>
+  <text class="title-text">以下优惠券将会赠送给转赠人</text>
+  <view class="coupon-item-view" style="background-image:url({{coupon_top_bg}})">
+    <view class="coupon-item-top-view">
+      <image class="coupon-item-gift-image" src="{{coupon_gift}}"></image>
+      <!-- <view class="coupon-item-use" style="background-image:url({{coupon_use}})" >
+        <text class="coupon-item-use-text" >已使用</text>
+      </view> -->
+    </view>
+    <text class="coupon-item-title">{{couponInfo.champion_reward}}</text>
+    <view class="coupon-item-bottom-view">
+      <text class="coupon-item-date">到期时间:{{couponInfo.championreward_endtime}}</text>
+      <view class="coupon-item-qr-view" style="background-image:url({{coupon_qr}})" bindtap="onSeeMerchant" data-shop_id="{{couponInfo.shop_id}}" >
+        <text class="coupon-item-qr-text">查看商家</text>
+      </view>
+    </view>
+  </view>
+  <view class="bottom-bt-view" bindtap="onsubmit" >
+    <text>确认赠送</text>
+  </view>
+</view>

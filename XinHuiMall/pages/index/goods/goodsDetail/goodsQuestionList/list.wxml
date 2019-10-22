@@ -1,0 +1,49 @@
+<!--pages/index/goods/goodsDetail/goodsQuestionList/list.wxml-->
+<view class="view-no-use " wx:if="{{showNoData}}">
+  <image class="img-no-use" style='margin-top:0rpx' src="{{no_use}}"></image>
+  <text class="text-14">{{msg}}</text>
+</view>
+<view class="view-bg" wx:else>
+  <block wx:for="{{qustion_list}}" wx:key="{{qustionKey}}" wx:for-index="qustionIndex" wx:for-item="qustionItem">
+    <view class="view-qustion-cell">
+      <view class="view-qustion">
+        <view class="view-left">
+          <view class="view-qustion-bg">
+            问</view>
+          <text class="text-qustion">{{qustionItem.question_content}}</text>
+        </view>
+        <text class="text-time">{{qustionItem.add_time}}</text>
+      </view>
+
+      <view class="view-answer">
+        <view class="view-left" style="align-items:flex-start;" wx:if="{{qustionItem.reply_content.length>0}}">
+          <view class="view-answer-bg">
+            答</view>
+          <text class="text-answer">(商家回复){{qustionItem.reply_content}}</text>
+        </view>
+        <view class="view-left" wx:else>
+          <text class="text-answer">暂无回答</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+
+
+<view class="view-ask-question" bindtap="showspecificationPressed">
+
+  <view class="btn-ask-question">我要提问</view>
+
+</view>
+
+
+
+<view class="view-show-bg bottom-pos" bindtap="hiddenSpecification" style='display:{{isShowAskQuestion?"":"none"}}' animation='{{animationData}}'>
+  <view class="view-textarea-view" catchtap="noHiddenSpecification">
+    <text class="text-describe">问题描述</text>
+    <view class="view-textarea-bg">
+      <textarea class="text-input-block" bindinput="inputQuestionContentPressed" value="{{question_content}}" placeholder="请输入您要提问的问题"></textarea>
+    </view>
+    <view class="view-submit" bindtap="submitPresed">提交</view>
+  </view>
+</view>

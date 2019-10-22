@@ -1,0 +1,190 @@
+.view{
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* 订单成功信息 */
+.success-view{
+  width: 750rpx;
+  background-size: 750rpx 167rpx;
+  background-repeat: no-repeat;
+  background-color: #FFFFFF;
+}
+.order-success-top-view{
+  width: 750rpx;
+  height: 167rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #FFFFFF;
+}
+.order-success-top-title{
+font-size: 28rpx;
+
+}
+.order-success-top-msg{
+  font-size: 22rpx;
+  margin-top: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.order-success-bottom-view{
+  width: 750rpx;
+  height: 177rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+.order-success-bottom-prize-view{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.order-success-bottom-prize-text{
+  font-size: 28rpx;
+  color: #666666
+}
+.order-success-bottom-prize{
+  font-size: 32rpx;
+  color: #FF3300;
+}
+.order-success-bottom-fun-view{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 36rpx;
+}
+.order-success-bottom-fun-back{
+  width:144rpx;
+height:46rpx;
+background:rgba(255,255,255,1);
+border:1rpx solid rgba(153,153,153,1);
+border-radius:8rpx;
+font-size: 26rpx;
+color: #999999;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-right: 38rpx;
+}
+.order-success-bottom-fun-seeOrder{
+width:144rpx;
+height:46rpx;
+background:rgba(255,255,255,1);
+border:1rpx solid rgba(252,73,73,1);
+border-radius:8rpx;
+font-size: 26rpx;
+color: #FC4949;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+
+/* 其他推荐 */
+.other-recommend{
+display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FFFFFF;
+}
+.other-recommend-title-view{
+  width: 750rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30rpx;
+}
+.other-recommend-left-image{
+  width: 36rpx;
+  height: 31rpx;
+}
+.other-recommend-title{
+  font-size: 30rpx;
+  color: #333333;
+  margin: 0 14rpx;
+}
+.other-recommend-right-image{
+width: 36rpx;
+  height: 31rpx;
+}
+.other-recommend-list{
+  width: 706rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.other-recommend-item{
+  margin-top: 28rpx;
+  display: flex;
+  flex-direction: column;
+}
+.other-recommend-detail-image{
+  width:345rpx;
+height:173rpx;
+border-radius:10rpx;
+background-color: pink;
+}
+.other-recommend-detail-name{
+  font-size: 26rpx;
+  color: #333333;
+  margin: 20rpx 0 ;
+}
+.other-recommend-detail-prize-view{
+  height: 123rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.other-recommend-detail-left-view{
+  height: 100%;
+  flex: 6;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.other-recommend-prize{
+  font-size: 22rpx;
+  color: #FF3300;
+}
+.other-recommend-gold{
+font-size: 26rpx;
+color: #FF9900;
+}
+.other-recommend-point{
+font-size: 26rpx;
+color: #FD6B4E;
+}
+.other-recommend-right-view{
+  height: 100%;
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  color: #CCCCCC;
+  font-size: 24rpx;
+}
+.other-recommend-prize-overage{
+
+}
+.other-recommend-gold-overage{
+
+}
+.other-recommend-point-overage{
+
+}
+
+
+
+
+
+
+

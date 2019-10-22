@@ -1,0 +1,68 @@
+/* pages/userCenter/publicNumber/publicNumber.wxss */
+page{
+  background-color: white;
+  height: 100%;
+}
+
+.view-bg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  text-align: center;
+}
+
+.view-prompt {
+  margin-top: 120rpx;
+  width: 100%;
+  height: 84rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.text-prompt {
+  font-size: 34rpx;
+  color: white;
+}
+
+/* 二维码 */
+
+.view-qrcode-bg {
+  width: 80%;
+  height: 600rpx;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 46rpx;
+  border-radius: 20rpx;
+}
+
+.button-save-picture {
+  font-size: 34rpx;
+  color: #68D6AB;
+  width: 80%;
+  height: 90rpx;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 10rpx;
+  border: none;
+  margin-top: 50rpx;
+}
+
+.img-qrcode {
+  width: 350rpx;
+  height: 350rpx;
+  background-color: #f7f7f7;
+}
+
+.button-save-picture::after
+{
+  border: none;
+}

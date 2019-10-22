@@ -1,0 +1,43 @@
+<!--pages/userCenter/agencycenter/agencycenter.wxml-->
+<view class="view-page">
+<view class="head-line"></view>
+  <view class="view-agency text-14">
+  我代理的店铺
+  </view>
+  <view class="view-agency-wrap" wx:for="{{agencyList}}" wx:key="" data-shop_id="{{item.shop_id}}" bindtap="shopClick">
+    <view class="view-agency-item">
+      <!-- 左 -->
+      <view class="view-agency-item-left">
+        <image src="{{item.big_img}}" class="view-agency-item-left-img"></image>
+      </view>
+      <!-- 右 -->
+      <view class="view-agency-item-right text-14 ">
+        <view class="view-agency-item-right-name ">{{item.shop_name}}</view>
+        <view class="view-agency-item-right-commission">
+          <view class="view-agency-item-right-commission-left ">累积分佣
+            <text class="text">￥{{item.aggregate_commission}}</text>
+          </view>
+          <view class="view-agency-item-right-commission-right">现金分佣比例:
+            <text class="money">{{item.cash_commission_ratio}}%</text>
+          </view>
+        </view>
+        <view class="view-agency-item-right-commission-ratio">昕惠分佣比例:<text class="ratio">{{item.xinhuipoint_commission_ratio}}%</text></view>
+        <view class="view-agency-item-right-subsidy-ratio">补贴金分佣比例:<text class="text">{{item.subsidy_commission_ratio}}%</text></view>
+      </view>
+    </view>
+    <view class="view-line"></view>
+  </view>
+
+<!-- 无数据 -->
+  <view class="view-no-use mt-100" wx:if="{{showNoData}}">
+    <image class="img-no-use" src="{{common_no_data}}"></image>
+    <text class="text-14">暂无数据</text>
+  </view>
+  <!-- 加载区 -->
+  <view class="loading_box" wx:if="{{loadMore}}">
+    <view class="pulse pulse_1"></view>
+    <view class="pulse pulse_2"></view>
+    <view class="pulse pulse_3"></view>
+    <view class="pulse pulse_4"></view>
+  </view>
+</view>

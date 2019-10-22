@@ -1,0 +1,259 @@
+page {
+  background: #fff;
+}
+
+.view-page {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: #fff;
+}
+
+/* 两种线 */
+
+.line {
+  width: 100%;
+  height: 2rpx;
+  background: #fafafa;
+}
+
+.line-view {
+  width: 100%;
+  height: 10rpx;
+  background: #fafafa;
+}
+
+/* 地图 */
+
+.view-map {
+  width: 100%;
+  height: 450rpx;
+  display: flex;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.view-map-bottom {
+  bottom: 0rpx;
+  width: 100%;
+  height: 30rpx;
+  border-top-left-radius: 15rpx;
+  border-top-right-radius: 15rpx;
+  background: #fff;
+  position: absolute;
+}
+
+/* 进行中的订单状态 */
+
+.view-state-processing-box {
+  width: 100%;
+  height: 170rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+}
+
+/* 维修师傅 */
+
+.view-master-box {
+  width: 100%;
+  height: 170rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #fff;
+  justify-content: space-between;
+}
+
+.img-master-header {
+  margin-left: 30rpx;
+  width: 100rpx;
+  height: 100rpx;
+  background: #fafafa;
+  border-radius: 50rpx;
+}
+
+.view-name-tel-box {
+  margin-right: 30rpx;
+  width: 560rpx;
+  height: 170rpx;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  justify-content: center;
+}
+
+/* 任务 */
+
+.view-task-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  justify-content: center;
+}
+
+.view-task-type {
+  width: 100%;
+  height: 88rpx;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.view-task-desc {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.view-task-gallery {
+  width: 100%;
+  height: 278rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.image-group {
+  width: 96%;
+  display: flex;
+  white-space: nowrap;
+  padding-left: 4%;
+}
+
+.image-group image {
+  display: inline-block;
+  width: 160rpx;
+  height: 160rpx;
+  margin-right: 30rpx;
+  background: #fafafa;
+  border-radius: 10rpx;
+}
+
+/* 待验收的订单顶部 */
+
+.view-order-top {
+  width: 92%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10rpx;
+  background: #68d6ab;
+  margin-top: 30rpx;
+}
+
+.view-order-result-gallery {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: white;
+}
+
+.view-order-result-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 协助者信息 */
+
+.view-helper-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: white;
+}
+
+/* 验收支付 */
+
+.view-order-pay-chack {
+  bottom: 0rpx;
+  width: 100%;
+  height: 88rpx;
+  background: white;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0rpx -6rpx 14rpx #fafafa;
+  position: fixed;
+}
+
+.btn-order-pay {
+  margin-top: 9rpx;
+  margin-right: 30rpx;
+  width: 380rpx;
+  height: 70rpx;
+  border-radius: 35rpx;
+  background: -webkit-linear-gradient(left, #fe8c21, #fd9e22);
+  display: flex;
+  color: white;
+  font-size: 30rpx;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 操作按钮 */
+
+.btn-order-detal {
+  margin-top: 30rpx;
+  margin-bottom: 40rpx;
+  height: 60rpx;
+  width: 200rpx;
+  border: 2rpx #b7f0da solid;
+  border-radius: 30rpx;
+  color: white;
+  font-size: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 评价 */
+
+.view-comment-result {
+  margin-left: 160rpx;
+  width: 590rpx;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.view-comment-box{
+  margin-top: 20rpx;
+  width: 100%;
+  height: 50rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.text-comment-box{
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  width: 560rpx;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 30rpx;
+  color: #323232;
+}
+
+.view-comment-star{
+  width: 190rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.img-star{
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 8rpx;
+}

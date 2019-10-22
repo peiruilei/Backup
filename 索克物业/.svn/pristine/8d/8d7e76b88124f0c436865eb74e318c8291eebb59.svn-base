@@ -1,0 +1,355 @@
+// pages/userCenter/userMessage/userMessage.js
+const app = getApp()
+var lastClickTime = 0
+var minClickTime = app.globalData.minClickTime
+var imagePath = app.globalData.imagePath
+var encryptUtils = require('../../../utils/HHEncryptUtils.js')
+var modelUtils = require('../../../utils/HHModelUtils.js')
+var utils = require('../../../utils/util.js')
+
+var pageIndex = 1
+var pageSize = app.globalData.pageSize
+
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    usercenter_img_msg: imagePath + app.globalData.usercenter_img_msg,
+    showNoData: false,
+    loadMore: false,
+    msgArray: [],
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function(options) {
+    pageIndex = 1;
+    this.getPageData();
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function() {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function() {
+    pageIndex = 1;
+    this.getPageData();
+    wx.stopPullDownRefresh();
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function() {
+    var loadMore = this.data.loadMore
+    if (loadMore) {
+      pageIndex++;
+      this.getPageData();
+    }
+  },
+
+  goToMessageDetail: function(event) {
+    var item = event.currentTarget.dataset.model
+    var index = event.currentTarget.dataset.index
+    if (item.type == 0) {
+      wx.navigateTo({
+        url: '/pages/userCenter/userMessage/messageDetail/messageDetail?url=' + item.info_url,
+      })
+    } else {
+
+    }
+    if (item.is_read == 0) {
+      this.updateSystemState(item.info_id, index);
+    }
+  },
+
+  //手指触摸动作开始 记录起点X坐标
+  touchstart: function(e) {
+    //开始触摸时 重置所有删除
+    this.data.msgArray.forEach(function(v, i) {
+      if (v.isTouchMove) //只操作为true的
+        v.isTouchMove = false;
+    })
+
+    this.setData({
+      startX: e.changedTouches[0].clientX,
+      startY: e.changedTouches[0].clientY,
+      msgArray: this.data.msgArray
+    })
+  },
+
+  //滑动事件处理
+  touchmove: function(e) {
+    var that = this,
+      index = e.currentTarget.dataset.index, //当前索引
+      startX = that.data.startX, //开始X坐标
+      startY = that.data.startY, //开始Y坐标
+      touchMoveX = e.changedTouches[0].clientX, //滑动变化坐标
+      touchMoveY = e.changedTouches[0].clientY, //滑动变化坐标
+      //获取滑动角度
+      angle = that.angle({
+        X: startX,
+        Y: startY
+      }, {
+        X: touchMoveX,
+        Y: touchMoveY
+      });
+
+    that.data.msgArray.forEach(function(v, i) {
+      v.isTouchMove = false
+      //滑动超过30度角 return
+      if (Math.abs(angle) > 30) return;
+      if (i == index) {
+        if (touchMoveX > startX) //右滑
+          v.isTouchMove = false
+        else //左滑
+          v.isTouchMove = true
+      }
+    })
+    //更新数据
+    that.setData({
+      msgArray: that.data.msgArray
+    })
+  },
+
+  /**
+  
+  * 计算滑动角度
+  
+  * @param {Object} start 起点坐标
+  
+  * @param {Object} end 终点坐标
+  
+  */
+
+  angle: function(start, end) {
+    var _X = end.X - start.X,
+      _Y = end.Y - start.Y
+    //返回角度 /Math.atan()返回数字的反正切值
+    return 360 * Math.atan(_Y / _X) / (2 * Math.PI);
+  },
+  //删除事件
+  del: function(event) {
+    // console.log(1)
+    var index = event.currentTarget.dataset.index
+    console.log(index)
+    // var msgArray = this.data.msgArray
+    wx.showModal({
+      title: '提示',
+      content: '确定要删除这条消息吗？',
+      success: function(res) {
+        if (res.confirm) {
+          wx.showLoading({
+            title: '正在加载...',
+          })
+          var para = {}
+          para["v"] = encryptUtils.base64Encode(app.globalData.v)
+          para["info_id"] = encryptUtils.base64Encode(item.info_id)
+          para["user_id"] = encryptUtils.base64Encode(wx.getStorageSync("user_id"))
+          var str = JSON.stringify(para)
+          var urlStr = encodeURIComponent(str)
+          console.log(urlStr)
+          wx.request({
+            url: app.globalData.ip + "user/delsinglesystemusermsg",
+            method: 'POST',
+            header: {
+              'content-type': 'application/x-www-form-urlencoded',
+              'From': "WeChat"
+            },
+            data: {
+              'para': urlStr
+            },
+            success: function(res) {
+              console.log(res)
+              wx.hideLoading()
+              var code = res.data.code
+              var msg = res.data.msg
+              if (code == 100) {
+                var ar = that.data.msgArray
+                msgArray.splice(index, 1)
+                that.setData({
+                  msgArray: msgArray,
+                })
+                if (msgArray.length == 0) {
+                  that.setData({
+                    showNoData: true,
+                    msg: "暂时数据"
+                  })
+                }
+                wx.showToast({
+                  title: msg,
+                  icon: "none",
+                })
+              } else {
+                wx.showToast({
+                  title: msg,
+                  icon: "none",
+                })
+              }
+            },
+            fail: function() {
+              wx.hideLoading()
+              wx.showToast({
+                title: '网络异常',
+                icon: "none"
+              })
+            },
+            complete: function() {}
+          })
+        }
+      }
+    })
+  },
+  //获取页面信息
+  getPageData: function() {
+    wx.showLoading({
+      title: '正在加载...',
+    })
+    var that = this
+    var para = {}
+    para["v"] = encryptUtils.base64Encode(app.globalData.v)
+    para["user_id"] = encryptUtils.base64Encode(1)
+    para["page"] = encryptUtils.base64Encode(pageIndex)
+    para["page_size"] = encryptUtils.base64Encode(pageSize)
+    // para["user_id"] = encryptUtils.base64Encode(wx.getStorageSync('user_id'))
+    var str = JSON.stringify(para)
+    var urlStr = encodeURIComponent(str)
+    console.log(urlStr)
+    wx.request({
+      url: app.globalData.ip + "user/systemuserlist",
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'From': "WeChat"
+      },
+      data: {
+        'para': urlStr
+      },
+      success: function(res) {
+        console.log(res)
+        var code = res.data.code
+        var msg = res.data.msg
+        wx.hideLoading()
+        if (code == 100) {
+          var result = modelUtils.getList(res.data.result)
+          if (pageIndex == 1) {
+            that.setData({
+              msgArray: result,
+              loadMore: result.length == pageSize,
+              showNoData: false
+            })
+          } else {
+
+            var msgArray = that.data.msgArray
+            msgArray = msgArray.concat(result)
+            that.setData({
+              msgArray: msgArray,
+              loadMore: result.length == pageSize,
+              showNoData: false
+            })
+
+          }
+        } else {
+          wx.showToast({
+            title: msg,
+            icon: "none"
+          })
+          if (pageIndex == 1) {
+            that.setData({
+              showNoData: true,
+              msg: msg,
+            })
+          } else {
+            that.setData({
+              showNoData: false,
+              msg: msg,
+            })
+          }
+        }
+      },
+      fail: function() {
+        wx.hideLoading()
+        wx.showToast({
+          title: '网络异常',
+        })
+        that.setData({
+          showNoData: true,
+          msg: '网络异常',
+        })
+      },
+      complete: function() {}
+    })
+  },
+  //修改系统消息状态
+  updateSystemState: function(info_id, index) {
+    var para = {}
+    var userID = wx.getStorageSync("user_id")
+    para["info_id"] = encryptUtils.base64Encode(info_id)
+    para["user_id"] = encryptUtils.base64Encode(userID)
+    para["v"] = encryptUtils.base64Encode(app.globalData.v)
+    var str = JSON.stringify(para)
+    var urlStr = encodeURIComponent(str)
+    console.log("urlStr==" + urlStr)
+    console.log(app.globalData.ip + "tesystemuser/updastate")
+    var that = this
+    wx.request({
+      url: app.globalData.ip + "user/updatesystemstate",
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'From': "WeChat"
+      },
+      data: {
+        'para': urlStr
+      },
+      success: function(res) {
+        var code = res.data.code
+        if (code == 100) {
+          var msgArray = that.data.msgArray
+          var model = msgArray[index]
+          model[index].is_read = 0
+          that.setData({
+            msgArray: msgArray,
+          })
+        } else {
+
+        }
+      },
+      fail: function(res) {
+
+      },
+      complete: function() {}
+    })
+  },
+
+})

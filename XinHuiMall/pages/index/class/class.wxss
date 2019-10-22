@@ -1,0 +1,84 @@
+/* pages/index/class/class.wxss */
+
+page{
+  background-color: white;
+}
+
+.scroll-view-left {
+  width: 210rpx;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30rpx;
+  position: absolute;
+  left: 0rpx;
+  top: 0rpx;
+  background-color: #F7F7F7;
+}
+
+.sroll-left-item {
+  width: 100%;
+  height: 82rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26rpx;
+  color: #4D4D4D;
+  background-color: #F7F7F7;
+}
+
+.sroll-left-item.active{
+  background-color: #FC4949;
+  color: white;
+}
+
+.view-line {
+  width: 100%;
+  height: 2rpx;
+  background-color: #EBEBEB;
+}
+
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.scroll-view-right {
+  width: 542rpx;
+  position: absolute;
+  padding-top: 15rpx;
+  left: 210rpx;
+  display: flex;
+}
+
+.class-list {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.view-class-item {
+  width: 33%;
+  height: 172rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.img-class-item {
+  width: 100rpx;
+  height: 100rpx;
+  background-color: #F7F7F7;
+  border-radius: 12rpx;
+}
+
+.text-class-name {
+  font-size: 24rpx;
+  color: #999999;
+  margin-top: 10rpx;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

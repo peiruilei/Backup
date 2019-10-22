@@ -1,0 +1,35 @@
+/* pages/userCenter/setting/setting.wxss */
+.page{
+  height: 100%;
+  background-color: #fff;
+  padding: 0 24rpx;
+  border-top: 1rpx solid #F2F2F2
+}
+.view-setting{
+  width: 702rpx;
+  height: 100rpx;
+  border-bottom: 1rpx solid #F2F2F2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.view-setting-left{
+  color: #333;
+  font-size: 30rpx
+}
+/* 箭头图片 */
+.view-setting-right image{
+  width: 10rpx;
+  height: 17rpx;
+}
+
+/* 退出登录 */
+.button-logout{
+  width: 702rpx;
+  height: 80rpx;
+  color: #fff;
+  font-size: 34rpx;
+  border-radius: 8rpx;
+  background:linear-gradient(135deg,#FE7950,#FC4949);
+  margin-top: 364rpx
+}

@@ -1,0 +1,69 @@
+<view class="view-page">
+  <view class="head-line"></view>
+  <!-- 切换 -->
+  <view class="view-collection-button" style="{{nav==2?'background-color:#FC4949':'background-color:#ffffff'}}">
+    <view class="view-collection-button-left" style="{{nav==1?'background-color:#FC4949':'background-color:#ffffff'}};{{nav==1?'color:#ffffff':''}}" bindtap="goodsClick" data-index="1">
+      <text class="view-collection-button-left-text">商品</text>
+    </view>
+    <view class="view-collection-button-right" bindtap="shopClick" data-index="2" style="{{nav==2?'color:#ffffff':''}}">
+      <text class="view-collection-button-right-text">商家</text>
+    </view>
+  </view>
+  <!-- 商品列表 -->
+  <view class="goods" data-mark="1" wx:if="{{mark==1}}">
+    <view class="goods-wrap">
+      <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstartGoods" bindtouchmove="touchmoveGoods" wx:for="{{goodsList}}" wx:key="" >
+        <view class="content" bindtap="goGoods" data-goods_id="{{item.goods_id}}">
+          <image class="goods-item-img" src="{{item.goods_img}}"></image>
+          <view class="goods-item-content">
+            <view class="goods-item-name text-14">
+              {{item.goods_name}}</view>
+            <view class="goods-item-content-price">
+              <view class="goods-item-money">
+                <text class="goods-item-money-price">￥{{item.goods_price}}</text>
+                <text class="goods-item-money-stock text-12">剩余:{{item.goodsprice_stock}}</text>
+              </view>
+              <view class="goods-item-subsidy">
+                <text class="goods-item-money-price">补贴金:{{item.subsidy_price}}</text>
+                <text class="goods-item-subsidy-stock text-12">剩余:{{item.subsidy_stock}}</text>
+              </view>
+              <view class="goods-item-point">
+                <text class="goods-item-point-price">昕惠分:{{item.xinhuipoint_price}}</text>
+                <text class="goods-item-point-stock text-12">剩余:{{item.xinhuipoint_stock}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+         <view class="del" catchtap="dels" data-item_id="{{item.goods_id}}" data-index="{{index}}">删除</view>
+      </view>
+
+
+    </view>
+  </view>
+  <!-- 商家列表 -->
+  <view class="shop" data-mark="2" wx:if="{{mark==2}}">
+    <view class="shop-wrap">
+      <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{shopList}}" wx:key="">
+        <view class="content" bindtap="goShop" data-shop_id="{{item.shop_id}}">
+          <image class="shop-item-img" src="{{item.big_img}}"></image>
+          <view class="shop-item-content">
+            <view class="shop-item-name text-14">{{item.shop_name}}</view>
+            <view class="shop-item-popularity ">人气:{{item.popularity}}</view>
+          </view>
+        </view>
+        <view class="del" catchtap="del" data-item_id="{{item.shop_id}}" data-index="{{index}}">删除</view>
+      </view>
+    </view>
+  </view>
+<view class="view-no-use mt-100" wx:if="{{showNoData}}">
+    <image class="img-no-use" src="{{common_no_data}}"></image>
+    <text class="text-14">暂无数据</text>
+  </view>
+  <!-- 加载区 -->
+  <view class="loading_box" wx:if="{{loadMore}}">
+    <view class="pulse pulse_1"></view>
+    <view class="pulse pulse_2"></view>
+    <view class="pulse pulse_3"></view>
+    <view class="pulse pulse_4"></view>
+  </view>
+</view>

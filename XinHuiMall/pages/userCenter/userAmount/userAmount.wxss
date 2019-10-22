@@ -1,0 +1,126 @@
+/* pages/userCenter/userAmount/userAmount.wxss */
+
+page {
+  background-color: #fff;
+}
+
+.view-userAmount-up-img {
+  width: 34rpx;
+  height: 34rpx;
+}
+
+.view-userAmount {
+  width: 706rpx;
+  height: 244rpx;
+  margin-left: 22rpx;
+  border-radius: 8rpx;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.view-userAmount-up {
+   width: 100rpx;
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ margin-left:600rpx;
+}
+
+.view-userAmount-center {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 28rpx;
+  color: #ffffff;
+}
+
+.view-userAmount-center-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.view-userAmount-center-right {
+  display: flex;
+  flex-direction: column;
+    align-items: center;
+  justify-content: center;
+}
+
+.view-userAmount-down {
+width:158rpx;
+height:40rpx;
+background:rgba(254,157,138,1);
+border-radius:20rpx;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-left: 272rpx;
+margin-bottom: 10rpx;
+}
+.view-userAmount-down-text{
+  font-size: 22rpx;
+  color: #ffffff;
+}
+
+/* 收支 提现 */
+.view-money-left-img{
+  width:49rpx;
+height:48rpx;
+margin-right: 28rpx;
+}
+.view-money{
+  height: 120rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.view-money-left{
+  display: flex;
+  align-items: center;
+ 
+}
+.view-money-right{
+   display: flex;
+  align-items: center;
+}
+.view-slider{
+  width:750rpx;
+height:10rpx;
+background:rgba(247,247,247,1);
+}
+/* 下 */
+.view-subsidy-right-img{
+    width: 10rpx;
+  height: 17rpx; 
+}
+.view-subsidy{
+  height: 92rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 23rpx;
+  margin-right: 22rpx;
+}
+.view-subsidy-left{}
+.view-subsidy-left-name{
+  margin-right:20rpx;
+}
+.view-subsidy-right{}
+.view-subsidy-right-name{
+  font-size: 30rpx;
+  margin-right: 20rpx;
+  color: #808080;
+}
+.view-subsidy-line{
+  width:706rpx;
+height:1rpx;
+background:rgba(242,242,242,1);
+margin-left: 22rpx;
+}

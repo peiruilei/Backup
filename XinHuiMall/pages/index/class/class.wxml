@@ -1,0 +1,24 @@
+<!--pages/index/class/class.wxml-->
+<scroll-view class="scroll-view-left" style="height:{{height-30}}rpx; " scroll-y>
+  <block wx:for="{{class_list}}" wx:key="{{classKey}}" wx:for-index="classIndex" wx:for-item="classItem">
+    <view class="sroll-left-item {{classItem.isSelect?'active':''}}" bindtap="{{classItem.isSelect?'':'selectClassPressed'}}" data-class_id="{{classItem.first_class_id}}" data-index="{{classIndex}}">
+      {{classItem.first_class_name}}
+    </view>
+    <view class="view-line"></view>
+  </block>
+</scroll-view>
+
+<scroll-view class="scroll-view-right" style="height:{{height-15}}rpx;" scroll-y scroll-with-animation="true">
+  <view class="view-no-use " wx:if="{{second_class_list.length==0}}">
+    <image class="img-no-use" style='margin-top:0rpx' src="{{no_use}}"></image>
+    <text class="text-14">暂无数据</text>
+  </view>
+  <view class='class-list' wx:else>
+    <block wx:for="{{second_class_list}}" wx:key="{{secondClassKey}}" wx:for-item="secondClassItem" wx:for-index="secondClassIndex">
+      <view class="view-class-item" bindtap="selectSecondPressed" data-class_id="{{secondClassItem.second_class_id}}" data-class_name="{{secondClassItem.second_class_name}}">
+        <image class="img-class-item" src="{{secondClassItem.secondclass_img}}"></image>
+        <text class="text-class-name">{{secondClassItem.second_class_name}}</text>
+      </view>
+    </block>
+  </view>
+</scroll-view>

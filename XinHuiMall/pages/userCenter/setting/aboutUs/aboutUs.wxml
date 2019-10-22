@@ -1,0 +1,5 @@
+<!--pages/userCenter/setting/aboutUs/aboutUs.wxml-->
+<view class='page'>
+    <view class='view-aboutUs'>关于我们</view>
+    <text>关于我们</text>
+</view>

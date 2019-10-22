@@ -1,0 +1,105 @@
+//app.js
+App({
+  onLaunch: function() {
+    // 展示本地存储能力
+    var logs = wx.getStorageSync('logs') || []
+    logs.unshift(Date.now())
+    wx.setStorageSync('logs', logs)
+
+    // 登录
+    wx.login({
+      success: res => {
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+      }
+    })
+    // 获取用户信息
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+          wx.getUserInfo({
+            success: res => {
+              // 可以将 res 发送给后台解码出 unionId
+              this.globalData.userInfo = res.userInfo
+
+              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+              // 所以此处加入 callback 以防止这种情况
+              if (this.userInfoReadyCallback) {
+                this.userInfoReadyCallback(res)
+              }
+            }
+          })
+        }
+      }
+    })
+  },
+  onShow: function(options) {
+    console.log("=================onShow=================2222222222==" + JSON.stringify(options))
+    if (options.scene == 1011 || options.scene == 1012) {
+      var qrContent = decodeURIComponent(options.query.q);
+      console.log("pUserIDStr=qrContent=" + qrContent)
+      if (typeof(qrContent) != "undefined" && qrContent != "undefined" && qrContent.length > 0) {
+        if (qrContent.indexOf("p_id") > 0) {
+          var pUserID;
+          pUserID = this.getQueryString(qrContent, "p_id");
+          wx.setStorageSync("p_user_id", pUserID)
+        }
+      }
+    }
+  },
+  getQueryString: function(local_url, par) {
+    //获取当前URL
+    //获取要取得的get参数位置
+    var get = local_url.indexOf(par + "=");
+    if (get == -1) {
+      return false;
+    }
+    //截取字符串
+    var get_par = local_url.slice(par.length + get + 1);
+    //判断截取后的字符串是否还有其他get参数
+    var nextPar = get_par.indexOf("&");
+    if (nextPar != -1) {
+      get_par = get_par.slice(0, nextPar);
+    }
+    return get_par;
+  },
+
+  globalData: {
+    userInfo: null,
+    ip: 'http://116.255.236.229:8330/',
+    imagePath: "http://116.255.236.229:8330/miniimages/",
+    pageSize: 10,
+    minClickTime: 500,
+    v: "1.0.1",
+    order_map_pop: 'order/order_map_pop.png',
+
+    index_add_task: 'index/index_add_task.png',
+    index_address: 'index/index_address.png',
+    index_arrow: 'index/index_arrow.png',
+    index_notice: 'index/index_notice.png',
+    index_task_list: 'index/index_task_list.png',
+    inde_address_village: 'index/inde_address_village.png',
+    index_address_icon: 'index/index_address_icon.png',
+    index_re_loaction: 'index/index_re_loaction.png',
+    usercenter_msg: 'usercenter/usercenter_msg.png',
+    usercenter_public_bg: 'usercenter/usercenter_public_bg.png',
+    usercenter_online_customer_service: 'usercenter/usercenter_online_customer_service.png',
+    usercenter_contact_tel: 'usercenter/usercenter_contact_tel.png',
+    usercenter_feedback: 'usercenter/usercenter_feedback.png',
+    usercenter_order: 'usercenter/usercenter_order.png',
+    usercenter_customer_service_center: 'usercenter/usercenter_customer_service_center.png',
+    usercenter_public: 'usercenter/usercenter_public.png',
+    usercenter_aboutus: 'usercenter/usercenter_aboutus.png',
+    usercenter_top_bg: 'usercenter/usercenter_top_bg.png',
+    task_type_select: 'task/task_type_select.png',
+    task_add_img:'task/task_add_img.png',
+    task_agree_tips: 'task/task_agree_tips.png',
+    task_no_agree_tips: 'task/task_no_agree_tips.png',
+    home_login_content:'index/home_login_content.png',
+    usercenter_top_bg: 'usercenter/usercenter_top_bg.png',
+    usercenter_img_msg: 'usercenter/usercenter_img_msg.png',
+    common_upload_img: 'common/common_upload_img.png',
+    common_unselect: 'common/common_unselect.png',
+    common_select: 'common/common_select.png',
+  }
+})

@@ -1,0 +1,68 @@
+<view class="view-page">
+  <view class="view-subsidy" style="background-image:url('{{content_subsidy_bg}}')">
+    <text class="view-subsidy-text ">可用补贴金</text>
+    <text class="view-subsidy-num">{{subsidy}}</text>
+  </view>
+  <!-- 补贴金按钮切换 -->
+  <view class="view-subsidy-button"style="{{nav==2?'background-color:#FC4949':'background-color:#ffffff'}}">
+    <view class="view-subsidy-button-left"
+     style="{{nav==1?'background-color:#FC4949':'background-color:#ffffff'}};{{nav==1?'color:#ffffff':''}}" bindtap="receiveClick" data-index="1">
+      <text class="view-subsidy-button-left-text">补贴金收入</text>
+    </view>
+    <view class="view-subsidy-button-right" bindtap="pushClick" data-index="2"
+    style="{{nav==2?'color:#ffffff':''}}" >
+      <text class="view-subsidy-button-right-text">补贴金支出</text>
+    </view>
+  </view>
+  <!-- 日期选择 -->
+  <picker mode="date" fields="month" value="{{timer}}" end="{{time}}" bindchange="bindDateChange">
+    <view class="view-page-data">
+      <text class="view-data-text text-15">{{year}}年{{month}}月</text>
+      <view class="view-data-select-box">
+        <image src="{{content_withdraw_select}}" class="view-data-select"></image>
+      </view>
+    </view>
+  </picker>
+  <!-- 补贴金列表 -->
+  <!-- 补贴金收入 -->
+  <view class="view-subsidy-wrap" wx:if="{{mark==1}}">
+    <view class="view-subsidy-item" wx:for="{{subsidyChangeList}}" wx:key="">
+      <view class="view-subsidy-item-deal-date" style="background-image:url('{{content_subsidy_payTime_bg}}')">
+        <text class="view-subsidy-item-deal-date-text text-13">{{item.add_time}}</text>
+      </view>
+      <view class="view-subsidy-item-order text-13">订单编号:{{item.order_sn}}</view>
+      <view class="view-subsidy-item-goods text-13">包含商品【{{item.goods_name}}】</view>
+      <view class="view-subsidy-item-money text-13">
+        <text class="view-subsidy-item-money-left">+{{item.account_point}}</text>
+        <text class="view-subsidy-item-money-right">余额:{{item.account_point}}元</text>
+      </view>
+    </view>
+  </view>
+  <!-- 补贴金支出 -->
+   <view class="view-subsidy-wrap" wx:if="{{mark==2}}">
+    <view class="view-subsidy-item" wx:for="{{subsidyChangeList}}" wx:key="">
+      <view class="view-subsidy-item-deal-date" style="background-image:url('{{content_subsidy_payTime_bg}}')">
+        <text class="view-subsidy-item-deal-date-text text-13">{{item.add_time}}</text>
+      </view>
+      <view class="view-subsidy-item-order text-13">订单编号:{{item.order_sn}}</view>
+      <view class="view-subsidy-item-goods text-13">包含商品【{{item.goods_name}}】</view>
+      <view class="view-subsidy-item-money text-13">
+        <text class="view-subsidy-item-money-left">-{{item.account_point}}</text>
+        <text class="view-subsidy-item-money-right">余额:{{item.account_point}}元</text>
+      </view>
+    </view>
+  </view>
+  <!-- 无数据 -->
+  <view class="view-no-use mt-100" wx:if="{{showNoData}}">
+    <image class="img-no-use" src="{{common_no_data}}"></image>
+    <text class="text-14">暂无数据</text>
+  </view>
+  <!-- 加载区 -->
+  <view class="loading_box" wx:if="{{loadMore}}">
+    <view class="pulse pulse_1"></view>
+    <view class="pulse pulse_2"></view>
+    <view class="pulse pulse_3"></view>
+    <view class="pulse pulse_4"></view>
+  </view>
+
+</view>

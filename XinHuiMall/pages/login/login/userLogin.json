@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "wxUserAuth": "/pages/component/wxUserAuth/wxUserAuth"
+  },
+  "navigationBarTitleText": "",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#fd5252"
+}

@@ -1,0 +1,31 @@
+<view class="view-table">
+  <view class="view-table-item" wx:for="{{table}}" wx:for-item="tableItem" wx:for-index="tableIndex" id="{{tableIndex}}" bindtap="tableItemClick" wx:key="{{tableIndex}}">
+    <view class="view-h-table">
+      <view class="{{tableItem.isSelect?'text-tab-slect':'text-tab'}}">{{tableItem.name}}
+      </view>
+      <view class="view-short-line" wx:if="{{tableItem.isSelect}}"></view>
+    </view>
+  </view>
+</view>
+<view class='page-bg'>
+  <view class='view-item' wx:for="{{orderList}}" wx:for-item="orderItem" wx:for-index="orderIndex" wx:key="orderIndex" bindtap='orderDetailClick' id="{{orderItem.order_id}}" >
+    <!-- 订单状态和订单类型 -->
+    <view class='view-order-type-state-box'>
+      <view class='view-order-type'>
+        <view class="view-type-line"> </view>
+        <text> {{orderItem.type_name}}</text>
+      </view>
+      <text class='text-order-state'>{{orderItem.order_state_name}}</text>
+    </view>
+    <!-- 图片 和 内容 -->
+    <view class='view-order-content'>
+
+      <image class='img-task' src='{{orderItem.thumb_img}}'></image>
+      <text class='text-order-memo'>任务描述：{{orderItem.order_memo}}</text>
+
+    </view>
+
+<view class='view-time'>{{orderItem.add_time}}</view>
+
+  </view>
+</view>

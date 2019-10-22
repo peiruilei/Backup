@@ -1,0 +1,104 @@
+.view{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FFFFFF;
+}
+.view-line{
+  width:708rpx;
+height:1rpx;
+background:rgba(242,242,242,1);
+opacity:0.9;
+}
+.view-line-a{
+  width:750rpx;
+height:1rpx;
+background:rgba(242,242,242,1);
+opacity:0.9;
+}
+.input-view{
+  height: 109rpx;
+  width: 708rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.name-text{
+  flex: 5;
+  font-size: 30rpx;
+  color: #333333;
+}
+.name-input{
+  flex: 13;
+  font-size: 26rpx;
+}
+.name-input-pla{
+  font-size: 26rpx;
+  color: #999999;
+}
+.sub{
+  width:706rpx;
+height:80rpx;
+background:linear-gradient(135deg,rgba(254,121,80,1),rgba(252,73,73,1));
+border-radius:8rpx;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 34rpx;
+color: #FFFFFF;
+margin-top: 335rpx;
+}
+
+/* 弹出框设计 */
+
+.popup-view{
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.623);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.popup-center-image{
+  width: 40rpx;
+  height: 40rpx;
+  /* background-color: pink; */
+  margin-left: 531rpx;
+  margin-bottom: 10rpx;
+}
+.image-view{
+  width:461rpx;
+height:474rpx;
+border-radius:10rpx;
+background-size: 100%;
+background-repeat: no-repeat;
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+align-items: center;
+margin-bottom: 300rpx;
+}
+.suc-text{
+  font-size: 34rpx;
+  color: #666666;
+  margin-bottom: 67rpx;
+}
+.bt-view{
+  width:309rpx;
+height:63rpx;
+background:linear-gradient(135deg,rgba(254,121,80,1),rgba(252,73,73,1));
+border-radius:8rpx;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-bottom: 44rpx;
+font-size: 32rpx;
+color: #FFFFFF;
+}
+

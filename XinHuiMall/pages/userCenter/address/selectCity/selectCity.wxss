@@ -1,0 +1,24 @@
+/* pages/userCenter/address/selectCity/selectCity.wxss */
+
+.view-item {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background: white;
+  align-items: center
+}
+
+.view-text {
+  font-size: 28rpx;
+  color: #6a6a6a;
+  padding: 20rpx;
+  flex-grow: 1;
+}
+
+.img-right {
+  width: 10rpx;
+  height: 17rpx;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin: 20rpx;
+}

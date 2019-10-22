@@ -1,0 +1,38 @@
+<!--pages/userCenter/address/add/add.wxml-->
+
+<view class="view-bg">
+  <!-- 姓名 -->
+  <view class="view-item">
+    <text class="text-15 ml10">姓名</text>
+    <input class="input-name" placeholder="请输入收货人姓名" bindinput="inputConsigneePressed" maxlength="16"></input>
+  </view>
+  <view class="view-line"></view>
+  <!-- 手机号 -->
+  <view class="view-item">
+    <text class="text-15 ml10">手机号</text>
+    <input class="input-name" placeholder="请输入收货人手机号" bindinput="inputTelPressed" type="number" maxlength="11"></input>
+  </view>
+  <view class="view-line"></view>
+  <!-- 地区 -->
+  <view class="view-item" bindtap="selectAddressPressed">
+    <text class="text-15 ml10">地区</text>
+    <view class="view-item-right">
+      <text style="color:{{district_id==0?'#999999':'#333333'}}">{{province_id==0?"选择收货地址":addressSrc}}</text>
+      <image class="img-arrow" src="{{content_back}}"></image>
+    </view>
+  </view>
+  <view class="view-line"></view>
+  <view class="view-detail-address">
+    <text class="text-15 ml10" style="margin-top:30rpx;">详细地址</text>
+    <view class="view-texterea-bg">
+    <textarea class="input-address-detail" bindinput="inputAddressDetailPressed" placeholder="请输入街道，门牌号"></textarea>
+    </view>
+  </view>
+  <!-- 手机号 -->
+  <view class="view-item" bindtap="selectDefaultPressed">
+    <text class="text-15 ml10">设为默认地址</text>
+    <image class="img-select" src="{{is_default?common_select:common_un_select}}"></image>
+  </view>
+
+  <view class="class-save" bindtap="submitAddress">保存</view>
+</view>

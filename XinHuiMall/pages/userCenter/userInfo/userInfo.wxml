@@ -1,0 +1,48 @@
+<view class="view-page">
+  <!-- 头像 -->
+  <view class="view-page-user">
+    <view class="view-head-line"></view>
+    <view class="user">
+      <text class="user-head-text ">头像</text>
+      <view class="user-head-image" bindtap="changeImg">
+        <image class="user-head-img" src="{{userInfo.head_img}}"></image>
+        <view class="user-head-change">
+          <image class="user-head-slider" src="{{content_back}}"></image>
+        </view>
+      </view>
+    </view>
+    <view class="view-line"></view>
+  </view>
+  <!-- 昵称 -->
+  <view class="user-name">
+    <view class="user-name-content text-16" bindtap="changeName">
+      <view class="user-name-text-left ">昵称</view>
+      <view class="user-name-text-right">
+        <view class="user-name-text-right-name">{{userInfo.nick_name}}</view>
+        <image class="user-head-slider"  src="{{content_back}}"></image>
+      </view>
+    </view>
+    <view class="view-line"></view>
+  </view>
+  <!-- 绑定手机号 -->
+  <view class="user-tel">
+    <view class="user-tel-content">
+      <view class="user-tel-left text-16 ">绑定手机号</view>
+      <view class="user-tel-right">
+        <view class="user-tel-right-tel text-16">{{userInfo.login_name}}</view>
+        <view class="user-tel-right-btn" bindtap="changeTel">
+          <text class="user-tel-right-btn-text">更换绑定 </text>
+        </view>
+      </view>
+    </view>
+    <view class="view-line"></view>
+  </view>
+  <!-- 密码 -->
+  <view class="user-pwd">
+    <view class="view-user-pwd" bindtap="setpwd">
+      <text class="view-user-pwd-text text-16">设置提现密码</text>
+      <image class="user-pwd-slider" src="{{content_back}}"></image>
+    </view>
+    <view class="view-line"></view>
+  </view>
+</view>

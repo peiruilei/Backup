@@ -1,0 +1,29 @@
+<!--pages/index/goods/goodsDetail/goodsCommentList/list.wxml-->
+<view class="view-no-use " wx:if="{{showNoData}}">
+  <image class="img-no-use" style='margin-top:0rpx' src="{{no_use}}"></image>
+  <text class="text-14">{{msg}}</text>
+</view>
+<view class="view-bg" wx:else>
+  <block wx:for="{{comment_list}}" wx:key="commentKey" wx:for-item="commentItem" wx:for-index="commentIndex">
+    <view class="view-commen-cell">
+      <view class="view-commen-user">
+        <image class="img-user-head" src="{{commentItem.head_img}}"></image>
+        <view class="view-user-content">
+          <view class="view-name-score">
+            <text class="text-user-name">{{commentItem.nick_name}}</text>
+            <view class="view-start">
+              <block wx:for="{{commentItem.goods_score}}">
+                <image class="img-star" src="{{common_star_red}}"></image>
+              </block>
+              <block wx:for="{{5-commentItem.goods_score}}">
+                <image class="img-star" src="{{common_star_gray}}"></image>
+              </block>
+            </view>
+          </view>
+          <text class="text-commen-time">{{commentItem.add_time}}</text>
+        </view>
+      </view>
+      <text class="text-commen-content">{{commentItem.comment_content}}</text>
+    </view>
+  </block>
+</view>

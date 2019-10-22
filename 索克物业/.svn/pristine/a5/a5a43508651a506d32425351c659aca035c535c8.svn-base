@@ -1,0 +1,68 @@
+<view class="view-bg">
+  <view class='view-address-box' bindtap='villageListClick'>
+    <image class='img-address' src='{{index_address}}'></image>
+    <text class='text-address'>{{address_detail}}</text>
+    <image class='img-arrow' src='{{index_arrow}}'></image>
+  </view>
+  <!-- 广告 -->
+  <view class="view-index-top">
+    <swiper class="view-top" indicator-color="#fff" indicator-dots="5" indicator-active-color="#68d6ab" autoplay="true" circular="true" indicator>
+      <swiper-item wx:for="{{mainData.advert_list}}" wx:for-item="adItem" wx:for-index="adIndex" wx:key="{{adIndex}}">
+        <image class="img-top-ad" mode="aspectFill" src="{{adItem.big_img}}" data-linkurl="{{adItem.link_url}}" data-keyid="{{adItem.advert_id}}" data-type="{{adItem.advert_type}}" bindtap='{{adItem.advert_type==0?"":"detailClick"}}'></image>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 平台通知 -->
+  <view class='view-notice-box'>
+    <image src='{{index_notice}}' class='img-notice-icon'></image>
+    <swiper class='swiper-announcement' autoplay="true" vertical="true" interval="4000" circular="true">
+      <block wx:for="{{mainData.notice_list}}" wx:key="{{noticeIndex}}" wx:for-item="noticeItem" wx:for-index="noticeIndex">
+        <swiper-item catchtouchmove="stopTouchMove">
+          <text class='text-announcement-content' catchtap='selectAnnouncementPressed'>{{noticeItem.title}}</text>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+
+  <!-- 任务按钮-->
+  <view class='view-task-box' bindtap='addTask'>
+    <image src='{{index_add_task}}' class="img-task-icon"></image>
+    <text class='text-task-name'>发布任务</text>
+  </view>
+  <view class='view-task-box' bindtap='taskListClick'>
+    <image src='{{index_task_list}}' class="img-task-icon"></image>
+    <text class='text-task-name'>任务列表</text>
+  </view>
+
+
+
+</view>
+
+<!-- 登录 -->
+<view class="view-login-bg" catchtouchmove="return" wx:if="{{isShowLotteryBack}}">
+  <view class='view-login-box' wx:if="{{isShowLogin}}">
+    <view class='view-prompt'>需要您的授权</view>
+    <view class='view-line'></view>
+    <view class='view-prompt1'>
+      <text>为了提供更好的服务</text>
+      <text>请在稍后的提示框中点击允许</text>
+    </view>
+    <image class='view-login-content' src='{{home_login_content}}'></image>
+    <button class='btn-login' hover-class='none' open-type='getUserInfo' bindgetuserinfo="getUserInfo">我知道了</button>
+  </view>
+  <!-- <view class='view-login-box' wx:if="{{isShowTel}}">
+    <view class='view-prompt'>需要您的授权</view>
+    <view class='view-line'></view>
+    <view class='view-prompt1'>
+      <text>为了提供更好的服务</text>
+      <text>请在稍后的提示框中点击允许</text>
+    </view>
+    <image class='view-login-content' src='{{home_login_content}}'></image>
+   <button class='btn-login' hover-class='none' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">我知道了</button> 
+  </view> -->
+
+</view>
+
+
+<tabbar tabbar="{{tabbar}}"></tabbar>

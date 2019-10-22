@@ -1,0 +1,263 @@
+<view style="padding-bottom:110rpx;width:100vw;">
+  <view class="view">
+    <!-- 下单时间 -->
+    <view class="order-time-view" wx:if="{{order_info.order_info.order_state!=1}}">
+      <text class="order-time-text">下单时间:{{order_info.order_info.add_time}}</text>
+      <text class="order-time-num-text">订单编号：{{order_info.order_info.order_sn}}</text>
+    </view>
+    <!-- 待支付收货信息 -->
+    <view class="wait-receipt-info-view" bindtap="selectAddressPressed" wx:if="{{order_info.order_info.order_state==1 && order_info.order_info.order_type==0 }}">
+      <text class="wait-receipt-info-text">{{consignee}}：{{telphone}}</text>
+      <view class="wait-receipt-info-bottom-view">
+        <text class="wait-receipt-info-bottom-text">{{address_detail}}</text>
+        <image class="wait-receipt-info-bottom-image" src="{{content_back}}"></image>
+      </view>
+    </view>
+    <view class="line-8" wx:if="{{order_info.order_info.order_state==1}}" ></view>
+    <!-- 收货信息 -->
+    <view class="receipt-info-view" wx:if="{{order_info.order_info.order_state!=1 && order_info.order_info.order_type==0}}">
+      <view class="receipt-info-text-view">
+        <text class="receipt-info-text">收货信息</text>
+        <text class="receipt-info-name">{{order_info.order_info.consignee}}：{{order_info.order_info.tel_phone}}</text>
+      </view>
+      <text class="receipt-info-address">地址:{{order_info.order_info.address_detail}}</text>
+    </view>
+    <view class="line-view" wx:if="{{order_info.order_info.order_state!=1 && order_info.order_info.order_type==0}}"></view>
+    <!-- 商品清单 -->
+    <view class="order-item-bar-view" wx:if="{{order_info.order_info.order_state!=1}}">
+      <text class="order-item-bar-shop-name">商品清单</text>
+      <text class="order-item--bar-shop-fun">{{order_info.order_info.state_name}}</text>
+    </view>
+    <!-- 商品标题栏 -->
+    <view class="order-detail-shop-name-view-view" wx:if="{{order_info.order_info.order_state!=1}}">
+      <view class="order-detail-shop-name-view" bindtap="onShopDetails" data-shop_id="{{order_info.order_info.shop_id}}">
+        <image src="{{shopping_cart_icon}}" class="order-detail-shop-name-image"></image>
+        <text>{{order_info.order_info.shop_name}}</text>
+      </view>
+    </view>
+    <view class="order-detail-view-bg" wx:for="{{order_info.goods_list}}" wx:key="" wx:if="{{order_info.order_info.order_state!=1}}">
+      <view class="order-detail-view" bindtap="onGoodsDetails" data-goods_id="{{item.goods_id}}">
+        <image class="order-detail-image" src="{{item.goods_img}}"></image>
+        <view class="order-detail-name-view">
+          <text class="order-detail-name">{{item.goods_name}}</text>
+          <view class="order-detail-style">
+            <text wx:if="{{item.first_specification_name}}" class="order-detail-style-first">{{item.first_specification_name}}:{{item.first_specification_value_name}}</text>
+            <text wx:if="{{item.second_specification_name}}">{{item.second_specification_name}}:{{item.second_specification_value_name}}</text>
+          </view>
+          <text class="order-detail-price">¥{{item.goods_price}}</text>
+        </view>
+        <view class="order-detail-num-view">
+          <text class="order-detail-num">x{{item.buy_num}}</text>
+        </view>
+      </view>
+      <view class="view-shop-line" wx:if="{{index<order_info.goods_list.length-1}}"></view>
+    </view>
+    <!-- 待支付商品清单 -->
+    <view class="order-item-bar-view" wx:if="{{order_info.order_info.order_state==1}}">
+      <text class="order-item-bar-shop-name">商品清单<text style="color:#999999;" >(共{{order_info.order_info.goods_num}}件商品)</text></text>
+      <text class="order-item--bar-shop-fun">{{order_info.order_info.state_name}}</text>
+    </view>
+    <!-- 待支付商品标题栏 -->
+    <view class="order-detail-shop-name-view-view" wx:if="{{order_info.order_info.order_state==1}}">
+      <view class="order-detail-shop-name-view" bindtap="onShopDetails" data-shop_id="{{order_info.order_info.shop_id}}">
+        <image src="{{shopping_cart_icon}}" class="order-detail-shop-name-image"></image>
+        <text>{{order_info.order_info.shop_name}}</text>
+      </view>
+    </view>
+    <view class="order-detail-view-bg" wx:for="{{order_info.goods_list}}" wx:key="" wx:if="{{order_info.order_info.order_state==1}}">
+      <view class="order-detail-view" bindtap="onGoodsDetails" data-goods_id="{{item.goods_id}}">
+        <image class="order-detail-image" src="{{item.goods_img}}"></image>
+        <view class="order-detail-name-view">
+          <text class="order-detail-name">{{item.goods_name}}</text>
+          <text class="subsidy_price-text">补贴金:{{item.subsidy_price}}</text>
+          <text class="xinhui_point_price-text">昕惠分:{{item.xinhui_point_price}}</text>
+          <text class="order-detail-price">¥{{item.goods_price}}</text>
+        </view>
+        <view class="order-detail-num-view">
+          <text class="order-detail-num">x{{item.buy_num}}</text>
+        </view>
+      </view>
+      <view class="view-shop-line" wx:if="{{index<order_info.goods_list.length-1}}"></view>
+    </view>
+    <!-- 商品总数量 -->
+    <view class="shop-num-view" wx:if="{{order_info.order_info.order_state!=1}}">
+      <text>共{{order_info.order_info.goods_num}}件商品</text>
+    </view>
+    <!-- 配送方式-到店扫码 -->
+    <view class="delivery-method-view" wx:if="{{order_info.order_info.order_type==1}}">
+      <text class="delivery-method-text">配送方式</text>
+      <text>到店扫码</text>
+    </view>
+    <!-- 配送方式-快递配送 -->
+    <view class="delivery-method-view" wx:if="{{order_info.order_info.order_type==0}}">
+      <text class="delivery-method-text">配送方式</text>
+      <text>快递配送</text>
+    </view>
+    <view class="small-line-view"  wx:if="{{order_info.order_info.order_type==0}}" ></view>
+    <!-- 快递方式 -->
+    <view class="delivery-method-view" wx:if="{{order_info.order_info.order_type==0}}">
+      <text class="delivery-method-text">快递方式</text>
+      <text>{{order_info.order_info.logistics_name}}</text>
+    </view>
+    <view class="small-line-view"  wx:if="{{order_info.order_info.order_type==0}}" ></view>
+    <!-- 快递费用 -->
+    <view class="courier-fees-view" wx:if="{{order_info.order_info.order_type==0}}">
+      <text>快递费用</text>
+      <text class="courier-fees-red-text" wx:if="{{order_info.order_info.order_pay_type==1}}">¥{{order_info.order_info.logistics_fees}}</text>
+      <text class="courier-fees-red-text" wx:if="{{order_info.order_info.order_pay_type==2}}">¥{{order_info.order_info.logistics_xinhui_points}}</text>
+      <text class="courier-fees-red-text" wx:if="{{order_info.order_info.order_pay_type==3}}">¥{{order_info.order_info.logistics_subsidy}}</text>
+    </view>
+    <view class="small-line-view"  wx:if="{{order_info.order_info.order_type==0 &&    order_info.order_info.order_state!=1 && order_info.order_info.order_state!=5}}" ></view>
+    <view class="line-8"  wx:if="{{order_info.order_info.order_state==5 && order_info.order_info.order_type==0 }}" ></view>
+    <!-- 发货快递 -->
+    <view class="delivery-express-view" wx:if="{{order_info.order_info.order_state==5 && order_info.order_info.order_type==0 }}">
+      <text>发货快递:</text>
+      <text class="delivery-express-text">{{order_info.order_info.logistics_company}}</text>
+    </view>
+    <view class="small-line-view"  wx:if="{{order_info.order_info.order_state==5 && order_info.order_info.order_type==0 }}" ></view>
+    <!-- 快递单号 -->
+    <view class="express-number-view" wx:if="{{order_info.order_info.order_state==5 && order_info.order_info.order_type==0 }}">
+      <text>快递单号:</text>
+      <text class="express-number-view-text">{{order_info.order_info.logistics_number}}</text>
+      <image src="{{order_detail_copy}}" class="express-number-image" bindtap="onCopyingRight" data-logistics_number="{{order_info.order_info.logistics_number}}"></image>
+    </view>
+<view class="line-8"  wx:if="{{order_info.order_info.order_state==5 && order_info.order_info.order_type==0 }}" ></view>
+    <!-- 买家留言 -->
+    <view class="message-title-view" wx:if="{{order_info.order_info.order_state!=1}}">
+      <text>买家留言</text>
+    </view>
+    <view class="message-text-view" wx:if="{{order_info.order_info.order_state!=1}}">
+      <text class="message-text">{{order_info.order_info.memo}}</text>
+    </view>
+    <view class="line-8"  wx:if="{{order_info.order_info.order_state==1}}" ></view>
+    <!-- 付款方式 -->
+    <view class="pay-method-view" wx:if="{{order_info.order_info.order_state!=1}}">
+      <text class="pay-method-text">付款方式</text>
+      <view class="pay-method-price-view" wx:if="{{order_info.order_info.payment_type==0}}">
+        <text>未支付</text>
+      </view>
+      <view class="pay-method-price-view" wx:if="{{order_info.order_info.payment_type==1}}">
+        <text>余额：</text>
+        <text class="pay-method-price-text">¥{{order_info.order_info.order_total_fees}}</text>
+      </view>
+      <view class="pay-method-price-view" wx:if="{{order_info.order_info.payment_type==2}}">
+        <text>支付宝：</text>
+        <text class="pay-method-price-text">¥{{order_info.order_info.order_total_fees}}</text>
+      </view>
+      <view class="pay-method-price-view" wx:if="{{order_info.order_info.payment_type==3}}">
+        <text>微信：</text>
+        <text class="pay-method-price-text">¥{{order_info.order_info.order_total_fees}}</text>
+      </view>
+      <view class="pay-method-price-view" wx:if="{{order_info.order_info.payment_type==4}}">
+        <text>昕惠分：</text>
+        <text class="pay-method-price-text">¥{{order_info.order_info.order_total_xinhui_points}}</text>
+      </view>
+      <view class="pay-method-price-view" wx:if="{{order_info.order_info.payment_type==5}}">
+        <text>补贴金：</text>
+        <text class="pay-method-price-text">¥{{order_info.order_info.order_total_subsidy}}</text>
+      </view>
+    </view>
+    <!-- 待支付付款方式 -->
+    <view class="wait-pay-method-view" wx:if="{{order_info.order_info.order_state==1}}">
+      <text class="pay-method-text">付款方式</text>
+      <view class="pay-method-price-view" wx:if="{{order_info.order_info.order_pay_type==1}}">
+        <text>现金支付：</text>
+        <text class="pay-method-price-text">¥{{order_info.order_info.order_total_fees}}</text>
+      </view>
+      <view class="pay-method-price-view" wx:if="{{order_info.order_info.order_pay_type==2}}">
+        <text>昕惠分支付：</text>
+        <text class="pay-method-price-text">¥{{order_info.order_info.order_total_xinhui_points}}</text>
+      </view>
+      <view class="pay-method-price-view" wx:if="{{order_info.order_info.order_pay_type==3}}">
+        <text>补贴金支付：</text>
+        <text class="pay-method-price-text">¥{{order_info.order_info.order_total_subsidy}}</text>
+      </view>
+    </view>
+    <view class="line-view" wx:if="{{order_info.order_info.order_state!=1}}"></view>
+    <!-- 商家信息 -->
+    <view class="shop-info-view" wx:if="{{order_info.order_info.order_state!=1}}">
+      <view class="shop-info-bar-view">
+        <text>商家信息</text>
+      </view>
+      <view class="shop-info-detail-view">
+        <image class="shop-info-detail-image" src="{{order_info.order_info.thumb_img}}" mode="scaleToFill" bindtap="onShopDetails" data-shop_id="{{order_info.order_info.shop_id}}"></image>
+        <view class="shop-info-detail-name-view">
+          <text class="shop-info-detail-name">{{order_info.order_info.shop_name}}</text>
+          <text class="shop-info-detail-address">{{order_info.order_info.shop_address_detail}}</text>
+          <view class="shop-info-detail-distance-view" bindtap="onCall">
+          <text class="shop-info-detail-distance-text">距您：{{order_info.order_info.distance}}km</text>
+          <image class="shop-info-detail-distance-image" src="{{shopDetail_phone}}"></image>
+        </view>
+        </view>
+      </view>
+    </view>
+    <view class="line-view"></view>
+    <!-- 待发货申请退款 -->
+    <view class="apply-return-money-view" bindtap="onOrderFun" data-order_state="4" wx:if='{{order_info.order_info.order_state==2}}'>
+      <text>申请退款</text>
+    </view>
+    <!-- 待收货确认收货 -->
+    <view class="apply-return-money-view" bindtap="onOrderFun" data-order_state="3" wx:if='{{order_info.order_info.order_state==3}}'>
+      <text>确认收货</text>
+    </view>
+    <!-- 待使用二维码凭证 -->
+    <view class="order-detail-qr-view" wx:if="{{order_info.order_info.order_state==7}}">
+      <text class="order-detail-qr-text" wx:if="{{order_info.order_info.is_use==0}}">二维码凭证</text>
+      <text class="order-detail-qr-text" wx:else>二维码凭证(商家已核销)</text>
+      <image class="order-detail-qr-image" src="{{QR_icon}}"></image>
+      <text class="order-detail-qr-message">* 到店后请出示二维码凭证，用于验证您的二维码信息</text>
+      <view class="bottom-line"></view>
+      <view class="order-detail-qr-bt-view">
+        <view class="order-detail-qr-bt-left-view" bindtap="onOrderFun" data-order_state="4">
+          <text>申请退款</text>
+        </view>
+        <view class="order-detail-qr-bt-right-view" bindtap="onShowQR" data-is_use="{{order_info.order_info.is_use}}" data-qr_image="{{order_info.order_info.code_url}}">
+          <text>出示二维码</text>
+        </view>
+      </view>
+    </view>
+    <!-- 待评价二维码凭证 -->
+    <view class="order-detail-qr-view" wx:if="{{order_info.order_info.order_state==4}}">
+      <view  class="order-detail-qr-view" wx:if="{{order_info.order_info.order_type==1}}" >
+        <text class="order-detail-qr-text">二维码凭证(商家已核销)</text>
+      <image class="order-detail-qr-image" src="{{QR_icon}}"></image>
+      <text class="order-detail-qr-message">* 到店后请出示二维码凭证，用于验证您的二维码信息</text>
+      <view class="bottom-line"></view>
+      </view>
+      <view class="order-detail-qr-bt-view">
+        <view class="order-detail-qr-bt-left-view" bindtap="onOrderFun" data-order_state="5">
+          <text>申请售后</text>
+        </view>
+        <view class="order-detail-qr-bt-right-view" bindtap="onOrderFun" data-order_state="6">
+          <text>评价</text>
+        </view>
+      </view>
+    </view>
+    <!-- 支付栏 -->
+    <view class="pay-bar-view"  wx:if="{{order_info.order_info.order_state==1}}" >
+      <view class="pay-bar-left-view">
+        <text>应付:</text>
+        <text class="pay-bar-left-price">¥{{order_info.order_info.ordersumPrice}}</text>
+      </view>
+      <view class="pay-bar-right-view">
+        <view class="pay-bar-left-bt-view" bindtap="onOrderFun" data-order_state="2">
+          <text>取消</text>
+        </view>
+        <view class="pay-bar-right-bt-view" bindtap="onOrderFun" data-order_state="8" data-order_total_fees="{{order_info.order_info.order_total_fees}}" data-order_sn="{{order_info.order_info.order_sn}}" >
+          <text>去支付</text>
+        </view>
+      </view>
+    </view>
+    <!-- 服务评价 -->
+    <view class="service-assess-view"  wx:if="{{order_info.order_info.order_state==5 && order_info.order_info.order_type==0}}" >
+      <text class="service-assess-title">评价</text>
+      <view class="service-assess-comment-view">
+        <text class="service-assess-comment-text">服务评价</text>
+        <view class="service-assess-comment-image-view">
+          <image class="service-assess-comment-image" src="{{shopDetail_assess_light}}" wx:for="{{order_info.order_info.service_score}}" wx:key="{{index}}"></image>
+          <image class="service-assess-comment-image" src="{{shopDetail_assess}}" wx:for="{{5-order_info.order_info.service_score}}" wx:key="{{index}}"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

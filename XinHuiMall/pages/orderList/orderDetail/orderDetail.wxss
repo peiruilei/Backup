@@ -1,0 +1,636 @@
+.view{
+  width: 100vw;
+  /* min-height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FFFFFF;
+  /* padding-bottom: 110rpx; */
+}
+/* /下单时间 */
+.order-time-view{
+width:750rpx;
+height:142rpx;
+background:linear-gradient(135deg,rgba(254,121,80,1),rgba(252,73,73,1));
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+font-size: 28rpx;
+color: #FFFFFF;
+}
+.order-time-text{
+
+}
+.order-time-num-text{
+  margin-top: 30rpx;
+}
+/* 收货信息 */
+.receipt-info-view{
+  height: 142rpx;
+  width: 706rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.receipt-info-text-view{
+font-size: 30rpx;
+  color: #333333;
+  display: flex;
+  align-items: center;
+}
+.receipt-info-text{
+  
+}
+.receipt-info-name{
+  margin-left: 22rpx;
+  font-size: 28rpx;
+  color: #666666;
+}
+.receipt-info-address{
+  font-size: 26rpx;
+  color: #CCCCCC;
+  margin-top: 29rpx;
+  max-width: 706rpx;
+  /*定义为自适应布局*/
+display: -webkit-box;
+word-break: break-all;
+/*超出文字用省略号代替*/
+text-overflow: ellipsis;
+/*竖直方向的超出和隐藏*/
+-webkit-box-orient: vertical;
+/*设定行数为2*/
+-webkit-line-clamp: 2;
+/*多出部分隐藏*/
+overflow: hidden;
+}
+/* 商品清单 */
+.order-item-bar-view{
+width: 750rpx;
+  height: 76rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FFFFFF;
+}
+.order-item-bar-shop-name{
+  flex: 1;
+  font-size: 28rpx;
+  color: #666666;
+  margin-left: 23rpx;
+}
+
+.order-item--bar-shop-fun{
+  font-size: 28rpx;
+  color: #FC4949;
+  margin-right: 23rpx;
+}
+/* 。商品标题栏 */
+.order-detail-shop-name-view-view{
+  width: 750rpx;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background-color: #F7F7F7;
+  font-size: 30rpx;
+  color: #333333;
+}
+.order-detail-shop-name-view{
+  width: 706rpx;
+  display: flex;
+  align-items: center;
+margin-top: 30rpx;
+}
+.order-detail-shop-name-image{
+  width:30rpx;
+height:29rpx;
+margin-right: 21rpx;
+}
+
+.order-detail-view-bg{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F7F7F7;
+  width: 750rpx;
+}
+.order-detail-view{
+  width: 706rpx;
+  height: 183rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30rpx 0;
+}
+.order-detail-image{
+  width:183rpx;
+height:183rpx;
+border-radius:10rpx;
+margin-right: 24rpx;
+background-color: pink;
+}
+.order-detail-name-view{
+  height: 183rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex: 1;
+}
+.order-detail-name{
+  max-width: 470rpx;
+  font-size: 28rpx;
+  color: #333333;
+display: -webkit-box;
+word-break: break-all;
+/*超出文字用省略号代替*/
+text-overflow: ellipsis;
+/*竖直方向的超出和隐藏*/
+-webkit-box-orient: vertical;
+/*设定行数为2*/
+-webkit-line-clamp: 2;
+/*多出部分隐藏*/
+overflow: hidden;
+}
+.subsidy_price-text{
+  font-size: 28rpx;
+  color: #FF9900;
+}
+.xinhui_point_price-text{
+  font-size: 28rpx;
+  color: #FC6B4E;
+}
+.order-detail-style{
+  width: 470rpx;
+  display: flex;
+justify-content: flex-start;
+align-items: center;
+flex-wrap: wrap;
+font-size: 26rpx;
+color: #CCCCCC;
+}
+.order-detail-style-first{
+  margin-right: 47rpx;
+}
+.order-detail-price{
+  font-size: 26rpx;
+  color: #FF3300;
+}
+.order-detail-num-view{
+  height: 183rpx;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.order-detail-num{
+  font-size: 30rpx;
+  color: #999999;
+  margin-top: 15rpx;
+}
+
+/* 商品总数量 */
+
+.shop-num-view{
+  height: 56rpx;
+  width: 704rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  font-size: 30rpx;
+  color: #666666;
+}
+/* 配送方式 */
+.delivery-method-view{
+  width: 704rpx;
+  height: 88rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30rpx;
+  color: #666666;
+}
+
+.delivery-method-text{
+  color: #333333;
+}
+/* .快递方式 */
+/* .delivery-method-view{
+
+}
+.delivery-method-text{
+
+} */
+/* 快递费用 */
+.courier-fees-view{
+  width: 704rpx;
+  height: 88rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30rpx;
+  color: #333333;
+}
+.courier-fees-red-text{
+  color: #FF3300;
+}
+/* 买家留言 */
+.message-title-view{
+  height: 83rpx;
+  width: 704rpx;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #666666;
+}
+.message-text-view{
+  width:666rpx;
+min-height:112rpx;
+background:rgba(247,247,247,1);
+border-radius:8rpx;
+padding: 20rpx;
+}
+.message-text{
+  max-width: 666rpx;
+  font-size: 24rpx;
+  color: #999999;
+}
+/* 付款方式 */
+
+.pay-method-view{
+height: 84rpx;
+width: 704rpx;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+/* 代付款-付款方式 */
+.wait-pay-method-view{
+height: 143rpx;
+width: 704rpx;
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+}
+.pay-method-text{
+  font-size: 28rpx;
+  color: #666666;
+}
+.pay-method-price-view{
+display: flex;
+/* justify-content: center; */
+align-items: center;
+margin-right: 4rpx;
+font-size: 24rpx;
+color: #999999;
+}
+.pay-method-price-text{
+  font-size: 24rpx;
+  color: #FF3300;
+}
+
+/* .商家信息 */
+.shop-info-view{
+  height: 226rpx;
+  width: 706rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.shop-info-bar-view{
+  width: 706rpx;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #666666;
+  margin-bottom: 28rpx;
+}
+.shop-info-detail-view{
+width: 706rpx;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.shop-info-detail-image{
+  width:110rpx;
+height:110rpx;
+border-radius:50%;
+}
+.shop-info-detail-name-view{
+  height: 110rpx;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 28rpx;
+}
+.shop-info-detail-name{
+  font-size: 28rpx;
+  color: #666666;
+}
+.shop-info-detail-address{
+  font-size: 22rpx;
+  color: #CCCCCC;
+  width: 569rpx;
+  /*定义为自适应布局*/
+display: -webkit-box;
+word-break: break-all;
+/*超出文字用省略号代替*/
+text-overflow: ellipsis;
+/*竖直方向的超出和隐藏*/
+-webkit-box-orient: vertical;
+/*设定行数为2*/
+-webkit-line-clamp: 2;
+/*多出部分隐藏*/
+overflow: hidden;
+}
+.shop-info-detail-distance-view{
+  display: flex;
+  align-items: center;
+}
+.shop-info-detail-distance-text{
+  font-size: 22rpx;
+  color: #999999;
+  /* margin-right: 15rpx */
+}
+.shop-info-detail-distance-image{
+  width:22rpx;
+height:22rpx;
+padding-right: 80rpx;
+padding-left: 15rpx;
+}
+
+/* 申请退款 */
+.apply-return-money-view{
+  width:704rpx;
+height:80rpx;
+background:linear-gradient(138deg,rgba(254,121,80,1),rgba(252,73,73,1));
+border-radius:8rpx;
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 56rpx 0;
+font-size: 34rpx;
+color: #FFFFFF;
+}
+
+/* 线条 */
+.line-view{
+  width:750rpx;
+height:10rpx;
+background:rgba(247,247,247,1);
+}
+.small-line-view{
+width:704rpx;
+height:1rpx;
+background:rgba(242,242,242,1);
+}
+.view-shop-line{
+  width:704rpx;
+height:1rpx;
+background:rgba(235,235,235,1);
+}
+.line-110{
+  width:750rpx;
+height:110rpx;
+background:#FAFAFA;
+}
+
+
+/* 二维码凭证 */
+
+.order-detail-qr-view{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.order-detail-qr-text{
+  font-size: 30rpx;
+  color: #323232;
+  margin-top: 32rpx;
+  margin-bottom: 23rpx;
+}
+.order-detail-qr-image{
+  width:143rpx;
+height:143rpx;
+}
+.order-detail-qr-message{
+  font-size: 22rpx;
+  color: #FA4C49;
+  display: flex;
+  align-items: center;
+  margin: 31rpx 0;
+}
+.order-detail-qr-bt-view{
+  width:750rpx;
+height:97rpx;
+border-top:1px solid rgba(242,242,242,1);
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 30rpx;
+color: #FAFAFA;
+/* margin-top: 21rpx; */
+}
+.order-detail-qr-bt-left-view{
+  width:354rpx;
+height:80rpx;
+background:rgba(254,121,80,1);
+border-radius:40rpx 0rpx 0rpx 40rpx;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.order-detail-qr-bt-right-view{
+  width:354rpx;
+height:80rpx;
+background:rgba(252,73,73,1);
+border-radius:0rpx 40rpx 40rpx 0rpx;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+
+/* 发货快递 */
+
+.delivery-express-view{
+  height: 86rpx;
+  width: 704rpx;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #333333;
+}
+.delivery-express-text{
+  margin-left: 30rpx;
+  color: #999999;
+}
+/* 快递单号 */
+.express-number-view{
+  height: 86rpx;
+  width: 704rpx;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #333333;
+}
+.express-number-view-text{
+  margin-left: 30rpx;
+  color: #999999;
+}
+
+.express-number-image{
+  width:24rpx;
+height:24rpx;
+margin-left: 25rpx;
+}
+
+
+/* 底部线 */
+.bottom-line{
+  width:750rpx;
+height:21rpx;
+background:rgba(247,247,247,1);
+}
+.line-8{
+  width:750rpx;
+height:8rpx;
+background:rgba(247,247,247,1);
+}
+.line-30{
+  width:750rpx;
+height:30rpx;
+background:rgba(247,247,247,1);
+}
+
+
+/* 服务评价 */
+
+.service-assess-view{
+  width: 704rpx;
+  height: 134rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.service-assess-title{
+  font-size: 28rpx;
+  color: #333333;
+}
+.service-assess-comment-view{
+  width: 704rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.service-assess-comment-text{
+  font-size: 26rpx;
+  color: #808080;
+}
+
+.service-assess-comment-image-view{
+  width: 155rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
+.service-assess-comment-image{
+  width:23rpx;
+height:22rpx;
+}
+
+/* .dai收货信息 */
+.wait-receipt-info-view{
+  width: 706rpx;
+  height: 144rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.wait-receipt-info-text{
+  font-size: 28rpx;
+  color: #666666;
+}
+.wait-receipt-info-bottom-view{
+  width: 706rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.wait-receipt-info-bottom-text{
+font-size: 26rpx;
+color: #CCCCCC;
+max-width: 690rpx;
+display: -webkit-box;
+word-break: break-all;
+/*超出文字用省略号代替*/
+text-overflow: ellipsis;
+/*竖直方向的超出和隐藏*/
+-webkit-box-orient: vertical;
+/*设定行数为2*/
+-webkit-line-clamp: 2;
+/*多出部分隐藏*/
+overflow: hidden;
+}
+.wait-receipt-info-bottom-image{
+  width:10rpx;
+height:17rpx;
+}
+
+
+/* 支付栏 */
+
+.pay-bar-view{
+  width:750rpx;
+height:98rpx;
+display: flex;
+align-items: center;
+justify-content: space-between;
+position: fixed;
+left: 0;
+bottom: 0;
+background-color: #FFFFFF;
+}
+
+.pay-bar-left-view{
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  color: #999999;
+  margin-left: 23rpx;
+}
+
+.pay-bar-left-price{
+  font-size: 32rpx;
+  color: #FF3300;
+}
+.pay-bar-right-view{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pay-bar-left-bt-view{
+width:195rpx;
+height:80rpx;
+background:rgba(255,255,255,1);
+border:1rpx solid rgba(128,128,128,1);
+border-radius:40rpx;
+font-size: 30rpx;
+color: #808080;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-right: 32rpx;
+}
+.pay-bar-right-bt-view{
+width:195rpx;
+height:80rpx;
+background:linear-gradient(45deg,rgba(254,121,80,1),rgba(252,73,73,1));
+border-radius:40rpx;
+font-size: 30rpx;
+color: #FFFFFF;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-right: 23rpx;
+}

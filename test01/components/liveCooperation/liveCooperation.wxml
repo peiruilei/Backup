@@ -1,0 +1,59 @@
+<!--components/liveCooperation/liveCooperation.wxml-->
+<!-- 预约拍摄页面 -->
+<view class="view-outer" style="background-image:url({{bg}})">
+  <view class="view-container" style="background-image:url({{tape}})">
+    <!-- 内部内容 -->
+    <view class="view-container-title">
+      <text class="text-container-title">预约拍摄</text>
+      <view class="view-container-line"></view>
+    </view>
+    <!-- 填写表单 -->
+    <view class="view-container-form">
+      <view class="view-form-item">
+        <view class="view-form-img" style="background-image:url({{our}})"></view>
+        <view class="view-input-line">
+          <input class="input-form" placeholder="联系人" placeholder-class="placeholder" bindinput="linkInput"></input>
+        </view>
+      </view>
+      <view class="view-form-item">
+        <view class="view-form-img" style="background-image:url({{iphone}})"></view>
+        <view class="view-input-line">
+          <input class="input-form" placeholder="手机号" placeholder-class="placeholder" bindinput="iphoneInput"></input>
+        </view>
+      </view>
+      <view class="view-form-item">
+        <view class="view-form-img" style="background-image:url({{safe}})"></view>
+        <view class="view-input-line">
+          <input class="input-form-code" placeholder="验证码" placeholder-class="placeholder" bindinput="codeInput"></input>
+          <view class="view-form-code" bindtap="getVerificationCode">{{time}}</view>
+        </view>
+      </view>
+      <view class="view-form-item">
+        <view class="view-form-img" style="background-image:url({{ordering}})"></view>
+        <view class="view-input-line">
+          <input class="input-form" placeholder="请详细告知云拍摄合作需求" placeholder-class="placeholder" bindinput="demandInput"></input>
+        </view>
+      </view>
+    </view>
+    <!-- 提交按钮 -->
+    <view class="view-container-button" bindtap="submitOrder">预约拍摄</view>
+    <!-- 联系方式 -->
+    <view class="view-container-contact">
+      <view class="view-contact">
+        <view class="view-contact-text1">客服微信</view>
+        <view class="view-contact-text2">alltuu-hotline</view>
+        <view class="view-contact-view">
+          <view class="view-contact-image1" style="background-image:url({{qrcode}})"></view>
+        </view>
+      </view>
+      <view class="view-contact-seat"></view>
+      <view class="view-contact">
+        <view class="view-contact-text1">合作热线</view>
+        <view class="view-contact-text2">0571-87711285</view>
+        <view class="view-contact-view">
+          <view class="view-contact-image2" style="background-image:url({{iphone_1}})"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

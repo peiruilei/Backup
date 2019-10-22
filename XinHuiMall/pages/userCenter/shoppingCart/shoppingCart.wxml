@@ -1,0 +1,92 @@
+<view class="view" wx:if="{{!showNoData}}" >
+  <!-- 编辑 -->
+  <view class="edit-view" bindtap="onEditShop">
+    <text class="edit-title" wx:if="{{isEdit}}">完成</text>
+    <text class="edit-title" wx:else>编辑</text>
+  </view>
+  <!-- 商品列表 -->
+  <view class="shop-list-view">
+    <view class="shop-item-view" wx:for="{{shopInfo.shop_cart_list}}" wx:for-index="shop_index" wx:for-item="shop_item" wx:key="{{shop_index}}">
+      <view class="shop-up-view">
+        <image class="shop-up-select-image" wx:if="{{shop_item.shopIsSelect}}" src="{{shopping_cart_select}}" bindtap="onselectShop" data-shop_index="{{shop_index}}"></image>
+        <image class="shop-up-select-image" wx:else src="{{shopping_cart_noselect}}" bindtap="onselectShop" data-shop_index="{{shop_index}}"></image>
+        <image class="shop-up-logo-image" src="{{shopping_cart_icon}}" bindtap="onshopDetails" data-shop_id="{{shop_item.shop_id}}"  ></image>
+        <text class="shop-up-title-name" bindtap="onshopDetails" data-shop_id="{{shop_item.shop_id}}" >{{shop_item.shop_name}}</text>
+      </view>
+      <view class="shop-detail-view-view" wx:for="{{shop_item.goods_list}}" wx:key="{{index}}">
+        <view class="shop-detail-view">
+          <image class="shop-detail-select-image" wx:if="{{item.goodsIsSelect}}" src="{{shopping_cart_select}}" bindtap="onselectGoods" data-goods_index="{{index}}" data-shop_index="{{shop_index}}"></image>
+          <image class="shop-detail-select-image" wx:else src="{{shopping_cart_noselect}}" bindtap="onselectGoods" data-goods_index="{{index}}" data-shop_index="{{shop_index}}"></image>
+          <image class="shop-detail-iamge" src="{{item.goods_img}}" bindtap="onshopDetail" data-goods_id="{{item.goods_id}}" ></image>
+          <view class="shop-detail-name-view">
+            <text class="shop-detail-name">{{item.goods_name}}</text>
+            <view class="shop-detail-style-view">
+              <text class="shop-detail-style-color" wx:if="{{item.first_specification_name}}" >{{item.first_specification_name}}：{{item.first_specification_value_name}}</text>
+              <text class="shop-detail-style-size" wx:if="{{item.second_specification_name}}" >{{item.second_specification_name}}：{{item.second_specification_name}}</text>
+            </view>
+            <view class="shop-detail-down-view">
+              <text class="shop-detail-down-prize">¥{{item.goods_price}}</text>
+              <view class="shop-detail-down-right-view">
+                <image class="shop-detail-down-add-image" src="{{shopping_cart_less}}" bindtap="onShopChange" data-goods_index="{{index}}" data-shop_index="{{shop_index}}" data-status='2'></image>
+              </view>
+              <view class="shop-detail-down-center-view">
+                <text class="shop-detail-down-center-num">{{item.buy_num}}</text>
+              </view>
+              <view class="shop-detail-down-right-view">
+                <image class="shop-detail-down-add-image" src="{{shopping_cart_add}}" bindtap="onShopChange" data-goods_index="{{index}}" data-shop_index="{{shop_index}}" data-status='1'></image>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="view-line" wx:if="{{index!=shop_item.goods_list.length-1}}"></view>
+      </view>
+    </view>
+  </view>
+  <!-- 失效商品列表 -->
+  <view class="invalid-shop-list-view" wx:if="{{invalid_shop_cart_list.length!=0}}" >
+    <view class="invalid-shop-bar-view" bindtap="onshopClear" >
+      <text class="invalid-shop-bar-title">失效商品</text>
+      <text class="invalid-shop-bar-title-clear">清空失效商品</text>
+    </view>
+    <view class="shop-detail-view-view" wx:for="{{invalid_shop_cart_list}}" wx:key="{{index}}">
+      <view class="invalid-shop-item-view">
+        <view class="invalid-shop-left-view">
+          <text class="invalid-shop-left-text">失效</text>
+        </view>
+        <image class="invalid-shop-image" src="{{item.goods_img}}"  ></image>
+        <view class="invalid-shop-info-view">
+          <text class="invalid-shop-info-name">{{item.goods_name}}</text>
+          <text class="invalid-shop-info-prize">¥{{item.goods_price}}</text>
+          <text class="invalid-shop-info-msg">已失效，不能购买</text>
+        </view>
+      </view>
+      <view class="view-line" wx:if="{{index!=invalid_shop_cart_list.length-1}}"></view>
+    </view>
+  </view>
+
+  <!-- 底部栏 -->
+  <view class="bottom-bar-view" wx:if="{{shopInfo.shop_cart_list.length!=0}}" >
+    <view class="all-select-view" bindtap="onselectAll">
+      <image class="select-image" wx:if="{{allSelect}}" src="{{shopping_cart_select}}"></image>
+      <image class="select-image" wx:else src="{{shopping_cart_noselect}}"></image>
+      <text class="all-select-text" wx:if="{{!isEdit}}">全选</text>
+      <text class="counter-text" wx:if="{{!isEdit}}">合计:</text>
+      <text class="prize-text" wx:if="{{!isEdit}}">¥{{prices}}</text>
+    </view>
+    <view class="settlement-view" wx:if="{{isEdit}}" bindtap="onshop_delete" >
+      <text class="settlement-text">删除</text>
+    </view>
+    <view class="settlement-view" wx:else bindtap="settleAccounts" >
+      <text class="settlement-text">结算</text>
+    </view>
+  </view>
+</view>
+
+
+
+<!-- 无数据 -->
+
+<view class="view-no-use mt-100" wx:else>
+    <image class="img-no-use" src="{{no_use}}"></image>
+    <text class="text-14">暂无数据</text>
+  </view>

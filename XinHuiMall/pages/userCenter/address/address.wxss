@@ -1,0 +1,145 @@
+/* pages/userCenter/address/address.wxss */
+
+.view-bg {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 100rpx;
+}
+
+.view-address-cell {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin-top: 10rpx;
+}
+
+.view-line {
+  width: 94%;
+  height: 1rpx;
+  background-color: #e6e6e6;
+}
+
+.view-user-tel {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20rpx;
+  margin-bottom: 30rpx;
+}
+
+.text-user {
+  font-size: 30rpx;
+  color: #333;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.text-name-tel {
+  font-size: 26rpx;
+  color: #333;
+}
+
+.view-detail {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 28rpx;
+}
+
+.img-address {
+  width: 33rpx;
+  height: 33rpx;
+  flex-shrink: 0;
+}
+
+.text-detail {
+  color: #999;
+  font-size: 22rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
+/* 管理操作 */
+
+.view-manager-address {
+  font-size: 26rpx;
+  color: #999;
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.view-default {
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+}
+
+.img-defult {
+  width: 24rpx;
+  height: 24rpx;
+  flex-shrink: 0;
+}
+
+.view-marager-left {
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.view-edit-dele {
+  width: 140rpx;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-edit {
+  width: 27rpx;
+  height: 30rpx;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.img-dele {
+  width: 28rpx;
+  height: 30rpx;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+/* 添加收货地址 */
+
+.view-bottom {
+  width: 100%;
+  height: 98rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  background-color: white;
+}
+
+.view-add-address {
+  width: 94%;
+  height: 80rpx;
+  border-radius: 8rpx;
+  color: white;
+  font-size: 34rpx;
+  background: -webkit-linear-gradient(left, #fe7950, #fc4949);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

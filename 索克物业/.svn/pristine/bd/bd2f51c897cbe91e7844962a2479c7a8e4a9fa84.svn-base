@@ -1,0 +1,28 @@
+<view class="view-no-use" wx:if="{{showNoData}}">
+  <image class="img-no-use" src="{{no_use}}"></image>
+  <text class="text-14">{{msg}}</text>
+</view>
+<view class="view-bg" wx:else>
+<!-- 消息列表 -->
+  <view class='touch-item {{msgItem.isTouchMove ? "touch-move-active" : ""}}' bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for='{{msgArray}}' wx:key="ArrayKey" wx:for-item='msgItem' bindtap='goToMessageDetail' data-index='{{index}}' data-model="{{msgItem}}">
+    <view class="view-tablview-cell">
+      <view class="view-msg-top">
+        <image class="img-msg" src="{{usercenter_img_msg}}"></image>
+        <view class="view-name-time">
+          <text class="text-name">{{msgItem.title}}</text>
+          <text class="text-time">{{msgItem.add_time}}</text>
+        </view>
+        <view class="view-readState" wx:if="{{msgItem.state==0}}"></view>
+      </view>
+      <text class="text-content">{{msgItem.content}}</text>
+    </view>
+    <!-- <view class='view-line'></view> -->
+    <view class="del" catchtap="del" data-index="{{index}}" data-model="{{msgItem}}">删除</view>
+  </view>
+  <view class="loading_box" wx:if="{{loadMore}}">
+    <view class="pulse pulse_1"></view>
+    <view class="pulse pulse_2"></view>
+    <view class="pulse pulse_3"></view>
+    <view class="pulse pulse_4"></view>
+  </view>
+</view>

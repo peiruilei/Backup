@@ -1,0 +1,36 @@
+/* pages/index/collectedPhoto/collectedPhoto.wxss */
+.view-outer{
+  width: 750rpx;
+  padding: 24rpx 30rpx 0 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.view-item{
+  width: 226rpx;
+  height: 234rpx;
+  background-color: #EEEEEE;
+  margin-bottom: 6rpx;
+  background-size: 100%;
+}
+
+.view-noPhotoIcon{
+  width: 278rpx;
+  height: 280rpx;
+  background-size: 100%;
+  margin-top: 131rpx;
+  margin-left: 226rpx;
+}
+
+.view-noPhotoText{
+  width: 750rpx;
+  text-align: center;
+  font-size:24rpx;
+  font-family:Source Han Sans CN;
+  font-weight:400;
+  color:#A5A5A5;
+  margin-top: 19rpx;
+}

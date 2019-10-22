@@ -1,0 +1,157 @@
+.view-item
+{
+  width: 92%;
+  padding: 0rpx 4% 0rpx 4%;
+  height: 90rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+}
+.img-arrow {
+  width: 10rpx;
+  height: 18rpx;
+  margin-left: 10rpx;
+}
+.text-title-name
+{
+  font-size: 28rpx;
+  color: #323232;
+  line-height: 80rpx;
+}
+.text-content
+{
+  flex-grow: 1;
+text-align: end;
+  font-size: 28rpx;
+  color: #b2b2b2;
+}
+/* 描述 */
+.textarea-desc
+{
+    width: 92%;
+  padding: 30rpx 4% 30rpx 4%;
+    font-size: 28rpx;
+  color: #323232;
+  background: #fff;
+  height: 160rpx;
+  margin-top: 2rpx;
+}
+.textarea-desc-placeholder
+{
+    font-size: 28rpx;
+  color: #b2b2b2;
+
+}
+/* 上传图片 */
+.view-add-img-box
+{
+width: 92%;
+  padding: 0rpx 4% 25rpx 4%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  margin-top:10rpx; 
+}
+.view-img-box
+{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.img-add-task
+{
+width: 220rpx;
+height: 220rpx;
+flex-shrink: 0;
+margin-right: 5rpx;
+margin-left: 5rpx;
+margin-top: 10rpx;
+}
+/* 手机号 */
+.input-tel,.input-verify
+{
+  font-size: 28rpx;
+  color: #323232;
+  flex-grow: 1
+}
+.input-tel-placeholder,.input-verify-placeholder
+{
+  font-size: 28rpx;
+  color: #b2b2b2;
+}
+.view-get-verify
+{
+  width: 172rpx;
+  height: 56rpx;
+  color: #fff;
+  font-size: 28rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 28rpx;
+  background: linear-gradient(to left, #68d6ab, #4ad3bb);
+}
+/* 服务费 */
+.view-service-amount
+{
+  margin-top: 100rpx;
+  font-size: 30rpx;
+  color: #323232;
+  width: 100%;
+  text-align: center;
+}
+.text-amount
+{
+  color: #FE8C21;
+  margin-left: 20rpx;
+
+}
+.btn_sumbit
+{
+  width:690rpx;
+height:90rpx;
+background:linear-gradient(45deg,#68d6ab, #4ad3bb);
+border-radius:10rpx;
+font-size: 34rpx;
+color: #fff;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-top: 100rpx;
+margin-bottom: 50rpx;
+}
+button::after
+{
+  border: none;
+}
+/* 阅读协议 */
+.view-agree-box
+{
+width: 100%;
+display: flex;
+align-items: center;
+font-size: 26rpx;
+justify-content: center;
+margin-bottom: 40rpx;
+}
+.img-agree-tips
+{
+width: 30rpx;
+height: 30rpx;
+flex-shrink: 0;
+padding: 20rpx;
+}
+.text-select-tips
+{
+color: #68d6ab;
+}
+.view-bottom
+{
+  background: #fff;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2rpx;
+}

@@ -1,0 +1,24 @@
+<view class="view-bg">
+  <view class='view-top'>
+    <view class='view-address-box'>
+      <image class='img-address-icon' src='{{index_address_icon}}'></image>
+      <text>星月小区</text>
+    </view>
+
+     <view class='view-re-loaction'>
+      <image class='img-re-loaction' src='{{index_re_loaction}}'></image>
+      <text>重新定位</text>
+    </view>
+  </view>
+  <!-- 已开通的小区 -->
+  <view class='view-open-village-title'>
+    <image class='img-village' src='{{inde_address_village}}'></image>
+      <text>已开通的小区</text>
+  </view>
+
+  <view class='view-village-item' wx:for="111111111">
+  <text>某某小区</text>
+  <image class='img-arrow' src='{{index_arrow}}' ></image>
+  </view>
+
+</view>

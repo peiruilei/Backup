@@ -1,0 +1,101 @@
+
+.view-data-select{
+ width:20rpx;
+height:10rpx;
+}
+/* page{
+  background-color: #ffffff;
+} */
+.view-page-data{
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  padding-left: 32rpx;
+  background-color: #f7f7f7;
+  box-sizing: border-box;
+ 
+}
+.view-data-select-box{
+  width: 40rpx;
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* 列表 */
+.view-withdraw-wrap{}
+.view-withdraw-item{}
+.view-withdraw-item-content{
+  height: 222rpx;
+  display: flex;
+  background-color: #ffffff;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: 20rpx;
+}
+.view-withdraw-item-deal-check{
+  width: 183rpx;
+  height: 52rpx;
+  font-size: 26rpx;
+  color: #ffffff;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.view-withdraw-item-deal-date{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 21rpx;
+}
+/* .view-withdraw-item-deal-img{
+  width: 183rpx;
+  height: 52rpx;
+
+} */
+.view-withdraw-item-deal-date-text{
+  color: #999999;
+}
+.view-withdraw-item-back{
+  font-size: 26rpx;
+  color: #666666;
+  margin-left: 22rpx;
+}
+.view-withdraw-item-back-num{
+    font-size: 26rpx;
+  color: #666666;
+  margin-left: 22rpx;
+}
+.view-withdraw-item-money{
+  color: #FC4949;
+    margin-left: 22rpx;
+    margin-bottom: 26rpx;
+}
+/* 提到微信记录 */
+.view-withdraw-item-wx{
+  height: 140rpx;
+  display: flex;
+  background-color: #ffffff;
+  justify-content: space-between;
+  flex-direction: column;
+    margin-bottom: 20rpx;
+}
+.view-withdraw-item-deal-mode{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+margin-bottom: 26rpx;
+}
+.view-withdraw-item-deal-mode-left{
+  color: #666666;
+  margin-left: 22rpx;
+}
+.view-withdraw-item-deal-mode-right{
+  font-size: 26rpx;
+  margin-right: 22rpx;
+   color: #FC4949;
+ 
+}

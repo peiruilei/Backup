@@ -1,0 +1,56 @@
+<view class="view-page">
+  <view class="vip-head" style="background-image:url('{{content_vip_bg}}')">
+    <image class="vip-head-img" src="{{vipInfo.head_img}}"></image>
+  </view>
+  <view class="vip-head-name text-14">{{vipInfo.nick_name}}</view>
+  <!-- 好友和伙伴 -->
+  <view class="vip-center-manage">
+    <view class="vip-content-friends" bindtap="pickFriends" data-id="1">
+      <text class="vip-content-friends-num" style="{{nav==1?'color:#fc4949':'color:#666666'}}">您的好友({{vipInfo.friend_num}})</text>
+      <text class="vip-content-friends-line" style="{{nav==1?'background-color:#fc4949':'background-color:#ffffff'}}"></text>
+    </view>
+    <view class="vip-content-company" bindtap="pickCompany" data-id="2">
+      <text class="vip-content-company-num" style="{{nav==2?'color:#fc4949':'color:#666666'}}">您的伙伴({{vipInfo.company_num}})</text>
+      <text class="vip-content-company-line" style="{{nav==2?'background-color:#fc4949':'background-color:#ffffff'}}"></text>
+    </view>
+  </view>
+  <!-- 列表 -->
+  <view class="vip-list-wrap" wx:els>
+    <view class="vip-list-item" wx:for="{{rebateList}}" wx:key="">
+      <view class="vip-list-item-up">
+        <image class="vip-list-item-up-left" src="{{item.junior_head_img}}"></image>
+        <view class="vip-list-item-up-right text-14">
+          <text class="vip-list-item-up-right-name">{{item.junior_nick_name}}</text>
+          <text class="vip-list-item-up-right-money">创造收益￥{{item.make_profit}}</text>
+        </view>
+      </view>
+      <view class="vip-list-item-down text-12">
+        <view class="vip-list-item-down-left">
+          <text class="vip-list-item-down-left-rmb">人民币消费</text>
+          <text class="vip-list-item-down-left-rmb-num">￥{{item.order_total_fees}}</text>
+        </view>
+        <view class="vip-list-item-down-center">
+          <text class="vip-list-item-down-center-order">补金消费</text>
+          <text class="vip-list-item-down-center-order-num">{{item.order_total_subsidy}}</text>
+        </view>
+        <view class="vip-list-item-down-right">
+          <text class="vip-list-item-down-right-point">积分消费</text>
+          <text class="vip-list-item-down-right-point-num"></text>{{item.order_total_xinhuipoints}}</view>
+      </view>
+      <view class="vip-line"></view>
+    </view>
+  </view>
+  <!-- 无数据 -->
+  <view class="view-no-use mt-100" wx:if="{{showNoData}}">
+    <image class="img-no-use" src="{{common_no_data}}"></image>
+    <text class="text-14">暂无数据</text>
+  </view>
+  <!-- 加载区 -->
+  <view class="loading_box" wx:if="{{loadMore}}">
+    <view class="pulse pulse_1"></view>
+    <view class="pulse pulse_2"></view>
+    <view class="pulse pulse_3"></view>
+    <view class="pulse pulse_4"></view>
+  </view>
+
+</view>

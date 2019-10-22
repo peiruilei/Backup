@@ -1,0 +1,2 @@
+<!--pages/userCenter/explainSettingUrl/explainSettingUrl.wxml-->
+<web-view src="{{url}}"></web-view>

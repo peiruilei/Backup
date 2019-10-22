@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "tabbar": "../TabBar/tabbar"
+  },
+  "navigationBarTitleText": "5G云摄影",
+  "enablePullDownRefresh": true
+}

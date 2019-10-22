@@ -1,0 +1,55 @@
+<view class="view-page">
+  <picker mode="date" value="{{timer}}" end="{{time}}" fields="month" bindchange="bindDateChange">
+    <view class="view-page-data">
+      <text class="view-data-text text-15">{{year}}年{{month}}月</text>
+      <view class="view-data-select-box">
+        <image src="{{content_withdraw_select}}" class="view-data-select"></image>
+      </view>
+    </view>
+  </picker>
+  <!-- 提现列表 -->
+  <view class="view-withdraw-wrap">
+    <view class="view-withdraw-item" wx:for="{{withdrawList}}" wx:key="{{index}}">
+      <!-- 银行卡提现 -->
+      <view class="view-withdraw-item-content" wx:if="{{item.type==0}}">
+        <view class="view-withdraw-item-deal-date">
+          <!-- <image class="view-withdraw-item-deal-img " src="{{content_withdraw_success}}"></image> -->
+          <text class="view-withdraw-item-deal-check" wx:if="{{item.deal_state==0}}" style="background-image:url('{{content_withdraw_wait}}')">未处理</text>
+          <text class="view-withdraw-item-deal-check" wx:if="{{item.deal_state==1}}" style="background-image:url('{{content_withdraw_success}}')">已处理</text>
+          <text class="view-withdraw-item-deal-check" wx:if="{{item.deal_state==2}}" style="background-image:url('{{content_withdraw_no}}')">拒绝</text>
+
+          <text class="view-withdraw-item-deal-date-text text-13">{{item.add_time}}</text>
+        </view>
+        <view class="view-withdraw-item-back">到账银行:{{item.bank_name}}</view>
+        <view class="view-withdraw-item-back-num">到账卡号:{{item.withdraw_account}}</view>
+        <view class="view-withdraw-item-money text-13">￥{{item.withdraw_amount}}</view>
+      </view>
+      <!-- 微信提现 -->
+      <view class="view-withdraw-item-wx" wx:if="{{item.type==2}}">
+        <view class="view-withdraw-item-deal-date">
+
+          <text class="view-withdraw-item-deal-check" wx:if="{{item.deal_state==0}}" style="background-image:url('{{content_withdraw_wait}}')">未处理</text>
+          <text class="view-withdraw-item-deal-check" wx:if="{{item.deal_state==1}}" style="background-image:url('{{content_withdraw_success}}')">已处理</text>
+          <text class="view-withdraw-item-deal-check" wx:if="{{item.deal_state==3}}" style="background-image:url('{{content_withdraw_no}}')">拒绝</text>
+          <text class="view-withdraw-item-deal-date-text text-13">{{item.add_time}}</text>
+        </view>
+        <view class="view-withdraw-item-deal-mode">
+          <text class="view-withdraw-item-deal-mode-left text-13">到账方式:微信余额</text>
+          <text class="view-withdraw-item-deal-mode-right">￥{{item.withdraw_amount}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+</view>
+<view class="view-no-use mt-100" wx:if="{{showNoData}}">
+    <image class="img-no-use" src="{{common_no_data}}"></image>
+    <text class="text-14">暂无数据</text>
+  </view>
+  <!-- 加载区 -->
+  <view class="loading_box" wx:if="{{loadMore}}">
+    <view class="pulse pulse_1"></view>
+    <view class="pulse pulse_2"></view>
+    <view class="pulse pulse_3"></view>
+    <view class="pulse pulse_4"></view>
+  </view>

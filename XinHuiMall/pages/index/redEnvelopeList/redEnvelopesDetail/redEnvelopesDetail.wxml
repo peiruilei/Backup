@@ -1,0 +1,40 @@
+<!--pages/index/redEnvelopeList/redEnvelopesDetail/redEnvelopesDetail.wxml-->
+<view class="outer" style="background-image:url({{backgroundImage}});">
+
+  <view class="popup-redpacket" style="background-image:url({{popupRedpacket}});">
+    <view class="view-content">
+      <image class="view-content-img" src="{{redpacket.big_img}}"></image>
+      <view class="view-content-shopname">{{redpacket.shop_name}}</view>
+      <view class="view-content-champion">红包冠军奖励</view>
+      <view class="view-content-reward">{{redpacket.champion_reward}}</view>
+      <view class="view-button" bindtap="button_tap">抢红包</view>
+    </view>
+  </view>
+
+  <view class="view-explanation">
+    <view class="view-explan-nav">
+      <image class="view-explan-nav-leftImg" src="{{redlineRight}}"></image>
+      <view style="color:white;margin:0 24rpx;">活动说明</view>
+      <image class="view-explan-nav-rightImg" src="{{redlineLeft}}"></image>
+    </view>
+    <view class="view-explan-view">{{redpacket.activity_state}}</view>
+  </view>
+
+</view>
+
+<view class="cover" wx:if="{{cover}}">
+
+  <view class="view-shareredpacket" wx:if="{{shareRedpacket}}" style="background-image:url({{redpacketBg}});">
+    <view class="view-shareredpacket-text1">恭喜你获得商家红包</view>
+    <view class="view-shareredpacket-text2">快点转发朋友圈领取吧！</view>
+    <button open-type="share" class="view-shareredpacket-button" bindtap="clickShare">立即转发</button>
+    <view class="view-shareredpacket-circle" bindtap="closeShareView">X</view>
+  </view>
+
+  <view class="view-redpacket" wx:if="{{receiveRedpacket}}" style="background-image:url({{gotrenpacket}});">
+    <view class="view-redpacket-text1">恭喜你获得红包</view>
+    <view class="view-redpacket-text2">{{addredpacket.receive_amount}}元</view>
+    <view class="view-redpacket-circle" bindtap="closeView">X</view>
+  </view>
+
+</view>

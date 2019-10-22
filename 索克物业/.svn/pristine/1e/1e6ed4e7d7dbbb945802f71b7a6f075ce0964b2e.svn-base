@@ -1,0 +1,14 @@
+<view class="view-bg">
+
+  <view class="view-tel-verifycode">
+    <input class='input-tel ml10' bindinput='getUserTel' type='number' maxlength='11' placeholder='请输入手机号'></input>
+  </view>
+  <view class="view-line"></view>
+  <view class="view-tel-verifycode">
+    <input class='input-verifycode ml10' bindinput='inputVerifycode' maxlength='6' type='number' placeholder='请输入验证码'></input>
+    <view class='view-get-verifycode' bindtap='getVerifyCode'>{{v_code}}</view>
+  </view>
+  <view class="view-line"></view>
+  
+  <button class='btn-confirm' bindtap='formSubmit'>提交</button>
+</view>

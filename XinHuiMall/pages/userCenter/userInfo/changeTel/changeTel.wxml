@@ -1,0 +1,35 @@
+<!-- <form bindsubmit="formSubmit"></form>
+<view class='view_validation'>
+  <view class='view_validation_binding'>
+    <text class='text_validation_binding'>当前绑定</text>
+    <text class='text_validation_binding_number'>{{user_tel}}</text>
+  </view>
+  <view class='view_validation_code'>
+    <text class='view_validation_number'>验证码</text>
+    <input class='input_validation_number' placeholder="请输入验证码" maxlength='6' type='number' name="verifyCode" ></input>
+    <view class='button_send' bindtap='getVerifyCode'>{{v_code}}</view>
+  </view>
+</view>
+<button form-type="submit" class='button'>下一步</button> -->
+<view  class="view-page">
+<form bindsubmit="formSubmit">
+
+      <view class="view_resemble">
+        <text class="resemble_left_title">当前手机号</text>
+        <input class="view-name-input" type="text" placeholder="{{values}}" name="tel_phone" maxlength="11"  value="{{userTel}}" disabled="true"/>
+      </view>
+      <view class="view_line"></view>
+      <view class="view_resemble">
+        <text class="resemble_left_title">新换手机号</text>
+        <input class="view-name-input" type="text" name="tel_phone" bindinput="numberClick" placeholder="请输入新手机号" maxlength="11" />
+      </view>
+      <view class="view_line"></view>
+      <view class="view_resemble">
+        <text class="resemble_left_title">验证码</text>
+        <input class="view-name-input" type="text" name="verifyCode" placeholder="请输入验证码" maxlength="6" />
+        <view class="view-verification" bindtap="getVerifyCode">{{v_code}}</view>
+      </view>
+      <view class="view_line"></view>
+     <button class="view_from_bt" form-type="submit">提交</button>
+     </form>
+      </view>

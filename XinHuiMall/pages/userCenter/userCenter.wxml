@@ -1,0 +1,142 @@
+<!-- 普通用户 -->
+<view class="view" style="background-image:url({{userCenter_top_bg}})" wx:if="{{userInfo.user_type==0 || !isUser}}" >
+  <!-- 顶部个人信息 -->
+  <view class="head-userinfo" wx:if="{{isUser}}" >
+    <image class="header-image" src="{{userInfo.head_img}}" wx:if="{{userInfo.head_img}}" bindtap="onuserInfo" ></image>
+     <image class="header-image" src="{{userCenter_headimg}}" wx:else bindtap="onuserInfo" ></image>
+    <view class="name-view" bindtap="onuserInfo" >
+      <text class="name-text">{{userInfo.nick_name}}</text>
+      <text class="id-text">{{userInfo.user_account}}</text>
+    </view>
+    <image class="apply-shop" src="{{userCenter_apply}}" bindtap="onApplyShopping" ></image>
+    <!-- <view class="apply-shopping">
+      <text class="apply-text">申请商城</text>
+      <image class="apply-image"></image>
+    </view> -->
+  </view>
+  <!-- 未登录 -->
+  <view class="head-userinfo" wx:else >
+    <image class="header-image" src="{{userCenter_headimg}}" bindtap="onuserInfo"  ></image>
+    <view class="name-view-no" bindtap="onuserInfo" >
+      <text class="name-text">未登录</text>
+      </view>
+    <image class="apply-shop" src="{{userCenter_apply}}" bindtap="onApplyShopping" ></image>
+  </view>
+  <!-- 我的服务 -->
+  <view class="user-service">
+    <text class="user-service-text">我的服务</text>
+    <view class="user-service-list">
+      <view class="item-view" wx:for="{{userService_list_general}}" wx:key="{{index}}" bindtap="onUserService" data-service_id="{{item.service_id}}">
+        <image class="item-image" src="{{item.service_img}}"></image>
+        <text class="item-text">{{item.service_name}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 其他服务 -->
+  <view class="ortherServive-view">
+    <text class="ortherServive-text">其他服务</text>
+  </view>
+  <view class="ortherServive-item-view" wx:for="{{ortherService_list_general}}" wx:key="{{index}}"  bindtap="onOrtherService" data-orther_service_id="{{item.orther_service_id}}" >
+    <view class="ortherServive-item" wx:if="{{index!=2 && index!=6}}">
+      <image class="orther-item-image" src="{{item.orther_service_img}}"></image>
+      <text class="orther-item-text">{{item.orther_service_name}}</text>
+      <image class="item-right-image" src="{{content_back}}" ></image>
+    </view>
+    <!-- 系统消息 -->
+      <view class="ortherServive-item" wx:if="{{index==2}}" >
+        <image class="orther-item-image" src="{{item.orther_service_img}}"></image>
+        <text class="orther-item-text">{{item.orther_service_name}}</text>
+        <!-- <view class="message-number-view"> -->
+          <text class="message-number" wx:if="{{userInfo.unread_num>0}}" >{{userInfo.unread_num}}</text>
+          <image class="item-right-image" src="{{content_back}}" ></image>
+        <!-- </view> -->
+      </view>   
+    <!-- 联系客服 -->
+      <view class="ortherServive-item" wx:if="{{index==6}}" >
+        <image class="orther-item-image" src="{{item.orther_service_img}}"></image>
+        <text class="orther-item-text">{{item.orther_service_name}}</text>
+        <image class="item-right-image" src="{{content_back}}" ></image>
+        <button class="orther-bt" open-type="contact" ></button>
+      </view>  
+      <view class="orther-line" wx:if="{{index<ortherService_list_general.length-1}}"></view>
+  </view>
+<view class="view-bottom-line" ></view>
+</view>
+
+
+<!-- 代理or店家 -->
+
+<view class="view" style="background-image:url({{userCenter_top_bg}})" wx:else >
+  <!-- 顶部个人信息 -->
+  <view class="head-userinfo">
+    <image class="header-image" src="{{userInfo.head_img}}" wx:if="{{userInfo.head_img}}"   bindtap="onuserInfo"  ></image>
+    <image class="header-image" src="{{userCenter_headimg}}" wx:else bindtap="onuserInfo" ></image>
+    <view class="name-view" bindtap="onuserInfo" >
+      <text class="name-text">{{userInfo.nick_name}}</text>
+      <text class="id-text">{{userInfo.user_account}}</text>
+    </view>
+    <image class="setting-image" src="{{userCenter_setting}}" bindtap="onSetting" ></image>
+    <!-- <view class="apply-shopping">
+      <text class="apply-text">申请商城</text>
+      <image class="apply-image"></image>
+    </view> -->
+  </view>
+  <!-- 我的服务 -->
+  <view class="user-service">
+    <text class="user-service-text">我的服务</text>
+    <view class="user-service-list">
+      <view class="item-view" wx:for="{{userService_list_proxy}}" wx:key="{{index}}" bindtap="onUserService" data-service_id="{{item.service_id}}">
+        <image class="item-image" src="{{item.service_img}}"></image>
+        <text class="item-text">{{item.service_name}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 其他服务 -->
+  <view class="ortherServive-view">
+    <text class="ortherServive-text">其他服务</text>
+  </view>
+  <view class="ortherServive-item-view" wx:for="{{ortherService_list_proxy}}" wx:key="{{index}}"  bindtap="onOrtherService" data-orther_service_id="{{item.orther_service_id}}" >
+    <view class="ortherServive-item" wx:if="{{index!=2 && index!=6}}">
+      <image class="orther-item-image" src="{{item.orther_service_img}}"></image>
+      <text class="orther-item-text">{{item.orther_service_name}}</text>
+      <image class="item-right-image" src="{{content_back}}" ></image>
+    </view>
+    <!-- 系统消息 -->
+      <view class="ortherServive-item" wx:if="{{index==2}}" >
+        <image class="orther-item-image" src="{{item.orther_service_img}}"></image>
+        <text class="orther-item-text">{{item.orther_service_name}}</text>
+        <!-- <view class="message-number-view"> -->
+          <text class="message-number" wx:if="{{userInfo.unread_num>0}}" >{{userInfo.unread_num}}</text>
+          <image class="item-right-image" src="{{content_back}}" ></image>
+        <!-- </view> -->
+      </view>   
+    <!-- 联系客服 -->
+      <view class="ortherServive-item" wx:if="{{index==6}}" >
+        <image class="orther-item-image" src="{{item.orther_service_img}}"></image>
+        <text class="orther-item-text">{{item.orther_service_name}}</text>
+        <image class="item-right-image" src="{{content_back}}" ></image>
+        <button class="orther-bt" open-type="contact" ></button>
+      </view>  
+      <view class="orther-line" wx:if="{{index<ortherService_list_general.length-1}}"></view>
+  </view>
+  <view class="myshop-top-line" ></view>
+  <!-- 我的店铺 -->
+  <view class="ortherServive-view">
+    <text class="ortherServive-text">我的店铺</text>
+  </view>
+  <view class="ortherServive-item-view" wx:for="{{myShopping_list_proxy}}" wx:key="{{index}}"  bindtap="onMyShopping" data-myShopping_id="{{item.myShopping_id}}" >
+    <view class="ortherServive-item" wx:if="{{index!=1}}">
+      <image class="orther-item-image" src="{{item.myShopping_img}}"></image>
+      <text class="orther-item-text">{{item.myShopping_name}}</text>
+      <image class="item-right-image" src="{{content_back}}" ></image>
+    </view>
+  <!-- 客户反馈 -->
+      <view class="ortherServive-item" wx:if="{{index==1}}" >
+        <image class="orther-item-image" src="{{item.myShopping_img}}"></image>
+        <text class="orther-item-text">{{item.myShopping_name}}</text>
+          <text class="message-number" wx:if="{{userInfo.feed_back_num>0}}" >{{userInfo.feed_back_num}}</text>
+          <image class="item-right-image" src="{{content_back}}" ></image>
+      </view>  
+  </view>
+  <view class="view-bottom-line" ></view>
+</view>

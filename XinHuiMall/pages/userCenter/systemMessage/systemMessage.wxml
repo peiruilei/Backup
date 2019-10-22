@@ -1,0 +1,44 @@
+<view class="view-page">
+  <view class="view-head-line"></view>
+  <!-- 消息列表 -->
+  <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{systemList}}" wx:key="">
+    <view class="content">
+      <view class="view-system" bindtap="systemClick" data-info_url="{{item.info_url}}">
+        <!-- 左侧图片 -->
+        <view class="view-system-image">
+          <image class="view-system-img" wx:if="{{item.is_read==0}}" src="{{content_message_notRead}}"></image>
+          <image class="view-system-img" wx:if="{{item.is_read==1}}" src="{{content_message_read}}"></image>
+        </view>
+        <!-- 右侧文字 -->
+        <view class="view-system-content">
+          <view class="view-system-content-up">
+            <text class="view-system-content-up-text text-14">{{item.title}}</text>
+            <text class="view-system-content-up-date" decode="true">{{item.add_time}}</text>
+          </view>
+          <view class="view-system-content-down">
+            <text class="view-system-content-down-text">{{item.content}}</text>
+          </view>
+        </view>
+      </view>
+
+    </view>
+    <!-- <view class="view-down-line"></view> -->
+    <view class="del" catchtap="del" data-item_id="{{item.info_id}}" data-index="{{index}}">删除</view>
+  </view>
+</view>
+
+
+
+
+<!-- 无数据 -->
+<view class="view-no-use mt-100" wx:if="{{showNoData}}">
+  <image class="img-no-use" src="{{common_no_data}}"></image>
+  <text class="text-14">暂无数据</text>
+</view>
+<!-- 加载区 -->
+<view class="loading_box" wx:if="{{loadMore}}">
+  <view class="pulse pulse_1"></view>
+  <view class="pulse pulse_2"></view>
+  <view class="pulse pulse_3"></view>
+  <view class="pulse pulse_4"></view>
+</view>

@@ -1,0 +1,204 @@
+.view {
+  width: 100vw;
+  min-height: 100vh;
+  /* padding-bottom: 57rpx; */
+  background-size: 750rpx 319rpx;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FFFFFF;
+}
+/* 顶部个人信息 */
+.head-userinfo {
+  width: 750rpx;
+  height: 155rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-image {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  background-color: pink;
+  margin-left: 22rpx;
+}
+
+.name-view {
+  height: 90rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  margin-left: 25rpx;
+}
+.name-view-no{
+  height: 90rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  margin-left: 25rpx;
+}
+
+.name-text {
+  font-size: 32rpx;
+  color: #FFFFFF;
+}
+
+.id-text {
+  font-size: 24rpx;
+  color: #FFFFFF;
+}
+
+.apply-shop{
+  width:166rpx;
+height:47rpx;
+}
+/* .apply-shopping {
+  width:166rpx;
+height:45rpx;
+background:rgba(250,102,101,1);
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 23rpx 0 0 23rpx;
+}
+
+.apply-text {
+  font-size: 24rpx;
+  color: #FFFFFF;
+} */
+
+.apply-image {
+  width: 17rpx;
+  height: 20rpx;
+  /* background-color: red; */
+  margin-left: 19rpx
+}
+
+/* 我的服务 */
+.user-service{
+  width:706rpx;
+height:221rpx;
+background:rgba(255,255,255,1);
+box-shadow:0px 3rpx 7rpx 0px rgba(250,74,73,0.1);
+border-radius:10rpx;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+}
+.user-service-text{
+  font-size: 28rpx;
+  color: #333333;
+  margin-left: 29rpx;
+}
+.user-service-list{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.item-view{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.item-image{
+  width: 51rpx;
+  height: 51rpx;
+}
+.item-text{
+  font-size: 26rpx;
+  color: #666666;
+  margin-top: 20rpx;
+}
+
+/* 其他服务 */
+.ortherServive-view{
+  width: 750rpx;
+  height: 67rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+.ortherServive-text{
+  font-size: 28rpx;
+  color: #333333;
+  margin-left: 20rpx;
+}
+.ortherServive-item-view{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+.ortherServive-item{
+width: 706rpx;
+height: 106rpx;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.orther-item-image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.orther-item-text{
+flex: 1;
+font-size: 28rpx;
+color: #808080;
+margin-left: 23rpx;
+}
+.item-right-image{
+width: 10rpx;
+height: 17rpx;
+}
+.orther-line{
+  width:706rpx;
+height:1rpx;
+background:rgba(247,247,247,1);
+}
+
+/* .message-number-view{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+.message-number{
+  font-size: 28rpx;
+  color: #FF3300;
+  margin-right: 21rpx;
+}
+.orther-bt{
+  width: 706rpx;
+height: 106rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.orther-bt::after{
+  border: none;
+}
+.view-bottom-line{
+  width:750rpx;
+height:35rpx;
+background:rgba(247,247,247,1);
+}
+
+
+/* 商家or代理的个人中心 */
+
+.setting-image{
+  width: 38rpx;
+  height: 36rpx;
+  margin-right: 22rpx;
+}
+.myshop-top-line{
+  width:750rpx;
+height:10rpx;
+background:rgba(247,247,247,1);
+}

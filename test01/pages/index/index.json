@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "liveCooperation": "../../components/liveCooperation/liveCooperation",
+    "wonderfulCase": "../../components/wonderfulCase/wonderfulCase",
+    "my": "../../components/my/my"
+  }
+}

@@ -1,0 +1,130 @@
+/* pages/userCenter/voucherWarehouse/giftCoupon/giftCoupon.wxss */
+.view{
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.gift{
+  width: 750rpx;
+  height: 107rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 26rpx;
+}
+.gift-text{
+  font-size: 30rpx;
+  color: #333333;
+  margin-left: 23rpx;
+  margin-right: 60rpx;
+}
+.title-text{
+  font-size: 26rpx;
+  color: #999999;
+  margin-top: 43rpx;
+  margin-bottom: 35rpx;
+}
+/* 优惠券 */
+
+.coupon-item-view {
+  width: 706rpx;
+  height: 236rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 3rpx 7rpx 0px rgba(250, 76, 73, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-size: 706rpx 125rpx;
+  background-repeat: no-repeat;
+  margin-bottom: 23rpx;
+}
+
+.coupon-item-top-view {
+  width: 706rpx;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.coupon-item-gift-image {
+  width: 120rpx;
+  height: 38rpx;
+}
+
+.coupon-item-use {
+  width: 120rpx;
+  height: 43rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.coupon-item-use-text {
+  font-size: 24rpx;
+  color: #fff;
+}
+
+.coupon-item-title {
+  font-size: 30rpx;
+  color: #fff;
+  margin-top: 5rpx;
+}
+
+.coupon-item-bottom-view {
+  width: 706rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 74rpx;
+}
+
+.coupon-item-date {
+  font-size: 22rpx;
+  color: #808080;
+  margin-left: 25rpx;
+}
+
+.coupon-item-qr-view {
+  width: 147rpx;
+  height: 52rpx;
+  margin-right: 16rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.coupon-item-qr-text {
+  font-size: 24rpx;
+  color: #fff;
+  margin-left: 10rpx;
+}
+/* 底部确认按钮 */
+.bottom-bt-view{
+  width:706rpx;
+height:80rpx;
+background:linear-gradient(135deg,rgba(254,121,80,1),rgba(252,73,73,1));
+border-radius:8rpx;
+display: flex;
+justify-content:center;
+align-items: center;
+font-size: 34rpx;
+color: #FFFFFF; 
+/* position: fixed;
+bottom: 42rpx;
+left: 21rpx; */
+margin-top: 654rpx;
+margin-bottom: 42rpx;
+}
+
+.view-line{
+  width: 750rpx;
+  height: 1rpx;
+  background-color: #F2F2F2;
+}

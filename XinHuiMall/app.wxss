@@ -1,0 +1,393 @@
+/**app.wxss**/
+
+page {
+  background-color: #f5f5f5;
+  height: auto;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+
+.line {
+  width: 100%;
+  height: 2rpx;
+  background: #f5f5f5;
+}
+
+.page-bg {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  background: #f5f5f5;
+}
+
+.loading_box {
+  width: 100%;
+  text-align: center;
+}
+
+.loading_box>view {
+  display: inline-block;
+}
+
+.pulse {
+  width: 8rpx;
+  height: 40rpx;
+  background: #ffa143;
+  margin: 8rpx;
+  border-radius: 20rpx;
+}
+
+.pulse_1 {
+  -webkit-animation: pulse 0.5s linear infinite alternate;
+  animation: pulse 0.5s linear infinite alternate;
+}
+
+.pulse_2 {
+  -webkit-animation: pulse 0.5s linear infinite alternate;
+  animation: pulse 0.5s linear infinite alternate;
+  animation-delay: 0.1s;
+}
+
+.pulse_3 {
+  -webkit-animation: pulse 0.5s linear infinite alternate;
+  animation: pulse 0.5s linear infinite alternate;
+  animation-delay: 0.2s;
+}
+
+.pulse_4 {
+  -webkit-animation: pulse 0.5s linear infinite alternate;
+  animation: pulse 0.5s linear infinite alternate;
+  animation-delay: 0.3s;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    transform: scaleY(1);
+  }
+
+  100% {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scaleY(1);
+  }
+
+  100% {
+    transform: scaleY(0);
+  }
+}
+
+.ml15 {
+  margin-left: 30rpx;
+}
+
+.ml10 {
+  margin-left: 20rpx;
+}
+
+.ml5 {
+  margin-left: 10rpx;
+}
+
+.mr5 {
+  margin-right: 10rpx;
+}
+
+.mr10 {
+  margin-right: 20rpx;
+}
+
+.mr15 {
+  margin-right: 30rpx;
+}
+
+.mt10 {
+  margin-top: 20rpx;
+}
+
+.mt5 {
+  margin-top: 10rpx;
+}
+
+.m10 {
+  margin: 20rpx;
+}
+
+.mb5 {
+  margin-bottom: 10rpx;
+}
+
+.mb10 {
+  margin-bottom: 20rpx;
+}
+
+.pad10 {
+  padding: 20rpx;
+}
+
+.text-17 {
+  font-size: 34rpx;
+  color: #323232;
+  flex-shrink: 0;
+}
+
+.text-16 {
+  font-size: 32rpx;
+  color: #323232;
+  flex-shrink: 0;
+}
+
+.text-15 {
+  font-size: 30rpx;
+  color: #323232;
+  flex-shrink: 0;
+}
+
+.text-14 {
+  font-size: 28rpx;
+  color: #323232;
+  flex-shrink: 0;
+}
+
+.text-13 {
+  font-size: 26rpx;
+  color: #323232;
+  flex-shrink: 0;
+}
+
+.text-12 {
+  font-size: 24rpx;
+  color: #323232;
+  flex-shrink: 0;
+}
+
+.text-11 {
+  font-size: 22rpx;
+  color: #323232;
+  flex-shrink: 0;
+}
+
+.text-gray-12 {
+  font-size: 24rpx;
+  color: #808080;
+  flex-shrink: 0;
+}
+
+.text-gray-14 {
+  font-size: 28rpx;
+  color: #808080;
+  flex-shrink: 0;
+}
+
+.text-gray-12-line {
+  font-size: 24rpx;
+  color: #808080;
+  flex-shrink: 0;
+  text-decoration: line-through;
+}
+
+.img-icon {
+  width: 30rpx;
+  height: 30rpx;
+  flex-shrink: 0;
+}
+
+.view-w-h {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.view-h {
+  display: flex;
+  align-items: center;
+}
+
+.view-h-b-w {
+  display: flex;
+  align-items: center;
+  background: white;
+}
+
+.mt1 {
+  margin-top: 1px;
+}
+
+.view-h-f {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  background: white;
+  height: 48px;
+}
+
+.view-v-f {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  background: white;
+}
+
+.view-v {
+  display: flex;
+  flex-direction: column;
+}
+
+.view-v-w {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.bg-white {
+  background: white;
+}
+
+.edit-hint {
+  font-size: 28rpx;
+  color: #808080;
+}
+
+.text-14-r {
+  font-size: 28rpx;
+  margin-top: 7rpx;
+  color: #ffa143;
+}
+
+.text-14-del {
+  font-size: 28rpx;
+  color: #ffa143;
+  padding: 10rpx;
+}
+
+.text-12p-r {
+  font-size: 24rpx;
+  color: #ffa143;
+}
+
+.text-price {
+  color: #ffa143;
+}
+
+.main {
+  color: #ffa143;
+}
+
+.view-no-use {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.img-no-use {
+  width: 300rpx;
+  height: 300rpx;
+  margin-top: 300rpx;
+}
+
+.img-add {
+  width: 100rpx;
+  height: 100rpx;
+  position: fixed;
+  bottom: 50rpx;
+  right: 50rpx;
+}
+
+.view_space_around {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-14-white {
+  font-size: 28rpx;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.text-12-white {
+  font-size: 24rpx;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.text-14-main {
+  font-size: 28rpx;
+  color: #ffa143;
+  flex-shrink: 0;
+}
+
+.text-13-main {
+  font-size: 26rpx;
+  color: #ffa143;
+  flex-shrink: 0;
+}
+
+.text-13-90 {
+  font-size: 26rpx;
+  color: #909090;
+  flex-shrink: 0;
+}
+
+radio .wx-radio-input {
+  border-radius: 50%; /* 圆角 */
+  width: 40rpx;
+  height: 40rpx;
+}
+
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+
+radio .wx-radio-input.wx-radio-input-checked {
+  background: #fff;
+  border: none;
+}
+
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+
+radio .wx-radio-input.wx-radio-input-checked::before {
+  border: none;
+  border-radius: 50%; /* 圆角 */
+  width: 40rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+  height: 40rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+  line-height: 40rpx;
+  text-align: center;
+  font-size: 30rpx; /* 对勾大小 30rpx */
+  color: #fff; /* 对勾颜色 白色 */
+  background: #e14248;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
+
+radio-group, label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.text-14-goods {
+  font-size: 28rpx;
+  color: #4d4d4d;
+  flex-shrink: 0;
+}
+
+.text-line-height-60 {
+  line-height: 60rpx;
+}

@@ -1,0 +1,79 @@
+/* pages/index/goods/goodsDetail/goodsCommentList/list.wxss */
+
+.view-bg{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.view-commen-cell {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin-bottom: 2rpx;
+}
+
+/* 用户 */
+
+.view-commen-user {
+  width: 100%;
+  height: 92rpx;
+  display: flex;
+  align-items: center;
+}
+
+.img-user-head {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  margin-left: 20rpx;
+  background-color: #f7f7f7;
+  flex-shrink: 0;
+}
+
+.view-user-content {
+  width: 83%;
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.view-name-score {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-user-name {
+  font-size: 24rpx;
+  color: #666;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.img-star {
+  width: 23rpx;
+  height: 22rpx;
+  flex-shrink: 0;
+  margin-left: 5rpx;
+  margin-right: 5rpx;
+}
+
+.text-commen-time {
+  font-size: 24rpx;
+  color: #ccc;
+}
+
+.text-commen-content {
+  margin-left: 100rpx;
+  margin-right: 20rpx;
+  font-size: 22rpx;
+  color: #666;
+  margin-top: 16rpx;
+  margin-bottom: 30rpx;
+}

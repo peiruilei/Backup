@@ -1,0 +1,203 @@
+// pages/userCenter/userCenter.js
+var QQMapWX = require('../../utils/qqmap-wx-jssdk.min.js');
+var qqmapsdk = new QQMapWX({
+  key: 'EGHBZ-UDPCD-MRF4U-PGWH3-AAKOS-VZBYV'
+});
+var wXBizDataCrypt = require('../../utils/WXBizDataCrypt.js')
+
+const app = getApp()
+var lastClickTime = 0
+var minClickTime = app.globalData.minClickTime
+var imagePath = app.globalData.imagePath
+var encryptUtils = require('../../utils/HHEncryptUtils.js')
+var modelUtils = require('../../utils/HHModelUtils.js')
+var utils = require('../../utils/util.js')
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    tabbar: {},
+    index_arrow: imagePath + app.globalData.index_arrow,
+    usercenter_top_bg: imagePath + app.globalData.usercenter_top_bg,
+    userCenterDataArray: [{
+      "name": "我的订单",
+      "icon": imagePath + app.globalData.usercenter_order,
+      "id": "1",
+    }, {
+      "name": "我的消息",
+      "icon": imagePath + app.globalData.usercenter_msg,
+      "id": "2",
+    }, {
+      "name": "客服中心",
+      "icon": imagePath + app.globalData.usercenter_customer_service_center,
+      "id": "3",
+    }, {
+      "name": "关注公众号",
+      "icon": imagePath + app.globalData.usercenter_public,
+      "id": "4",
+    }, {
+      "name": "意见反馈",
+      "icon": imagePath + app.globalData.usercenter_feedback,
+      "id": "5",
+    }, {
+      "name": "关于我们",
+      "icon": imagePath + app.globalData.usercenter_aboutus,
+      "id": "6",
+    }]
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function(options) {
+    wx.hideTabBar();
+    app.editTabbar()
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
+    // wx.hideTabBar();
+    // app.editTabbar()
+    this.getPageData();
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function() {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function() {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function() {
+
+  },
+
+  // /**
+  //  * 用户点击右上角分享
+  //  */
+  // onShareAppMessage: function() {
+
+  // }
+  //1.我的订单 2.我的消息 3.客服中心 4.关注公众号 5.意见反馈 6.关于我们
+  selectTableViewCellPressed: function(event) {
+    var clickTime = Date.now()
+    if (clickTime - lastClickTime <= minClickTime) {
+      return
+    }
+    lastClickTime = clickTime
+
+    var mark = event.currentTarget.dataset.mark
+
+    if (mark == 1) {
+      wx.navigateTo({
+        url: '/pages/task/taskList/taskList',
+      })
+    } else if (mark == 2) {
+      wx.navigateTo({
+        url: '/pages/userCenter/userMessage/userMessage',
+      })
+    } else if (mark == 3) {
+      wx.navigateTo({
+        url: '/pages/userCenter/customerServiceCenter/customerServiceCenter',
+      })
+    } else if (mark == 4) {
+      wx.navigateTo({
+        url: '/pages/userCenter/publicNumber/publicNumber',
+      })
+    } else if (mark == 5) {
+      wx.navigateTo({
+        url: '/pages/userCenter/feedBack/feedBack',
+      })
+    } else if (mark == 6) {
+      wx.navigateTo({
+        url: '/pages/userCenter/explainSettingUrl/explainSettingUrl?explain_id=' + 5,
+      })
+    } else {
+      console.log(7)
+    }
+  },
+  //个人资料
+  goToUserInfoPressed: function() {
+    wx.navigateTo({
+      url: '/pages/userCenter/userInfo/userInfo',
+    })
+  },
+
+  //获取页面信息
+  getPageData: function() {
+    wx.showLoading({
+      title: '正在加载...',
+    })
+    var that = this
+    var para = {}
+    para["v"] = encryptUtils.base64Encode(app.globalData.v)
+    para["user_id"] = encryptUtils.base64Encode(wx.getStorageSync('user_id'))
+    var str = JSON.stringify(para)
+    var urlStr = encodeURIComponent(str)
+    console.log(urlStr)
+    wx.request({
+      url: app.globalData.ip + "user/usercenterinfo",
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'From': "WeChat"
+      },
+      data: {
+        'para': urlStr
+      },
+      success: function(res) {
+        console.log(res)
+        var code = res.data.code
+        var msg = res.data.msg
+        wx.hideLoading()
+        if (code == 100) {
+          var result = modelUtils.getModel(res.data.result)
+
+          that.setData({
+            userinfo: result,
+          })
+        } else {
+          wx.showToast({
+            title: msg,
+            icon: "none"
+          })
+        }
+      },
+      fail: function() {
+        wx.hideLoading()
+        wx.showToast({
+          title: '网络异常',
+        })
+      },
+      complete: function() {}
+    })
+  },
+})

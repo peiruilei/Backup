@@ -1,0 +1,27 @@
+<form  bindsubmit="formSubmit">
+<view class="view-page">
+  <view class="view-back-head text-15">功能类型</view>
+  <view class="view-back-type-wrap">
+  <view class="view-back-type" wx:for="{{feedBackTypeList}}" wx:key="" bindtap="selectType" data-index="{{index}}">
+    <!-- <view class="view-back-type-line"></view> -->
+    <text class="view-back-type-text">{{item.typeExplain}}</text>
+    <image class="view-back-type-img" wx:if="{{item.is_click==1}}" src="{{feedBack_choose}}"></image>
+    <image class="view-back-type-img" wx:else src="{{feedBack_no_choose}}"></image>
+  </view>
+  </view>
+  <view class="view-back-explain"><text class="text">详细描述</text></view>
+  <view class="view-block">
+    <textarea name='feedBackContent' class='view-block-content text-13' placeholder-class='text-placeholder' placeholder='请详细描述你的问题'>
+    </textarea>
+        <image class='view-block-foot-img' wx:for='{{FeedbackImgList}}' wx:key='{{index}}' src='{{item.img}}'  wx:for-index="index" data-state='1' data-index='{{index}}' catchtap='getImg'></image>
+      <image class='view-block-img' src='{{content_camera}}' style='display:{{FeedbackImgList.length==9?"none":""}}' data-state='2' data-index='0' catchtap='getImg' mode='aspectFill'></image>
+  
+  </view>
+  <view class="view-block-content-line"></view>
+  <view class="view-block-tel">
+   <text class='text-17'>手机号码</text>
+        <input class='view-type-explain text-14' type='number' placeholder-class='text-placeholder' maxlength="11" placeholder='方便我们更快向您反馈问题（选填）' name='telPhone'></input>
+  </view>
+  <button  class="view-submit" form-type="submit">提交</button>
+</view>
+</form>

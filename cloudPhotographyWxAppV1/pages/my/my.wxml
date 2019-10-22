@@ -1,0 +1,26 @@
+<!--pages/index/ours/ours.wxml-->
+<!-- 我的——页面 -->
+<!-- 登录-头像-昵称 -->
+<view class="view-header">
+  <view class="view-header-container">
+    <view class="view-headimg"></view>
+    <view>
+      <view class="view-header-text1">未登录</view>
+      <view class="view-header-text2">请先登录在进行操作</view>
+    </view>
+  </view>
+</view>
+<!-- 功能栏 -->
+<view class="view-body">
+  <block wx:for="{{list}}" wx:key="index">
+    <view class="view-body-item">
+      <view class="view-body-img" style="background-image:url({{item.img}})"></view>
+      <view class="view-body-title">{{item.title}}</view>
+      <view class="view-body-arrow" style="background-image:url({{arrow}})" bindtap="{{item.bindtap}}"></view>
+    </view>
+  </block>
+</view>
+<!-- 底边栏 -->
+<tabbar class="TarBar" currentindex="{{index}}"></tabbar>
+
+

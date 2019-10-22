@@ -1,0 +1,27 @@
+<view class="view-no-use" wx:if="{{showNoData}}">
+  <image class="img-no-use" src="{{no_use}}"></image>
+  <text class="text-14">{{msg}}</text>
+</view>
+<view class="view-bg" wx:else>
+<!-- 头像 -->
+  <view class="view-head-item">
+    <text class="text-15 ml10">头像</text>
+    <image class="img-user-head" src="{{userinfo.head_img}}"></image>
+  </view>
+  <view class="view-line"></view>
+  <!-- 昵称 -->
+  <view class="view-item">
+    <text class="text-15 ml10">昵称</text>
+    <text class="text-nick-name">{{userinfo.nick_name}}</text>
+  </view>
+  <view class="view-line"></view>
+  <!-- 绑定和修改手机号 -->
+  <view class="view-item" bindtap="goToBindPhonePressed">
+    <text class="text-15 ml10">{{userinfo.login_name.length>0?"修改手机号":"绑定手机号"}}</text>
+    <view class="view-right">
+      <text class="text-tel-num">{{userinfo.login_name.length>0?userinfo.login_name:"去绑定手机号"}}</text>
+      <image class="img-arrow" src="{{index_arrow}}"></image>
+    </view>
+  </view>
+  <view class="view-line"></view>
+</view>

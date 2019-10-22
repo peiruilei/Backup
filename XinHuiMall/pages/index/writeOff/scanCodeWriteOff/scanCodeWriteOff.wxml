@@ -1,0 +1,34 @@
+<!--pages/index/writeOff/scanCodeWriteOff/scanCodeWriteOff.wxml-->
+<view class='page'>
+  <!-- 优惠券 -->
+  <view class='view-scancode' >
+      <view class='view-scancode-bg' style="background-image: url({{writeoff_scancode_bg}});background-size:100% 100%;background-repeat: no-repeat;">
+     <view class='view-name'> {{writeoffArray.champion_reward}}</view>
+      <view class='view-countdown'>到期时间:{{writeoffArray.championreward_endtime}}</view>
+      </view>
+  </view>
+  <!-- 信息 -->
+    <!-- 用户名 -->
+  <view class='view-information'>
+     <view class='view-information-left'>
+       <text>用户名</text>
+      </view>
+      <view class='view-information-right'>
+        <text>{{writeoffArray.nick_name}}</text> 
+      </view>
+  </view>
+    <!-- 手机号 -->
+  <view class='view-information'>
+     <view class='view-information-left'>
+       <text>手机号</text>
+      </view>
+      <view class='view-information-right'>
+        <text>{{writeoffArray.login_name}}</text> 
+      </view>
+  </view>
+  <!-- 确认核销 -->
+  <view class='view-confirm'>
+    <button class='button-confirm' bindtap='save_confirm'>确认核销</button>
+  </view>
+  
+</view>

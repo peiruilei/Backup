@@ -1,0 +1,845 @@
+<!-- 待接单 的订单 -->
+<!-- 待接单 的订单 -->
+<!-- 待接单 的订单 -->
+<view class='view-page' wx:if='{{orderInfo.order_state == 1}}'>
+  <!-- 顶部 -->
+  <view class="view-order-top">
+    <text class="text-15" style="color:#fff;height:31rpx;margin-top: 40rpx;">系统正在为您匹配接单人员，请耐心等待～</text>
+    <text class="text-14" style="color:#fff;height:30rpx;margin-top: 30rpx;">订单状态：{{orderInfo.order_state_name}}</text>
+    <view class="btn-order-detal" bindtap="cancelOrderTap">取消订单</view>
+  </view>
+  <!-- 任务 -->
+  <view class="view-task-box">
+    <view class="view-task-type">
+      <text class="text-15 ml15">任务类型：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.type_name}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-desc">
+      <text class="text-15 ml15 mt10 mb10">任务描述</text>
+      <text class="text-15 ml15 mb10 mr15" style="color:#B2B2B2;">{{orderInfo.order_memo}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">工时：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.work_hours}}个</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">材料费：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.material_fees}}元</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-gallery" wx:if='{{orderInfo.order_gallery_list.length>0}}'>
+      <view class="view-task-type">
+        <text class="text-15 ml15">图片</text>
+      </view>
+      <scroll-view class="image-group" scroll-x="true">
+        <block wx:for="{{orderInfo.order_gallery_list}}" wx:key="{{GalleryListKey}}" wx:for-index="galleryListIndex" wx:for-item="galleryItem">
+          <image src="{{galleryItem.order_thumb_img}}" bindtap='lookBigImgClick' data-index='{{galleryListIndex}}' data-galleryList="{{orderInfo.order_gallery_list}}"></image>
+        </block>
+      </scroll-view>
+    </view>
+    <view class="line" wx:if='{{orderInfo.order_gallery_list.length>0}}'></view>
+
+    <view class="view-task-type" bindtap="callPhone" data-tel="{{orderInfo.contact_tel}}">
+      <text class="text-15 ml15">联系电话：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.contact_tel}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">小区：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.village_name}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-desc">
+      <text class="text-15 ml15 mt10 mb10">详细地址</text>
+      <text class="text-15 ml15 mb10 mr15" style="color:#B2B2B2;">{{orderInfo.address_detail}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">发布时间：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.add_time}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">本次服务费：</text>
+      <text class="text-15" style="color:#ff5000;">¥{{orderInfo.service_fees}}</text>
+    </view>
+  </view>
+</view>
+
+<!-- 已取消 的订单 -->
+<!-- 已取消 的订单 -->
+<!-- 已取消 的订单 -->
+<view class='view-page' wx:if='{{orderInfo.order_state == 6}}'>
+  <!-- 顶部 -->
+  <view class="view-order-top" style="background: #E6E6E6;">
+    <text class="text-15" style="color:#646464;height:31rpx;margin-top: 40rpx;">订单状态：{{orderInfo.order_state_name}}</text>
+    <text class="text-14" style="color:#B2B2B2;height:30rpx;margin-top: 30rpx;">订单已于{{orderInfo.cancel_time}}取消</text>
+    <view class="btn-order-detal" style="border: 2rpx #B2B2B2 solid;color: #B2B2B2;" bindtap="deleteOrderTap">删除订单</view>
+  </view>
+  <!-- 任务 -->
+  <view class="view-task-box">
+    <view class="view-task-type">
+      <text class="text-15 ml15">任务类型：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.type_name}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-desc">
+      <text class="text-15 ml15 mt10 mb10">任务描述</text>
+      <text class="text-15 ml15 mb10 mr15" style="color:#B2B2B2;">{{orderInfo.order_memo}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">工时：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.work_hours}}个</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">材料费：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.material_fees}}元</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-gallery" wx:if='{{orderInfo.order_gallery_list.length>0}}'>
+      <view class="view-task-type">
+        <text class="text-15 ml15">图片</text>
+      </view>
+      <scroll-view class="image-group" scroll-x="true">
+        <block wx:for="{{orderInfo.order_gallery_list}}" wx:key="{{GalleryListKey}}" wx:for-index="galleryListIndex" wx:for-item="galleryItem">
+          <image src="{{galleryItem.order_thumb_img}}" bindtap='lookBigImgClick' data-index='{{galleryListIndex}}' data-galleryList="{{orderInfo.order_gallery_list}}"></image>
+        </block>
+      </scroll-view>
+    </view>
+    <view class="line" wx:if='{{orderInfo.order_gallery_list.length>0}}'></view>
+
+    <view class="view-task-type" bindtap="callPhone" data-tel="{{orderInfo.contact_tel}}">
+      <text class="text-15 ml15">联系电话：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.contact_tel}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">小区：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.village_name}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-desc">
+      <text class="text-15 ml15 mt10 mb10">详细地址</text>
+      <text class="text-15 ml15 mb10 mr15" style="color:#B2B2B2;">{{orderInfo.address_detail}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">发布时间：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.add_time}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">本次服务费：</text>
+      <text class="text-15" style="color:#ff5000;">¥{{orderInfo.service_fees}}</text>
+    </view>
+  </view>
+</view>
+
+<!-- 进行中 & 师傅在路上和维修中 的订单 -->
+<!-- 进行中 & 师傅在路上和维修中 的订单 -->
+<!-- 进行中 & 师傅在路上和维修中 的订单 -->
+<view class='view-page' wx:if='{{orderInfo.order_state == 2 && orderInfo.master_order_state != 4}}'>
+  <!-- 地图 -->
+  <view class="view-map">
+    <map class='map' longitude="{{master_now_lng}}" latitude="{{master_now_lat}}" scale='14' markers="{{markers}}" show-location>
+      <cover-view class="view-map-bottom"></cover-view>
+    </map>
+  </view>
+  <!-- 进行中的订单状态 -->
+  <view class="view-state-processing-box">
+    <text class="text-15 mt10" style="height:70rpx;">{{orderInfo.master_order_state == 1?"师傅正在赶往维修地点":orderInfo.master_order_state == 2?"师傅已到达维修地点":"师傅开始服务"}}</text>
+    <text class="text-15" style="color:#646464;height:100rpx;">订单状态：{{orderInfo.order_state_name}}</text>
+  </view>
+  <view class="line"></view>
+  <!-- 维修师傅 -->
+  <view class="view-master-box">
+    <image class="img-master-header" src="{{orderInfo.head_img}}"></image>
+    <view class="view-name-tel-box">
+      <text class="text-15" style="height:60rpx;margin-top: 25rpx;">{{orderInfo.nick_name}}</text>
+      <text class="text-15" style="color:#B2B2B2;height:60rpx;" bindtap="callPhone" data-tel="{{orderInfo.login_name}}">{{orderInfo.login_name}}</text>
+    </view>
+  </view>
+  <view class="line-view"></view>
+  <!-- 任务 -->
+  <view class="view-task-box">
+    <view class="view-task-type">
+      <text class="text-15 ml15">任务类型：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.type_name}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-desc">
+      <text class="text-15 ml15 mt10 mb10">任务描述</text>
+      <text class="text-15 ml15 mb10 mr15" style="color:#B2B2B2;">{{orderInfo.order_memo}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">工时：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.work_hours}}个</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">材料费：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.material_fees}}元</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-gallery" wx:if='{{orderInfo.order_gallery_list.length>0}}'>
+      <view class="view-task-type">
+        <text class="text-15 ml15">图片</text>
+      </view>
+      <scroll-view class="image-group" scroll-x="true">
+        <block wx:for="{{orderInfo.order_gallery_list}}" wx:key="{{GalleryListKey}}" wx:for-index="galleryListIndex" wx:for-item="galleryItem">
+          <image src="{{galleryItem.order_thumb_img}}" bindtap='lookBigImgClick' data-index='{{galleryListIndex}}' data-galleryList="{{orderInfo.order_gallery_list}}"></image>
+        </block>
+      </scroll-view>
+    </view>
+    <view class="line" wx:if='{{orderInfo.order_gallery_list.length>0}}'></view>
+
+    <view class="view-task-type" bindtap="callPhone" data-tel="{{orderInfo.contact_tel}}">
+      <text class="text-15 ml15">联系电话：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.contact_tel}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">小区：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.village_name}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-desc">
+      <text class="text-15 ml15 mt10 mb10">详细地址</text>
+      <text class="text-15 ml15 mb10 mr15" style="color:#B2B2B2;">{{orderInfo.address_detail}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">发布时间：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.add_time}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">接单时间：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.receive_time}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type" wx:if='{{orderInfo.start_time.length>0}}'>
+      <text class="text-15 ml15">开始服务时间：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.start_time}}</text>
+    </view>
+    <view class="line" wx:if='{{orderInfo.start_time.length>0}}'></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">本次服务费：</text>
+      <text class="text-15" style="color:#ff5000;">¥{{orderInfo.service_fees}}</text>
+    </view>
+  </view>
+</view>
+
+
+<!-- 进行中 & 待验收 的订单 -->
+<!-- 进行中 & 待验收 的订单 -->
+<!-- 进行中 & 待验收 的订单 -->
+<view class='view-page' style="padding-bottom: 88rpx;" wx:if='{{orderInfo.order_state == 2 && orderInfo.master_order_state == 4}}'>
+  <!-- 顶部 -->
+  <view class="view-order-top">
+    <text class="text-15" style="color:#fff;height:31rpx;margin-top: 40rpx;">服务完成，待验收</text>
+    <text class="text-14" style="color:#fff;height:30rpx;margin-top: 30rpx;margin-bottom: 40rpx;">订单状态：{{orderInfo.order_state_name}}</text>
+  </view>
+  <!-- 维修师傅 -->
+  <view class="view-master-box">
+    <image class="img-master-header" src="{{orderInfo.head_img}}"></image>
+    <view class="view-name-tel-box">
+      <text class="text-15" style="height:60rpx;margin-top: 25rpx;">{{orderInfo.nick_name}}</text>
+      <text class="text-15" style="color:#B2B2B2;height:60rpx;" bindtap="callPhone" data-tel="{{orderInfo.login_name}}">{{orderInfo.login_name}}</text>
+    </view>
+  </view>
+  <view class="line"></view>
+  <!-- 服务成果和图集  -->
+  <view class="view-order-result-gallery" wx:if="{{orderInfo.order_result_gallery_list.length>0}}">
+    <view class="view-task-type">
+      <text class="text-15 ml15">服务成果</text>
+    </view>
+    <block wx:for="{{orderInfo.order_result_gallery_list}}" wx:key="{{orderResultGalleryKey}}" wx:for-index="orderResultGalleryIndex" wx:for-item="orderResultGalleryItem">
+      <view class="view-order-result-item">
+        <scroll-view class="image-group" scroll-x="true">
+          <block wx:for="{{orderResultGalleryItem.result_gallery_list}}" wx:key="{{resultGalleryListKey}}" wx:for-index="resultGalleryListIndex" wx:for-item="galleryItem">
+            <image src="{{galleryItem.result_thumb_img}}" bindtap='lookBigImgClick' data-index='{{resultGalleryListIndex}}' data-galleryList="{{galleryItem.result_gallery_list}}"></image>
+          </block>
+        </scroll-view>
+        <text class="text-14 ml15 mb5" style="color:#B2B2B2;">{{orderResultGalleryItem.result_gallery_add_time}}上传</text>
+        <view class="line"></view>
+        <view class="line-view" style="background: white;"></view>
+      </view>
+    </block>
+  </view>
+  <!-- 平台延长工时 -->
+  <view class="view-task-type" style="background: white;height:80rpx;">
+    <text class="text-15 ml15">平台延长工时：</text>
+    <text class="text-15" style="color:#59A6FF;">{{orderInfo.extend_work_hours}}</text>
+  </view>
+  <view class="line-view"></view>
+  <!-- 协助者信息 -->
+  <view class="view-helper-box" wx:if='{{orderInfo.user_list.length>0}}'>
+    <view class="view-task-type">
+      <text class="text-15 ml15">协助者信息</text>
+    </view>
+    <!-- user_list -->
+    <block wx:for="{{orderInfo.user_list}}" wx:key="{{userListKey}}" wx:for-index="userListIndex" wx:for-item="userItem">
+      <view class="view-master-box">
+        <image class="img-master-header" src="{{orderInfo.head_img}}"></image>
+        <view class="view-name-tel-box">
+          <text class="text-15" style="height:60rpx;margin-top: 25rpx;">{{orderInfo.nick_name}}</text>
+          <text class="text-15" style="color:#B2B2B2;height:60rpx;" bindtap="callPhone" data-tel="{{orderInfo.login_name}}">{{orderInfo.login_name}}</text>
+        </view>
+      </view>
+      <view class="line"></view>
+    </block>
+  </view>
+  <view class="line-view"></view>
+  <!-- 任务 -->
+  <view class="view-task-box">
+    <view class="view-task-type">
+      <text class="text-15 ml15">任务类型：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.type_name}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-desc">
+      <text class="text-15 ml15 mt10 mb10">任务描述</text>
+      <text class="text-15 ml15 mb10 mr15" style="color:#B2B2B2;">{{orderInfo.order_memo}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">工时：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.work_hours}}个</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">材料费：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.material_fees}}元</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-gallery" wx:if='{{orderInfo.order_gallery_list.length>0}}'>
+      <view class="view-task-type">
+        <text class="text-15 ml15">图片</text>
+      </view>
+      <scroll-view class="image-group" scroll-x="true">
+        <block wx:for="{{orderInfo.order_gallery_list}}" wx:key="{{GalleryListKey}}" wx:for-index="galleryListIndex" wx:for-item="galleryItem">
+          <image src="{{galleryItem.order_thumb_img}}" bindtap='lookBigImgClick' data-index='{{galleryListIndex}}' data-galleryList="{{orderInfo.order_gallery_list}}"></image>
+        </block>
+      </scroll-view>
+    </view>
+    <view class="line" wx:if='{{orderInfo.order_gallery_list.length>0}}'></view>
+
+    <view class="view-task-type" bindtap="callPhone" data-tel="{{orderInfo.contact_tel}}">
+      <text class="text-15 ml15">联系电话：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.contact_tel}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">小区：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.village_name}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-desc">
+      <text class="text-15 ml15 mt10 mb10">详细地址</text>
+      <text class="text-15 ml15 mb10 mr15" style="color:#B2B2B2;">{{orderInfo.address_detail}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">发布时间：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.add_time}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">接单时间：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.receive_time}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">开始服务时间：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.start_time}}</text>
+    </view>
+    <view class="line"></view>
+
+    <view class="view-task-type">
+      <text class="text-15 ml15">服务完成时间：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.finish_time}}</text>
+    </view>
+    <view class="line"></view>
+  </view>
+</view>
+<!-- 验收并支付 -->
+<view class="view-order-pay-chack" wx:if='{{orderInfo.order_state == 2 && orderInfo.master_order_state == 4}}'>
+  <view class="view-task-type">
+    <text class="text-15 ml15">本次服务费：</text>
+    <text class="text-15" style="color:#ff5000;">¥{{orderInfo.service_fees}}</text>
+  </view>
+
+  <view class="btn-order-pay" bindtap="goToOrderPay">{{orderInfo.service_fees>0?"验收完成并支付":"验收完成"}}</view>
+</view>
+
+
+<!-- 待支付 的订单 -->
+<!-- 待支付 的订单 -->
+<!-- 待支付 的订单 -->
+<view class='view-page' style="padding-bottom: 88rpx;" wx:if='{{orderInfo.order_state == 3}}'>
+  <!-- 顶部 -->
+  <view class="view-order-top">
+    <text class="text-15" style="color:#fff;height:31rpx;margin-top: 40rpx;">验收完成，待验收</text>
+    <text class="text-14" style="color:#fff;height:30rpx;margin-top: 30rpx;margin-bottom: 40rpx;">订单状态：{{orderInfo.order_state_name}}</text>
+  </view>
+  <!-- 维修师傅 -->
+  <view class="view-master-box">
+    <image class="img-master-header" src="{{orderInfo.head_img}}"></image>
+    <view class="view-name-tel-box">
+      <text class="text-15" style="height:60rpx;margin-top: 25rpx;">{{orderInfo.nick_name}}</text>
+      <text class="text-15" style="color:#B2B2B2;height:60rpx;" bindtap="callPhone" data-tel="{{orderInfo.login_name}}">{{orderInfo.login_name}}</text>
+    </view>
+  </view>
+  <view class="line"></view>
+  <!-- 服务成果和图集  -->
+  <view class="view-order-result-gallery" wx:if="{{orderInfo.order_result_gallery_list.length>0}}">
+    <view class="view-task-type">
+      <text class="text-15 ml15">服务成果</text>
+    </view>
+    <block wx:for="{{orderInfo.order_result_gallery_list}}" wx:key="{{orderResultGalleryKey}}" wx:for-index="orderResultGalleryIndex" wx:for-item="orderResultGalleryItem">
+      <view class="view-order-result-item">
+        <scroll-view class="image-group" scroll-x="true">
+          <block wx:for="{{orderResultGalleryItem.result_gallery_list}}" wx:key="{{resultGalleryListKey}}" wx:for-index="resultGalleryListIndex" wx:for-item="galleryItem">
+            <image src="{{galleryItem.result_thumb_img}}" bindtap='lookBigImgClick' data-index='{{resultGalleryListIndex}}' data-galleryList="{{galleryItem.result_gallery_list}}"></image>
+          </block>
+        </scroll-view>
+        <text class="text-14 ml15 mb5" style="color:#B2B2B2;">{{orderResultGalleryItem.result_gallery_add_time}}上传</text>
+        <view class="line"></view>
+        <view class="line-view" style="background: white;"></view>
+      </view>
+    </block>
+  </view>
+  <!-- 平台延长工时 -->
+  <view class="view-task-type" style="background: white;height:80rpx;">
+    <text class="text-15 ml15">平台延长工时：</text>
+    <text class="text-15" style="color:#59A6FF;">{{orderInfo.extend_work_hours}}</text>
+  </view>
+  <view class="line-view"></view>
+  <!-- 协助者信息 -->
+  <view class="view-helper-box" wx:if='{{orderInfo.user_list.length>0}}'>
+    <view class="view-task-type">
+      <text class="text-15 ml15">协助者信息</text>
+    </view>
+    <!-- user_list -->
+    <block wx:for="{{orderInfo.user_list}}" wx:key="{{userListKey}}" wx:for-index="userListIndex" wx:for-item="userItem">
+      <view class="view-master-box">
+        <image class="img-master-header" src="{{orderInfo.head_img}}"></image>
+        <view class="view-name-tel-box">
+          <text class="text-15" style="height:60rpx;margin-top: 25rpx;">{{orderInfo.nick_name}}</text>
+          <text class="text-15" style="color:#B2B2B2;height:60rpx;" bindtap="callPhone" data-tel="{{orderInfo.login_name}}">{{orderInfo.login_name}}</text>
+        </view>
+      </view>
+      <view class="line"></view>
+    </block>
+  </view>
+  <view class="line-view"></view>
+  <!-- 任务 -->
+  <view class="view-task-box">
+    <view class="view-task-type">
+      <text class="text-15 ml15">任务类型：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.type_name}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-desc">
+      <text class="text-15 ml15 mt10 mb10">任务描述</text>
+      <text class="text-15 ml15 mb10 mr15" style="color:#B2B2B2;">{{orderInfo.order_memo}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">工时：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.work_hours}}个</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">材料费：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.material_fees}}元</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-gallery" wx:if='{{orderInfo.order_gallery_list.length>0}}'>
+      <view class="view-task-type">
+        <text class="text-15 ml15">图片</text>
+      </view>
+      <scroll-view class="image-group" scroll-x="true">
+        <block wx:for="{{orderInfo.order_gallery_list}}" wx:key="{{GalleryListKey}}" wx:for-index="galleryListIndex" wx:for-item="galleryItem">
+          <image src="{{galleryItem.order_thumb_img}}" bindtap='lookBigImgClick' data-index='{{galleryListIndex}}' data-galleryList="{{orderInfo.order_gallery_list}}"></image>
+        </block>
+      </scroll-view>
+    </view>
+    <view class="line" wx:if='{{orderInfo.order_gallery_list.length>0}}'></view>
+
+    <view class="view-task-type" bindtap="callPhone" data-tel="{{orderInfo.contact_tel}}">
+      <text class="text-15 ml15">联系电话：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.contact_tel}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">小区：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.village_name}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-desc">
+      <text class="text-15 ml15 mt10 mb10">详细地址</text>
+      <text class="text-15 ml15 mb10 mr15" style="color:#B2B2B2;">{{orderInfo.address_detail}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">发布时间：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.add_time}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">接单时间：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.receive_time}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">开始服务时间：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.start_time}}</text>
+    </view>
+    <view class="line"></view>
+
+    <view class="view-task-type">
+      <text class="text-15 ml15">服务完成时间：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.finish_time}}</text>
+    </view>
+    <view class="line"></view>
+  </view>
+</view>
+<!-- 验收并支付 -->
+<view class="view-order-pay-chack" wx:if='{{orderInfo.order_state == 3}}'>
+  <view class="view-task-type">
+    <text class="text-15 ml15">本次服务费：</text>
+    <text class="text-15" style="color:#ff5000;">¥{{orderInfo.service_fees}}</text>
+  </view>
+
+  <view class="btn-order-pay" bindtap="goToOrderPay" wx:if='{{orderInfo.service_fees>0}}'>支付</view>
+</view>
+
+<!-- 待评价 的订单 -->
+<!-- 待评价 的订单 -->
+<!-- 待评价 的订单 -->
+<view class='view-page' wx:if='{{orderInfo.order_state == 4}}'>
+  <!-- 顶部 -->
+  <view class="view-order-top">
+    <text class="text-15" style="color:#fff;height:31rpx;margin-top: 40rpx;">任务完成，待评价</text>
+    <text class="text-14" style="color:#fff;height:30rpx;margin-top: 30rpx;">订单状态：{{orderInfo.order_state_name}}</text>
+    <view class="btn-order-detal" bindtap="commentOrderTap">评价</view>
+  </view>
+  <!-- 维修师傅 -->
+  <view class="view-master-box">
+    <image class="img-master-header" src="{{orderInfo.head_img}}"></image>
+    <view class="view-name-tel-box">
+      <text class="text-15" style="height:60rpx;margin-top: 25rpx;">{{orderInfo.nick_name}}</text>
+      <text class="text-15" style="color:#B2B2B2;height:60rpx;" bindtap="callPhone" data-tel="{{orderInfo.login_name}}">{{orderInfo.login_name}}</text>
+    </view>
+  </view>
+  <view class="line"></view>
+  <!-- 服务成果和图集  -->
+  <view class="view-order-result-gallery" wx:if="{{orderInfo.order_result_gallery_list.length>0}}">
+    <view class="view-task-type">
+      <text class="text-15 ml15">服务成果</text>
+    </view>
+    <block wx:for="{{orderInfo.order_result_gallery_list}}" wx:key="{{orderResultGalleryKey}}" wx:for-index="orderResultGalleryIndex" wx:for-item="orderResultGalleryItem">
+      <view class="view-order-result-item">
+        <scroll-view class="image-group" scroll-x="true">
+          <block wx:for="{{orderResultGalleryItem.result_gallery_list}}" wx:key="{{resultGalleryListKey}}" wx:for-index="resultGalleryListIndex" wx:for-item="galleryItem">
+            <image src="{{galleryItem.result_thumb_img}}" bindtap='lookBigImgClick' data-index='{{resultGalleryListIndex}}' data-galleryList="{{galleryItem.result_gallery_list}}"></image>
+          </block>
+        </scroll-view>
+        <text class="text-14 ml15 mb5" style="color:#B2B2B2;">{{orderResultGalleryItem.result_gallery_add_time}}上传</text>
+        <view class="line"></view>
+        <view class="line-view" style="background: white;"></view>
+      </view>
+    </block>
+  </view>
+  <!-- 平台延长工时 -->
+  <view class="view-task-type" style="background: white;height:80rpx;">
+    <text class="text-15 ml15">平台延长工时：</text>
+    <text class="text-15" style="color:#59A6FF;">{{orderInfo.extend_work_hours}}</text>
+  </view>
+  <view class="line-view"></view>
+  <!-- 协助者信息 -->
+  <view class="view-helper-box" wx:if='{{orderInfo.user_list.length>0}}'>
+    <view class="view-task-type">
+      <text class="text-15 ml15">协助者信息</text>
+    </view>
+    <!-- user_list -->
+    <block wx:for="{{orderInfo.user_list}}" wx:key="{{userListKey}}" wx:for-index="userListIndex" wx:for-item="userItem">
+      <view class="view-master-box">
+        <image class="img-master-header" src="{{orderInfo.head_img}}"></image>
+        <view class="view-name-tel-box">
+          <text class="text-15" style="height:60rpx;margin-top: 25rpx;">{{orderInfo.nick_name}}</text>
+          <text class="text-15" style="color:#B2B2B2;height:60rpx;" bindtap="callPhone" data-tel="{{orderInfo.login_name}}">{{orderInfo.login_name}}</text>
+        </view>
+      </view>
+      <view class="line"></view>
+    </block>
+  </view>
+  <view class="line-view"></view>
+  <!-- 任务 -->
+  <view class="view-task-box">
+    <view class="view-task-type">
+      <text class="text-15 ml15">任务类型：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.type_name}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-desc">
+      <text class="text-15 ml15 mt10 mb10">任务描述</text>
+      <text class="text-15 ml15 mb10 mr15" style="color:#B2B2B2;">{{orderInfo.order_memo}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">工时：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.work_hours}}个</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">材料费：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.material_fees}}元</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-gallery" wx:if='{{orderInfo.order_gallery_list.length>0}}'>
+      <view class="view-task-type">
+        <text class="text-15 ml15">图片</text>
+      </view>
+      <scroll-view class="image-group" scroll-x="true">
+        <block wx:for="{{orderInfo.order_gallery_list}}" wx:key="{{GalleryListKey}}" wx:for-index="galleryListIndex" wx:for-item="galleryItem">
+          <image src="{{galleryItem.order_thumb_img}}" bindtap='lookBigImgClick' data-index='{{galleryListIndex}}' data-galleryList="{{orderInfo.order_gallery_list}}"></image>
+        </block>
+      </scroll-view>
+    </view>
+    <view class="line" wx:if='{{orderInfo.order_gallery_list.length>0}}'></view>
+
+    <view class="view-task-type" bindtap="callPhone" data-tel="{{orderInfo.contact_tel}}">
+      <text class="text-15 ml15">联系电话：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.contact_tel}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">小区：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.village_name}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-desc">
+      <text class="text-15 ml15 mt10 mb10">详细地址</text>
+      <text class="text-15 ml15 mb10 mr15" style="color:#B2B2B2;">{{orderInfo.address_detail}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">发布时间：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.add_time}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">接单时间：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.receive_time}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">开始服务时间：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.start_time}}</text>
+    </view>
+    <view class="line"></view>
+
+    <view class="view-task-type">
+      <text class="text-15 ml15">服务完成时间：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.finish_time}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">支付完成时间：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.pay_time}}</text>
+    </view>
+    <view class="line"></view>
+
+    <view class="view-task-type">
+      <text class="text-15 ml15">本次服务费：</text>
+      <text class="text-15" style="color:#ff5000;">¥{{orderInfo.service_fees}}</text>
+    </view>
+  </view>
+</view>
+
+
+<!-- 已完成 的订单 -->
+<!-- 已完成 的订单 -->
+<!-- 已完成 的订单 -->
+<view class='view-page' wx:if='{{orderInfo.order_state == 5}}'>
+  <!-- 顶部 -->
+  <view class="view-order-top">
+    <text class="text-15" style="color:#fff;height:31rpx;margin-top: 40rpx;">任务完成，已评价</text>
+    <text class="text-14" style="color:#fff;height:30rpx;margin-top: 30rpx;">订单状态：{{orderInfo.order_state_name}}</text>
+    <view class="btn-order-detal" bindtap="deleteOrderTap">删除订单</view>
+  </view>
+  <!-- 维修师傅 -->
+  <view class="view-master-box">
+    <image class="img-master-header" src="{{orderInfo.head_img}}"></image>
+    <view class="view-name-tel-box">
+      <text class="text-15" style="height:60rpx;margin-top: 25rpx;">{{orderInfo.nick_name}}</text>
+      <text class="text-15" style="color:#B2B2B2;height:60rpx;" bindtap="callPhone" data-tel="{{orderInfo.login_name}}">{{orderInfo.login_name}}</text>
+    </view>
+  </view>
+  <view class="line" style="margin-left: 160rpx;width: 590rpx;"></view>
+  <!-- 评价 -->
+  <view class="view-comment-result">
+    <view class="view-comment-box">
+      <text class="text-15">及时率</text>
+      <view class="view-comment-star" style="margin-left: 70rpx;">
+        <image class="img-star" src="{{((index+1)>orderInfo.order_comment.time_liness_score)?comment_star_gary:comment_star}}" wx:for="{{5}}" wx:key="{{StarKey}}" wx:for-index="index"></image>
+      </view>
+      <text class="text-15 ml15" style="color:#FE8C21;">{{orderInfo.order_comment.time_liness_score}}分</text>
+    </view>
+
+    <view class="view-comment-box">
+      <text class="text-15">工作态度</text>
+      <view class="view-comment-star" style="margin-left: 40rpx;">
+        <image class="img-star" src="{{((index+1)>orderInfo.order_comment.work_attitude_score)?comment_star_gary:comment_star}}" wx:for="{{5}}" wx:key="{{StarKey}}" wx:for-index="index"></image>
+      </view>
+      <text class="text-15 ml15" style="color:#FE8C21;">{{orderInfo.order_comment.work_attitude_score}}分</text>
+    </view>
+
+    <view class="view-comment-box">
+      <text class="text-15">工作技能</text>
+      <view class="view-comment-star" style="margin-left: 40rpx;">
+        <image class="img-star" src="{{((index+1)>orderInfo.order_comment.work_skills_score)?comment_star_gary:comment_star}}" wx:for="{{5}}" wx:key="{{StarKey}}" wx:for-index="index"></image>
+      </view>
+      <text class="text-15 ml15" style="color:#FE8C21;">{{orderInfo.order_comment.work_skills_score}}分</text>
+    </view>
+    <view class="line-view" style="background: #fff;width: 590rpx;"></view>
+    <view class="line-view" style="background: #fff;width: 590rpx;"></view>
+    <view class="line" style="width: 590rpx;" wx:if='{{orderInfo.order_comment.comment_content.length>0}}'></view>
+    <view class="text-comment-box" wx:if='{{orderInfo.order_comment.comment_content.length>0}}'>
+    {{orderInfo.order_comment.comment_content}}
+    </view>
+  </view>
+  <view class="line"></view>
+  <!-- 服务成果和图集  -->
+  <view class="view-order-result-gallery" wx:if="{{orderInfo.order_result_gallery_list.length>0}}">
+    <view class="view-task-type">
+      <text class="text-15 ml15">服务成果</text>
+    </view>
+    <block wx:for="{{orderInfo.order_result_gallery_list}}" wx:key="{{orderResultGalleryKey}}" wx:for-index="orderResultGalleryIndex" wx:for-item="orderResultGalleryItem">
+      <view class="view-order-result-item">
+        <scroll-view class="image-group" scroll-x="true">
+          <block wx:for="{{orderResultGalleryItem.result_gallery_list}}" wx:key="{{resultGalleryListKey}}" wx:for-index="resultGalleryListIndex" wx:for-item="galleryItem">
+            <image src="{{galleryItem.result_thumb_img}}" bindtap='lookBigImgClick' data-index='{{resultGalleryListIndex}}' data-galleryList="{{galleryItem.result_gallery_list}}"></image>
+          </block>
+        </scroll-view>
+        <text class="text-14 ml15 mb5" style="color:#B2B2B2;">{{orderResultGalleryItem.result_gallery_add_time}}上传</text>
+        <view class="line"></view>
+        <view class="line-view" style="background: white;"></view>
+      </view>
+    </block>
+  </view>
+  <!-- 平台延长工时 -->
+  <view class="view-task-type" style="background: white;height:80rpx;">
+    <text class="text-15 ml15">平台延长工时：</text>
+    <text class="text-15" style="color:#59A6FF;">{{orderInfo.extend_work_hours}}</text>
+  </view>
+  <view class="line-view"></view>
+  <!-- 协助者信息 -->
+  <view class="view-helper-box" wx:if='{{orderInfo.user_list.length>0}}'>
+    <view class="view-task-type">
+      <text class="text-15 ml15">协助者信息</text>
+    </view>
+    <!-- user_list -->
+    <block wx:for="{{orderInfo.user_list}}" wx:key="{{userListKey}}" wx:for-index="userListIndex" wx:for-item="userItem">
+      <view class="view-master-box">
+        <image class="img-master-header" src="{{userItem.head_img}}"></image>
+        <view class="view-name-tel-box">
+          <text class="text-15" style="height:60rpx;margin-top: 25rpx;">{{userItem.nick_name}}</text>
+          <text class="text-15" style="color:#B2B2B2;height:60rpx;" bindtap="callPhone" data-tel="{{orderInfo.login_name}}">{{userItem.login_name}}</text>
+        </view>
+      </view>
+      <view class="line"></view>
+    </block>
+  </view>
+  <view class="line-view"></view>
+  <!-- 任务 -->
+  <view class="view-task-box">
+    <view class="view-task-type">
+      <text class="text-15 ml15">任务类型：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.type_name}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-desc">
+      <text class="text-15 ml15 mt10 mb10">任务描述</text>
+      <text class="text-15 ml15 mb10 mr15" style="color:#B2B2B2;">{{orderInfo.order_memo}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">工时：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.work_hours}}个</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">材料费：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.material_fees}}元</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-gallery" wx:if='{{orderInfo.order_gallery_list.length>0}}'>
+      <view class="view-task-type">
+        <text class="text-15 ml15">图片</text>
+      </view>
+      <scroll-view class="image-group" scroll-x="true">
+        <block wx:for="{{orderInfo.order_gallery_list}}" wx:key="{{GalleryListKey}}" wx:for-index="galleryListIndex" wx:for-item="galleryItem">
+          <image src="{{galleryItem.order_thumb_img}}" bindtap='lookBigImgClick' data-index='{{galleryListIndex}}' data-galleryList="{{orderInfo.order_gallery_list}}"></image>
+        </block>
+      </scroll-view>
+    </view>
+    <view class="line" wx:if='{{orderInfo.order_gallery_list.length>0}}'></view>
+
+    <view class="view-task-type" bindtap="callPhone" data-tel="{{orderInfo.contact_tel}}">
+      <text class="text-15 ml15">联系电话：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.contact_tel}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">小区：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.village_name}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-desc">
+      <text class="text-15 ml15 mt10 mb10">详细地址</text>
+      <text class="text-15 ml15 mb10 mr15" style="color:#B2B2B2;">{{orderInfo.address_detail}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">发布时间：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.add_time}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">接单时间：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.receive_time}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">开始服务时间：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.start_time}}</text>
+    </view>
+    <view class="line"></view>
+
+    <view class="view-task-type">
+      <text class="text-15 ml15">服务完成时间：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.finish_time}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="view-task-type">
+      <text class="text-15 ml15">支付完成时间：</text>
+      <text class="text-15" style="color:#B2B2B2;">{{orderInfo.pay_time}}</text>
+    </view>
+    <view class="line"></view>
+
+    <view class="view-task-type">
+      <text class="text-15 ml15">本次服务费：</text>
+      <text class="text-15" style="color:#ff5000;">¥{{orderInfo.service_fees}}</text>
+    </view>
+  </view>
+</view>

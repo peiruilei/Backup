@@ -1,0 +1,128 @@
+.view-subsidy{
+  width:100%;
+height:160rpx;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content:center;
+background-size: 100% 100%;
+background-repeat: no-repeat;
+margin-bottom: 30rpx;
+}
+.view-subsidy-text{
+font-size: 40rpx;
+color: #ffffff;
+margin-bottom: 6rpx;
+}
+.view-subsidy-num{
+font-size: 48rpx;
+color: #ffffff;
+}
+/* 按钮 */
+.view-subsidy-button{
+width: 394rpx;
+height: 56rpx;
+margin-left: 176rpx;
+display: flex;
+border:1rpx solid rgba(252,73,73,1);
+border-radius:28rpx;
+margin-bottom: 20rpx;
+}
+.view-subsidy-button-left{
+  width: 212rpx;  
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: #FC4949; */
+  border-radius: 27rpx;
+  border: none;
+}
+.view-subsidy-button-right{
+    width: 183rpx;
+   font-size: 30rpx;
+     display: flex;
+  align-items: center;
+  justify-content: center;
+   border-radius:0 28rpx 28rpx 0;
+ 
+}
+/* 日期 */
+.view-page-data{
+  width: 200rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  margin-left: 22rpx;
+}
+.view-data-text{
+color: #333333;
+margin-right: 10rpx;
+
+}
+.view-data-select-box{
+  width: 40rpx;
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.view-data-select{
+ width:20rpx;
+height:10rpx;
+}
+/* 补贴金列表 */
+.view-subsidy-wrap{}
+.view-subsidy-item{
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  border-bottom: 14rpx solid #F7F7F7;
+}
+.view-subsidy-item-deal-date{
+width:165rpx;
+height:52rpx;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+   margin-bottom: 14rpx;
+}
+.view-subsidy-item-deal-date-text{
+ color:#ffffff;
+}
+.view-subsidy-item-order{
+  margin-left: 22rpx;
+  margin-bottom: 14rpx;
+  color: #666666;
+}
+.view-subsidy-item-goods{
+    margin-left: 22rpx;
+         margin-right: 22rpx;
+    margin-bottom: 14rpx;
+      color: #666666;
+      display: -webkit-box;
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+ -webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+}
+.view-subsidy-item-money{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  color: #FC4949;
+  margin-bottom: 30rpx;
+}
+.view-subsidy-item-money-left{
+  
+     margin-left: 22rpx;
+}
+.view-subsidy-item-money-right{
+     margin-right: 22rpx;
+}

@@ -1,0 +1,57 @@
+<view class="view" >
+<!-- 可提现金额 -->
+<view class="canApply-view" >
+  <text class="canApply-text" >可提现金额：</text>
+  <text class="canApply-text-right" >{{drawalInfo.user_fees}}元</text>
+</view>
+<!-- 输入提现金额 -->
+<view class="ipt-view" >
+  <text class="ipt-text" >¥</text>
+  <input class="ipt" placeholder="请输入提现金额" bindinput="inputMoney" type="number" value="{{inputMoney}}" ></input>
+</view>
+<!-- 手续费 -->
+<view class="handling-fee" >
+  <text class="handling-fee-text" wx:if="{{withdraw_rate>0}}" >手续费:{{withdraw_rate}}元</text>
+</view>
+<view class="view-line" ></view>
+<!-- 申请提现 -->
+<view class="drawal-card-view" >
+<image class="drawal-card-image" src="{{wechat_icon}}" ></image>
+<text class="drawal-card-text" >提现至当前微信账户</text>
+<image class="drawal-card-image-right" src="{{content_back}}" ></image>
+</view>
+
+<view class="apply-drawal-view" bindtap="onFeedSubmit" >
+  <text>申请提现</text>
+</view>
+
+<text class="message-text" >温馨提示：</text>
+
+<text class="message-text" >{{drawalInfo.withdraw_explain}}</text>
+
+
+
+
+
+
+<!-- 填写支付密码 -->
+<view class="view-show-bg" wx:if="{{showPwdBg}}">
+  <view class="wx-page-content">
+    <view class="view-dele" bindtap="hideShowViewPressed">
+      <image class="cancel-icon" src="{{delete_pop}}" ></image>
+    </view>
+    <view class="page-title">输入密码</view>
+    <view class="verificationCode">
+      <input type="number" class="input" maxlength="6"  bindinput="inputValue" focus />
+        <view class="activeView" wx:for="{{6}}" > <text>{{passWord[index]?"*":""}}</text> </view>
+    </view>
+    <view class="view-forget-pwd">
+      <view class="againTimeBtn" bindtap="forgetPwdBtn">忘记密码？</view>
+    </view>
+  </view>
+</view>
+
+
+
+
+</view>

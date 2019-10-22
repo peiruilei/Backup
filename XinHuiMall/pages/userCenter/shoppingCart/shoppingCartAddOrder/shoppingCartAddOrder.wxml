@@ -1,0 +1,118 @@
+<!--pages/userCenter/shoppingCart/shoppingCartAddOrder/shoppingCartAddOrder.wxml-->
+<view class="view-bg">
+  <!-- 收货地址 -->
+  <view class="view-address-cell">
+    <view class="view-address" wx:if="{{address_id==0}}" bindtap="selectAddressPressed">
+      <view class="view-address-left">
+        <text class="text-14">请选择收货地址</text>
+      </view>
+      <image class="img-arrow" src="{{content_back}}"></image>
+    </view>
+    <view class="view-address" bindtap="selectAddressPressed" wx:else>
+      <view class="view-address-left">
+        <view class="view-consignee-tel">
+          <text class="text-consignee">{{consignee+":"}}</text>
+          <text class="text-tel">{{telphone}}</text>
+        </view>
+        <view class="view-address-detail">
+          <text class="text-address-detail">地址:{{address_detail}}</text>
+        </view>
+      </view>
+      <image class="img-arrow" src="{{userCenter_back}}"></image>
+    </view>
+  </view>
+  <!-- 商品列表 -->
+  <view class="view-table-view">
+    <view class="view-table-section">
+      <view class="view-section-line"></view>
+      <text class="text-table-section">商品清单</text>
+    </view>
+    <!-- 店铺 -->
+    <block wx:for="{{shop_list}}" wx:key="{{shopKey}}" wx:for-item="shopItem" wx:for-index="shopIndex">
+      <view class="view-store" bindtap="goToShopPressed" data-shop_id="{{shopItem.shop_id}}" style="margin-top:{{shopIndex!=0?10:0}}rpx;">
+        <image class="img-store" src="{{shopping_cart_icon}}"></image>
+        <text class="text-store-name">{{shopItem.shop_name}}</text>
+      </view>
+      <block wx:for="{{shopItem.goods_list}}" wx:key="{{goodsKey}}" wx:for-item="goodsItem" wx:for-index="goodsIndex">
+        <view class="view-table-view-cell">
+          <image class="img-goods" src="{{order_info.goods_img}}"></image>
+          <view class="view-content">
+            <text class="text-goods-name">{{goodsItem.goods_name}}</text>
+            <text class="text-goods-price" style="color:#FF9900">补贴金:{{goodsItem.subsidy_price}}</text>
+            <text class="text-goods-price" style="color:#FC6B4E">昕惠分:{{goodsItem.xinhui_point_price}}</text>
+            <view class="view-goods-price">
+              <text class="text-goods-price" style="color:#FF3300">￥{{goodsItem.goods_price}}</text>
+              <text>x{{goodsItem.buy_num}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
+      <!-- 配送方式 -->
+      <view class="view-logistics-type">
+        <text class="text-15 ml10">配送方式</text>
+        <text class="text-logistics-detail">快递配送</text>
+      </view>
+      <!-- 快递方式 -->
+
+      <view class="view-logistics-type" wx:if="{{shopItem.logistics_type_list.length==1}}">
+        <text class="text-15 ml10">快递方式</text>
+        <view class="view-logistics-right">
+          <text class="text-logistics-detail">{{shopItem.logistics_type_list[shopItem.logisticIndex].logistics_name}}</text>
+          <image class="img-arrow" src="{{content_back}}"></image>
+        </view>
+      </view>
+      <picker class="picker" bindchange="bindPickerChange" data-index="{{shopIndex}}" mode="selector" value="{{index}}" range="{{shopItem.logistics_type_list}}" range-key="logistics_name" wx:else>
+        <view class="view-logistics-type">
+          <text class="text-15 ml10">快递方式</text>
+          <view class="view-logistics-right">
+            <text class="text-logistics-detail">{{shopItem.logistics_type_list[shopItem.logisticIndex].logistics_name}}</text>
+            <image class="img-arrow" src="{{content_back}}"></image>
+          </view>
+        </view>
+      </picker>
+
+      <!-- 配送费用 -->
+      <view class="view-logistics-type">
+        <text class="text-15 ml10">快递费用</text>
+        <text class="text-logistics-detail" wx:if="{{wxCheck}}">￥{{shopItem.logistics_type_list[shopItem.logisticIndex].logistics_fees}}</text>
+        <text class="text-logistics-detail" wx:elif="{{xinHuiPointCheck}}">昕惠分:{{shopItem.logistics_type_list[shopItem.logisticIndex].xinhui_points_fees}}</text>
+        <text class="text-logistics-detail" wx:else="{{subsidyCheck}}">补贴金:{{shopItem.logistics_type_list[shopItem.logisticIndex].subsidy_fees}}</text>
+      </view>
+
+      <!-- 订单备注 -->
+      <view class="view-order-memo">
+        <text class="text-15 ml10">订单备注：</text>
+        <input class="input-memo" bindinput="inputMemoPressed" value="{{goodsItem.memo}}" placeholder="请输入备注" data-index="{{shopIndex}}"></input>
+      </view>
+    </block>
+    <!-- 统计 -->
+    <view class="view-statistical">
+      <text style="margin-right:20rpx;">共{{goodsTotalNum}}件商品  合计金额: <text class="text-price">￥{{order_info.goods_total_price}}</text> </text>
+    </view>
+
+    <!-- 付款方式 -->
+    <view class="view-pay-type">
+      <view class="view-pay-section">
+        <text class="text-pay-section ml10">付款方式(单选)</text>
+      </view>
+      <view class="view-type-item" bindtap="wxClick">
+        <text class="text-pay-type" style="color:#999999">现金支付:<text class="text-price">￥{{order_info.goods_total_price}}</text></text>
+        <image class="img-select" src="{{wxCheck?shopping_cart_select:shopping_cart_noselect}}"></image>
+      </view>
+      <view class="view-type-item" bindtap="xinHuiClick">
+        <text class="text-pay-type" style="color:#FC6B4E">昕慧分:{{order_info.xinhui_point_total_price}}</text>
+        <image class="img-select" src="{{xinHuiPointCheck?shopping_cart_select:shopping_cart_noselect}}"></image>
+      </view>
+      <view class="view-type-item" bindtap="subsidyClick">
+        <text class="text-pay-type" style="color:#FF9900">补贴金:{{order_info.subsidy_total_price}}</text>
+        <image class="img-select" src="{{subsidyCheck?shopping_cart_select:shopping_cart_noselect}}"></image>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class="view-bottom">
+  <text class="text-needPay ml10"> 应付:<text class="text-goods-price">￥{{needPayPrice}}</text></text>
+  <view class="view-sumint-order" bindtap="sumitPressed">提交订单</view>
+</view>

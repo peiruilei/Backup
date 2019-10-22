@@ -1,0 +1,41 @@
+<view class="view-bg">
+<view class='view-address-box' bindtap='villageClick'>
+<image class='img-address' src='{{index_address}}' ></image>
+<text class='text-address'>星月小区</text>
+<image class='img-arrow' src='{{index_arrow}}' ></image>
+</view>
+<!-- 广告 -->
+  <view class="view-index-top">
+    <swiper class="view-top" indicator-color="#fff" indicator-dots="5" indicator-active-color="#68d6ab" autoplay="true" circular="true" indicator>
+      <swiper-item wx:for="11111" wx:for-item="adItem" wx:for-index="adIndex" wx:key="{{adIndex}}">
+        <image class="img-top-ad" mode="aspectFill" src="http://5b0988e595225.cdn.sohucs.com/images/20180315/4b5eb0fdbd6743e78390fadeffcfe6b6.jpeg" data-linkurl="{{adItem.link_url}}" data-keyid="{{adItem.advert_id}}" data-type="{{adItem.advert_type}}" bindtap='{{adItem.advert_type==0?"":"detailClick"}}'></image>
+      </swiper-item>
+    </swiper>
+  </view>
+<!-- 平台通知 -->
+<view class='view-notice-box'>
+<image src='{{index_notice}}' class='img-notice-icon' ></image>
+    <swiper class='swiper-announcement' autoplay="true" vertical="true" interval="4000" circular="true">
+      <block wx:for="111111" wx:key="{{noticeIndex}}" wx:for-item="noticeItem" wx:for-index="noticeIndex">
+        <swiper-item catchtouchmove="stopTouchMove">
+          <text class='text-announcement-content' catchtap='selectAnnouncementPressed'>{{noticeIndex}}王佳艳王佳艳王佳艳王佳艳王佳艳王佳艳王佳艳王佳艳王佳艳</text>
+        </swiper-item>
+      </block>
+    </swiper>
+</view>
+
+
+<!-- 任务按钮-->
+<view class='view-task-box'>
+
+<image src='{{index_add_task}}' class="img-task-icon"></image>
+<text class='text-task-name'>发布任务</text>
+</view>
+<view class='view-task-box'>
+
+<image src='{{index_task_list}}' class="img-task-icon"></image>
+<text class='text-task-name'>任务列表</text>
+</view>
+
+
+</view>

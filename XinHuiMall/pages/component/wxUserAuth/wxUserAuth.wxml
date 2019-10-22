@@ -1,0 +1,14 @@
+
+<!-- 登录 -->
+<view class="view-login-bg" catchtouchmove="return" wx:if="{{isShowFlag}}">
+  <view class='view-login-box' wx:if="{{isShowLogin}}">
+    <view class='view-prompt'>需要您的授权</view>
+    <view class='view-line'></view>
+    <view class='view-prompt1'>
+      <text>为了提供更好的服务</text>
+      <text>请在稍后的提示框中点击允许</text>
+    </view>
+    <image class='view-login-content' src='{{login_accept_content}}'></image>
+    <button class='btn-login' hover-class='none' open-type='getUserInfo' bindgetuserinfo="_iKnow">我知道了</button>
+  </view>
+</view>

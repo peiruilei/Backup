@@ -1,0 +1,39 @@
+<view class="view-pg">
+  <!-- 选择类型 -->
+  <view class='view-type-title-box' bindtap='changeType'>
+    <view class="view-type-title {{isFree?'view-type-title-select':''}}">
+      免费服务
+    </view>
+    <view class="view-type-title {{!isFree?'view-type-title-select':''}}">
+      收费服务
+
+    </view>
+  </view>
+  <view class='view-type-box-free' wx:if="{{isFree}}">
+
+    <view class='view-type' wx:for="{{mainData.free_serve_list}}" wx:for-item="freeServeItem" wx:for-index="freeServeIndex" wx:key="freeServeIndex" id="{{freeServeItem.task_type_id}}" data-name='{{freeServeItem.type_name}}'  data-index='{{freeServeIndex}}' bindtap='selectType' data-price='0'> 
+      {{freeServeItem.type_name}}
+      <!-- <image src='{{task_type_select}}' class='img-task-select' wx:if="{{freeServeItem.is_select}}"></image> -->
+    </view>
+
+
+  </view>
+  <!-- 收费 -->
+  <view class='view-type-box' wx:for="{{mainData.payment_serve_list}}" wx:for-item="paymentServeItem" wx:for-index="paymentServeIndex" wx:key="paymentServeIndex" id="{{paymentServeItem.task_type_id}}"  wx:if="{{!isFree&&paymentServeItem.payment_serve_subordinate_list.length>0}}">
+
+    <view class='view-first-type'>
+      <view class='view-first-line-left'></view>
+      {{paymentServeItem.type_name}}
+      <view class='view-first-line-right'></view>
+    </view>
+    <view class='view-type-box-charge'>
+      <view class='view-type' wx:for="{{paymentServeItem.payment_serve_subordinate_list}}" wx:for-item="secondServeItem" wx:for-index="secondServeIndex" wx:key="secondServeIndex" id="{{secondServeItem.task_type_id}}" data-name='{{secondServeItem.type_name}}' data-index='{{secondServeIndex}}' data-firstIndex='{{paymentServeIndex}}' data-price='{{secondServeItem.service_fees}}' bindtap='selectType'>
+      {{secondServeItem.type_name}}
+              <!-- <image src='{{task_type_select}}' class='img-task-select' ></image> -->
+      </view>
+    </view>
+
+  </view>
+
+
+</view>

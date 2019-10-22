@@ -1,0 +1,150 @@
+/* pages/userCenter/userInfo/userInfo.wxss */
+
+page {
+  background-color: #fff;
+}
+
+
+
+.view-head-line {
+  width: 749rpx;
+  height: 1rpx;
+  background: rgba(242, 242, 242, 1);
+}
+
+.user {
+  height: 150rpx;
+  /* background-color: rebeccapurple; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-head-text {
+  color: #808080;
+  font-size: 32rpx;
+  margin-left: 22rpx;
+  font-weight: 400;
+}
+
+.user-head-img {
+  width: 80rpx;
+  height: 80rpx;
+  /* background: rgba(255, 51, 0, 1); */
+ border-radius: 50%;
+}
+
+.user-head-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
+}
+
+.user-head-change {
+  /* width:50rpx;
+height:50rpx; */
+  margin-left: 20rpx;
+  margin-right: 23rpx;
+}
+
+.user-head-slider {
+  width: 10rpx;
+  height: 17rpx;
+}
+
+.view-line {
+  height: 2rpx;
+  background: rgba(235, 235, 235, 1);
+  margin-right: 23rpx;
+  margin-left: 22rpx;
+}
+
+/* 名字 */
+
+.user-name {
+  /* display: flex;
+  justify-content: space-between; */
+  height: 100rpx;
+}
+
+.user-name-content {
+  height: 99rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-name-text-left {
+  color: #808080;
+  margin-left: 22rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-name-text-right {
+  margin-right: 23rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-name-text-right-name {
+  margin-right: 20rpx;
+}
+
+/* 手机号 */
+
+.user-tel-content {
+    height: 123rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.user-tel-left{
+  margin-left: 22rpx;
+  color: #808080;
+}
+.user-tel-right{
+    display: flex;
+  align-items: center;
+}
+.user-tel-right-tel{
+  font-weight:400;
+  color: #333333;
+}
+.user-tel-right-btn{
+  width:155rpx;
+height:50rpx;
+margin-right: 23rpx;
+margin-left: 34rpx;
+display: flex;
+align-items: center;
+justify-content: center;
+background:rgba(255,255,255,1);
+border:1px solid rgba(252,73,73,1);
+border-radius:25rpx;
+}
+.user-tel-right-btn-text{
+
+  font-size: 24rpx;
+  color: #FC4949;
+}
+/* 密码 */
+.view-user-pwd{
+  height: 98rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.view-user-pwd-text{
+  color: #808080;
+  margin-left: 22rpx;
+}
+.user-pwd-slider{
+    width: 10rpx;
+  height: 17rpx;
+  /* background: rgba(153, 153, 153, 1); */
+  margin-right: 23rpx;
+}
+

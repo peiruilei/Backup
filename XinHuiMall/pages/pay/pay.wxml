@@ -1,0 +1,19 @@
+<!--pages/pay/pay.wxml-->
+<wux-keyboard id="wux-keyboard" />
+<view class="view-bg">
+  <view class="view-top-bg">
+    <text>应付金额</text>
+    <text class="text-price">￥{{total}}</text>
+  </view>
+  <view class="view-table mt1" catchtap="chaClick">
+    <image class="img-pay m10" src='{{pay_balance}}'></image>
+    <text class="text-14 view-w-h">余额支付  <text class="main">(当前余额:￥{{userFees}}元)</text></text>
+    <image class="img-icon m10" src='{{chaCheck?shopping_cart_select:shopping_cart_noselect}}'></image>
+  </view>
+  <view class="view-table mt1" catchtap='wxClick'>
+    <image class="img-pay m10" src='{{pay_wx}}'></image>
+    <text class="text-14 view-w-h">微信支付</text>
+    <image class="img-icon m10" src='{{wxCheck?shopping_cart_select:shopping_cart_noselect}}'></image>
+  </view>
+   <button class="button-sure" bindtap="formSubmit">确认</button>
+</view>

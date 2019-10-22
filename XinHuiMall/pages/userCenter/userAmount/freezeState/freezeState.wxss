@@ -1,0 +1,6 @@
+/* pages/userCenter/userAmount/freezeState/freezeState.wxss */
+.freeze{
+  font-size: 28rpx;
+  margin: 20rpx;
+  
+}

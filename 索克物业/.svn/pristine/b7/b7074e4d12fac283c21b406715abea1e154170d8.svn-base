@@ -1,0 +1,492 @@
+var QQMapWX = require('../../utils/qqmap-wx-jssdk.min.js');
+var qqmapsdk = new QQMapWX({
+  key: 'EGHBZ-UDPCD-MRF4U-PGWH3-AAKOS-VZBYV'
+});
+var wXBizDataCrypt = require('../../utils/WXBizDataCrypt.js')
+const app = getApp()
+var lastClickTime = 0
+var minClickTime = app.globalData.minClickTime
+var imagePath = app.globalData.imagePath
+var encryptUtils = require('../../utils/HHEncryptUtils.js')
+var modelUtils = require('../../utils/HHModelUtils.js')
+var utils = require('../../utils/util.js')
+Page({
+  data: {
+    tabbar: {},
+    index_address: imagePath + app.globalData.index_address,
+    index_add_task: imagePath + app.globalData.index_add_task,
+    index_arrow: imagePath + app.globalData.index_arrow,
+    index_notice: imagePath + app.globalData.index_notice,
+    index_task_list: imagePath + app.globalData.index_task_list,
+    home_login_content: imagePath + app.globalData.home_login_content,
+    home_login_tel: imagePath + app.globalData.home_login_tel,
+    address_detail: "定位中...", //地址详情
+    province_id: 0, //省id
+    city_id: 0, //城市id
+    district_id: 0, //地区id
+    isShowLotteryBack: true, //是否展示登录灰色背景
+    isShowLogin: true, //是否展示登录灰色背景
+    isShowTel: false, //是否展示获取手机号
+    nickName: '', //昵称
+    avatarUrl: '', //头像
+
+  },
+  onLoad: function(options) {
+    wx.hideTabBar();
+    app.editTabbar()
+
+
+
+    var that = this;
+    //定位
+    wx.getLocation({
+      type: 'gcj02',
+      success(res) {
+        //console.log(res)
+        const latitude = res.latitude
+        const longitude = res.longitude
+        const speed = res.speed
+        const accuracy = res.accuracy
+        //你地址解析
+        qqmapsdk.reverseGeocoder({
+          location: {
+            latitude: latitude,
+            longitude: longitude
+          },
+          success: function(res) {
+            console.log(res)
+            var addressDetail = res.result.address_component.province + res.result.address_component.city + res.result.address_component.district
+            console.log("addressDetail==" + addressDetail)
+            that.setData({
+              address_detail: addressDetail
+            })
+            that.getAddressId()
+          },
+        });
+      },
+      fail(err) {
+        wx.showToast({
+          title: '定位失败',
+          icon: 'none'
+        })
+      }
+    })
+  },
+  onShow: function() { 
+    if (wx.getStorageSync("user_id") != null && wx.getStorageSync("user_id") != undefined && parseInt(wx.getStorageSync("user_id")) > 0) {
+      this.setData({
+        isShowLotteryBack: false, //是否展示登录灰色背景
+        isShowLogin: false, //是否展示登录灰色背景
+        isShowTel: false, //是否展示获取手机号
+      })
+    }
+    else
+    {
+      var that=this;
+      that.setData({
+        isShowLotteryBack: true, //是否展示登录灰色背景
+        isShowLogin: true, //是否展示登录灰色背景
+        isShowTel: false, //是否展示获取手机号
+      })
+      // wx.getSetting({
+      //   success(res) {
+      //     if (res.authSetting['scope.userInfo']) {
+      //       // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+      //       wx.getUserInfo({
+      //         success: function (res) {
+      //           console.log(res.userInfo)
+      //           var nickName = res.userInfo.nickName
+      //           var avatarUrl = res.userInfo.avatarUrl
+      //           console.log("nickName==" + nickName + "avatarUrl==" + avatarUrl)
+      //           that.setData({
+      //             nickName: nickName,
+      //             avatarUrl: avatarUrl,
+      //             isShowLotteryBack: true, //是否展示登录灰色背景
+      //             isShowLogin: false, //是否展示登录灰色背景
+      //             isShowTel: true, //是否展示获取手机号
+      //           })
+      //         }
+      //       })
+      //     }
+      //   }
+      // })
+      
+      }
+  },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function(res) {
+
+  },
+  //小区列表
+  villageListClick: function() {
+    var clickTime = Date.now()
+    if (clickTime - lastClickTime <= minClickTime) {
+      return
+    }
+    lastClickTime = clickTime
+    wx.navigateTo({
+      url: '/pages/villageList/villageList',
+    })
+  },
+  //任务列表
+  taskListClick: function() {
+    var clickTime = Date.now()
+    if (clickTime - lastClickTime <= minClickTime) {
+      return
+    }
+    lastClickTime = clickTime
+    wx.navigateTo({
+      url: '/pages/task/taskList/taskList',
+    })
+  },
+  //发布任务
+  addTask: function() {
+    var clickTime = Date.now()
+    if (clickTime - lastClickTime <= minClickTime) {
+      return
+    }
+    lastClickTime = clickTime
+    wx.navigateTo({
+      url: '/pages/task/addTask/addTask',
+    })
+  },
+  //获取地址ID
+  getAddressId: function(type) {
+    wx.showLoading({
+      title: '正在加载...',
+    })
+    var that = this
+    var para = {}
+    para["v"] = encryptUtils.base64Encode(app.globalData.v)
+    para["address_detail"] = encryptUtils.base64Encode(that.data.address_detail)
+    var str = JSON.stringify(para)
+    var urlStr = encodeURIComponent(str)
+    console.log(urlStr)
+    wx.request({
+      url: app.globalData.ip + "user/addressbyname",
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'From': "WeChat"
+      },
+      data: {
+        'para': urlStr
+      },
+      success: function(res) {
+        console.log(res)
+        var code = res.data.code
+        var msg = res.data.msg
+        if (code == 100) {
+          var result = modelUtils.getModel(res.data.result)
+          console.log(JSON.stringify(result))
+          that.setData({
+            province_id: result.province_id,
+            city_id: result.city_id,
+            district_id: result.district_id,
+          })
+          that.getPageData()
+        } else {
+          that.setData({
+            loadMore: false,
+            msg: msg
+          })
+        }
+      },
+      fail: function() {
+        wx.hideLoading()
+        wx.showToast({
+          title: '网络异常',
+        })
+      },
+      complete: function() {
+        wx.hideLoading()
+      }
+    })
+  },
+  //获取页面数据
+  getPageData: function(type) {
+    wx.showLoading({
+      title: '正在加载...',
+    })
+    var that = this
+    var para = {}
+    para["v"] = encryptUtils.base64Encode(app.globalData.v)
+    para["user_id"] = encryptUtils.base64Encode(0)
+    var str = JSON.stringify(para)
+    var urlStr = encodeURIComponent(str)
+    console.log(urlStr)
+    wx.request({
+      url: app.globalData.ip + "user/homeindex",
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'From': "WeChat"
+      },
+      data: {
+        'para': urlStr
+      },
+      success: function(res) {
+        console.log(res)
+        var code = res.data.code
+        var msg = res.data.msg
+        if (code == 100) {
+          var result = modelUtils.getModel(res.data.result)
+          that.setData({
+            mainData: result
+          })
+        } else {
+          that.setData({
+            msg: msg
+          })
+        }
+      },
+      fail: function() {
+        wx.hideLoading()
+        wx.showToast({
+          title: '网络异常',
+        })
+      },
+      complete: function() {
+        wx.hideLoading()
+      }
+    })
+  },
+  //广告跳转
+  detailClick: function(event) {
+    var linkurl = event.currentTarget.dataset.linkurl
+    var advert_type = event.currentTarget.dataset.type
+    var keyid = event.currentTarget.dataset.keyid
+    if (advert_type == 1 || advert_type == 2) {
+      wx.navigateTo({
+        url: '/pages/index/advertInfo/advertInfo?url=' + linkurl
+      })
+    }
+  },
+  // 获取用户微信信息
+  getUserInfo: function(openId) {
+    var that = this
+    wx.getUserInfo({
+      withCredentials: false,
+      success: function(res) {
+        var userInfo = res.userInfo
+        var nickName = userInfo.nickName
+        var avatarUrl = userInfo.avatarUrl
+        console.log("nickName==" + nickName + "avatarUrl==" + avatarUrl)
+         that.wxLogin(avatarUrl, nickName);
+        // that.setData({
+        //   nickName: nickName,
+        //   avatarUrl: avatarUrl,
+        //   isShowLogin: false,
+        //   isShowTel: true
+        // })
+      },
+      fail: function() {
+        wx.showToast({
+          title: '登录失败',
+        })
+      }
+    })
+  },
+  /**
+   * 微信登录 (授权登录)
+   */
+  wxLogin: function(avatarUrl, nickName) {
+    if (wx.showLoading) {
+      wx.showLoading({
+        title: '正在登录',
+        mask: true
+      })
+    }
+    var that = this
+    wx.login({
+      success: function(res) {
+        console.log("result==========wxLogin==" + JSON.stringify(res))
+        if (res.code) {
+          //发起网络请求
+          // that.codeToOpenId(res.code)\
+          that.getOpenId(res.code, avatarUrl, nickName)
+        } else {
+          wx.showToast({
+            title: '登录失败',
+          })
+        }
+      }
+    });
+  },
+  /**
+   * 根据 js_code 换取 openId
+   */
+  getOpenId: function(js_code, avatarUrl, nickName) {
+    var para = {}
+    para["js_code"] = js_code;
+    para["v"] = encryptUtils.base64Encode(app.globalData.v);
+    var str = JSON.stringify(para)
+    var urlStr = encodeURIComponent(str)
+    console.log("urlStr==" + urlStr)
+    var that = this
+    wx.request({
+      url: app.globalData.ip + "mini.system/useropenid",
+      method: 'POST',
+      header: {
+        'From': "WeChat",
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      data: {
+        'para': urlStr
+      },
+      success: function(res) {
+        console.log("res=======" + JSON.stringify(res))
+        var code = res.statusCode
+        if (code == 200) {
+          var openId = res.data.openid;
+          if (wx.authorize) {
+            that.addwithWx(avatarUrl, nickName, openId)
+          } else {
+            that.addwithWx(avatarUrl, nickName, openId)
+          }
+        } else {
+          var message = res.errMsg
+          wx.showToast({
+            title: message,
+            icon: "none"
+          })
+        }
+      },
+      fail: function() {
+        wx.showToast({
+          title: '网络异常',
+          icon: "none"
+        })
+      },
+      complete: function() {}
+    })
+  },
+  //获取手机号
+  getPhoneNumber(e) {
+    var encryptedData = e.detail.encryptedData;
+    var iv = e.detail.iv;
+    var that = this
+    wx.login({
+      success: function(res) {
+        console.log("result==========wxLogin==" + JSON.stringify(res))
+        if (res.code) {
+          //发起网络请求
+          // that.codeToOpenId(res.code)\
+          // that.getOpenId(res.code, avatarUrl, nickName)
+          console.log(res)
+
+          wx.request({
+            url: 'https://api.weixin.qq.com/sns/jscode2session',
+            data: {
+              appid: app.globalData.appid,
+              secret: app.globalData.secret,
+              js_code: res.code,
+              grant_type: 'authorization_code'
+            },
+            header: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            method: 'GET',
+            success: function(res1) {
+              // var pc = new wXBizDataCrypt(app.globalData.appid, res1.data.session_key)
+
+              // var data = pc.decryptData(encryptedData, iv)
+              // var unionId = ""
+              // if (data != undefined && data != null) {
+              //   unionId = data.unionId;
+              // }
+              // if (unionId.length == 0) {
+              //   wx.hideLoading()
+              //   return;
+              // }
+              var pc = new wXBizDataCrypt(app.globalData.appid, res1.data.session_key)
+
+              var data = pc.decryptData(encryptedData, iv)
+              var telphone = ""
+              if (data != undefined && data != null) {
+                telphone = data.purePhoneNumber;
+              }
+              that.setData({
+                telphone: telphone
+              })
+              that.wxLogin(that.data.nickName, that.data.avatarUrl)
+
+            },
+            fail: function(res1) {},
+            complete: function(res1) {}
+          });
+
+        } else {
+          wx.showToast({
+            title: '登录失败',
+          })
+        }
+      }
+    });
+  },
+  /**
+   * 微信号登录
+   */
+  addwithWx: function(head_img, nick_name, open_id) {
+    var pUserID = this.data.puser_id > 0 ? this.data.puser_id : 0
+    var para = {}
+    para["head_img"] = encryptUtils.base64Encode(head_img);
+    para["nick_name"] = encryptUtils.base64Encode(nick_name);
+    para["puser_id"] = encryptUtils.base64Encode(pUserID);
+    para["wx_open_id"] = encryptUtils.base64Encode(open_id);
+    para["login_name"] = encryptUtils.base64Encode(this.data.telphone);
+    para["union_id"] = encryptUtils.base64Encode('');
+    para["v"] = encryptUtils.base64Encode(app.globalData.v);
+    var str = JSON.stringify(para)
+    var urlStr = encodeURIComponent(str)
+    console.log("微信号登录 urlStr==" + urlStr)
+    var that = this
+    wx.request({
+      url: app.globalData.ip + "user/userlogin",
+      method: 'POST',
+      header: {
+        'From': "WeChat",
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      data: {
+        'para': urlStr
+      },
+      success: function(res) {
+        var code = res.data.code
+        console.log("res微信号登录 ==" + JSON.stringify(res))
+        if (code == 100) {
+          if (wx.hideLoading) {
+            wx.hideLoading()
+          }
+          var userInfo = modelUtils.getModel(res.data.result)
+          wx.setStorageSync("user_id", userInfo.user_id)
+          that.setData({
+            isShowLotteryBack: false,
+            isShowLogin: false
+          })
+          var msg = res.data.msg
+          wx.showToast({
+            title: msg,
+            icon: "none"
+          })
+
+        } else {
+          var msg = res.data.msg
+          wx.showToast({
+            title: msg,
+            icon: "none"
+          })
+        }
+      },
+      fail: function() {
+        wx.showToast({
+          title: '网络异常',
+          icon: "none"
+        })
+      },
+      complete: function() {}
+    })
+  },
+})

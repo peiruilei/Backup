@@ -1,0 +1,49 @@
+<!--pages/userCenter/userInfo/setPwd/setPwd.wxml-->
+<form bindsubmit="formSubmit">
+<view class="view-page">
+  <!-- 手机号 -->
+  <view class="view-tel">
+    <view class="view-user-tel text-16">
+      <text class="view-user-text  ">当前绑定手机:</text>
+      <text class="view-user-tel-number">{{user_tel}}</text>
+    </view>
+    <view class="view-line"></view>
+  </view>
+  <!-- 验证码 -->
+  <view class="view-code">
+    <view class="view-code-content">
+      <text class="view-user-tel text-16"> 验证码:</text>
+      <input class="view-user-input-code text-16"  placeholder-class="inputColor" placeholder="请输入您的验证码" maxlength="6" name="verifyCode" type="number"></input>
+      <view class="view-user-input-code-click" bindtap="getVerifiyCode">
+        <text class="view-user-input-code-text text-14">{{verify_code}}</text>
+      </view>
+    </view>
+    <view class="view-line"></view>
+  </view>
+  <!-- 登录密码 -->
+  <view class="user-login-pwd">
+    <view class="login-pwd text-16">
+      <text class="login-pwd-text">登录密码:</text>
+      <input class="login-pwd-input" placeholder="请输入登录密码" placeholder-class="inputColor"  maxlength="16" name="loginPwd" password="true" type="text"></input>
+    </view>
+    <view class="view-line"></view>
+  </view>
+  <!-- 输入提现密码 -->
+  <view class="user-login-pwd">
+    <view class="login-pwd text-16">
+      <text class="login-pwd-text">提现密码:</text>
+      <input class="login-pwd-input" placeholder="请输入提现密码" placeholder-class="inputColor" maxlength="6" name="withdrawPwd" password="true"></input>
+    </view>
+    <view class="view-line"></view>
+  </view>
+  <!-- 确认提现密码 -->
+  <view class="user-login-pwd">
+    <view class="login-pwd text-16">
+      <text class="login-pwd-text">确认提现密码:</text>
+      <input class="login-pwd-input" placeholder="请再次输入提现密码" placeholder-class="inputColor" maxlength="6" name="againWithdrawPwd" password="true"></input>
+    </view>
+    <view class="view-line"></view>
+  </view>
+ <button class="button-sure" form-type="submit" >确认</button>
+</view>
+</form>

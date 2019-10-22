@@ -1,0 +1,67 @@
+/* pages/userCenter/bindPhone/bindPhone.wxss */
+
+page {
+  background-color: white;
+}
+
+.view-bg {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.view-tel-verifycode {
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.input-tel {
+  width: 94%;
+  font-size: 28rpx;
+  height: 100rpx;
+}
+
+.input-verifycode {
+  font-size: 28rpx;
+  height: 100rpx;
+  width: 60%;
+}
+
+.view-line {
+  width: 94%;
+  height: 1rpx;
+  background-color: #ebebeb;
+}
+
+.btn-confirm {
+  margin-top: 254rpx;
+  margin-bottom: 200rpx;
+  color: white;
+  font-size: 34rpx;
+  width: 94%;
+  height: 80rpx;
+  border: none;
+  /* background-color: #ff5000; */
+  background: -webkit-linear-gradient(left,#68D6AB,#4AD3BB);
+  border-radius: 10rpx;
+}
+
+.btn-confirm::after{
+  border: none;
+}
+
+.view-get-verifycode {
+  width: 27%;
+  height: 94rpx;
+  font-size: 28rpx;
+  color: #68D6AB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
